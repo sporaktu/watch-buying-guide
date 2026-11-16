@@ -14,12 +14,15 @@
 </head>
 <body>
 <div class="wrap">
-<header>
-  <span class="eyebrow">A plain-English buying guide</span>
-  <h1>Watch Brand Map</h1>
-  <p class="lead">How to buy a good mechanical watch without getting burned, 25 well-made picks with where to buy each one, and about 130 brands sorted by price.</p>
-  <span class="asof">Prices checked Nov 14–15, 2026 · index prices are approximate</span>
+<header class="mast">
+  <div>
+    <h1>Watch brand map</h1>
+    <p class="lead">How to buy a good mechanical watch without getting burned, 25 well-made picks with their movements and where to buy each one, and about 130 brands sorted by price.</p>
+    <p class="asof">Prices checked 14–15 November 2026. Index prices are approximate.</p>
+  </div>
+  <div class="dial" id="dial"></div>
 </header>
+<nav class="jump" aria-label="Sections"><a href="#guide">How to buy</a><a href="#picks">25 picks</a><a href="#index">Every brand</a></nav>
 
 <section id="guide" class="guide">
   <div class="sec-head"><h2>How to buy a watch</h2><p>The essentials in three boxes. The rest of the page is detail.</p></div>
@@ -67,7 +70,7 @@
 <section id="picks">
   <div class="sec-head">
     <h2>25 standout picks</h2>
-    <p>Best all-rounders first: long running time, accuracy and easy sizing count most. The bar shows how long each runs off the wrist; the tick marks three days.</p>
+    <p>Best all-rounders first: long running time, accuracy and easy sizing count most. Each card names the movement inside. The bar shows how long it runs off the wrist, and the red mark is three days.</p>
   </div>
   <div class="pfilter" id="pfilter" role="group" aria-label="Filter picks"></div>
   <div class="picks" id="pickGrid"></div>
