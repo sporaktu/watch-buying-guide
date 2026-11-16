@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Watch Brand Map</title>
+<meta name="description" content="A plain-English watch buying guide: how to buy without getting burned, standout picks, and a brand index by price.">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="eyebrow">A plain-English buying guide</span>
+  <h1>Watch Brand Map</h1>
+  <p class="lead">How to buy a good mechanical watch without getting burned, 25 well-made picks with where to buy each one, and about 130 brands sorted by price.</p>
+  <span class="asof">Prices checked Nov 14–15, 2026 · index prices are approximate</span>
+</header>
+
+<section id="guide" class="guide">
+  <div class="sec-head"><h2>How to buy a watch</h2><p>The essentials in three boxes. The rest of the page is detail.</p></div>
+  <div class="guide-grid">
+    <div class="gbox">
+      <h3>What makes a good one</h3>
+      <ul>
+        <li><b>Keeps running off the wrist:</b> a self-winding watch stops when it sits in a drawer. Three days or more means it's still running on Monday after a weekend off.</li>
+        <li><b>Keeps good time:</b> "chronometer" or "COSC" on the listing means it passed an official accuracy test.</li>
+        <li><b>A warranty from the maker:</b> two to five years is normal. It covers repairs if anything goes wrong inside.</li>
+        <li><b>Easy to size:</b> some bracelets have a clasp you can let out a few millimetres by hand, and some straps swap without tools. Handy on hot days or for trying a new look.</li>
+        <li><b>A size that fits:</b> most wrists suit 36 to 40mm. If you're unsure, 38 to 39mm is the safest choice.</li>
+      </ul>
+    </div>
+    <div class="gbox">
+      <h3>Where to buy, safest first</h3>
+      <ol class="steps">
+        <li><b>The brand's own website, or a shop the brand lists as an "authorized dealer".</b> Full price, but it comes with the maker's warranty.</li>
+        <li><b>Discount sites (the "grey market").</b> Brand-new and often 10 to 30% cheaper, but the warranty usually comes from the shop, not the maker. Above about $500, the real warranty is usually worth the extra.</li>
+        <li><b>Second hand.</b> The cheapest way in. Only buy from a dealer with good reviews, and only with the original box and papers.</li>
+      </ol>
+      <h3>Buying as a gift</h3>
+      <ul>
+        <li>Check the return policy before you pay, and keep the receipt.</li>
+        <li>Ask the shop to date the warranty card. A bracelet can be shortened to fit later, usually for free.</li>
+      </ul>
+    </div>
+    <div class="gbox">
+      <h3>Words you'll see</h3>
+      <dl class="gloss">
+        <div><dt>Automatic</dt><dd>Winds itself as you wear it. No battery.</dd></div>
+        <div><dt>Power reserve</dt><dd>How long it keeps running once it's off the wrist, in hours. 72 hours is three days.</dd></div>
+        <div><dt>Chronometer or COSC</dt><dd>Tested by an official Swiss lab to stay within a few seconds a day.</dd></div>
+        <div><dt>In-house movement</dt><dd>The brand built the engine itself instead of buying a common one.</dd></div>
+        <div><dt>Authorized dealer</dt><dd>A shop the brand officially supplies. Safe, full warranty.</dd></div>
+        <div><dt>Box and papers</dt><dd>The original box and warranty card. Important when buying used.</dd></div>
+        <div><dt>Tool-free sizing</dt><dd>A bracelet clasp that lengthens or shortens a little by hand, with no trip to a shop.</dd></div>
+        <div><dt>Quick-release strap</dt><dd>A strap with a small lever so it comes off and goes on in seconds, no tools.</dd></div>
+        <div><dt>mm</dt><dd>How wide the case is. 38 to 40mm is a normal size.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section id="picks">
+  <div class="sec-head">
+    <h2>25 standout picks</h2>
+    <p>Best all-rounders first: long running time, accuracy and easy sizing count most. The bar shows how long each runs off the wrist; the tick marks three days.</p>
+  </div>
+  <div class="pfilter" id="pfilter" role="group" aria-label="Filter picks"></div>
+  <div class="picks" id="pickGrid"></div>
+  <div class="sub-head" id="stepHead"><h3>Worth stretching for</h3><p>Over about $4,000 new, but each is a watch for decades. Most cost far less second hand.</p></div>
+  <div class="picks" id="stepGrid"></div>
+  <p class="empty" id="pickEmpty" hidden>No picks match that filter.</p>
+</section>
+
+<section id="index">
+  <div class="sec-head">
+    <h2>Every brand</h2>
+    <p>Tap a brand for its official website, or a standout watch for its page on that site. Prices are typical new ranges from general knowledge: use them to place a brand, not to budget.</p>
+  </div>
+  <div class="controls">
+    <div class="tabs" id="tabs" role="group" aria-label="Price tier"></div>
+    <div class="search">
+      <input id="q" type="search" placeholder="Search brands or models" aria-label="Search brands or models">
+      <select id="country" aria-label="Country"></select>
+    </div>
+  </div>
+  <div class="rows" id="rows"></div>
+</section>
+
+<p class="foot" id="foot"></p>
+</div>
+<script src="app.js" defer></script>
+</body>
+</html>
