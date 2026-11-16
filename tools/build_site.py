@@ -8,6 +8,7 @@ Usage: python3 -I build_site.py <artifact.html> <images_dir> <fonts_dir> <out_di
   which is set with a <meta> tag because GitHub Pages can't send custom headers
 - drops the Google Fonts links and points at self-hosted fonts (fonts/fonts.css)
 - copies img/*.jpg next to index.html (the page already uses relative img/ paths)
+- copies the favicon from tools/
 - fails loudly if the page starts loading anything else from another host
 """
 import re, shutil, sys, pathlib
@@ -45,6 +46,8 @@ page = f"""<!doctype html>
 <meta name="description" content="A plain-English watch buying guide: how to buy without getting burned, standout picks, and a brand index by price.">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="fonts/fonts.css">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -65,6 +68,8 @@ for f in sorted(imgs.glob("*")):
     if f.suffix.lower() in (".jpg", ".jpeg", ".png", ".webp"):
         shutil.copy2(f, out / "img" / f.name)
 shutil.copytree(fonts, out / "fonts")
+for name in ("favicon.svg", "favicon.ico"):
+    shutil.copy2(pathlib.Path(__file__).resolve().parent / name, out / name)
 
 # every img/... the script refers to must exist
 missing = [p for p in re.findall(r'"img": "(img/[^"]+)"', "\n".join(scripts)) if not (out / p).exists()]
