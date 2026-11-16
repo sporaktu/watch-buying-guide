@@ -20,7 +20,10 @@
     <p class="lead">How to buy a good mechanical watch without getting burned, 25 well-made picks with their movements and where to buy each one, and about 130 brands sorted by price.</p>
     <p class="asof">Prices checked 14–15 November 2026. Index prices are approximate.</p>
   </div>
-  <div class="dial" id="dial"></div>
+  <div class="dial-wrap">
+    <button type="button" class="dial" id="dial" aria-label="Show the next dial design"></button>
+    <p class="dial-name" id="dialName"></p>
+  </div>
 </header>
 <nav class="jump" aria-label="Sections"><a href="#guide">How to buy</a><a href="#picks">25 picks</a><a href="#index">Every brand</a></nav>
 
@@ -97,5 +100,6 @@
 <p class="foot" id="foot"></p>
 </div>
 <script src="app.js" defer></script>
+<script src="dials.js" defer></script>
 </body>
 </html>

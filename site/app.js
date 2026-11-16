@@ -230,23 +230,3 @@ function render(){
 render();
 document.getElementById('foot').textContent = FOOT;
 
-// Masthead dial: shows the reader's local time.
-(function(){
-  const el = document.getElementById('dial'); if (!el) return;
-  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let t = '';
-  for (let i = 0; i < 60; i++) { const h = i % 5 === 0; t += `<line class="tick${h?' h':''}" x1="200" y1="${h?16:16}" x2="200" y2="${h?46:28}" transform="rotate(${i*6} 200 200)"/>`; }
-  el.innerHTML = `<svg viewBox="0 0 400 400" aria-hidden="true"><circle class="face" cx="200" cy="200" r="198"/>${t}
-    <line id="hh" class="hand" x1="200" y1="226" x2="200" y2="96" stroke-width="7"/>
-    <line id="mh" class="hand" x1="200" y1="232" x2="200" y2="40" stroke-width="4.5"/>
-    <g id="sh"${still?' hidden':''}><line class="hand sec" x1="200" y1="252" x2="200" y2="30" stroke-width="1.6"/><circle class="sec-dot" cx="200" cy="238" r="7"/></g>
-    <circle class="pin" cx="200" cy="200" r="5"/></svg>`;
-  const hh = el.querySelector('#hh'), mh = el.querySelector('#mh'), sh = el.querySelector('#sh');
-  const rot = (n, d) => n.setAttribute('transform', `rotate(${d} 200 200)`);
-  function draw(){
-    const d = new Date(), sec = d.getSeconds() + d.getMilliseconds() / 1000, min = d.getMinutes() + sec / 60, hr = d.getHours() % 12 + min / 60;
-    rot(hh, hr * 30); rot(mh, min * 6); if (!still) rot(sh, sec * 6);
-  }
-  draw();
-  if (still) setInterval(draw, 15000); else (function loop(){ draw(); requestAnimationFrame(loop); })();
-})();
