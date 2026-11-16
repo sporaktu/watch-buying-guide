@@ -1,6 +1,6 @@
 # Watch Brand Map
 
-A plain-English watch buying guide: how to buy a mechanical watch without getting burned, 25 standout picks with where to buy each one, and about 130 brands sorted by price.
+A plain-English watch buying guide: how to buy a mechanical watch without getting burned, 25 standout picks with where to buy each one, and more than 400 brands sorted by price.
 
 It's a single static page with no build step, no tracking and no third-party requests. Fonts and photos are served from this repo. Outbound links to brand and shop sites are plain links.
 
