@@ -1,6 +1,6 @@
 // Masthead dial. Thirty dials drawn after well-known watch and clock designs; each shows the
-// reader's local time. A new one appears on every page load unless the reader has chosen one for
-// the session or pinned one. Randomize picks another and removes the pin.
+// reader's local time. Each page load shows a random dial the visitor has not seen yet, unless they
+// have chosen one for the session or pinned one. Randomize picks another unseen one and removes the pin.
 (function () {
   'use strict';
   const el = document.getElementById('dial'), cap = document.getElementById('dialName');
@@ -241,22 +241,32 @@
     else (function loop() { if (my !== token) return; draw(); requestAnimationFrame(loop); })();
   }
 
-  // Which dial to show: a choice made this session wins, then a pinned dial, otherwise the next in the cycle.
+  // Which dial to show: a choice made this session wins, then a pinned dial, otherwise a random unseen one.
   const pick = document.getElementById('dialPick'), pinBtn = document.getElementById('dialPin'), rnd = document.getElementById('dialRandom');
   const store = (st, k, v) => { try { if (v === undefined) return st.getItem(k); if (v === null) st.removeItem(k); else st.setItem(k, v); } catch (e) {} return null; };
   const LS = () => localStorage, SS = () => sessionStorage;
   const get = (st, k) => { try { const v = parseInt(store(st(), k), 10); return v >= 0 && v < D.length ? v : null; } catch (e) { return null; } };
   const set = (st, k, v) => { try { store(st(), k, v); } catch (e) {} };
+  // Dials this visitor has already been shown. A random pick always comes from the ones not yet
+  // seen; once all have been seen the record starts again.
+  let seen = [];
+  try { seen = (JSON.parse(localStorage.getItem('wbm-dial-seen')) || []).filter(n => Number.isInteger(n) && n >= 0 && n < D.length); } catch (e) { seen = []; }
+  const mark = i => { if (!seen.includes(i)) seen.push(i); try { localStorage.setItem('wbm-dial-seen', JSON.stringify(seen)); } catch (e) {} };
+  function fresh(not) {
+    let left = D.map((_, i) => i).filter(i => !seen.includes(i) && i !== not);
+    if (!left.length) { const last = seen[seen.length - 1]; seen = []; left = D.map((_, i) => i).filter(i => i !== last && i !== not); }
+    return left[Math.floor(Math.random() * left.length)];
+  }
   let idx, pinned = get(LS, 'wbm-dial-pin');
   const q = /[?&]dial=(\d+)/.exec(location.search), chosen = get(SS, 'wbm-dial-session');
   if (q && +q[1] >= 1 && +q[1] <= D.length) idx = +q[1] - 1;
   else if (chosen !== null) idx = chosen;
   else if (pinned !== null) idx = pinned;
-  else { const last = get(LS, 'wbm-dial'); idx = last === null ? 0 : (last + 1) % D.length; set(LS, 'wbm-dial', idx); }
+  else idx = fresh();
 
   if (pick) pick.innerHTML = D.map((d, i) => `<option value="${i}">${i + 1}. ${d.n}</option>`).join('');
   function show(i) {
-    idx = i; render(i);
+    idx = i; render(i); mark(i);
     if (pick) pick.value = i;
     if (pinBtn) { const on = pinned === i; pinBtn.setAttribute('aria-pressed', on); pinBtn.textContent = on ? 'Pinned' : 'Pin'; pinBtn.title = on ? 'Unpin this dial' : 'Keep this dial on every visit'; }
   }
@@ -270,8 +280,8 @@
     show(idx);
   });
   if (rnd) rnd.addEventListener('click', () => {
-    let i = idx; while (i === idx) i = Math.floor(Math.random() * D.length);
-    pinned = null; set(LS, 'wbm-dial-pin', null); set(SS, 'wbm-dial-session', null); set(LS, 'wbm-dial', i);
+    const i = fresh(idx);
+    pinned = null; set(LS, 'wbm-dial-pin', null); set(SS, 'wbm-dial-session', null);
     show(i);
   });
 })();
