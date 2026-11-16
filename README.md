@@ -10,7 +10,7 @@ It's a single static page with no build step, no tracking and no third-party req
 |---|---|
 | `site/index.html` | The page: masthead, the how-to-buy guide and the empty containers the script fills. |
 | `site/app.js` | All the data (brand tiers, links, the 25 picks with their specs) and the code that draws the cards and the brand index. |
-| `site/dials.js` | The masthead dial: thirty designs after well-known watches and clocks, all showing the reader's local time. A new one appears on each page load, and clicking the dial steps to the next. Add `?dial=N` to the address to see a particular one. |
+| `site/dials.js` | The masthead dial: thirty designs after well-known watches and clocks, all showing the reader's local time. A new one appears on each page load. The menu under the dial chooses one for the current visit, Pin keeps it on every visit, and Randomize shows another at random and removes the pin. Clicking the dial steps to the next. Add `?dial=N` to the address to see a particular one. |
 | `site/style.css` | The design: one typeface (Jost), a ruled grid, and blue, red and yellow used as signals. |
 | `site/img/` | Photos of the picks, plus one small `b-*.jpg` thumbnail per brand in the index. |
 | `site/fonts/` | Jost, served from this repo. |

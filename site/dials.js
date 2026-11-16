@@ -1,5 +1,6 @@
 // Masthead dial. Thirty dials drawn after well-known watch and clock designs; each shows the
-// reader's local time. A new one appears on every page load, and clicking the dial steps on.
+// reader's local time. A new one appears on every page load unless the reader has chosen one for
+// the session or pinned one. Randomize picks another and removes the pin.
 (function () {
   'use strict';
   const el = document.getElementById('dial'), cap = document.getElementById('dialName');
@@ -193,7 +194,7 @@
     { n: 'Round dress watch', a: 'after the Patek Philippe Calatrava', cf: GOLD, face: CREAM, mc: GOLD, mst: '#8c6d2a', tk: 'dots', tc: '#8c6d2a', mk: { t: 'baton', w: 7, len: 30, r: 158 }, hd: ['dauphine', GOLD, 100, 156, 17, 14, { st: '#8c6d2a' }], sc: { at: [0, 88], r: 38, col: '#8c6d2a', tc: '#8c6d2a', n: 12 }, pin: GOLD },
     { n: 'Snow-textured dial', a: 'after the Grand Seiko Snowflake', face: '#f4f5f7', pat: ['snow'], mc: '#dfe2e6', mst: '#70767e', date: 3, mk: { t: 'baton', w: 9, len: 34, dbl: 1, r: 160 }, tk: 'ticks', tc: '#70767e', hd: ['dauphine', '#d9dce1', 104, 160, 18, 14, { st: '#5d646d' }], sc: ['counter', BLUED, 174], x: [['date', 3, 142, WHITE, INK, '#70767e'], ['pr', -52, 62, 44, 200, 290, '#70767e', 262, '#3c4148']], pin: '#aab0b8' },
     { n: 'Sandwich dial', a: 'after the Panerai Luminor', cs: 'cushion', Rd: 162, face: '#141414', mc: OLD, lume: OLD, mk: { t: 'sandwich', only: [0, 3, 6] }, hd: ['pencil', GOLD, 88, 150, 16, 13, { lume: OLD }], sc: { at: [-92, 0], r: 34, col: GOLD, tc: OLD, n: 4, maj: 1 }, pin: GOLD },
-    { n: 'Orange diver', a: 'after the DOXA Sub 300 of 1967', cs: 'cushion', Rd: 142, bz: { t: 'dive', f: '#d5d7da', fg: INK }, face: '#f47a1f', mc: INK, tk: 'ticks', tc: INK, tkAll: 1, mk: { t: 'baton', w: 10, len: 26, r: 150 }, hd: ['block', INK, 62, 158, 12, 22, { lume: WHITE }], sc: ['lolli', INK, 168, { lume: WHITE }], x: [['date', 3, 126, WHITE, INK]], pin: INK },
+    { n: 'Orange diver', a: 'after the DOXA Sub 300 of 1967', cs: 'cushion', Rd: 142, bz: { t: 'dive', f: '#d5d7da', fg: INK }, face: '#f47a1f', mc: INK, tk: 'ticks', tc: INK, tkAll: 1, date: 3, mk: { t: 'baton', w: 10, len: 26, r: 150 }, hd: ['block', INK, 62, 158, 12, 22, { lume: WHITE }], sc: ['lolli', INK, 168, { lume: WHITE }], x: [['date', 3, 126, WHITE, INK]], pin: INK },
     { n: 'Two-tone GMT', a: 'after the Rolex GMT-Master of 1954', Rd: 150, bz: { t: 'gmt', a: '#1c3f8f', b: '#b3262b', fg: '#f1f1ec' }, face: '#111214', mc: LUME, lume: LUME, mst: '#d8d9da', tk: 'ticks', tc: '#e8e8e4', date: 3, mk: { t: 'dots' }, hd: ['mercedes', '#dfe0e2', 100, 162, 17, 13, { lume: LUME }], sc: ['lolli', '#dfe0e2', 170, { lume: LUME }], gmt: RED, x: [['date', 3, 142, WHITE, INK]] },
     { n: 'Art Deco rectangle', a: 'after the Jaeger-LeCoultre Reverso', cs: 'rect', cf: '#cfd2d6', sq: 1, mx: .62, my: .8, face: '#16171a', mc: '#eeeee8', tk: 'rail', tc: '#eeeee8', ra: 92, rb: 106, mk: { t: 'arabic', r: 150, s: 30, only: [0, 2, 4, 6, 8, 10], w: 4, len: 24, wt: 400 }, hd: ['dauphine', '#e4e6e8', 58, 86, 13, 11, { tail: 8 }], sc: null, pin: '#e4e6e8' },
     { n: 'German functionalism', a: 'after Dietrich Lubs’s Braun AW 10', cf: '#2a2b2e', face: '#18191b', mc: '#f2f2ee', tk: 'ticks', tc: '#f2f2ee', tkAll: 1, mk: { t: 'arabic', s: 26, r: 150, wt: 500 }, hd: ['baton', '#f2f2ee', 92, 150, 9, 6, { tail: 14 }], sc: ['thin', '#f2c21a', 170], x: [['date', 3, 110, '#f2f2ee', INK]], pin: '#f2c21a' },
@@ -228,7 +229,7 @@
         <g transform="translate(${hm[0]} ${hm[1]}) scale(${hm[2]})">${gmt}${hourG}<g data-k="m">${H(minStyle, hd[3], hd[5], hd[1], ho)}</g>${c.sc && Array.isArray(c.sc) ? secHand : ''}<circle r="${c.sc && Array.isArray(c.sc) ? 3 : 6}" fill="${c.pin || (c.sc && c.sc[1]) || hd[1]}"/></g>
         ${c.sc && !Array.isArray(c.sc) ? secHand : ''}
       </g></svg>`;
-    if (cap) cap.innerHTML = `<b>${i + 1} of ${D.length}</b> ${D[i].n}<span>${D[i].a}</span>`;
+    if (cap) cap.textContent = D[i].a.charAt(0).toUpperCase() + D[i].a.slice(1);
     const hands = [...el.querySelectorAll('[data-k]')], my = ++token;
     function draw() {
       const d = new Date(), s = d.getSeconds() + d.getMilliseconds() / 1000, m = d.getMinutes() + s / 60, h = d.getHours() + m / 60;
@@ -240,13 +241,37 @@
     else (function loop() { if (my !== token) return; draw(); requestAnimationFrame(loop); })();
   }
 
-  // Step to the next dial on every load; remember the place between visits.
-  let idx = 0;
-  const q = /[?&]dial=(\d+)/.exec(location.search);
-  try { idx = (parseInt(localStorage.getItem('wbm-dial') || '-1', 10) + 1) % D.length; } catch (e) { idx = Math.floor(Math.random() * D.length); }
-  if (q) idx = (parseInt(q[1], 10) - 1 + D.length) % D.length;
-  if (!(idx >= 0)) idx = 0;
-  const save = () => { try { localStorage.setItem('wbm-dial', idx); } catch (e) {} };
-  render(idx); save();
-  el.addEventListener('click', () => { idx = (idx + 1) % D.length; render(idx); save(); });
+  // Which dial to show: a choice made this session wins, then a pinned dial, otherwise the next in the cycle.
+  const pick = document.getElementById('dialPick'), pinBtn = document.getElementById('dialPin'), rnd = document.getElementById('dialRandom');
+  const store = (st, k, v) => { try { if (v === undefined) return st.getItem(k); if (v === null) st.removeItem(k); else st.setItem(k, v); } catch (e) {} return null; };
+  const LS = () => localStorage, SS = () => sessionStorage;
+  const get = (st, k) => { try { const v = parseInt(store(st(), k), 10); return v >= 0 && v < D.length ? v : null; } catch (e) { return null; } };
+  const set = (st, k, v) => { try { store(st(), k, v); } catch (e) {} };
+  let idx, pinned = get(LS, 'wbm-dial-pin');
+  const q = /[?&]dial=(\d+)/.exec(location.search), chosen = get(SS, 'wbm-dial-session');
+  if (q && +q[1] >= 1 && +q[1] <= D.length) idx = +q[1] - 1;
+  else if (chosen !== null) idx = chosen;
+  else if (pinned !== null) idx = pinned;
+  else { const last = get(LS, 'wbm-dial'); idx = last === null ? 0 : (last + 1) % D.length; set(LS, 'wbm-dial', idx); }
+
+  if (pick) pick.innerHTML = D.map((d, i) => `<option value="${i}">${i + 1}. ${d.n}</option>`).join('');
+  function show(i) {
+    idx = i; render(i);
+    if (pick) pick.value = i;
+    if (pinBtn) { const on = pinned === i; pinBtn.setAttribute('aria-pressed', on); pinBtn.textContent = on ? 'Pinned' : 'Pin'; pinBtn.title = on ? 'Unpin this dial' : 'Keep this dial on every visit'; }
+  }
+  const choose = i => { set(SS, 'wbm-dial-session', i); show(i); };
+  show(idx);
+  el.addEventListener('click', () => choose((idx + 1) % D.length));
+  if (pick) pick.addEventListener('change', () => choose(+pick.value));
+  if (pinBtn) pinBtn.addEventListener('click', () => {
+    if (pinned === idx) { pinned = null; set(LS, 'wbm-dial-pin', null); }
+    else { pinned = idx; set(LS, 'wbm-dial-pin', idx); set(SS, 'wbm-dial-session', idx); }
+    show(idx);
+  });
+  if (rnd) rnd.addEventListener('click', () => {
+    let i = idx; while (i === idx) i = Math.floor(Math.random() * D.length);
+    pinned = null; set(LS, 'wbm-dial-pin', null); set(SS, 'wbm-dial-session', null); set(LS, 'wbm-dial', i);
+    show(i);
+  });
 })();

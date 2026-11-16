@@ -22,6 +22,11 @@
   </div>
   <div class="dial-wrap">
     <button type="button" class="dial" id="dial" aria-label="Show the next dial design"></button>
+    <div class="dial-ctl">
+      <select id="dialPick" aria-label="Choose a dial for this visit"></select>
+      <button type="button" id="dialPin" aria-pressed="false">Pin</button>
+      <button type="button" id="dialRandom" title="Show a random dial and remove the pin">Randomize</button>
+    </div>
     <p class="dial-name" id="dialName"></p>
   </div>
 </header>
