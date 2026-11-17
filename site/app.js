@@ -481,37 +481,94 @@ document.getElementById('pfilter').addEventListener('click',e=>{const b=e.target
 drawPicks();
 
 const pickBrands = new Set(PICKS.map(p=>p.brandKey));
-const all = TIERS.flatMap(t => t.rows.map(r => ({tier:t, r})));
+// "Typical new" as numbers: [low, high]. "$25,000+" has no upper end. Anything else (auction only) has no range.
+function range(s){
+  const m = /^\$([\d,]+)(?:–([\d,]+)|(\+))$/.exec(s);
+  if (!m) return null;
+  const lo = +m[1].replace(/,/g,'');
+  return [lo, m[3] ? Infinity : +m[2].replace(/,/g,'')];
+}
+const all = TIERS.flatMap(t => t.rows.map(r => {
+  const [known,value,cred,cool,lines,unusual] = RATINGS[r[0]] || [0,0,0,0,0,0];
+  const sum = value + cred + cool;
+  // Worth a look is about the watches, never about fame: strong value plus respect and character.
+  return {tier:t, r, known, value, cred, cool, lines, unusual:!!unusual, sum, rng:range(r[3]),
+    worth: sum >= 12 && value >= 4, skip: sum > 0 && sum <= 6};
+}));
 const countries = [...new Set(all.map(x=>x.r[1]))].sort();
 const sel = document.getElementById('country');
 sel.innerHTML = `<option value="">All countries</option>` + countries.map(c=>`<option>${esc(c)}</option>`).join('');
-let tier = 'all';
+const lo = x => x.rng ? x.rng[0] : Infinity;
+const by = k => (a,b) => b[k]-a[k] || b.sum-a.sum || a.r[0].localeCompare(b.r[0]);
+const SORTS = [
+  ["tier","Price tier",null],
+  ["best","Best overall first",(a,b)=>b.worth-a.worth || b.sum-a.sum || b.value-a.value || a.r[0].localeCompare(b.r[0])],
+  ["value","Best value first",by('value')],
+  ["cred","Most respected first",by('cred')],
+  ["cool","Coolest first",by('cool')],
+  ["known","Best known first",by('known')],
+  ["hidden","Least known first",(a,b)=>a.known-b.known || b.sum-a.sum || a.r[0].localeCompare(b.r[0])],
+  ["lines","Most models first",(a,b)=>b.lines-a.lines || a.r[0].localeCompare(b.r[0])],
+  ["few","Fewest models first",(a,b)=>(a.lines||1e9)-(b.lines||1e9) || a.r[0].localeCompare(b.r[0])],
+  ["price","Lowest price first",(a,b)=>lo(a)-lo(b) || a.r[0].localeCompare(b.r[0])],
+  ["az","A to Z",(a,b)=>a.r[0].localeCompare(b.r[0])]
+];
+const SHOWS = [["all","All"],["worth","Worth a look"],["unusual","Unusual"]];
+let tier = 'all', sort = 'tier', show = 'all';
 try { tier = localStorage.getItem('wbm-tier') || 'all'; } catch(e) {}
 const tabs = document.getElementById('tabs');
 tabs.innerHTML = [`<button data-t="all">All<span>${all.length}</span></button>`]
   .concat(TIERS.map(t=>`<button data-t="${t.id}">${esc(t.name)}<span>${t.rows.length}</span></button>`)).join('');
-tabs.addEventListener('click', e => { const b = e.target.closest('button'); if(!b) return; tier = b.dataset.t; try{localStorage.setItem('wbm-tier', tier)}catch(e){} render(); });
+tabs.addEventListener('click', e => { const b = e.target.closest('button'); if(!b) return; tier = b.dataset.t; if (tier !== 'all') minEl.value = maxEl.value = ''; try{localStorage.setItem('wbm-tier', tier)}catch(e){} render(); });
+const showEl = document.getElementById('show');
+showEl.innerHTML = SHOWS.map(([k,l])=>`<button type="button" data-k="${k}">${l}<span>${k==='all'?all.length:all.filter(x=>x[k]).length}</span></button>`).join('');
+showEl.addEventListener('click', e => { const b = e.target.closest('button'); if(!b) return; show = b.dataset.k; render(); });
+const sortEl = document.getElementById('sort');
+sortEl.innerHTML = SORTS.map(([k,l])=>`<option value="${k}">${l}</option>`).join('');
+sortEl.addEventListener('change', () => { sort = sortEl.value; render(); });
+const minEl = document.getElementById('pmin'), maxEl = document.getElementById('pmax');
+// A dollar range replaces the price-tier tab, so the two can't contradict each other.
+[minEl,maxEl].forEach(el => el.addEventListener('input', () => { if (minEl.value || maxEl.value) tier = 'all'; render(); }));
 document.getElementById('q').addEventListener('input', render);
 sel.addEventListener('change', render);
+document.getElementById('reset').addEventListener('click', () => {
+  tier = 'all'; show = 'all'; sort = sortEl.value = 'tier'; minEl.value = maxEl.value = ''; document.getElementById('q').value = ''; sel.value = '';
+  try{localStorage.setItem('wbm-tier', tier)}catch(e){} render();
+});
 
+const METERS = [['known','Known'],['value','Value'],['cred','Cred'],['cool','Cool']];
+function meters(x){
+  return `<span class="m" role="img" aria-label="${METERS.map(([k,l])=>`${l} ${x[k]} of 5`).join(', ')}">${METERS.map(([k,l])=>`<span class="mr"><i>${l}</i><b class="pips v${x[k]}"></b></span>`).join('')}</span>`;
+}
+function rowHtml(x){
+  const r = x.r;
+  return `<div class="row${x.worth?' worth':''}${x.skip?' skip':''}"><span class="t">${r[8]?`<img src="${esc(r[8])}" alt="" loading="lazy" width="176" height="176">`:''}</span><span class="n">${r[6]?`<a href="${esc(r[6])}" target="_blank" rel="noopener">${esc(r[0])}</a>`:esc(r[0])}${x.worth?`<span class="tag w">Worth a look</span>`:''}${pickBrands.has(r[0])?`<span class="tag pk">Pick</span>`:''}${x.unusual?`<span class="tag u">Unusual</span>`:''}${r[5]?`<span class="note">${esc(r[5])}</span>`:''}</span><span class="c">${esc(r[1])}</span><span class="k">${esc(r[2])}</span>${meters(x)}<span class="p">${esc(r[3])}${x.lines?`<small>about ${x.lines} model line${x.lines===1?'':'s'}</small>`:''}</span><span class="s">${r[7]?`<a href="${esc(r[7])}" target="_blank" rel="noopener">${esc(r[4])}</a>`:esc(r[4])}</span></div>`;
+}
 function render(){
   tabs.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.t === tier));
+  showEl.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.k === show));
   const q = document.getElementById('q').value.trim().toLowerCase();
   const c = sel.value;
-  let html = `<div class="row head"><span></span><span>Brand</span><span>From</span><span>Known for</span><span>Typical new</span><span>Standout watch</span></div>`;
-  let n = 0;
-  for (const t of TIERS){
-    if (tier !== 'all' && t.id !== tier) continue;
-    const rows = t.rows.filter(r => (!c || r[1] === c) && (!q || r.slice(0,6).join(' ').toLowerCase().includes(q)));
+  const hasMin = minEl.value !== '', hasMax = maxEl.value !== '';
+  const mn = hasMin ? Math.max(0, +minEl.value) : 0, mx = hasMax ? Math.max(0, +maxEl.value) : Infinity;
+  const list = all.filter(x =>
+    (tier === 'all' || x.tier.id === tier) &&
+    (show === 'all' || x[show]) &&
+    (!c || x.r[1] === c) &&
+    (!q || x.r.slice(0,6).join(' ').toLowerCase().includes(q)) &&
+    (!(hasMin || hasMax) || (x.rng && x.rng[0] <= mx && x.rng[1] >= mn)));
+  let html = `<div class="row head"><span></span><span>Brand</span><span>From</span><span>Known for</span><span>Ratings</span><span>Typical new</span><span>Standout watch</span></div>`;
+  const cmp = SORTS.find(s => s[0] === sort)[2];
+  if (cmp) html += list.slice().sort(cmp).map(rowHtml).join('');
+  else for (const t of TIERS){
+    const rows = list.filter(x => x.tier === t);
     if (!rows.length) continue;
     if (tier === 'all') html += `<div class="tiername">${esc(t.name)}</div>`;
-    for (const r of rows){
-      n++;
-      html += `<div class="row${pickBrands.has(r[0])?' pick':''}"><span class="t">${r[8]?`<img src="${esc(r[8])}" alt="" loading="lazy" width="176" height="176">`:''}</span><span class="n">${r[6]?`<a href="${esc(r[6])}" target="_blank" rel="noopener">${esc(r[0])}</a>`:esc(r[0])}${r[5]?`<span class="note">${esc(r[5])}</span>`:''}</span><span class="c">${esc(r[1])}</span><span class="k">${esc(r[2])}</span><span class="p">${esc(r[3])}</span><span class="s">${r[7]?`<a href="${esc(r[7])}" target="_blank" rel="noopener">${esc(r[4])}</a>`:esc(r[4])}</span></div>`;
-    }
+    html += rows.map(rowHtml).join('');
   }
-  if (!n) html += `<div class="empty">No brands match. Clear the search or pick another country.</div>`;
+  if (!list.length) html += `<div class="empty">No brands match. Widen the dollar range, clear the search, or press Reset.</div>`;
   document.getElementById('rows').innerHTML = html;
+  document.getElementById('count').textContent = `${list.length} of ${all.length} brands`;
 }
 render();
 document.getElementById('foot').textContent = FOOT;

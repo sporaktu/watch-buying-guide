@@ -1,6 +1,6 @@
 # Watch Brand Map
 
-A plain-English watch buying guide: how to buy a mechanical watch without getting burned, 25 standout picks with where to buy each one, and more than 400 brands sorted by price.
+A plain-English watch buying guide: how to buy a mechanical watch without getting burned, 25 standout picks with where to buy each one, and more than 400 brands rated for fame, value, credibility and character, with sorting and filters to find the good ones.
 
 It's a single static page with no build step, no tracking and no third-party requests. Fonts and photos are served from this repo. Outbound links to brand and shop sites are plain links.
 
@@ -10,6 +10,7 @@ It's a single static page with no build step, no tracking and no third-party req
 |---|---|
 | `site/index.html` | The page: masthead, the how-to-buy guide and the empty containers the script fills. |
 | `site/app.js` | All the data (brand tiers, links, the 25 picks with their specs) and the code that draws the cards and the brand index. |
+| `site/ratings.js` | One line per brand: four 1–5 ratings (known, value, cred, cool), an approximate count of model lines and an "unusual" flag. All opinion. "Worth a look" is worked out in `app.js` from value, cred and cool, never from fame. |
 | `site/dials.js` | The masthead dial: thirty designs after well-known watches and clocks, all showing the reader's local time. Each page load shows a random one the visitor hasn't seen yet, and the record starts again once all thirty have been shown. The menu under the dial chooses one for the current visit, Pin keeps it on every visit, and Randomize shows another at random and removes the pin. Clicking the dial steps to the next. Add `?dial=N` to the address to see a particular one. |
 | `site/style.css` | The design: one typeface (Jost), a ruled grid, and blue, red and yellow used as signals. |
 | `site/img/` | Photos of the picks, plus one small `b-*.jpg` thumbnail per brand in the index. |
@@ -18,7 +19,7 @@ It's a single static page with no build step, no tracking and no third-party req
 
 ## Updating
 
-Edit the files in `site/` directly, then commit and push. To add a brand thumbnail, put a square JPEG in `site/img/` and set `"img"` on that brand's entry in `LINKS` in `app.js`. Each pick's `specs` object holds its movement, case, water resistance and crystal.
+Edit the files in `site/` directly, then commit and push. Every brand in `TIERS` needs a line in `ratings.js` under the same name. To add a brand thumbnail, put a square JPEG in `site/img/` and set `"img"` on that brand's entry in `LINKS` in `app.js`. Each pick's `specs` object holds its movement, case, water resistance and crystal.
 
 Preview locally with `python3 -m http.server -d site 8000`.
 

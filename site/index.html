@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Watch Brand Map</title>
-<meta name="description" content="A plain-English watch buying guide: how to buy without getting burned, standout picks, and a brand index by price.">
+<meta name="description" content="A plain-English watch buying guide: how to buy without getting burned, standout picks, and a rated brand index.">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; font-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'; upgrade-insecure-requests">
 <link rel="icon" href="favicon.ico" sizes="48x48">
@@ -17,7 +17,7 @@
 <header class="mast">
   <div>
     <h1>Watch brand map</h1>
-    <p class="lead">How to buy a good mechanical watch without getting burned, 25 well-made picks with their movements and where to buy each one, and more than 400 brands sorted by price.</p>
+    <p class="lead">How to buy a good mechanical watch without getting burned, 25 well-made picks with their movements and where to buy each one, and more than 400 brands rated for value, respect and character, so the good ones stand out.</p>
     <p class="asof">Prices checked 14–15 November 2026. Index prices are approximate.</p>
   </div>
   <div class="dial-wrap">
@@ -92,6 +92,10 @@
     <h2>Every brand</h2>
     <p>Tap a brand for its official website, or a standout watch for its page on that site. Prices are typical new ranges from general knowledge: use them to place a brand, not to budget.</p>
   </div>
+  <div class="key">
+    <p><b class="tag w">Worth a look</b> marks brands that give you a lot for the money and are respected by people who know watches. Fame doesn't count towards it, and famous brands that mostly sell a logo are shown faded.</p>
+    <p>Each brand has four ratings out of five: <b>Known</b> is how famous it is, <b>Value</b> is what you get for the money, <b>Cred</b> is respect among enthusiasts, and <b>Cool</b> is how distinctive it is. <b class="tag u">Unusual</b> marks brands doing something few others do. The ratings are opinion, and model-line counts are approximate.</p>
+  </div>
   <div class="controls">
     <div class="tabs" id="tabs" role="group" aria-label="Price tier"></div>
     <div class="search">
@@ -99,11 +103,19 @@
       <select id="country" aria-label="Country"></select>
     </div>
   </div>
+  <div class="controls2">
+    <div class="tabs" id="show" role="group" aria-label="Show"></div>
+    <label class="fld">Sort by <select id="sort"></select></label>
+    <div class="fld" role="group" aria-label="Price range in dollars">Budget $ <input id="pmin" type="number" min="0" step="50" inputmode="numeric" placeholder="from" aria-label="Lowest price in dollars"><span>to</span><input id="pmax" type="number" min="0" step="50" inputmode="numeric" placeholder="to" aria-label="Highest price in dollars"></div>
+    <button type="button" id="reset">Reset</button>
+    <p class="count" id="count" aria-live="polite"></p>
+  </div>
   <div class="rows" id="rows"></div>
 </section>
 
 <p class="foot" id="foot"></p>
 </div>
+<script src="ratings.js" defer></script>
 <script src="app.js" defer></script>
 <script src="dials.js" defer></script>
 </body>
