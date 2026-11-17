@@ -3,8 +3,8 @@
 // The watch is always seen straight on, so it is a height field with materials, not a model. A scene's drawing
 // operations are painted part by part into masks. Each mask becomes height (through the distance to the part's edge
 // and a profile) and material (a finish, or two finishes split by that same distance). One fragment shader lights
-// the maps from a lamp that follows the pointer. Hands are rasterised pointing up into an atlas and turned in the
-// shader. This file knows nothing about the thirty designs: it works from part tags and each design's finish data.
+// the maps from a lamp that follows the pointer, or on a phone its tilt. Hands are rasterised pointing up into an
+// atlas and turned in the shader. This file knows nothing about the thirty designs: it works from part tags and each design's finish data.
 (function () {
   'use strict';
 
@@ -13,6 +13,8 @@
     lampZ: 1.1, rest: [-.55, -.75],               // the lamp's height in half widths of the dial, and where it rests
     free: 1.5, minElev: 20,                       // it follows the pointer exactly this far out, then slows so it never sinks below this angle
     ease: 100,                                    // how fast it glides to the pointer, ms
+    tilt: -1 / 28, tiltMax: 60,                   // on a phone: half widths the lamp moves per degree of tilt (negative: it stays put in the room), largest tilt used
+    tiltDrift: 4000,                              // how slowly the level the phone is held at becomes the new resting tilt, ms
     keyColour: [1, .965, .9], key: .95,           // the lamp on matte surfaces (warm)
     fillColour: [.82, .9, 1], fill: .16,          // a soft cool light from the far side
     ambColour: [.92, .95, 1], amb: .34,           // light from the room
@@ -414,6 +416,46 @@ void main() {
     return { u, tex: [] };
   }
 
+  // ---- phone tilt ----
+  // On a touch screen the lamp follows how the phone is tilted instead of the finger, as if it hung still in the room
+  // while the watch turned under it. The tilt is measured from how the phone is usually held, which follows the phone
+  // slowly, so the lamp drifts home when the phone is held still at any angle. iOS asks permission first, and only
+  // from a tap, so the first tap on the page asks; until tilt readings arrive the finger still moves the lamp.
+  const tilt = (() => {
+    const subs = new Set();
+    let started = false, base = null, lastT = 0;
+    const api = { on: false, at: [0, 0], add(f) { subs.add(f); start(); }, remove(f) { subs.delete(f); } };
+    const angle = () => ((screen.orientation && screen.orientation.angle) || window.orientation || 0) % 360 + 360;
+    const clamp = v => Math.max(-LOOK.tiltMax, Math.min(LOOK.tiltMax, v));
+    const read = e => {
+      if (e.beta == null || e.gamma == null) return;
+      // Tilt about the screen's own axes: x when its right edge dips, y when its top edge rises.
+      const b = e.beta, g = e.gamma, r = angle() % 360;
+      const v = r === 90 ? [b, -g] : r === 180 ? [-g, -b] : r === 270 ? [-b, g] : [g, b], now = performance.now();
+      if (!base || now - lastT > 1000) base = v.slice();
+      else { const k = 1 - Math.exp(-(now - lastT) / LOOK.tiltDrift); base[0] += (v[0] - base[0]) * k; base[1] += (v[1] - base[1]) * k; }
+      lastT = now;
+      api.at = [clamp(v[0] - base[0]) * LOOK.tilt, clamp(v[1] - base[1]) * LOOK.tilt]; api.on = true;
+      subs.forEach(f => f());
+    };
+    const listen = () => addEventListener('deviceorientation', read, { passive: true });
+    function start() {
+      if (started || !window.DeviceOrientationEvent || !matchMedia('(hover: none) and (pointer: coarse)').matches) return;
+      started = true; listen();
+      // Where the browser wants permission (iOS), readings start only once it is given; elsewhere they start now.
+      const ask = DeviceOrientationEvent.requestPermission;
+      if (typeof ask !== 'function') return;
+      const tap = () => {
+        removeEventListener('click', tap, true); removeEventListener('touchend', tap, true);
+        if (!api.on) ask.call(DeviceOrientationEvent).catch(() => {});
+      };
+      addEventListener('click', tap, true); addEventListener('touchend', tap, true);
+    }
+    // Coming back to the page, the phone is likely held differently: start level again.
+    document.addEventListener('visibilitychange', () => { base = null; });
+    return api;
+  })();
+
   // ---- the renderer ----
   // create(button, { light, still, debug, redraw, lost, restored }) gives a renderer like the flat one in dials.js,
   // or null when WebGL cannot be had. show(scene, done) builds the maps in the background and calls done() when the
@@ -438,19 +480,21 @@ void main() {
     let ptr = null, target = lampAt(fixed || LOOK.rest), lamp = target.slice(), drawn = [], dirty = false, lastT = 0, wake = 0, settled = true;
     const aim = () => { dirty = true; if (still && opts.redraw && !wake) wake = requestAnimationFrame(() => { wake = 0; opts.redraw(); }); };
     const move = e => { if (e.pointerType === 'touch') return; ptr = [e.clientX, e.clientY]; aim(); };
-    const touch = e => { const t = e.touches[0]; if (t) { ptr = [t.clientX, t.clientY]; aim(); } };
+    const touch = e => { if (tilt.on && !still) return; const t = e.touches[0]; if (t) { ptr = [t.clientX, t.clientY]; aim(); } };
     const leave = () => { ptr = null; aim(); }, shift = () => { if (ptr) aim(); };
     const root = document.documentElement, quiet = { passive: true };
     if (!fixed) {
       addEventListener('pointermove', move, quiet); addEventListener('touchstart', touch, quiet); addEventListener('touchmove', touch, quiet);
       addEventListener('touchend', leave, quiet); addEventListener('touchcancel', leave, quiet); root.addEventListener('pointerleave', leave);
       addEventListener('scroll', shift, quiet); addEventListener('resize', shift);
+      if (!still) tilt.add(aim);   // under reduced motion the lamp moves only when asked to, by a finger
     }
     // Moves the lamp toward its target: a glide with a time constant, or a jump under reduced motion.
     const stepLamp = now => {
       if (dirty) {
         dirty = false;
-        if (ptr) { const b = el.getBoundingClientRect(), h = b.width / 2 || 1; target = lampAt([(ptr[0] - b.left - h) / h, (ptr[1] - b.top - b.height / 2) / h]); }
+        if (tilt.on && !still && !fixed) { ptr = null; target = lampAt([LOOK.rest[0] + tilt.at[0], LOOK.rest[1] + tilt.at[1]]); }
+        else if (ptr) { const b = el.getBoundingClientRect(), h = b.width / 2 || 1; target = lampAt([(ptr[0] - b.left - h) / h, (ptr[1] - b.top - b.height / 2) / h]); }
         else target = lampAt(LOOK.rest);
       }
       const k = still ? 1 : 1 - Math.exp(-(settled ? 16 : Math.min(50, now - lastT)) / LOOK.ease); lastT = now; settled = true;
@@ -546,7 +590,7 @@ void main() {
       // The canvas is the box in device pixels, at most two to a CSS pixel; the maps are remade if their size no longer suits it.
       resize() { if (!fit()) return false; if (cur && !lost && wanted() !== N) show(cur); return true; },
       destroy() {
-        token++; cv.remove();
+        token++; cv.remove(); tilt.remove(aim);
         ['pointermove', 'touchstart', 'touchmove'].forEach((nm, i) => removeEventListener(nm, i ? touch : move));
         removeEventListener('touchend', leave); removeEventListener('touchcancel', leave); root.removeEventListener('pointerleave', leave);
         removeEventListener('scroll', shift); removeEventListener('resize', shift);
