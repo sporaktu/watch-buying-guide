@@ -17,7 +17,7 @@
 <header class="mast">
   <div>
     <h1>Watch brand map</h1>
-    <p class="lead">How to buy a good mechanical watch without getting burned, 25 well-made picks with their movements and where to buy each one, and more than 400 brands rated for value, respect and character, so the good ones stand out.</p>
+    <p class="lead">How to buy a good mechanical watch without getting burned, 25 well-made picks with their movements and where to buy each one, and more than 400 brands rated for value, respect and character and plotted on a map of cost against desirability, so the good ones stand out.</p>
     <p class="asof">Prices checked 14–15 November 2026. Index prices are approximate.</p>
   </div>
   <div class="dial-wrap">
@@ -30,7 +30,7 @@
     <p class="dial-name" id="dialName"></p>
   </div>
 </header>
-<nav class="jump" aria-label="Sections"><a href="#guide">How to buy</a><a href="#picks">25 picks</a><a href="#index">Every brand</a></nav>
+<nav class="jump" aria-label="Sections"><a href="#guide">How to buy</a><a href="#picks">25 picks</a><a href="#index">Every brand</a><a href="#map" hidden>Brand map</a></nav>
 
 <section id="guide" class="guide">
   <div class="sec-head"><h2>How to buy a watch</h2><p>The essentials in three boxes. The rest of the page is detail.</p></div>
@@ -90,10 +90,10 @@
 <section id="index">
   <div class="sec-head">
     <h2>Every brand</h2>
-    <p>Tap a brand for its official website, or a standout watch for its page on that site. Prices are typical new ranges from general knowledge: use them to place a brand, not to budget.</p>
+    <p>First a map that shows every brand at once, then a list with the detail. In the list, tap a brand for its official website, or a standout watch for its page on that site. Prices are typical new ranges from general knowledge: use them to place a brand, not to budget.</p>
   </div>
   <div class="key">
-    <p><b class="tag w">Worth a look</b> marks brands that give you a lot for the money and are respected by people who know watches. Fame doesn't count towards it, and famous brands that mostly sell a logo are shown faded.</p>
+    <p><b class="tag w">Worth a look</b> marks brands that give you a lot for the money and are respected by people who know watches. Fame doesn't count towards it, and famous brands that mostly sell a logo are shown faded in the list and as hollow dots on the map.</p>
     <p>Each brand has four ratings out of five: <b>Known</b> is how famous it is, <b>Value</b> is what you get for the money, <b>Cred</b> is respect among enthusiasts, and <b>Cool</b> is how distinctive it is. <b class="tag u">Unusual</b> marks brands doing something few others do. The ratings are opinion, and model-line counts are approximate.</p>
   </div>
   <div class="controls">
@@ -110,6 +110,26 @@
     <button type="button" id="reset">Reset</button>
     <p class="count" id="count" aria-live="polite"></p>
   </div>
+  <div class="map" id="map" hidden>
+    <div class="sub-head"><h3>Brand map</h3><p>Every brand in the list as a dot. In the first view, find your budget along the bottom, then look up: the higher a dot sits, the more people who know watches want one. Click or tap a dot to see the brand. The filters above work on the map as well as the list.</p></div>
+    <div class="map-bar">
+      <div class="tabs" id="mapView" role="group" aria-label="What the map compares"></div>
+      <button type="button" id="mapToggle" aria-expanded="true" aria-controls="mapBody">Hide map</button>
+    </div>
+    <div id="mapBody">
+      <div class="map-plate">
+        <div class="map-legend" id="mapLegend"></div>
+        <div class="map-plot" id="mapPlot" tabindex="0" role="application" aria-roledescription="chart" aria-label="Brand map" aria-describedby="mapDesc"></div>
+      </div>
+      <p class="vh" id="mapDesc">A chart with one dot for each of the brands in the list. The list under the map holds the same information as a table. Use the arrow keys to move between brands, Home and End for the cheapest and the dearest, Enter to choose a brand and Escape to clear.</p>
+      <p class="vh" id="mapLive" aria-live="polite"></p>
+      <div class="map-detail" id="mapDetail"></div>
+      <div class="key map-notes">
+        <p><b>Cost</b> is one figure for each brand: the middle of its typical price range for a new watch, on a scale that gives every doubling in price the same space, so the middle of $500 to $2,000 is $1,000. A brand whose range has no top, such as "$25,000+", is placed at its starting price and has a small point on its right, and brands with no list price sit apart at the far right of the cost scale.</p>
+        <p><b>Desirability</b> is Cred plus Cool, out of ten. Fame doesn't count. <b>Value</b> is the rating from the list. Each view puts two of the three across and up, and shows the third as colour. Where cost runs across, the faint upright lines are where one of the list's price tiers ends and the next begins, and choosing a tier or a budget shades that stretch of the scale. A dot marks the middle of a brand's prices, so a brand that matches can sit outside the shading.</p>
+      </div>
+    </div>
+  </div>
   <div class="rows" id="rows"></div>
 </section>
 
@@ -117,6 +137,8 @@
 </div>
 <script src="ratings.js" defer></script>
 <script src="app.js" defer></script>
+<script src="map.js" defer></script>
+<script src="dial3d.js" defer></script>
 <script src="dials.js" defer></script>
 </body>
 </html>

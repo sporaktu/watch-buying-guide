@@ -34,7 +34,7 @@ p{margin:0}
 .asof{color:var(--muted);font-size:15px;margin-top:12px}
 .dial-wrap{justify-self:end;width:100%;max-width:400px}
 .dial{display:block;width:100%;aspect-ratio:1;padding:0;border:0;background:none;cursor:pointer;border-radius:0}
-.dial svg{display:block;width:100%;height:100%;overflow:visible}
+.dial canvas{display:block;width:100%;height:100%}
 .dial-ctl{display:flex;margin-top:16px}
 .dial-ctl select,.dial-ctl button{font:500 15px/1 var(--font);border:1px solid var(--ink);border-radius:0;background:transparent;color:var(--ink);padding:0 12px;min-height:42px;cursor:pointer;margin-right:-1px}
 .dial-ctl select{flex:1 1 auto;min-width:0;width:0;background:var(--paper);text-overflow:ellipsis}
@@ -158,7 +158,7 @@ section{margin-top:88px}
 .pips{display:block;width:60px;height:8px;--f:0;background:
   repeating-linear-gradient(90deg,transparent 0 10px,var(--ground) 10px 12px),
   linear-gradient(90deg,var(--ink) calc(var(--f)*12px),var(--rule) 0)}
-.row.worth .pips{background:
+.row.worth .pips,.md .pips{background:
   repeating-linear-gradient(90deg,transparent 0 10px,var(--paper) 10px 12px),
   linear-gradient(90deg,var(--ink) calc(var(--f)*12px),var(--rule) 0)}
 .pips.v1{--f:1}.pips.v2{--f:2}.pips.v3{--f:3}.pips.v4{--f:4}.pips.v5{--f:5}
@@ -206,3 +206,140 @@ section{margin-top:88px}
   .search select{margin:-1px 0 0;width:100%}
 }
 .row .t:empty{background:transparent}
+/* A row the map has jumped to: focused, and marked for a moment. */
+.row:focus{outline:3px solid var(--red);outline-offset:-3px}
+.row.found{animation:found 2.6s ease-out}
+@keyframes found{from{background-color:var(--yellow)}}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+/* Brand map. Each measure has one single-hue ramp wherever it is shown as colour: value is blue, desirability is red, cost is ink.
+   More is darker on the light page and lighter on the dark one. The steps are chosen for the paper the dots sit on, in each mode. */
+:root{
+  --value-1:#9ab4eb; --value-2:#819ee2; --value-3:#6587d5; --value-4:#4365ba; --value-5:#24408e;
+  --desire-1:#f59c8c; --desire-2:#ec6653; --desire-3:#d3311f; --desire-4:#a91708; --desire-5:#7a0b02;
+  --cost-1:#b2b2b6; --cost-2:#949498; --cost-3:#737377; --cost-4:#4d4d50; --cost-5:#18181a;
+  --hollow:#8a8a85;
+}
+@media (prefers-color-scheme:dark){:root{
+  --value-1:#3649a5; --value-2:#4a61c0; --value-3:#637cd7; --value-4:#93a9ee; --value-5:#c3d1fb;
+  --desire-1:#9b2013; --desire-2:#ce2c1b; --desire-3:#ff5b46; --desire-4:#fe9a89; --desire-5:#fec7bc;
+  --cost-1:#50504b; --cost-2:#6c6c67; --cost-3:#8e8e89; --cost-4:#b9b9b4; --cost-5:#eeeee8;
+  --hollow:#72726d;
+}}
+.map{margin-bottom:56px}
+.map .sub-head{margin-top:8px}
+/* Hidden, the map is one line: its heading on the left and the button on the right. */
+.map.shut{display:flex;justify-content:space-between;align-items:center;gap:0 24px;border-top:1px solid var(--ink);margin-top:8px;padding-top:12px}
+.map.shut .sub-head{display:block;margin:0;border:0;padding:0}
+.map.shut .sub-head p{display:none}
+.map.shut #mapToggle{margin:0}
+/* How the measures are worked out, under the chart so that the chart comes first. */
+.map-notes{margin:20px 0 0}
+.map-bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:0 24px}
+.map-bar .tabs{margin-bottom:16px}
+#mapToggle,.md-acts button{font:500 15px/1 var(--font);padding:10px 14px;border:1px solid var(--ink);border-radius:0;background:transparent;color:var(--ink);min-height:44px;cursor:pointer}
+#mapToggle{margin:0 0 16px auto}
+#mapToggle:hover{background:var(--paper)}
+.md-acts button:hover{background:var(--ground)}
+.map-plate{background:var(--paper);border:1px solid var(--ink)}
+.map-legend{display:flex;flex-wrap:wrap;align-items:center;gap:6px 26px;padding:11px 14px;border-bottom:1px solid var(--rule);font-size:14.5px;line-height:1.3}
+.map-legend .how{flex:1 1 100%}
+.map-legend .item{display:inline-flex;flex-wrap:wrap;align-items:center;gap:2px 5px;color:var(--muted)}
+.map-legend .bin{display:inline-flex;align-items:center;white-space:nowrap;font-variant-numeric:tabular-nums}
+.map-legend .bin svg{margin:0 -1px 0 -4px}
+.map-legend .ramp{gap:2px 9px}
+.map-key{flex:none;overflow:visible}
+.map-plot{position:relative;touch-action:manipulation}
+.map-plot:focus{outline:none}
+.map-plot:focus-visible{outline:3px solid var(--red);outline-offset:-3px}
+.map-svg{display:block;overflow:visible;-webkit-user-select:none;user-select:none}
+.map-svg text{font-family:var(--font);font-size:12.5px;fill:var(--muted)}
+.map-svg .lv{font-size:var(--lv);paint-order:stroke;stroke:var(--paper);stroke-width:3px;stroke-linejoin:round}
+.map-svg .n{fill:var(--ink);font-weight:600;font-size:var(--ln)}
+.map-svg .tk{font-size:var(--fs);font-variant-numeric:tabular-nums}
+.map-svg .tier.on{fill:var(--ink);font-weight:600}
+.map-svg .corner{font-size:var(--cs);font-weight:300;letter-spacing:-.01em}
+.map-svg .corner.hot{fill:var(--ink);font-weight:400}
+.map-svg .rule{stroke:var(--rule)}
+.map-svg .axis{stroke:var(--ink)}
+.map-svg .flt rect{fill:var(--rule);opacity:.55}
+/* Dots. The class picks the step; the view picks which measure is the colour. */
+.map-svg .d{transition:opacity .2s ease}
+/* While the view is changing, the dots glide to their new places and take their new colours. */
+.map-svg.moving{transition:height .34s ease}
+.map-svg.moving .d,.map-svg.moving .ring{transition:transform .34s ease,opacity .2s ease}
+.map-svg.moving .m{transition:fill .34s ease}
+[data-view=cd] .v1 .m{fill:var(--value-1)}[data-view=cd] .v2 .m{fill:var(--value-2)}[data-view=cd] .v3 .m{fill:var(--value-3)}[data-view=cd] .v4 .m{fill:var(--value-4)}[data-view=cd] .v5 .m{fill:var(--value-5)}
+[data-view=cv] .s1 .m{fill:var(--desire-1)}[data-view=cv] .s2 .m{fill:var(--desire-2)}[data-view=cv] .s3 .m{fill:var(--desire-3)}[data-view=cv] .s4 .m{fill:var(--desire-4)}[data-view=cv] .s5 .m{fill:var(--desire-5)}
+[data-view=vd] .k1 .m{fill:var(--cost-1)}[data-view=vd] .k2 .m{fill:var(--cost-2)}[data-view=vd] .k3 .m{fill:var(--cost-3)}[data-view=vd] .k4 .m{fill:var(--cost-4)}[data-view=vd] .k5 .m{fill:var(--cost-5)}
+/* Logo-first brands are hollow and grey so they recede. A pick has a yellow ring. No list price is a slashed ring, and only where colour means cost. */
+.d.skip .m{fill:none;stroke:var(--hollow);stroke-width:1.5}
+.d .pk{fill:none;stroke:var(--yellow);stroke-width:2}
+.d .np{display:none;fill:none;stroke:var(--ink);stroke-width:1.5}
+[data-view=vd] .k0 .m{fill:var(--paper);stroke:var(--ink);stroke-width:1.5}
+[data-view=vd] .k0 .np{display:inline}
+.map-svg .d.off{opacity:.13}
+.map-svg .ring{fill:none;stroke:var(--ink);stroke-width:1.5}
+.map-svg .ring.sel{stroke-width:2.5}
+.map-plot:focus-visible .ring.act{stroke:var(--red);stroke-width:3}
+.map-svg .lab{font-size:var(--fs);fill:var(--ink);paint-order:stroke;stroke:var(--paper);stroke-width:3px;stroke-linejoin:round}
+.map-svg .lab.w,.map-svg .lab.sel{font-weight:500}
+.map-svg .lab.skip{fill:var(--muted)}
+.map-svg .lab.forced{stroke-width:5px}
+.map-svg .lead,.map-svg .drop{stroke:var(--muted)}
+.map-svg .drop{opacity:.55}
+.map-svg .bar{stroke:var(--ink);stroke-width:3}
+.map-svg .end{stroke:var(--ink);stroke-width:1.5;fill:none}
+.map-tip{position:absolute;z-index:2;pointer-events:none;display:grid;gap:2px;min-width:150px;max-width:260px;padding:8px 11px 9px;background:var(--paper);border:1px solid var(--ink);font-size:14px;line-height:1.3}
+.map-tip .tn{font-size:15.5px;font-weight:600}
+.map-tip .tr{display:flex;align-items:center;gap:6px;color:var(--muted)}
+.map-tip .tr b{color:var(--ink);font-weight:600}
+.map-tip .tr svg{margin:0 -4px 0 -5px}
+.map-tip .tt{display:flex;flex-wrap:wrap;align-items:center;gap:4px 6px;margin-top:5px;font-size:13px;color:var(--muted)}
+.map-tip .tag{vertical-align:0}
+.map-tip .tm{margin-top:5px;font-size:13px;color:var(--muted)}
+/* The chosen brand, under the chart */
+.map-detail{background:var(--paper);border:1px solid var(--ink);border-top:0;padding:16px 18px;min-height:110px}
+.md-hint{color:var(--muted);font-size:15.5px}
+.md{display:grid;grid-template-columns:76px minmax(0,1.25fr) auto minmax(0,1.6fr) auto;gap:8px 26px;align-items:start}
+.md .t{width:76px;height:76px;background:#fff;border:1px solid var(--rule);display:block;overflow:hidden}
+.md .t:empty{background:transparent}
+.md .t img{width:100%;height:100%;object-fit:contain;display:block}
+.md h4{margin:0;font-size:22px;font-weight:600;line-height:1.2}
+.md h4 a{color:var(--ink)}
+.md h4 .tag{margin-left:8px;vertical-align:4px}
+.md-from{color:var(--muted);font-size:15px;margin-top:2px}
+.md-known{font-size:15.5px;line-height:1.35;margin-top:4px}
+.md .m{display:grid;gap:3px;font-size:12.5px;line-height:1;padding-top:7px}
+.md-facts{margin:0;display:grid;gap:5px;font-size:15px;line-height:1.35}
+.md-facts div{display:grid;grid-template-columns:7.4em minmax(0,1fr);gap:10px}
+.md-facts dt{color:var(--muted);font-size:14px;padding-top:1px}
+.md-facts dd{margin:0}
+.md-pick{display:block}
+.md-acts{display:grid}
+.md-acts button + button{margin-top:-1px}
+@media (max-width:980px){
+  .md{grid-template-columns:76px minmax(0,1fr) auto}
+  .md-facts{grid-column:1 / -1}
+  .md-acts{grid-column:1 / -1;grid-auto-flow:column;justify-content:start}
+  .md-acts button + button{margin:0 0 0 -1px}
+}
+@media (max-width:480px){
+  /* Four section links wrap on a phone; this starts every row on the same line as the page's left edge. */
+  .jump{padding-left:6px}
+  .jump a:first-child{padding-left:14px}
+}
+@media (max-width:560px){
+  .map-legend{padding:10px 8px;font-size:14px;gap:5px 16px}
+  .map-detail{padding:14px 12px}
+  .md{grid-template-columns:60px minmax(0,1fr);gap:8px 14px}
+  .md .t{width:60px;height:60px}
+  .md h4{font-size:20px}
+  .md .m{grid-column:1 / -1;grid-template-columns:auto auto;justify-content:start;gap:4px 18px;padding-top:0}
+}
+/* Under forced colours the chart keeps its own paper and ramps, which were chosen together. */
+@media (forced-colors:active){.map-plate,.map-detail{forced-color-adjust:none}}
+@media (prefers-reduced-motion:reduce){
+  .map-svg,.map-svg *{transition:none!important;animation:none!important}
+  .row.found{animation:none;box-shadow:inset 0 0 0 3px var(--yellow)}
+}

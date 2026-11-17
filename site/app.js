@@ -480,7 +480,10 @@ function drawPicks(){
 document.getElementById('pfilter').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;pf=b.dataset.k;drawPicks();});
 drawPicks();
 
-const pickBrands = new Set(PICKS.map(p=>p.brandKey));
+// A pick's brandKey is the name of its row in the index. Two brands are spelled differently in the picks, so they are matched here.
+const PICK_ROW = {"NOMOS":"Nomos", "Grand Seiko":"Grand Seiko mechanical"};
+PICKS.forEach(p => { p.row = PICK_ROW[p.brandKey] || p.brandKey; });
+const pickBrands = new Set(PICKS.map(p=>p.row));
 // "Typical new" as numbers: [low, high]. "$25,000+" has no upper end. Anything else (auction only) has no range.
 function range(s){
   const m = /^\$([\d,]+)(?:–([\d,]+)|(\+))$/.exec(s);
@@ -488,13 +491,16 @@ function range(s){
   const lo = +m[1].replace(/,/g,'');
   return [lo, m[3] ? Infinity : +m[2].replace(/,/g,'')];
 }
+// Each price tier in dollars, [low, high]. "Independents" is a kind of maker, not a price, so it has none.
+TIERS.forEach(t => { const m = /^Under \$([\d,]+)$/.exec(t.name); t.band = m ? [0, +m[1].replace(/,/g,'')] : range(t.name); });
 const all = TIERS.flatMap(t => t.rows.map(r => {
   const [known,value,cred,cool,lines,unusual] = RATINGS[r[0]] || [0,0,0,0,0,0];
   const sum = value + cred + cool;
   // Worth a look is about the watches, never about fame: strong value plus respect and character.
   return {tier:t, r, known, value, cred, cool, lines, unusual:!!unusual, sum, rng:range(r[3]),
-    worth: sum >= 12 && value >= 4, skip: sum > 0 && sum <= 6};
+    worth: sum >= 12 && value >= 4, skip: sum > 0 && sum <= 6, picks: PICKS.filter(p => p.row === r[0])};
 }));
+all.forEach((x, i) => { x.i = i; });
 const countries = [...new Set(all.map(x=>x.r[1]))].sort();
 const sel = document.getElementById('country');
 sel.innerHTML = `<option value="">All countries</option>` + countries.map(c=>`<option>${esc(c)}</option>`).join('');
@@ -542,7 +548,7 @@ function meters(x){
 }
 function rowHtml(x){
   const r = x.r;
-  return `<div class="row${x.worth?' worth':''}${x.skip?' skip':''}"><span class="t">${r[8]?`<img src="${esc(r[8])}" alt="" loading="lazy" width="176" height="176">`:''}</span><span class="n">${r[6]?`<a href="${esc(r[6])}" target="_blank" rel="noopener">${esc(r[0])}</a>`:esc(r[0])}${x.worth?`<span class="tag w">Worth a look</span>`:''}${pickBrands.has(r[0])?`<span class="tag pk">Pick</span>`:''}${x.unusual?`<span class="tag u">Unusual</span>`:''}${r[5]?`<span class="note">${esc(r[5])}</span>`:''}</span><span class="c">${esc(r[1])}</span><span class="k">${esc(r[2])}</span>${meters(x)}<span class="p">${esc(r[3])}${x.lines?`<small>about ${x.lines} model line${x.lines===1?'':'s'}</small>`:''}</span><span class="s">${r[7]?`<a href="${esc(r[7])}" target="_blank" rel="noopener">${esc(r[4])}</a>`:esc(r[4])}</span></div>`;
+  return `<div class="row${x.worth?' worth':''}${x.skip?' skip':''}" data-b="${x.i}"><span class="t">${r[8]?`<img src="${esc(r[8])}" alt="" loading="lazy" width="176" height="176">`:''}</span><span class="n">${r[6]?`<a href="${esc(r[6])}" target="_blank" rel="noopener">${esc(r[0])}</a>`:esc(r[0])}${x.worth?`<span class="tag w">Worth a look</span>`:''}${pickBrands.has(r[0])?`<span class="tag pk">Pick</span>`:''}${x.unusual?`<span class="tag u">Unusual</span>`:''}${r[5]?`<span class="note">${esc(r[5])}</span>`:''}</span><span class="c">${esc(r[1])}</span><span class="k">${esc(r[2])}</span>${meters(x)}<span class="p">${esc(r[3])}${x.lines?`<small>about ${x.lines} model line${x.lines===1?'':'s'}</small>`:''}</span><span class="s">${r[7]?`<a href="${esc(r[7])}" target="_blank" rel="noopener">${esc(r[4])}</a>`:esc(r[4])}</span></div>`;
 }
 function render(){
   tabs.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.t === tier));
@@ -569,7 +575,34 @@ function render(){
   if (!list.length) html += `<div class="empty">No brands match. Widen the dollar range, clear the search, or press Reset.</div>`;
   document.getElementById('rows').innerHTML = html;
   document.getElementById('count').textContent = `${list.length} of ${all.length} brands`;
+  BRAND_INDEX.shown = new Set(list);
+  BRAND_INDEX.band = hasMin || hasMax ? [mn, mx] : tier === 'all' ? null : TIERS.find(t => t.id === tier).band;
+  document.dispatchEvent(new Event('wbm-index'));
 }
+// Everything the brand map (map.js) reads from this file, in one place. The list never calls the map: render() only
+// announces that the filters changed, so the list works the same whether or not map.js has loaded.
+const BRAND_INDEX = {
+  all,               // every brand: its row, ratings, price range and picks
+  tiers: TIERS,      // the price tiers, each with its dollar band
+  shown: new Set(),  // the brands the current filters keep; render() replaces it
+  band: null,        // the active tier or budget in dollars, [low, high], or null
+  meters,            // the four rating bars for a brand, as the list draws them
+  // Show one brand's row: clear the filters if they hide it (the sort stays), then scroll to it, focus it and mark it for a moment.
+  reveal(x){
+    if (!this.shown.has(x)) {
+      tier = 'all'; show = 'all'; minEl.value = maxEl.value = ''; document.getElementById('q').value = ''; sel.value = '';
+      try{localStorage.setItem('wbm-tier', tier)}catch(e){} render();
+    }
+    const row = document.querySelector(`#rows .row[data-b="${x.i}"]`);
+    if (!row) return;
+    row.tabIndex = -1;      // focusable just for this, so the keyboard carries on from the row
+    row.addEventListener('blur', () => row.removeAttribute('tabindex'), {once:true});
+    row.focus({preventScroll:true});
+    row.scrollIntoView({block:'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
+    row.classList.add('found');
+    setTimeout(() => row.classList.remove('found'), 2600);
+  }
+};
 render();
 document.getElementById('foot').textContent = FOOT;
 
