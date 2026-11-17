@@ -1,0 +1,114 @@
+{
+ "n": 5,
+ "designName": "Museum dial",
+ "isRealWatch": true,
+ "reference": "Movado Museum Classic, ref. 0607271 (current production): 40 mm yellow-gold PVD steel case, 6.8 mm deep, black dial, black calfskin strap. Chosen by the hands. Horwitt's own 1947 watch (the MoMA piece: white gold case, enamelled dial) and Movado's first production watches of the 1960s (14k yellow gold, ref. 246-224-085) have a flat applied gold disc, thin stick hands and a domed acrylic crystal. The drawing's yellow case with broad faceted gold dauphine hands is the later Movado form, and on that form the dot is a dish, not the flat disc drawn: a 1988 Movado Museum (ref. 87-33-882) in a dealer's photographs already has dauphine hands and what reads as a dished dot, as the current Museum Classic has. In a limited search no Movado was found that pairs dauphine hands with a flat dot.",
+ "surfaces": [
+  {
+   "part": "bezel top",
+   "material": "stainless steel with yellow-gold PVD",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Narrow bezel polished all round with no brushing anywhere; a fine polished step sits between it and the crystal. Europa Star's specification for the steel version of the same watch reads 'Round, polished stainless steel, 40 mm', and Movado's own front and profile images of the gold-PVD watch show the same polish.",
+   "confidence": "high",
+   "source": "https://europastar.com/swisstime/1004096732-movado-museum-r-classic.html"
+  },
+  {
+   "part": "case flank",
+   "material": "stainless steel with yellow-gold PVD",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Slim polished case band; only a thin edge shows outside the bezel from the front.",
+   "confidence": "medium",
+   "source": "https://www.movado.com/us/en/shop-watches/museum-classic-0607271.html"
+  },
+  {
+   "part": "lug top",
+   "material": "stainless steel with yellow-gold PVD",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Slim straight lugs set wide apart, each a plain polished wedge that tapers toward the tip; polished on every face with no chamfer line and no brushed top. Read from Movado's front and profile images; Movado's specification for the steel version calls the lugs 'elongated'.",
+   "confidence": "medium",
+   "source": "https://www.movado.com/us/en/shop-watches/museum-classic-0607271.html"
+  },
+  {
+   "part": "crown",
+   "material": "stainless steel with yellow-gold PVD",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Small plain crown at 3: a smooth polished button with a flat cap, no fluting visible and no guards (read from Movado's images).",
+   "confidence": "medium",
+   "source": "https://www.movado.com/us/en/shop-watches/museum-classic-0607271.html"
+  },
+  {
+   "part": "dial base",
+   "material": "black lacquer on a metal dial",
+   "finish": "gloss lacquer",
+   "direction": "n/a",
+   "detail": "Uniform deep black with no texture, minute track or ring. Movado calls it a 'black Museum' dial and the steel version is specified as 'black lacquered'; how glossy it looks in the hand is not confirmed by a hands-on source.",
+   "confidence": "medium",
+   "source": "https://europastar.com/swisstime/1004096732-movado-museum-r-classic.html"
+  },
+  {
+   "part": "applied markers",
+   "material": "gold-toned metal",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The single dot at 12 is concave (Movado: 'black Museum with concave dot'): a polished shallow dish with a fine raised rim, about one-eighth of the case diameter across, standing slightly proud of the dial. A 1988 Movado Museum in a dealer's photographs appears to have the same dished dot.",
+   "confidence": "high",
+   "source": "https://www.movado.com/us/en/shop-watches/museum-classic-0607271.html"
+  },
+  {
+   "part": "printed markings",
+   "material": "gold-coloured print",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Tiny gold-coloured 'SWISS  MOVADO  MADE' lettering following the lower edge of the dial, flat print; there are no other markings.",
+   "confidence": "medium",
+   "source": "https://www.movado.com/us/en/shop-watches/museum-classic-0607271.html"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "yellow gold-toned metal (base metal not stated)",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Slim dauphine hands, each with two polished facets meeting at a central ridge; no lume and no seconds hand. A tiny pin shows at the centre, with no cap.",
+   "confidence": "high",
+   "source": "https://www.movado.com/us/en/shop-watches/museum-classic-0607271.html"
+  },
+  {
+   "part": "crystal",
+   "material": "sapphire",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Flat sapphire set almost flush with the bezel. Sapphire is stated by Movado; flatness is judged from its profile image, and any coating is not stated.",
+   "confidence": "medium",
+   "source": "https://www.movado.com/us/en/shop-watches/museum-classic-0607271.html"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "black calfskin",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Smooth black calf strap with a soft sheen and tone-on-tone stitching, filling the full width between the lugs.",
+   "confidence": "high",
+   "source": "https://www.movado.com/us/en/shop-watches/museum-classic-0607271.html"
+  }
+ ],
+ "lightBehaviour": [
+  "The polished gold bezel is the brightest part: a thin hard highlight runs round the ring and travels with the lamp, with dark reflections of the room between.",
+  "The concave dot works like a tiny bowl mirror: it shows a bright crescent on the side away from the lamp and a dark crescent on the lamp side, the reverse of a domed stud, and the two swap as the lamp crosses over.",
+  "Each dauphine hand has two facets: one lights up while the other goes dark, and they swap as the lamp or the hand turns. Against the black dial a hand can nearly vanish when both facets reflect something dark.",
+  "The dial is a deep, even black with a soft broad sheen and no sparkle, grain or sunray.",
+  "The flat sapphire gives one flat, sharp-edged reflection that covers part of the dial at glancing lamp angles."
+ ],
+ "geometry": "Thin round case, 40 mm across and 6.8 mm deep. The polished bezel is narrow, about a twentieth of the diameter on each side, with a fine inner step. Slim straight lugs sit close to the case and taper; small plain crown at 3, no guards, no pushers. Flat sapphire nearly flush with the bezel. The strap is the full lug width. The dial carries only the dot (its centre about three-quarters of the way from the centre to the dial edge at 12), two hands and tiny lettering at 6.",
+ "avoid": [
+  "Do not brush any part of the case; it is polished throughout.",
+  "Do not make the dot a flat disc or a domed stud on this variant: it is a concave dish with a fine rim. A flat applied gold disc belongs to Horwitt's 1947 watch and Movado's 1960s 14k pieces, which have stick hands.",
+  "Do not mix eras: thin stick hands and a domed acrylic crystal belong to the 1947 prototype and the 1960s Movados, not to the dauphine-handed Museum Classic.",
+  "No seconds hand, minute track, numerals or lume.",
+  "No sunray or textured dial; Movado's 'burst textured' dial is a different current reference (0607799).",
+  "It is yellow PVD over steel, not solid gold: keep the colour a clean yellow and do not add hallmarks or a warmer 18k tone."
+ ]
+}

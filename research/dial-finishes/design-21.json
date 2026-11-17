@@ -1,0 +1,198 @@
+{
+ "n": 21,
+ "designName": "Engine-turned Roman",
+ "isRealWatch": true,
+ "reference": "Breguet Classique 5157 in white gold, ref. 5157BB/11/9V6 (38 mm; extra-thin at 5.45 mm, which Breguet's own page rounds to 5.5 mm; current). It is the Classique that shows what is drawn: hours and minutes only, with no seconds and no date, a silvered engine-turned dial with a Roman chapter ring and a dotted minute track, blued Breguet hands and a silver-coloured case. It descends directly from A.-L. Breguet's own engine-turned dials. The real centre pattern is hobnail (Clous de Paris), not the concentric circles in the drawing. The fullest description and the close-up photographs are of the rose gold version (5157BR), which the Japanese magazine Chronos says differs only in metal and strap; the white gold watch was checked against a dealer's photographs and against Breguet's own page.",
+ "surfaces": [
+  {
+   "part": "bezel top",
+   "material": "18k white gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Narrow rounded bezel, polished. The case specification (given for the rose gold version, identical in form) is 'polished with fluted casebands, welded lugs'.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/hands-on-breguet-classique-extra-plate-5157-pink-gold-specs-price/"
+  },
+  {
+   "part": "bezel chamfer",
+   "material": "18k white gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Inside the rounded bezel a second, much thinner polished ring steps down to the crystal; it shows as a fine bright line running parallel to the bezel. Read from Monochrome's frontal photograph and the dealer's picture of the white gold watch.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/hands-on-breguet-classique-extra-plate-5157-pink-gold-specs-price/"
+  },
+  {
+   "part": "case flank",
+   "material": "18k white gold",
+   "finish": "textured",
+   "direction": "fine flutes running front to back across the case band, all the way round",
+   "detail": "Breguet's fluted case band ('the classic fluted case band'): 'fine grooves enhanced with double beading', cold-rolled and then finished by hand. It lies beneath the bezel, so straight on it is hidden or at most a faint serration along the outline.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/hands-on-breguet-classique-extra-plate-5157-pink-gold-specs-price/"
+  },
+  {
+   "part": "lug top",
+   "material": "18k white gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Thin, straight lugs 'welded onto the caseband', polished, and long enough that the watch 'wears slightly larger'. From the front they read as four slim bright bars with no bevels.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/hands-on-breguet-classique-extra-plate-5157-pink-gold-specs-price/"
+  },
+  {
+   "part": "screws",
+   "material": "18k white gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The strap is held by 'screw-pins, rather than the more usual sprung bars'. Their small rounded heads sit on the outer side of each lug tip and show from the front only as a slight bump, visible in the dealer's picture of the white gold watch.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/hands-on-breguet-classique-extra-plate-5157-pink-gold-specs-price/"
+  },
+  {
+   "part": "crown",
+   "material": "18k white gold",
+   "finish": "mirror polished",
+   "direction": "flutes parallel to the stem (9 to 3)",
+   "detail": "Small fluted crown, 'struck with the Breguet initial' on its end, with no crown guards.",
+   "confidence": "high",
+   "source": "https://www.breguet.com/en/watches/classique/classique-5157/5157bb119v6"
+  },
+  {
+   "part": "dial base",
+   "material": "18k gold, silvered",
+   "finish": "plated",
+   "direction": "n/a",
+   "detail": "Specification: 'solid gold, silver toned and hand-guillochéd dial'; Breguet itself says the dial is 'hand-engraved on a rose engine'. The colour is a bright silver-white, very slightly warm.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/hands-on-breguet-classique-extra-plate-5157-pink-gold-specs-price/"
+  },
+  {
+   "part": "dial texture",
+   "material": "18k gold, silvered",
+   "finish": "textured",
+   "direction": "two sets of straight cuts crossing at right angles on the diagonal, leaving a grid of tiny four-sided pyramids",
+   "detail": "Monochrome describes a fine 'clous de Paris' pattern in the centre, that is hobnail, and Chronos calls the Clous de Paris 'hand-engraved'. It fills the dial out to roughly 70 to 75 percent of its radius, with its rows on the diagonals, and looks paler and livelier than the chapter ring around it.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/hands-on-breguet-classique-extra-plate-5157-pink-gold-specs-price/"
+  },
+  {
+   "part": "other (three narrow guilloché borders)",
+   "material": "18k gold, silvered",
+   "finish": "textured",
+   "direction": "circular around the centre",
+   "detail": "Narrow engine-turned rings of tiny rectangular teeth divide centre from chapter ring and chapter ring from minute track, and close the dial at its edge. Monochrome names the dividing pattern 'pavé de Paris'; the description of its look is from the photographs.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/hands-on-breguet-classique-extra-plate-5157-pink-gold-specs-price/"
+  },
+  {
+   "part": "chapter ring",
+   "material": "18k gold, silvered",
+   "finish": "brushed",
+   "direction": "circular around the centre",
+   "detail": "The hour ring has 'circular brushed surfaces': a satin band that looks greyer than the engine-turned centre and shows bright wedges in Monochrome's photographs. The secret signature is etched into it on either side of XII and is 'all but invisible unless the dial was examined in oblique light'.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/hands-on-breguet-classique-extra-plate-5157-pink-gold-specs-price/"
+  },
+  {
+   "part": "other (minute-track band)",
+   "material": "18k gold, silvered",
+   "finish": "brushed",
+   "direction": "circular around the centre",
+   "detail": "The outer band that carries the minute dots, between the second and third guilloché borders, has the same circular satin as the chapter ring; the grain is plain in Monochrome's close-up of the top of the dial.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/hands-on-breguet-classique-extra-plate-5157-pink-gold-specs-price/"
+  },
+  {
+   "part": "other (signature and number plates)",
+   "material": "18k gold, silvered",
+   "finish": "brushed",
+   "direction": "circular around the centre",
+   "detail": "Two smooth reserves with scalloped ends interrupt the hobnail: BREGUET below XII and the individual number above VI. In photographs they share the satin finish of the chapter ring and join onto it.",
+   "confidence": "medium",
+   "source": "https://awco.nl/shop/archive/a-breguet/breguet-classique-ref-5157bb/"
+  },
+  {
+   "part": "printed markings",
+   "material": "black print",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Changed from gloss, which the earlier sheet gave as an assumption. Roman numerals in black on the chapter ring, set radially with their feet toward the centre so that VI is upside down, black dots for the minutes on the outer band and SWISS GUILLOCHÉ MAIN at the foot. They look printed, not applied, in every photograph, and in Monochrome's close-ups they stay flat black with no glint even where the satin ring beside them flashes. The sheen is still not stated by any source.",
+   "confidence": "low",
+   "source": "https://monochrome-watches.com/hands-on-breguet-classique-extra-plate-5157-pink-gold-specs-price/"
+  },
+  {
+   "part": "applied markers",
+   "material": "small metal studs, white on this version",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The five-minute points on the minute track are tiny round domed studs, white on the white gold watch (dealer's picture) and pink on the rose gold one (Monochrome's close-up, where each shows a point highlight and a dark reflection like a polished bead), sitting between the printed black minute dots. Read from photographs, not from a written specification; whether they are separate pins or the gold of the dial plate showing through the silvering is not established.",
+   "confidence": "medium",
+   "source": "https://awco.nl/shop/archive/a-breguet/breguet-classique-ref-5157bb/"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "steel",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "The maker describes 'blued open-tipped hands' and lists the hand material as steel and the hand type as 'Breguet hollow apple': a hair-thin stem with an off-centre ring near the tip. In photographs they are flat or very slightly rounded and read navy to black.",
+   "confidence": "high",
+   "source": "https://www.breguet.com/en/watches/classique/classique-5157/5157bb119v6"
+  },
+  {
+   "part": "centre cap and pinion",
+   "material": "steel",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "A round blued boss, the stacked hubs of the two hands, with the polished end of a steel pin at its centre showing as a small bright disc. Read from Monochrome's close-up of the centre.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/hands-on-breguet-classique-extra-plate-5157-pink-gold-specs-price/"
+  },
+  {
+   "part": "crystal",
+   "material": "sapphire",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Specification: 'sapphire crystal front and back'. It looks flat or very nearly flat in photographs; the amount of dome is not stated in anything I read.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/hands-on-breguet-classique-extra-plate-5157-pink-gold-specs-price/"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "black alligator leather",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "'The straps are alligator, and only the 5157BB comes in black.' It is held between the lugs on screw bars and fits close to the case.",
+   "confidence": "high",
+   "source": "https://en.webchronos.net/features/47032/"
+  },
+  {
+   "part": "other (parts this watch does not have)",
+   "material": "n/a",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No seconds hand, no date, no lume, no sub-dial, no bezel insert or bezel markings, no crown guards and no pushers.",
+   "confidence": "high",
+   "source": "https://www.breguet.com/en/watches/classique/classique-5157/5157bb119v6"
+  }
+ ],
+ "lightBehaviour": [
+  "The hobnail centre twinkles: each tiny pyramid has four faces, so as the lamp moves a different set of faces lights up and the whole field shimmers between bright silver-white and soft grey without forming a single hot spot.",
+  "The brushed chapter ring and the brushed minute-track band show bright radial streaks, at least two opposed wedges, that swing around the dial with the lamp; everywhere else they are darker than the centre.",
+  "The narrow guilloché borders sparkle as fine beaded rings and the five-minute studs glint as pin-points.",
+  "The blued hands are nearly black until they mirror the lamp, then electric blue; they are so thin that the flash is a hairline.",
+  "The polished rounded bezel carries a small sharp highlight that slides around it as the lamp moves, doubled by a finer line on its stepped inner rim.",
+  "The secret signature beside XII appears only when light rakes across the chapter ring at a low angle."
+ ],
+ "geometry": "Round and extremely flat: 38 mm across and about 5.5 mm high. A narrow rounded polished bezel with a stepped inner rim sits over a fluted case band that is hidden from the front. The lugs are thin, straight, welded bars, long for the size and 20 mm apart, with small screw-pin heads at their tips. A small fluted crown sits at 3 with no guards and there are no pushers. The sapphire crystal is close to flat and the alligator strap fits tight between the lugs. Measured roughly from photographs, the hobnail field reaches about 70 to 75 percent of the dial radius, the brushed chapter ring about 88 to 90 percent and the minute track about 97 percent, each zone divided by a narrow border.",
+ "avoid": [
+  "Concentric-circle or sunburst engine-turning in the centre: the 5157 has Clous de Paris hobnail.",
+  "Engine-turning the chapter ring or the minute-track band: both are plain circular satin, which is why they look darker than the centre.",
+  "A white enamel dial with Arabic numerals, a seconds hand or a date: those are other Classique references.",
+  "Applied Roman numerals: they are printed black.",
+  "Painted blue, gold or thick hands: they are hair-thin blued steel.",
+  "Thick, curved, blended lugs: these are thin straight welded bars.",
+  "Sixty identical minute dots: the five-minute points are small metal studs.",
+  "Showing the fluted case band from the front, or rendering white gold as cold chrome."
+ ]
+}

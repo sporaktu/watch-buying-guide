@@ -1,0 +1,169 @@
+{
+ "n": 3,
+ "designName": "Bauhaus line dial",
+ "isRealWatch": true,
+ "reference": "Junghans max bill Automatic with the line-index dial and date, item no. 27/4002.46 (38 mm, current production with sapphire crystal and Milanaise bracelet; earlier versions of the same watch had a domed Plexiglas crystal). The drawing has hairline hour and minute lines with no numerals and a date at 3. That rules out the 34 mm hand-wound model that continues Max Bill's 1961 wristwatches (it has no date) and the numeral dials (27/3500 and, with date, 27/4700). The same line dial without date is 27/3501.02. The specification quoted is the maker's own: junghans.de redirects its product pages to junghans-shop.com, and the page for item 27/4002.46 was read again for this check. Two things the drawing shows differently: its hands are black and it has no lume dots, where the real watch has polished steel hands and five lume dots.",
+ "surfaces": [
+  {
+   "part": "bezel top",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "There is no bezel in the usual sense: a polished rim about 1 mm wide holds the domed crystal, so the dial runs almost to the edge (a reviewer of the same case: 'The bezel is quite thin so the watch face is almost all dial'). Maker's specification for this reference: 'Polished stainless steel'.",
+   "confidence": "high",
+   "source": "https://junghans-shop.com/collections/max-bill/max-bill-automatic-6/"
+  },
+  {
+   "part": "case flank",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "'The whole case is polished': written about the anthracite ref. 3401, whose case the reviewer calls 'identical to what you'll find on the rest of Max Bill's 3-handed automatics', and matched by the maker's 'Polished stainless steel' for 27/4002.46. The mid-case is sculpted with bevels that taper toward the back, so only a hairline of it shows from the front. There is no brushed surface anywhere on this case to contrast with the polish.",
+   "confidence": "high",
+   "source": "https://wornandwound.com/review/junghans-max-bill-anthracite-ref-3401review/"
+  },
+  {
+   "part": "lug top",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Short, squat lugs at the corners of the case, polished on every face. From the front each is a small bright tab whose flat top meets its sides at sharp edges, with no separate bevel finish.",
+   "confidence": "high",
+   "source": "https://wornandwound.com/review/junghans-max-bill-anthracite-ref-3401review/"
+  },
+  {
+   "part": "crown",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "flutes parallel to the stem (9 to 3)",
+   "detail": "Small crown with fine straight knurling and no crown guards. 'Plain and unsigned' comes from the 2015 review of ref. 3401; the end of the crown cannot be seen in the maker's pictures of 27/4002.46, so whether today's crown is still unsigned is not confirmed.",
+   "confidence": "medium",
+   "source": "https://wornandwound.com/review/junghans-max-bill-anthracite-ref-3401review/"
+  },
+  {
+   "part": "dial base",
+   "material": "matt silver-plated metal dial",
+   "finish": "matte",
+   "direction": "n/a",
+   "detail": "Maker's specification: 'Matt silver-plated'. The dial is convex, not flat: the review of ref. 3401 says 'It's curved', and the review of the silver ref. 3500 speaks of the 'convex dial'. In the maker's pictures it is an even silvery white with soft shading toward the edge.",
+   "confidence": "high",
+   "source": "https://junghans-shop.com/collections/max-bill/max-bill-automatic-6/"
+  },
+  {
+   "part": "dial texture",
+   "material": "matt silver-plated metal dial",
+   "finish": "matte",
+   "direction": "n/a",
+   "detail": "No pattern at all: a plain, very fine silver grain. Of the silver ref. 3500, which has the same dial finish, the reviewer writes that it 'varies in color depending on the light' and 'often looks white, but under certain conditions the silver grain becomes visible'.",
+   "confidence": "high",
+   "source": "https://wornandwound.com/review/hands-on-with-max-bill-watches-by-junghans/"
+  },
+  {
+   "part": "printed markings",
+   "material": "black print",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Twelve long hairline hour lines and forty-eight short minute lines, JUNGHANS AUTOMATIC and MADE IN GERMANY, all printed in black with nothing applied; the line at 3 is cut short for the date and the lines at 12, 3, 6 and 9 are interrupted by the lume dots. Whether the ink is matte or slightly glossy is not stated anywhere I read, so matte is an assumption.",
+   "confidence": "medium",
+   "source": "https://junghans-shop.com/collections/max-bill/max-bill-automatic-6/"
+  },
+  {
+   "part": "lume",
+   "material": "luminous compound, pale green-cream by day",
+   "finish": "lume",
+   "direction": "n/a",
+   "detail": "Small dots on the minute track, two at 12 and one each at 3, 6 and 9, each inside a thin printed black ring, plus a narrow strip down the middle of the hour and minute hands. Maker: 'minute track and hands with luminous substance'; the dots are plain in the maker's product picture. The drawing leaves them out.",
+   "confidence": "high",
+   "source": "https://junghans-shop.com/collections/max-bill/max-bill-automatic-6/"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Slim pointed hands of polished steel with a lume strip along the centre: they look black only when they reflect something dark. The wording 'thin and elegant polished steel with pointed ends' is from the review of the anthracite ref. 3401; on the white 27/4002.46 itself the maker's product picture shows the same hands as grey metal and the maker's wrist picture shows them flashing white. The minute hand is 'ever so slightly curved' at the tip 'to match the curvature of the dial'.",
+   "confidence": "high",
+   "source": "https://wornandwound.com/review/junghans-max-bill-anthracite-ref-3401review/"
+  },
+  {
+   "part": "seconds hand",
+   "material": "steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A 'remarkably thin' needle that tapers toward the tip, with a short, slightly wider tail; bright metal in the maker's pictures. Its tip also curves toward the dial.",
+   "confidence": "medium",
+   "source": "https://wornandwound.com/review/junghans-max-bill-anthracite-ref-3401review/"
+  },
+  {
+   "part": "centre cap and pinion",
+   "material": "steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A small polished steel boss: the stacked hubs of the three hands with the round cap of the seconds hand on top, showing as two or three concentric bright rings. Read from the maker's product picture; the drawing shows a black dot.",
+   "confidence": "medium",
+   "source": "https://junghans-shop.com/collections/max-bill/max-bill-automatic-6/"
+  },
+  {
+   "part": "date window frame",
+   "material": "none (aperture cut in the dial)",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No applied frame. Monochrome describes the same dial family as having 'a bevelled rectangular window for the date at 3 o'clock'; in the maker's picture of 27/4002.46 it is a small rectangle with a narrow, lighter sloping edge on all four sides, just inboard of the shortened 3 o'clock line.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/junghans-max-bill-edition-60-set-3-watches-introducing-price/"
+  },
+  {
+   "part": "date disc",
+   "material": "printed date ring",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "White to silver-white, matching the dial, with black sans-serif numerals, sitting visibly below the dial surface. Read from the maker's product picture.",
+   "confidence": "high",
+   "source": "https://junghans-shop.com/collections/max-bill/max-bill-automatic-6/"
+  },
+  {
+   "part": "crystal",
+   "material": "sapphire with anti-reflective coating (hard Plexiglas with a Sicralan coating on earlier versions)",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Maker's specification: 'Domed, anti-reflective sapphire crystal'. The dome is tall and reaches nearly to the case edge; of the older acrylic version the reviewer writes that it 'first rises straight up before curving toward the center', and the sapphire keeps that profile in the maker's side view.",
+   "confidence": "high",
+   "source": "https://junghans-shop.com/collections/max-bill/max-bill-automatic-6/"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "stainless steel Milanese mesh (black leather on sibling references)",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Item 27/4002.46 is delivered on a 'Milanaise bracelet with safety buckle', a fine steel mesh whose straight end bar sits between the lugs. The same dial without date (27/3501.02) is listed by the maker with a 'Black leather strap with stainless steel buckle', which is the classic alternative.",
+   "confidence": "high",
+   "source": "https://junghans-shop.com/collections/max-bill/max-bill-automatic-6/"
+  },
+  {
+   "part": "other (parts this watch does not have)",
+   "material": "n/a",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No bezel insert or bezel markings, no applied markers or surrounds, no sub-dial, no crown guards, no pushers and no screws visible from the front.",
+   "confidence": "high",
+   "source": "https://junghans-shop.com/collections/max-bill/max-bill-automatic-6/"
+  }
+ ],
+ "lightBehaviour": [
+  "The tall domed crystal is the brightest thing on the watch: the lamp appears as a compact highlight on the dome that travels across it as the lamp moves, and the near-vertical wall of the crystal at the rim shows a thin bright line on the lamp side.",
+  "The matt silver dial never shows a hot spot: it drifts softly between flat white and pale silver-grey, with the plating grain visible only in raking light.",
+  "The polished hands flip between near-black and bright silver-white as they pass the angle that mirrors the lamp, while the lume strip stays the same pale tone throughout.",
+  "The thin polished rim, the small lug faces and the centre boss give sharp pin-point glints that jump from one face to the next instead of gliding.",
+  "The printed black lines stay flat black from every angle; near the rim the dome makes them appear to bend slightly when the watch is not viewed dead on."
+ ],
+ "geometry": "Round, 38 mm across and 10 mm high, and almost all dial: the polished rim around the crystal is only about 1 mm wide. The lugs are short, stubby and straight, set at the corners so that the watch measures only about 40 mm from lug tip to lug tip according to an owner's review, and 20 mm apart. A small knurled crown sits at 3 with no guards and there are no pushers. The crystal is a tall dome that rises nearly straight up at the edge. The dial is convex, carries printed lines only, and has a small unframed date aperture at 3.",
+ "avoid": [
+  "Black-painted hands: the real ones are mirror-polished steel with a lume strip and only look dark by reflection.",
+  "A visible bezel ring or any brushed surface: the case is polished all over and nearly rimless.",
+  "A glossy white, enamel-white or sunray dial: it is matt silver-plated.",
+  "Applied markers or a framed date window: everything is printed and the date is a bare cut-out over a white disc.",
+  "Numerals, a red date or coloured hand inlays: those belong to the numeral references (27/3500, 27/4700) and to special editions.",
+  "A flat crystal: the tall dome is the signature of the design.",
+  "Crown guards."
+ ]
+}

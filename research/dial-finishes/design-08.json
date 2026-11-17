@@ -1,0 +1,253 @@
+{
+ "n": 8,
+ "designName": "Black dive watch",
+ "isRealWatch": true,
+ "reference": "Rolex Submariner Date ref. 126610LN (Oystersteel, 41 mm, 2020 to present). The drawing shows a date at 3, lume plots with white-metal surrounds, silver Mercedes hands and a black 60-minute bezel with a lume pearl. That combination fits the 16610 (1988-2010), the 116610LN (2010-20) and the 126610LN alike; nothing drawn separates them and the caption names no year, so this follows the current watch, which is also the best documented. Checked against Rolex's 2020 release text and against Monochrome's review and macro photographs of the 126610LV, the same watch with a green insert (its dial 'is the same as the LN model'). The one finish that changes with era is the bezel insert: polished ceramic here, satin anodised aluminium on the 16610. The brushing direction on the lugs also changed over time: straight on this case, angled on older ones.",
+ "surfaces": [
+  {
+   "part": "case top",
+   "material": "Oystersteel (904L-family stainless steel)",
+   "finish": "brushed",
+   "direction": "straight vertical (12 to 6)",
+   "detail": "Nearly all of the case top is hidden by the bezel; what shows is the lug tops and a strip beside the crown guards. Monochrome: 'the case combines straight brushed surfaces on the flat areas and polished accents on the sides'. Measured on its top-down photograph, the grain lies within 5 to 9 degrees of the 12-6 line on three lugs.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/rolex-submariner-date-126610lv-in-depth-review-specs-price/"
+  },
+  {
+   "part": "lug top",
+   "material": "Oystersteel",
+   "finish": "brushed",
+   "direction": "straight vertical (12 to 6)",
+   "detail": "Flat lug tops brushed lengthwise with the same grain as the end link and bracelet, so lug and end link read as one surface. They meet the polished flank at a crisp edge.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/rolex-submariner-date-126610lv-in-depth-review-specs-price/"
+  },
+  {
+   "part": "lug chamfer",
+   "material": "none (not present)",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Not present. Monochrome: 'As with all modern models, no more polished bevels on the side of the lugs'. The brushed top turns straight into the polished side.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/rolex-submariner-date-126610lv-in-depth-review-specs-price/"
+  },
+  {
+   "part": "case flank",
+   "material": "Oystersteel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Sides of case and lugs are mirror polished ('polished accents on the sides'); in the side-on macro they reflect their surroundings sharply. From the front they show only as a thin bright outline outside each lug.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/rolex-submariner-date-126610lv-in-depth-review-specs-price/"
+  },
+  {
+   "part": "crown guard",
+   "material": "Oystersteel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Two short shoulders above and below the crown ('well protected by lateral guards'; Rolex calls it 'an integral crown guard'). In the top-down and side-on macros their upper faces and sides give hard bright and dark reflections with no grain, so they are polished like the flank. No written description of their finish was found.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/rolex-submariner-date-126610lv-in-depth-review-specs-price/"
+  },
+  {
+   "part": "crown",
+   "material": "Oystersteel",
+   "finish": "mirror polished",
+   "direction": "flutes parallel to the stem (9 to 3)",
+   "detail": "Screw-down Triplock crown with deep straight fluting. The flats of the flutes and the end cap (coronet over three dots, in relief) are polished; the grooves read dark. Finish read from two macro photographs.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/rolex-submariner-date-126610lv-in-depth-review-specs-price/"
+  },
+  {
+   "part": "bezel edge",
+   "material": "Oystersteel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A rim of rounded scallops (Rolex: 'The bezel's knurled edge offers excellent grip'). In the side-on macro the crests and the top lip are mirror polished, while the hollows between them carry fine vertical tool marks and read darker and satin. From the front: a ring of small bright bumps separated by dark notches, plus a hairline polished lip round the insert. The rim slightly overhangs the case.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/rolex-submariner-date-126610lv-in-depth-review-specs-price/"
+  },
+  {
+   "part": "bezel insert",
+   "material": "black ceramic (Cerachrom), one piece",
+   "finish": "polished ceramic",
+   "direction": "n/a",
+   "detail": "A one-piece ring shaped as a very shallow cone that stands highest beside the crystal, polished to a hard glassy gloss ('the insert is polished'). It mirrors a lamp as a sharp-edged streak, not a soft glow.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/rolex-submariner-date-126610lv-in-depth-review-specs-price/"
+  },
+  {
+   "part": "bezel markings",
+   "material": "platinum deposited by PVD in moulded recesses",
+   "finish": "plated",
+   "direction": "n/a",
+   "detail": "Numerals at 10 to 50, bars at the fives, minute ticks for the first 15 minutes and the zero triangle are sunk into the ceramic and coated with platinum ('The moulded, recessed graduations and numerals are coated with platinum'). In macro they are a pale, matte, finely grained silver-grey that does not flash.",
+   "confidence": "high",
+   "source": "https://escapementmagazine.com/articles/introducing-the-new-2020-rolex-submariner-models/"
+  },
+  {
+   "part": "other (luminous pearl in the bezel's zero triangle)",
+   "material": "luminous capsule in a polished metal ring",
+   "finish": "lume",
+   "direction": "n/a",
+   "detail": "Rolex: 'the triangular zero marker is also visible in darkness thanks to a capsule containing the same luminescent material'. In macro it is a small white dome held in a polished ring in the middle of the triangle. The metal of the ring is not confirmed.",
+   "confidence": "medium",
+   "source": "https://escapementmagazine.com/articles/introducing-the-new-2020-rolex-submariner-models/"
+  },
+  {
+   "part": "dial base",
+   "material": "black lacquer on a brass plate",
+   "finish": "gloss lacquer",
+   "direction": "n/a",
+   "detail": "Deep glassy black: 'a glossy lacquered black background'. It carries faint reflections of the hands and markers above it.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/rolex-submariner-date-126610lv-in-depth-review-specs-price/"
+  },
+  {
+   "part": "printed markings",
+   "material": "white print",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Minute track, coronet and text are printed in opaque white, very slightly raised. They do not flash. (Sheen judged from the macro photographs.)",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/rolex-submariner-date-126610lv-in-depth-review-specs-price/"
+  },
+  {
+   "part": "applied markers",
+   "material": "18 ct white gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Raised round markers, bars at 6 and 9 and a triangle at 12 ('hour markers and hands in polished 18k white gold, filled with blue glow Chromalight'). Each is a shallow polished cup filled level with lume.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/rolex-submariner-date-126610lv-in-depth-review-specs-price/"
+  },
+  {
+   "part": "marker surrounds",
+   "material": "18 ct white gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The thin raised rims of those cups, visible round every lume plot. Being mirror metal they flip between bright white and near black depending on what they reflect.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/rolex-submariner-date-126610lv-in-depth-review-specs-price/"
+  },
+  {
+   "part": "lume",
+   "material": "Chromalight",
+   "finish": "lume",
+   "direction": "n/a",
+   "detail": "Flat matte white fill with a very fine grain in markers and hands, no gloss. White by day, blue glow in the dark.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/rolex-submariner-date-126610lv-in-depth-review-specs-price/"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "18 ct white gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Mercedes hour hand and straight pointed minute hand: flat polished frames around lume panels.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/rolex-submariner-date-126610lv-in-depth-review-specs-price/"
+  },
+  {
+   "part": "seconds hand",
+   "material": "18 ct white gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Thin polished needle with a small lume disc in a polished ring about two-thirds of the way out, and a short tail.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/rolex-submariner-date-126610lv-in-depth-review-specs-price/"
+  },
+  {
+   "part": "centre cap and pinion",
+   "material": "18 ct white gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The boss of the seconds hand covers the centre: a small polished disc with a polished pin in the middle (macro photograph).",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/rolex-submariner-date-126610lv-in-depth-review-specs-price/"
+  },
+  {
+   "part": "date window frame",
+   "material": "none (an opening cut in the dial)",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No applied frame. The opening is cut straight into the lacquered dial and its cut edge shows as a thin pale line. Under the Cyclops it appears enlarged with softened corners.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/rolex-submariner-date-126610lv-in-depth-review-specs-price/"
+  },
+  {
+   "part": "date disc",
+   "material": "printed disc",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "White disc with a fine, slightly silvery matte texture and black numerals (macro photograph).",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/rolex-submariner-date-126610lv-in-depth-review-specs-price/"
+  },
+  {
+   "part": "crystal",
+   "material": "sapphire",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Flat sapphire standing slightly proud of the insert with a narrow polished bevel at its edge. Monochrome reports 'an anti-reflective coating on the inner side of the crystal'; Rolex's own release text does not mention a coating, so that rests on one reviewer. The outer face is uncoated and still throws a strong glare at the right angle.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/rolex-submariner-date-126610lv-in-depth-review-specs-price/"
+  },
+  {
+   "part": "other (Cyclops lens over the date)",
+   "material": "sapphire",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "A small convex lens on the outside of the crystal over the date at 3 ('the emblematic \"cyclops\" magnifier over the date'). It stands above the crystal, carries its own curved highlight and enlarges the date and its window. In one macro it shows a faint magenta tint.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/rolex-submariner-date-126610lv-in-depth-review-specs-price/"
+  },
+  {
+   "part": "other (rehaut: the inner flange between dial and crystal)",
+   "material": "Oystersteel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A steep ring engraved with ROLEX repeated all the way round and a coronet at 12. The cited review does not mention it; this is read from its macros. The ring is reflective and the engraved letters are frosted, so the letters read pale when the ring reflects something dark and dark when it reflects something bright.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/rolex-submariner-date-126610lv-in-depth-review-specs-price/"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "Oystersteel Oyster bracelet with solid end link",
+   "finish": "brushed",
+   "direction": "straight vertical (12 to 6)",
+   "detail": "Flat three-piece links and the end link are all satin-brushed lengthwise on top; only the outer side edges are polished ('satin-finished with polished edges').",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/rolex-submariner-date-126610lv-in-depth-review-specs-price/"
+  },
+  {
+   "part": "other (parts this watch does not have)",
+   "material": "n/a",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No pushers, no visible screws, no sub-dials, no applied frame round the date.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/rolex-submariner-date-126610lv-in-depth-review-specs-price/"
+  }
+ ],
+ "lightBehaviour": [
+  "The ceramic insert is the sharpest reflector: a lamp appears as a crisp bright streak that travels round the ring as the lamp moves, while the sunken platinum numerals stay a flat pale grey.",
+  "Lug tops, end link and bracelet all carry the same straight 12-to-6 grain, so they brighten and dim together: a soft sheen that is strongest with the lamp to the left or right (across the grain) and weakest with it above or below (along the grain). They never mirror.",
+  "Polished flanks, crown guards and the crests of the bezel scallops are thin hard sparkles on the outline that switch on and off quickly; the hollows between the scallops stay dark.",
+  "White-gold surrounds and hands blink between white and black; the lume inside them stays an even matte white.",
+  "The gloss dial stays black but shows a soft moving reflection. The flat crystal can throw one broad glare across the whole window, and the Cyclops adds a small curved highlight of its own.",
+  "The rehaut is a thin reflective ring round the dial, broken up by the frosted engraved letters."
+ ],
+ "geometry": "Round 41 mm Oyster case. Straight, tapering lugs with flat tops, 21 mm apart, no bevels. Rotating bezel slightly wider than the case middle, with a scalloped rim and an insert about a fifth of the radius wide that rises very gently toward the crystal. Screw-down crown at 3 between two crown guards. No pushers and no visible screws. Flat sapphire crystal raised a little above the insert, with a Cyclops bubble at 3. Solid Oyster end link filling the space between the lugs.",
+ "avoid": [
+  "Do not give the insert the soft satin sheen of anodised aluminium with flush silver numerals: that is the 16610 and earlier. If that era is preferred, everything else here (gloss dial, white-gold surrounds, brushed tops, polished flanks, all-brushed bracelet) still applies.",
+  "Do not make the bezel numerals bright white paint or mirror metal: they are matte platinum-grey and sunken.",
+  "Do not polish the centre links of the bracelet: on a steel Submariner all three links are brushed (polished centre links belong to the GMT-Master II and Daytona).",
+  "Do not add a polished bevel to the lugs: that belongs to vintage and older Submariners.",
+  "Do not sweep the lug brushing round the bezel or set it at an angle: that is how older Rolex cases were finished. Here it runs straight from 12 to 6, in line with the bracelet.",
+  "Do not make the dial matte with painted plots: that is the 5513 and 1680 of about 1967 to 1984.",
+  "Do not brush the case flanks or crown guards.",
+  "Lume is white by day, not cream; cream is aged tritium on old watches.",
+  "If the date is drawn, the Cyclops belongs over it."
+ ]
+}

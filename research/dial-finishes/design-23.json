@@ -1,0 +1,224 @@
+{
+ "n": 23,
+ "designName": "Snow-textured dial",
+ "isRealWatch": true,
+ "reference": "Grand Seiko Heritage Collection Spring Drive 'Snowflake', ref. SBGA211 (the Grand Seiko-signed model; from memory it succeeded the Seiko-signed SBGA011 with the same case and dial texture). Chosen because the drawing shows exactly this layout: power-reserve indicator at 7-8, date at 3, blued centre seconds, dauphine hands and faceted batons with a broader marker at 12 on a white textured dial. Checked against the drawing's definition and kept. Finishes rest on two hands-on reviews that state them in words (Worn & Wound, Monochrome), on Grand Seiko's page, and on Worn & Wound's macro photographs.",
+ "surfaces": [
+  {
+   "part": "bezel top",
+   "material": "high-intensity titanium",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A narrow, smoothly sloping bezel, Zaratsu mirror-polished (Worn & Wound: the lugs enwrap 'a polished bezel'). A thin bright step sits inside it against the crystal in Grand Seiko's product image.",
+   "confidence": "high",
+   "source": "https://wornandwound.com/review/review-the-grand-seiko-sbga211-snowflake/"
+  },
+  {
+   "part": "case top",
+   "material": "high-intensity titanium",
+   "finish": "brushed",
+   "direction": "straight vertical (12 to 6)",
+   "detail": "Outside the bezel the only top surface is a band running from lug to lug on each side, hairline-brushed. Worn & Wound: 'Wide bands of brushing run across the entirety of the watch with a vertical grain, gently bowing out to be tangent to the bezel at three and nine'. At 3 and 9 the band pinches out, so the polished bezel meets the polished bevel there.",
+   "confidence": "high",
+   "source": "https://wornandwound.com/review/review-the-grand-seiko-sbga211-snowflake/"
+  },
+  {
+   "part": "lug top",
+   "material": "high-intensity titanium",
+   "finish": "brushed",
+   "direction": "straight vertical (12 to 6)",
+   "detail": "Wide flat lug tops with fine, even hairline brushing running lengthwise, continuous with the case top and matched by the bracelet.",
+   "confidence": "high",
+   "source": "https://wornandwound.com/review/review-the-grand-seiko-sbga211-snowflake/"
+  },
+  {
+   "part": "lug chamfer",
+   "material": "high-intensity titanium",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "'The brushing terminates in a perfectly sharp line, leading to a Zaratsu polished bevel that runs along the edge of the case of both sides' (Worn & Wound). The bevel is wide and flat and runs the whole length of each side, lug tip to lug tip.",
+   "confidence": "high",
+   "source": "https://wornandwound.com/review/review-the-grand-seiko-sbga211-snowflake/"
+  },
+  {
+   "part": "case flank",
+   "material": "high-intensity titanium",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Below the bevel the case tapers in toward the back, and Worn & Wound says 'This surface is also fully polished'. From the front it barely shows.",
+   "confidence": "high",
+   "source": "https://wornandwound.com/review/review-the-grand-seiko-sbga211-snowflake/"
+  },
+  {
+   "part": "crown",
+   "material": "titanium (assumed, as the case)",
+   "finish": "mirror polished",
+   "direction": "flutes parallel to the stem (9 to 3)",
+   "detail": "Deeply fluted screw-down crown at 3 with bright flutes, 'slightly recessed for protection' (Monochrome) rather than set behind guards. The polish is read from Grand Seiko's image.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/grand-seiko-spring-drive-snowflake-sbga211-review-price/"
+  },
+  {
+   "part": "dial base",
+   "material": "stamped metal blank, silver-plated under translucent coats",
+   "finish": "plated",
+   "direction": "n/a",
+   "detail": "The white is not paint: Grand Seiko says the dial 'is not painted white but is made by a special silver-plating process'. It reads as a soft, faintly pearly matte white.",
+   "confidence": "high",
+   "source": "https://www.grand-seiko.com/us-en/collections/sbga211g"
+  },
+  {
+   "part": "dial texture",
+   "material": "stamped relief",
+   "finish": "textured",
+   "direction": "irregular, drifting loosely from 12 to 6",
+   "detail": "The 'Snowflake' pattern is a fine irregular relief like wind-crusted snow or handmade paper, stamped into the blank before plating (Monochrome). It has no repeat and no sunray; its short broken ridges run roughly 12 to 6 in both Grand Seiko's image and Worn & Wound's macro.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/grand-seiko-spring-drive-snowflake-sbga211-review-price/"
+  },
+  {
+   "part": "sub-dial",
+   "material": "recessed lower dial layer, silver",
+   "finish": "textured",
+   "direction": "circular around the sub-dial's own centre",
+   "detail": "The power-reserve indicator at 7-8 is a fan-shaped window cut through the snow surface to a lower layer (Worn & Wound: 'visible on a sub-layer cut through the lovely snowy surface'). Its floor carries fine concentric grooves centred on the pointer's pivot. Along the outer arc runs a band of bolder radial flutes that narrows along its length, the 'slightly graduating scale', with a small black printed block at each end. There are no numerals.",
+   "confidence": "high",
+   "source": "https://wornandwound.com/review/review-the-grand-seiko-sbga211-snowflake/"
+  },
+  {
+   "part": "applied markers",
+   "material": "polished metal, alloy not stated",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Tall applied batons with a flat mirror top and bevelled mirror sides (Worn & Wound: 'flat mirrored surfaces on all sides'), slightly tapered; broader at 12 and none at 3.",
+   "confidence": "high",
+   "source": "https://wornandwound.com/review/review-the-grand-seiko-sbga211-snowflake/"
+  },
+  {
+   "part": "other (applied GS emblem)",
+   "material": "polished metal",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A small applied polished emblem sits above the printed name under 12. The unbranded drawing leaves both off.",
+   "confidence": "medium",
+   "source": "https://www.grand-seiko.com/us-en/collections/sbga211g"
+  },
+  {
+   "part": "printed markings",
+   "material": "black and blue print",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Small black minute blocks round the edge, with a bolder one beside the date, and a black gothic maker's name under 12. SPRING DRIVE is printed in dark blue above 6.",
+   "confidence": "high",
+   "source": "https://www.grand-seiko.com/us-en/collections/sbga211g"
+  },
+  {
+   "part": "lume",
+   "material": "none",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "There is no luminous material anywhere on the hands or dial (Monochrome notes 'the absence of luminous material on the hands and dial').",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/grand-seiko-spring-drive-snowflake-sbga211-review-price/"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "polished metal (steel, according to Monochrome)",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Broad dauphine hands, diamond-cut. Worn & Wound: they are 'perfectly polished on top as well as on the razor-sharp bevels'. Each is a flat mirror top between two bevels, tapering to a sharp point.",
+   "confidence": "high",
+   "source": "https://wornandwound.com/review/review-the-grand-seiko-sbga211-snowflake/"
+  },
+  {
+   "part": "seconds hand",
+   "material": "tempered steel",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "A fine tapering blued-steel needle with a short broader tail (Grand Seiko: 'blue tempered steel seconds hand'). It glides continuously rather than ticking.",
+   "confidence": "high",
+   "source": "https://www.grand-seiko.com/us-en/collections/sbga211g"
+  },
+  {
+   "part": "other hands",
+   "material": "polished metal, alloy not stated",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The power-reserve pointer is a short tapered polished hand on a round polished boss.",
+   "confidence": "high",
+   "source": "https://wornandwound.com/review/review-the-grand-seiko-sbga211-snowflake/"
+  },
+  {
+   "part": "centre cap and pinion",
+   "material": "blued steel hub with a bright pin",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "The seconds hand's round hub tops the stack and is blued like the hand, with a small bright dot at its centre (read from Grand Seiko's image and Worn & Wound's macro).",
+   "confidence": "medium",
+   "source": "https://www.grand-seiko.com/us-en/collections/sbga211g"
+  },
+  {
+   "part": "date window frame",
+   "material": "polished metal",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A raised rectangular frame at 3 with polished bevels (Worn & Wound: 'a square polished frame').",
+   "confidence": "high",
+   "source": "https://wornandwound.com/review/review-the-grand-seiko-sbga211-snowflake/"
+  },
+  {
+   "part": "date disc",
+   "material": "printed disc",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "White with black numerals (Worn & Wound: 'a black on white date disk').",
+   "confidence": "high",
+   "source": "https://wornandwound.com/review/review-the-grand-seiko-sbga211-snowflake/"
+  },
+  {
+   "part": "crystal",
+   "material": "sapphire",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "'Dual-curved sapphire crystal', gently domed, with 'Anti-reflective coating on inner surface' only (Grand Seiko).",
+   "confidence": "high",
+   "source": "https://www.grand-seiko.com/us-en/collections/sbga211g"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "high-intensity titanium",
+   "finish": "brushed",
+   "direction": "straight vertical (12 to 6)",
+   "detail": "Five-row bracelet: 'three brushed links alternating with two thin polished links' (Worn & Wound), with brushing that 'matches the lugs perfectly'.",
+   "confidence": "high",
+   "source": "https://wornandwound.com/review/review-the-grand-seiko-sbga211-snowflake/"
+  },
+  {
+   "part": "other (not present)",
+   "material": "n/a",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No bezel insert or markings, no pushers, no screws, no crown guards.",
+   "confidence": "high",
+   "source": "https://www.grand-seiko.com/us-en/collections/sbga211g"
+  }
+ ],
+ "lightBehaviour": [
+  "The Zaratsu bezel and lug bevels behave as flat, undistorted mirrors: each plane turns white or black all at once as the lamp crosses its reflection angle, with hard edges.",
+  "The hairline lug tops and bracelet rows never mirror; they keep a soft linear sheen and stay mid-grey when the polished planes beside them go black.",
+  "The dial shows its texture only through tiny shadows: raking light from the side deepens the snow most, because the ridges run 12 to 6; frontal light flattens it to plain white, and it never goes glossy.",
+  "Each hand and marker facet is its own mirror, so a hand usually shows one bright and one dark plane that swap as the lamp or the hand moves, with a razor-sharp line between them.",
+  "The blued seconds hand swings from bright cobalt to almost black with angle; the power-reserve fan shows a small bow-tie sheen from its concentric grooves and a sparkle along its fluted rim."
+ ],
+ "geometry": "Round case 41 mm across, 49 mm lug to lug and 12.5 mm thick. A narrow sloping bezel surrounds a gently domed sapphire. Broad lugs flow straight out of the case with no step, each with a flat brushed top and a wide flat polished bevel on its outer side; the brushed band narrows to nothing at 3 and 9, where the bezel touches the bevel. Crown at 3, half sunk into the flank, no guards. 20 mm bracelet.",
+ "avoid": [
+  "Do not render the dial as white paint, lacquer or enamel, or give it a regular pattern or sunray: it is an irregular stamped relief under silver plating.",
+  "Do not stretch the snow texture sideways as the current sketch's noise does (it varies more slowly along 9-3): the real ridges run roughly 12 to 6.",
+  "No lume anywhere: hands and markers are solid polished metal.",
+  "Do not brush the bezel or polish the lug tops, and keep the line between hairline top and polished bevel sharp, never blended.",
+  "Do not draw the hands as flat two-tone triangles: they are multi-faceted mirrors. Only the seconds hand is blue.",
+  "The case is titanium (Grand Seiko's 'High-Intensity Titanium'), not steel. From memory titanium reads a touch greyer than steel, but the maker's images show it bright, so keep it close to a steel tone rather than dark grey.",
+  "The power reserve is a recessed fan with concentric grooves and a fluted rim, with no numerals, not a printed arc with ticks as in the current sketch.",
+  "From memory, the Seiko-signed predecessor SBGA011 has SEIKO at 12 with the GS emblem lower on the dial; the SBGA211 has the GS emblem and Grand Seiko at 12."
+ ]
+}

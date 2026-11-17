@@ -1,0 +1,170 @@
+{
+ "n": 13,
+ "designName": "Rectangular Roman",
+ "isRealWatch": true,
+ "reference": "Cartier Tank Louis Cartier in 18k yellow gold, 33.7 x 25.5 mm two-hand quartz model, ref. WGTA0343. Cartier's page confirms the reference: yellow gold, quartz, 'Grained silvered dial', 'Blued-steel sword-shaped hands', 'Mineral crystal'. Chosen because the drawing has a gold case, a pale dial with black radial Roman numerals round a rectangular railway track, blued sword hands, and no seconds hand or date. Checked against the drawing's definition and kept; the rounded brancards rule out the flat-topped early Tank. Finishes were read from Cartier's own close-up and compared with independent photographs of hand-wound Tank Louis Cartier models with the same 33.7 x 25.5 mm footprint (Oracle of Time, SJX, Fratello); those siblings are slightly thicker and have a sapphire crystal, so they support the case finish only.",
+ "surfaces": [
+  {
+   "part": "case top",
+   "material": "18k yellow gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The 'case top' is the two vertical brancards: fully rounded bars, mirror polished along their whole length, including the narrow shoulder on their inner side. Independent photographs show the same clean mirror reflections.",
+   "confidence": "high",
+   "source": "https://www.cartier.com/en-us/watches/collections/tank/tank-louis-cartier-watch-CRWGTA0343.html"
+  },
+  {
+   "part": "other (cross-bars above XII and below VI)",
+   "material": "18k yellow gold",
+   "finish": "brushed",
+   "direction": "straight vertical (12 to 6)",
+   "detail": "The two cross-bars between the brancards are satin-brushed, and the grain runs across each bar's short width, 12 to 6, not along its length. In Cartier's close-up the streaks are plainly vertical (measured: the texture stays correlated down the bar and not along it, while the frame beside it shows no direction). Independent photographs of hand-wound siblings confirm that the bars are satin against mirror brancards but are too small to settle the direction, hence medium.",
+   "confidence": "medium",
+   "source": "https://www.cartier.com/en-us/watches/collections/tank/tank-louis-cartier-watch-CRWGTA0343.html"
+  },
+  {
+   "part": "other (sunk frame round the glass)",
+   "material": "18k yellow gold (assumed to be part of the case)",
+   "finish": "bead-blasted",
+   "direction": "n/a",
+   "detail": "A narrow sunk frame, about a millimetre wide, runs all round the glass below the level of the cross-bars and down the inside of each brancard, with slightly rounded inner corners. In Cartier's close-up it is frosted with a coarse sparkling grain and no direction, quite unlike the brushed bars; Oracle of Time's photograph of a hand-wound sibling shows the same matt frame. I could not tell whether it is blasted gold or the ground edge of the crystal lying over gold.",
+   "confidence": "medium",
+   "source": "https://www.cartier.com/en-us/watches/collections/tank/tank-louis-cartier-watch-CRWGTA0343.html"
+  },
+  {
+   "part": "case flank",
+   "material": "18k yellow gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The outer sides of the brancards are polished and blend into the rounded top with no edge.",
+   "confidence": "medium",
+   "source": "https://www.fratellowatches.com/the-new-cartier-tank-louis-cartier-a-truly-iconic-wristwatch-at-its-purest-and-best/"
+  },
+  {
+   "part": "bezel top",
+   "material": "none",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "There is no separate bezel: the glass sits inside the sunk frame described above.",
+   "confidence": "medium",
+   "source": "https://www.cartier.com/en-us/watches/collections/tank/tank-louis-cartier-watch-CRWGTA0343.html"
+  },
+  {
+   "part": "lug top",
+   "material": "18k yellow gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The lugs are simply the ends of the brancards running past the dial at top and bottom and finishing in rounded tips, polished like the rest of the bar.",
+   "confidence": "high",
+   "source": "https://www.cartier.com/en-us/watches/collections/tank/tank-louis-cartier-watch-CRWGTA0343.html"
+  },
+  {
+   "part": "lug chamfer",
+   "material": "none",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No chamfers: 'the Tank Louis now had a rounded outer edge' (Analog:Shift), unlike the 'flat-topped brancards and slabbed sides' of the first Tanks.",
+   "confidence": "high",
+   "source": "https://www.analogshift.com/blogs/transmissions/cartier-tank-buying-guide-history"
+  },
+  {
+   "part": "crown",
+   "material": "18k yellow gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "'Beaded crown set with a sapphire' (Cartier): rows of small round polished gold beads, then a smooth polished collar that holds the stone. There are no crown guards.",
+   "confidence": "high",
+   "source": "https://www.cartier.com/en-us/watches/collections/tank/tank-louis-cartier-watch-CRWGTA0343.html"
+  },
+  {
+   "part": "other (crown cabochon)",
+   "material": "blue sapphire",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "A smooth domed dark-blue sapphire cabochon set in the end of the crown; a polished stone, not a faceted one.",
+   "confidence": "high",
+   "source": "https://www.cartier.com/en-us/watches/collections/tank/tank-louis-cartier-watch-CRWGTA0343.html"
+  },
+  {
+   "part": "dial base",
+   "material": "silvered metal",
+   "finish": "grained",
+   "direction": "n/a",
+   "detail": "Cartier's own term is 'Grained silvered dial': a fine, even frosted grain in warm silver-white, matte with a faint sparkle. No sunray and no guilloché.",
+   "confidence": "high",
+   "source": "https://www.cartier.com/en-us/watches/collections/tank/tank-louis-cartier-watch-CRWGTA0343.html"
+  },
+  {
+   "part": "printed markings",
+   "material": "black print",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Everything on the dial is printed black: Roman numerals stretched radially round the rectangle, an inner railway minute track with solid blocks at the five-minute points, the maker's name under XII and SWISS MADE under VI (lettering is left off the unbranded drawing).",
+   "confidence": "high",
+   "source": "https://www.cartier.com/en-us/watches/collections/tank/tank-louis-cartier-watch-CRWGTA0343.html"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "blued steel",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "'Blued-steel sword-shaped hands' (Cartier). They are flat, with at most a slight camber: Cartier's close-up shows an even bright blue with a thin darker line along one edge and no strong facet. No lume.",
+   "confidence": "high",
+   "source": "https://www.cartier.com/en-us/watches/collections/tank/tank-louis-cartier-watch-CRWGTA0343.html"
+  },
+  {
+   "part": "centre cap and pinion",
+   "material": "blued steel boss with a polished steel pin",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "A round two-step boss, blued like the hands, with a small bright domed pin at its centre.",
+   "confidence": "high",
+   "source": "https://www.cartier.com/en-us/watches/collections/tank/tank-louis-cartier-watch-CRWGTA0343.html"
+  },
+  {
+   "part": "crystal",
+   "material": "mineral glass",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Rectangular crystal with very slightly rounded corners, close to flush with the frame. Cartier lists 'Mineral crystal' on this quartz reference (the hand-wound model with the same 33.7 x 25.5 mm footprint has sapphire). Whether it is dead flat or faintly domed I could not confirm.",
+   "confidence": "high",
+   "source": "https://www.cartier.com/en-us/watches/collections/tank/tank-louis-cartier-watch-CRWGTA0343.html"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "alligator leather",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "'Strap in dark gray alligator skin' (Cartier), fitted between the brancards and butting against the brushed cross-bar, as wide as the dial opening. Yellow-gold pin buckle.",
+   "confidence": "high",
+   "source": "https://www.cartier.com/en-us/watches/collections/tank/tank-louis-cartier-watch-CRWGTA0343.html"
+  },
+  {
+   "part": "other (not present)",
+   "material": "n/a",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No bezel insert, crown guards, pushers, screws, sub-dials, applied markers, lume, seconds hand or date.",
+   "confidence": "high",
+   "source": "https://www.cartier.com/en-us/watches/collections/tank/tank-louis-cartier-watch-CRWGTA0343.html"
+  }
+ ],
+ "lightBehaviour": [
+  "Each polished brancard carries one long, soft-edged streak of light that slides sideways across its rounded section as the lamp moves left or right, and gathers into a bright cap at the rounded ends.",
+  "The brushed cross-bars never mirror: they stay an even satin gold, brightest when the lamp is off to the left or right and duller when it is above or below, because their grain runs 12 to 6.",
+  "The sunk frame round the glass stays a flat matt gold with a fine sparkle and no moving highlight.",
+  "The grained dial shows no hotspot and no sunray; it brightens and dims evenly with a fine sparkle, from warm white to pale grey.",
+  "The blued hands flip between vivid blue when they catch the lamp and near-black when they do not; the cabochon shows a small glassy highlight over a deep blue body, and each bead of the crown catches its own pin-point of light."
+ ],
+ "geometry": "Rectangular case 33.7 x 25.5 mm and only 6.3 mm thick. Two parallel vertical bars (brancards), rounded in section, run the full height and project a few millimetres past the dial opening at top and bottom, where their rounded ends serve as lugs. Two thinner cross-bars sit between them above and below the dial. Inside these a narrow sunk frame surrounds the glass on all four sides. No bezel; rectangular crystal close to flush. Beaded crown at 3 with a domed cabochon, no guards. The strap is fitted between the brancards and is as wide as the dial.",
+ "avoid": [
+  "Do not polish the whole case: the cross-bars above and below the dial are satin, the narrow frame round the glass is frosted, and only the brancards are mirror polished.",
+  "Do not run the cross-bar brushing along the bars: in Cartier's close-up the grain runs across them, 12 to 6.",
+  "Do not flatten or brush the brancard tops or add polished chamfers: flat-topped brancards belong to the first Tanks, not the Louis Cartier.",
+  "Do not draw a uniform frame with four rounded corners, as the current sketch does: the side bars are separate, rounded and longer than the dial opening, and the cross-bars are thinner and sit between them.",
+  "No sunray, guilloché or gloss lacquer on this dial: Cartier calls it grained silvered. A guilloché centre belongs to other Tank Louis Cartier references.",
+  "Hands are blued steel, not blue paint and not gold. No lume, no seconds hand, no date.",
+  "Nothing on the dial is applied; numerals and track are printed.",
+  "The cabochon is smooth, not faceted."
+ ]
+}

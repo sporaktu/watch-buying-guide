@@ -1,0 +1,153 @@
+{
+ "n": 20,
+ "designName": "Marine chronometer",
+ "isRealWatch": true,
+ "reference": "A mid-19th-century English two-day box chronometer of the Earnshaw spring-detent pattern, followed from Henry Frodsham, Castle Street, Liverpool, No. 2130 (sold by Bonhams, catalogued with a 3.25 inch 'silvered dial with angled sight ring', a 'power reserve subsidiary dial over the running seconds' and 'blued steel Breguet style hands'): that is the combination drawn. Most English chronometers of the period carry blued spade-and-poker hands instead (Royal Museums Greenwich records), so this example was chosen for its hands. Finishes were cross-checked on Charles Frodsham No. 1842 (a photograph on Wikimedia Commons) and three Greenwich records. The drawn brass ring is the screw-down brass bezel of the chronometer's bowl; it is a boxed instrument, not a watch.",
+ "surfaces": [
+  {
+   "part": "bezel top",
+   "material": "brass, lacquered",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Narrow screw-down brass bezel with a rounded top face. On the Frodsham followed and on Charles Frodsham No. 1842 it is smooth, bright brass with clear but soft reflections: polished rather than grained, mellowed by age, lacquer and some tarnish. No text source states its finish.",
+   "confidence": "medium",
+   "source": "https://www.bonhams.com/auction/28254/lot/140/a-mid-19th-century-mahogany-two-day-marine-chronometer-henry-frodsham-castle-street-liverpool-no-2130"
+  },
+  {
+   "part": "bezel edge",
+   "material": "brass",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Straight-sided outer edge, milled (knurled) for grip on Charles Frodsham No. 1842 and on one Greenwich example. It is hidden when the dial is viewed straight on, so it needs no treatment.",
+   "confidence": "medium",
+   "source": "https://www.rmg.co.uk/collections/objects/rmgc-object-79364"
+  },
+  {
+   "part": "other (sight ring between the bezel and the dial; present on the example followed, absent from the drawing)",
+   "material": "silvered brass",
+   "finish": "matte",
+   "direction": "n/a",
+   "detail": "On the Frodsham followed a broad angled ring slopes from the glass down to the dial edge, the same pale frosted silver as the dial with no grain direction visible and a faint coppery tint where the silver has worn at its edges. Charles Frodsham No. 1842 has none: its dial runs straight to the bezel, as drawn. Leave it out unless the bezel is being redrawn; if it is added it is a plain matt ring with no markings.",
+   "confidence": "medium",
+   "source": "https://www.bonhams.com/auction/28254/lot/140/a-mid-19th-century-mahogany-two-day-marine-chronometer-henry-frodsham-castle-street-liverpool-no-2130"
+  },
+  {
+   "part": "dial base",
+   "material": "brass plate, silvered",
+   "finish": "grained",
+   "direction": "straight horizontal (9 to 3)",
+   "detail": "Flat one-piece dial, matt silver-white with a slightly warm tone and a fine straight grain left by the silvering; no gloss and no sunray. The grain runs parallel to the lines of the maker's signature, that is 9 to 3, on both the Frodsham followed and Charles Frodsham No. 1842. That the dial is silvered is certain; the grain direction is read from those two photographs and is not stated in any text.",
+   "confidence": "medium",
+   "source": "https://www.bonhams.com/auction/28254/lot/140/a-mid-19th-century-mahogany-two-day-marine-chronometer-henry-frodsham-castle-street-liverpool-no-2130"
+  },
+  {
+   "part": "printed markings",
+   "material": "black wax in engraved silvered brass",
+   "finish": "matte",
+   "direction": "n/a",
+   "detail": "Not printed: the Roman hours, the minute track with its five-minute figures and the maker's signature are engraved into the plate and filled with black wax ('engraved and wax-filled' in the Greenwich records), so they lie very slightly below the surface and stay matt black.",
+   "confidence": "high",
+   "source": "https://www.rmg.co.uk/collections/objects/rmgc-object-79227"
+  },
+  {
+   "part": "sub-dial",
+   "material": "same silvered plate",
+   "finish": "grained",
+   "direction": "straight horizontal (9 to 3)",
+   "detail": "Running-seconds dial between the centre and VI, large enough to crowd out the numeral VI: an engraved ring with its own track and 10 to 60 figures on the same flat plate, flush rather than sunk, and carrying the main dial's straight grain across it (read from the photograph).",
+   "confidence": "medium",
+   "source": "https://www.bonhams.com/auction/28254/lot/140/a-mid-19th-century-mahogany-two-day-marine-chronometer-henry-frodsham-castle-street-liverpool-no-2130"
+  },
+  {
+   "part": "sub-dial",
+   "material": "same silvered plate",
+   "finish": "grained",
+   "direction": "straight horizontal (9 to 3)",
+   "detail": "State-of-wind (up/down) dial between the centre and XII, below the engraved numeral XII: an engraved circle lettered DOWN and UP with hour figures in steps of eight, flush with the dial and sharing its grain, with a small pointer (read from the photograph of the example followed; the drawing shows it as an arc and leaves out the XII).",
+   "confidence": "medium",
+   "source": "https://www.bonhams.com/auction/28254/lot/140/a-mid-19th-century-mahogany-two-day-marine-chronometer-henry-frodsham-castle-street-liverpool-no-2130"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "steel",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "Thin flat blued steel hands, 'Breguet style' with an open ring near the tip on the Frodsham followed; the commoner English pattern is a blued spade hour hand and poker minute hand. They are polished before bluing, so they flash blue or go nearly black: in the Bonhams photograph they read dark grey, on Charles Frodsham No. 1842 bright blue-violet.",
+   "confidence": "high",
+   "source": "https://www.bonhams.com/auction/28254/lot/140/a-mid-19th-century-mahogany-two-day-marine-chronometer-henry-frodsham-castle-street-liverpool-no-2130"
+  },
+  {
+   "part": "seconds hand",
+   "material": "steel",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "Very fine blued steel pointer with a counterpoised tail.",
+   "confidence": "high",
+   "source": "https://www.rmg.co.uk/collections/objects/rmgc-object-79227"
+  },
+  {
+   "part": "other hands",
+   "material": "steel",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "Small plain pointer on the up/down dial, on a small round boss; blued on Charles Frodsham No. 1842, and dark steel in the photograph of the example followed.",
+   "confidence": "medium",
+   "source": "https://commons.wikimedia.org/wiki/File:Charles_Frodsham_marine_chronometer,_no._1842.jpg"
+  },
+  {
+   "part": "other (hand centre)",
+   "material": "steel arbor with a brass collar",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The hands are held on a small bright square steel arbor end above a brass collar: a bright point at the centre, not a cap. Clear in the Bonhams photograph; Charles Frodsham No. 1842 shows the same square end.",
+   "confidence": "medium",
+   "source": "https://www.bonhams.com/auction/28254/lot/140/a-mid-19th-century-mahogany-two-day-marine-chronometer-henry-frodsham-castle-street-liverpool-no-2130"
+  },
+  {
+   "part": "screws",
+   "material": "steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Tiny dial screws sit at the very edge of the dial among the minute figures: two are visible on the example followed (beside the 60 and beside the 20) and a third is presumably hidden; Charles Frodsham No. 1842 shows blued ones in the same places, and Greenwich records one dial as held by three screws. Each is only about a hundredth of the dial across: a pin-point of bright or blue steel, nothing more.",
+   "confidence": "medium",
+   "source": "https://www.bonhams.com/auction/28254/lot/140/a-mid-19th-century-mahogany-two-day-marine-chronometer-henry-frodsham-castle-street-liverpool-no-2130"
+  },
+  {
+   "part": "crystal",
+   "material": "glass",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Flat glass with a bevelled edge, which shows as a bright line just inside the bezel ('flat, beveled glass' and 'beveled flat glass' in two Greenwich records); a third Greenwich example has a thick, convex bevelled glass instead.",
+   "confidence": "high",
+   "source": "https://www.rmg.co.uk/collections/objects/rmgc-object-79364"
+  },
+  {
+   "part": "other (bowl and gimbal ring outside the bezel; not in the drawing)",
+   "material": "brass, the gimbal ring lacquered",
+   "finish": "brushed",
+   "direction": "circular around the centre",
+   "detail": "Only if more than the bezel is shown: a heavy brass bowl hung in a lacquered brass gimbal ring, satin brass with a turned circular grain (grain judged from the Bonhams photograph). The drawing stops at the bezel.",
+   "confidence": "medium",
+   "source": "https://www.rmg.co.uk/collections/objects/rmgc-object-79334"
+  }
+ ],
+ "lightBehaviour": [
+  "The silvered dial is matt and pale: it brightens and dims as a whole as the lamp moves and never shows a hot spot. Because the grain runs 9 to 3 it is very slightly brighter with the lamp above or below than with the lamp at the side. The black-filled engraving stays black at every angle.",
+  "The blued hands change most: in direct light they flash bright blue, and when they reflect something dark they read as almost black; the switch is abrupt because the surfaces are flat and polished.",
+  "The brass bezel carries a warm highlight band that travels round the ring; polished but softened by lacquer and age, it gives a soft band rather than a hard mirror point.",
+  "The bevelled edge of the glass makes a thin bright line just inside the bezel, and the flat centre of the glass gives one large flat reflection.",
+  "The square arbor end at the centre and the tiny dial screws at the edge give pin-point glints.",
+  "If the angled silvered sight ring is shown, it lights as a pale crescent on the side facing away from the lamp, like the inside of a shallow bowl."
+ ],
+ "geometry": "Not a wristwatch: a round brass bowl seen from directly above, normally hung in a brass gimbal ring inside a wooden box. From the front: a narrow screw-down brass bezel (Greenwich describes a small ogee moulding on the upper face of one); a flat glass with a bevelled edge; on the example followed a broad angled silvered sight ring inside the bezel (other examples have none, as drawn); then the flat silvered dial, about 3¼ to 4 inches across. No lugs, crown, pushers, date or strap: add none. Hour and minute hands on the centre; a small up/down dial between the centre and XII; a larger seconds dial between the centre and VI. On the real dial the numeral XII is engraved above the up/down dial and only VI is crowded out by the seconds dial; the drawing leaves out both. Tiny dial screws sit at the dial edge.",
+ "avoid": [
+  "Do not add lugs, a crown or a strap, and do not model it on a deck watch or a modern 'marine chronometer' wristwatch.",
+  "The dial is silvered brass, not white enamel and not lacquer: no gloss, no porcelain shine, no sunray.",
+  "Numerals and tracks are engraved and wax-filled, not applied, raised or gilt.",
+  "Hands on this example are blued steel, not gold and not painted blue; they must go dark at off angles. (Gold hands exist on other chronometers, such as Arnold & Dent No. 1131, but not on the one followed.)",
+  "Do not give the brass the hard, flawless mirror of a new gold watch case, and do not brush the bezel; it is polished, lacquered brass with soft reflections.",
+  "Do not add recessed or snailed sub-dials; on the example followed they are engraved rings on the same flat plate.",
+  "Do not add large or decorative dial screws. The real ones are pin-points at the dial edge; leaving them out is better than drawing them big.",
+  "The up/down scale is a plain engraved scale in hours with a small pointer, not a coloured wristwatch power-reserve fan."
+ ]
+}

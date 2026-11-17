@@ -1,0 +1,233 @@
+{
+ "n": 16,
+ "designName": "Octagon and tapisserie",
+ "isRealWatch": true,
+ "reference": "Audemars Piguet Royal Oak Selfwinding 41 mm, ref. 15510ST.OO.1320ST.06 (steel, the generation introduced in 2022, 'Bleu Nuit, Nuage 50' Grande Tapisserie dial). Chosen over Genta's 1972 original and the 'Jumbo' line because the drawing has a centre seconds hand, a large-pitch grid, a date window at the very edge with a dial-coloured disc, a double baton at 12 and minute marks drawn over the pattern. Checked against the drawing's definition and kept. The 15500ST it replaced has a smooth minute ring instead. The finishing scheme is stable across generations: AP's own account of the 1972 case describes the same brushed top and polished bevels, and Monochrome found the 15500ST's surface finishing 'approximately the same as before' when it replaced its own predecessor. Reviews of the 15500ST are therefore used where they state a finish in words, and each is checked against photographs of the 15510ST. Those photographs are a dealer's pictures of this exact reference (European Watch Company), because AP's own product page gave up only its one-line description when fetched.",
+ "surfaces": [
+  {
+   "part": "bezel top",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "straight vertical (12 to 6)",
+   "detail": "The flat top of the octagonal bezel is satin-brushed in one straight vertical direction right across; the grain does not turn to follow the eight sides. AP: 'The top surface is finished with vertical satin-brushing while the facets are polished.'",
+   "confidence": "high",
+   "source": "https://apchronicles.audemarspiguet.com/en/article/the-first-royal-oak-cases"
+  },
+  {
+   "part": "bezel chamfer",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A broad flat bevel (AP gives 40 degrees) runs round the whole outer edge, mirror polished, meeting the brushed top at a sharp line. It reads as eight long facets joined by small rounded corners.",
+   "confidence": "high",
+   "source": "https://apchronicles.audemarspiguet.com/en/article/the-first-royal-oak-cases"
+  },
+  {
+   "part": "bezel edge",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "along the length of the part (around the case band)",
+   "detail": "Below the bevel only a thin vertical edge remains, satin-finished along its length (Fratello on the previous 41 mm: 'horizontal satin finishing on the side'). It is hidden from straight on; under it the gasket shows as a thin black line between bezel and case.",
+   "confidence": "high",
+   "source": "https://www.fratellowatches.com/hands-on-the-audemars-piguet-royal-oak-15500st/"
+  },
+  {
+   "part": "screws",
+   "material": "18k white gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Eight hexagonal heads sit flush in hexagonal seats, one at each corner of the octagon, polished brighter than the bezel. Every slot is turned to lie along the same circle round the dial (AP: the watchmaker orients each screw 'to align the groove with the bezel').",
+   "confidence": "high",
+   "source": "https://apchronicles.audemarspiguet.com/en/article/the-first-royal-oak-cases"
+  },
+  {
+   "part": "case top",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "straight vertical (12 to 6)",
+   "detail": "There are no separate lugs: the case's top surface above and below the bezel is satin-brushed vertically, in line with the bezel top and the bracelet.",
+   "confidence": "high",
+   "source": "https://www.europeanwatch.com/watch/audemars-piguet-15510stoo1320st06-15510st-royal-oak-41mm-ss-blue-69328"
+  },
+  {
+   "part": "lug chamfer",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A wide polished bevel runs down each long outer edge of the case and carries on along the bracelet. AP's 2022 release: 'The bevels adorning the top and the bottom of the case have been enlarged'.",
+   "confidence": "high",
+   "source": "https://lacotedesmontres.com/12847en"
+  },
+  {
+   "part": "case flank",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "along the length of the part (around the case band)",
+   "detail": "The sides are satin-finished (AP's account of the first case: 'satin-finished top and sides'), with the grain running along their length in the dealer's angled photograph. From straight on they show only as a sliver outside the polished bevel.",
+   "confidence": "medium",
+   "source": "https://www.europeanwatch.com/watch/audemars-piguet-15510stoo1320st06-15510st-royal-oak-41mm-ss-blue-69328"
+  },
+  {
+   "part": "crown",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "straight horizontal (9 to 3)",
+   "detail": "Hexagonal crown at 3 with no guards. The flats seen from the front are satin with a fine grain running along the stem and bright edges between them; this is read from one dealer photograph. AP's history describes only the end face: 'It is finished with a satin-brushed circle'.",
+   "confidence": "medium",
+   "source": "https://www.europeanwatch.com/watch/audemars-piguet-15510stoo1320st06-15510st-royal-oak-41mm-ss-blue-69328"
+  },
+  {
+   "part": "dial base",
+   "material": "metal dial with a 'Bleu Nuit, Nuage 50' blue coating",
+   "finish": "plated",
+   "direction": "n/a",
+   "detail": "A satin metallic blue, not a glossy lacquer, moving between slate-blue and deep navy. AP's 2022 release: 'Today, the Bleu Nuit, Nuage 50 hue is achieved internally through PVD' (it was once a galvanic bath). That release does not list this reference by number, hence medium.",
+   "confidence": "medium",
+   "source": "https://lacotedesmontres.com/12847en"
+  },
+  {
+   "part": "dial texture",
+   "material": "engine-turned dial",
+   "finish": "textured",
+   "direction": "square grid aligned with the 12-6 and 9-3 axes",
+   "detail": "Grande Tapisserie guilloché: rows of small raised square pyramids with flat tops ('truncated pyramids'), separated by narrow channels whose floor is dotted with tiny diamond-shaped pits. The squares sit on a square grid; the pits follow the cutter's path round the dial centre, which AP says leaves 'slight snail-shaped grooves visible to the naked eye'. On this generation the pattern runs right to the edge of the dial.",
+   "confidence": "high",
+   "source": "https://apchronicles.audemarspiguet.com/en/article/guillochage-tapisserie"
+  },
+  {
+   "part": "printed markings",
+   "material": "white print",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Sixty fine white minute strokes are printed straight onto the pattern at the dial edge (AP: the minute track 'now appears directly onto the Tapisserie'), with SWISS MADE either side of 6.",
+   "confidence": "high",
+   "source": "https://lacotedesmontres.com/12847en"
+  },
+  {
+   "part": "applied markers",
+   "material": "18k white gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Faceted baton frames with rounded ends, polished, each holding a broad strip of white lume ('Applied polished white gold index hour markers with luminous fill'). A double baton at 12 and no marker at 3, where the date sits.",
+   "confidence": "high",
+   "source": "https://www.prestigetime.com/Audemars-Piguet-Royal-Oak-Automatic-41mm-15510st-oo-1320st-06.html"
+  },
+  {
+   "part": "other (applied signature)",
+   "material": "24-carat gold grown galvanically (AP); it reads as white metal in photographs",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "On this generation a small raised signature under 12 replaces the old AP monogram. It sits on a smooth rectangular reserve in the pattern, is polished, and flips between bright and near-black with the light (an owner: it 'disappears when you look at it from certain angles'). The drawing leaves it out, as the site shows no wordmarks.",
+   "confidence": "medium",
+   "source": "https://lacotedesmontres.com/12847en"
+  },
+  {
+   "part": "lume",
+   "material": "white luminescent coating",
+   "finish": "lume",
+   "direction": "n/a",
+   "detail": "Matt white fill in the markers and in the hour and minute hands.",
+   "confidence": "high",
+   "source": "https://www.prestigetime.com/Audemars-Piguet-Royal-Oak-Automatic-41mm-15510st-oo-1320st-06.html"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "18k white gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "'Royal Oak hands': parallel-sided batons with rounded tips, a polished bevelled white-gold frame round a lume strip ('Polished white gold hands, the hour & minute baton hands with luminous fill').",
+   "confidence": "high",
+   "source": "https://www.prestigetime.com/Audemars-Piguet-Royal-Oak-Automatic-41mm-15510st-oo-1320st-06.html"
+  },
+  {
+   "part": "seconds hand",
+   "material": "bright metal, alloy not stated",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A very thin straight hand with a short baton-shaped counterweight, bright metal with no lume. I could not confirm whether it is gold or steel.",
+   "confidence": "medium",
+   "source": "https://www.europeanwatch.com/watch/audemars-piguet-15510stoo1320st06-15510st-royal-oak-41mm-ss-blue-69328"
+  },
+  {
+   "part": "centre cap and pinion",
+   "material": "bright metal",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A small bright round cap over the hand stack; too small in the photographs to say more.",
+   "confidence": "low",
+   "source": "https://www.europeanwatch.com/watch/audemars-piguet-15510stoo1320st06-15510st-royal-oak-41mm-ss-blue-69328"
+  },
+  {
+   "part": "date window frame",
+   "material": "none, a cut-out in the dial",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "A plain rectangular window at the very edge of the dial at 3, with a narrow stepped surround in the dial colour. There is no applied metal frame.",
+   "confidence": "high",
+   "source": "https://www.europeanwatch.com/watch/audemars-piguet-15510stoo1320st06-15510st-royal-oak-41mm-ss-blue-69328"
+  },
+  {
+   "part": "date disc",
+   "material": "printed disc",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Dark blue to match the dial, with white numerals.",
+   "confidence": "high",
+   "source": "https://www.europeanwatch.com/watch/audemars-piguet-15510stoo1320st06-15510st-royal-oak-41mm-ss-blue-69328"
+  },
+  {
+   "part": "chapter ring",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The narrow inner wall of the bezel round the dial is bright and mirrors the dial, so from the front it reads as a thin ring that is pale or dark blue by turns. This is my reading of the dealer's photographs, not a stated finish.",
+   "confidence": "low",
+   "source": "https://www.europeanwatch.com/watch/audemars-piguet-15510stoo1320st06-15510st-royal-oak-41mm-ss-blue-69328"
+  },
+  {
+   "part": "crystal",
+   "material": "sapphire",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Flat sapphire. AP's 2022 specifications list 'Glareproofed sapphire crystal' for the 41 mm models; reflections are weak.",
+   "confidence": "medium",
+   "source": "https://lacotedesmontres.com/12847en"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "straight vertical (12 to 6)",
+   "detail": "Integrated bracelet the full width of the case: link tops are satin-brushed lengthwise and every edge of every link is mirror-bevelled. Fratello on the previous 41 mm: 'A beautiful brushed finish on most of the surfaces, while all angles from all links have a nice polished surface.'",
+   "confidence": "high",
+   "source": "https://www.fratellowatches.com/hands-on-the-audemars-piguet-royal-oak-15500st/"
+  },
+  {
+   "part": "other (not present)",
+   "material": "n/a",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No bezel insert or bezel markings, no pushers, no crown guards, no sub-dials.",
+   "confidence": "high",
+   "source": "https://www.europeanwatch.com/watch/audemars-piguet-15510stoo1320st06-15510st-royal-oak-41mm-ss-blue-69328"
+  }
+ ],
+ "lightBehaviour": [
+  "The polished bezel bevel is the loudest thing: its eight facets switch on one or two at a time as the lamp moves round, flipping between white and near-black, while the brushed top stays an even satin grey.",
+  "All the brushing runs 12 to 6, so bezel top, case and bracelet brighten together when the lamp is off to the left or right and go greyer together when it is above or below; any highlight is smeared sideways, across the grain.",
+  "The eight screw heads share one plane and flash together as small flat mirrors.",
+  "On the dial each raised square is a tiny flat facet, so broad zones of lighter and darker blue sweep across the grid as the lamp moves and the overall tone shifts from slate-blue to navy; the channels between stay darker with a fine sparkle.",
+  "Polished marker and hand frames give thin bright outlines round flat white lume, and the long polished chamfers draw two lines of light down the sides and on along the bracelet."
+ ],
+ "geometry": "Tonneau-shaped case 41 mm wide and about 10.5 mm thick with no separate lugs: the case narrows straight into the bracelet. On it sits a flat octagonal bezel with softly rounded corners and flat sides at 12, 3, 6 and 9, around a round dial opening; the bezel is a slab with a flat top and a broad bevelled edge. Eight flush hexagonal screw heads, one at each corner. Hexagonal crown at 3 without guards. Flat sapphire crystal. Bracelet as wide as the case where they meet, then tapering.",
+ "avoid": [
+  "Draw hexagonal screw heads, not the round ones in the current sketch. The sketch already turns each slot along the circle (to within about 2.5 degrees); keep that, because on the real watch every slot follows the same circle.",
+  "Do not brush the bezel in circles or round the octagon: it is straight vertical everywhere. Do not polish the bezel top.",
+  "Do not make the bezel bevel thin or brushed: it is a broad mirror facet.",
+  "Do not mix in the 1972 original or the 'Jumbo' models: they use the much finer Petite Tapisserie and, from memory, have no seconds hand.",
+  "No metal frame round the date and no white date disc: the disc is blue with white numerals.",
+  "The dial is not a printed check and not sunray or gloss lacquer: the squares stand proud with flat tops.",
+  "Markers and hands are polished white gold round lume, not solid white bars.",
+  "Frosted gold and ceramic finishes belong to other Royal Oak references."
+ ]
+}

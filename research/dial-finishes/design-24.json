@@ -1,0 +1,170 @@
+{
+ "n": 24,
+ "designName": "Sandwich dial",
+ "isRealWatch": true,
+ "reference": "Panerai Luminor Marina 1950 3 Days Acciaio 47 mm, reference PAM00422 (hand-wound calibre P.3001, launched for 2012). The caption gives no era, so the drawing decides: a sandwich dial with numerals only at 12, 3 and 6, small seconds at 9 marked by four strokes, gold-coloured hands and warm beige lume, no date. Panerai's own specification and the reviews I read describe exactly that combination for the PAM00422. The choice of reference does not change the case finish: Panerai's page for the standard 44 mm Luminor Marina PAM00111 lists the same polished case, polished bezel and brushed crown-protecting device.",
+ "surfaces": [
+  {
+   "part": "case top",
+   "material": "AISI 316L stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Panerai lists the case as 'AISI 316L polished steel': the cushion top and sides are one continuous mirror polish with crisp edges and no brushed surfaces (WatchTime: 'the steel is polished').",
+   "confidence": "high",
+   "source": "https://web.archive.org/web/20140527011729/http://www.panerai.com/en/collections/watch-collection/luminor-1950/20-luminor-marina-1950-3-days-pam00422"
+  },
+  {
+   "part": "bezel top",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Panerai: 'Polished steel'. A plain, tall ring with a sloping, slightly rounded top, polished like the case and separated from the cushion only by a fine seam.",
+   "confidence": "high",
+   "source": "https://web.archive.org/web/20140527011729/http://www.panerai.com/en/collections/watch-collection/luminor-1950/20-luminor-marina-1950-3-days-pam00422"
+  },
+  {
+   "part": "lug top",
+   "material": "AISI 316L stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Short, thick lugs cut from the same block as the case and polished with it, flat on top, with no chamfer or change of finish where they leave the cushion (dealer's photographs from several angles). The strap screws are on the lug flanks and do not show from the front.",
+   "confidence": "high",
+   "source": "https://www.europeanwatch.com/watch/panerai-pam00422-luminor-marina-1950-3-days-47mm-ss-57149"
+  },
+  {
+   "part": "crown guard",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "straight vertical (12 to 6)",
+   "detail": "Half-moon bridge that holds the crown; Panerai lists it as 'Brushed steel', and it is the only brushed metal on the watch, sitting directly against the mirror-polished case. The grain on its front face runs straight along the length of the bridge in two photographs of one dealer's watch, which is my only evidence for the direction. REG. T.M. is engraved on the face.",
+   "confidence": "medium",
+   "source": "https://web.archive.org/web/20140527011729/http://www.panerai.com/en/collections/watch-collection/luminor-1950/20-luminor-marina-1950-3-days-pam00422"
+  },
+  {
+   "part": "other (crown-guard lever)",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "straight vertical (12 to 6)",
+   "detail": "The locking lever lies in the bridge and ends in a small tab that projects at the upper end. Its visible face carries the same straight grain as the bridge in the dealer's photographs; a small round pin shows on the bridge face beside the slot.",
+   "confidence": "low",
+   "source": "https://www.europeanwatch.com/watch/panerai-pam00422-luminor-marina-1950-3-days-47mm-ss-57149"
+  },
+  {
+   "part": "crown",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "flutes parallel to the stem (9 to 3)",
+   "detail": "Coarsely fluted crown seen through the slot in the bridge, bright polished on the flutes in the dealer's photographs, pressed home by the lever.",
+   "confidence": "medium",
+   "source": "https://www.europeanwatch.com/watch/panerai-pam00422-luminor-marina-1950-3-days-47mm-ss-57149"
+  },
+  {
+   "part": "dial base",
+   "material": "black upper dial plate",
+   "finish": "matte",
+   "direction": "n/a",
+   "detail": "Matte black upper plate of the sandwich dial ('matte black sandwich dial', European Watch Co.): no gloss, no texture and no sunk areas other than the cut-out markers.",
+   "confidence": "high",
+   "source": "https://www.europeanwatch.com/watch/panerai-pam00422-luminor-marina-1950-3-days-47mm-ss-57149"
+  },
+  {
+   "part": "printed markings",
+   "material": "engraving filled with warm beige paint",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "On the real watch LUMINOR MARINA and PANERAI are engraved into the plate (WorldTempus quotes Panerai on 'The engravings') and filled in the same warm tone as the lume; the short ticks of the small seconds between its four cut-outs are fine lines in that colour. The drawing omits the wording.",
+   "confidence": "medium",
+   "source": "https://en.worldtempus.com/article/watches/trends-and-style/panerai-luminor-marina-1950-3-days-47-mm-11656.html"
+  },
+  {
+   "part": "lume",
+   "material": "ecru Super-LumiNova on the lower dial plate",
+   "finish": "lume",
+   "direction": "n/a",
+   "detail": "The numerals 12, 3, 6 and the stick markers are cut right through the upper plate, and the luminous layer of the lower plate shows at the bottom of each opening (WorldTempus, from Panerai: the 'ecru Super-LumiNova' layer is enclosed between two plates). Every marker is therefore recessed, with a dark step round it.",
+   "confidence": "high",
+   "source": "https://en.worldtempus.com/article/watches/trends-and-style/panerai-luminor-marina-1950-3-days-47-mm-11656.html"
+  },
+  {
+   "part": "sub-dial",
+   "material": "same matte black plate",
+   "finish": "matte",
+   "direction": "n/a",
+   "detail": "Small seconds at 9 with no ring and no sunk level: four pill-shaped cut-outs at the quarters show the lume layer ('four stripes around the seconds hand', Monochrome), with fine ticks between them.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/hands-on-with-the-panerai-luminor-marina-1950-3-days-pam00422/"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "gold-coloured metal with ecru lume infill",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Broad pencil hands in polished gold colour (Monochrome: 'the gold hands') with a strip of lume. Being flat and polished they look bright gold in Monochrome's photograph and almost black with a thin gold edge in the dealer's.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/hands-on-with-the-panerai-luminor-marina-1950-3-days-pam00422/"
+  },
+  {
+   "part": "other hands",
+   "material": "gold-coloured metal with lume (small seconds hand)",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Leaf-shaped small seconds hand in the same polished gold colour, with a lume-filled blade and a round counterweight (dealer's photograph).",
+   "confidence": "medium",
+   "source": "https://www.europeanwatch.com/watch/panerai-pam00422-luminor-marina-1950-3-days-47mm-ss-57149"
+  },
+  {
+   "part": "other (centre boss)",
+   "material": "gold-coloured metal",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Round gold-coloured hub and cap at the centre of the hands, polished like them (Monochrome's and the dealer's photographs).",
+   "confidence": "low",
+   "source": "https://monochrome-watches.com/hands-on-with-the-panerai-luminor-marina-1950-3-days-pam00422/"
+  },
+  {
+   "part": "crystal",
+   "material": "sapphire with anti-reflective coating",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Thick domed sapphire. Panerai's specification for this reference reads 'Sapphire, formed of corundum, 3 mm thick. Anti-reflective coating.' and WatchTime's test names a 'domed, nonreflective sapphire crystal'. Seen straight on it shows a pale refraction band between dial and bezel. Only the January 2012 launch release, as printed by WorldTempus, says 'Plexiglas' instead.",
+   "confidence": "high",
+   "source": "https://web.archive.org/web/20140527011729/http://www.panerai.com/en/collections/watch-collection/luminor-1950/20-luminor-marina-1950-3-days-pam00422"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "brown leather with pale stitching",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Panerai currently lists the strap as 'Scamosciato Dark Brown, Beige, STD, 26/22': suede-finish brown leather 26 mm wide at the case with beige stitching, filling the gap between the lugs. The dealer's example is on a lighter tan distressed strap. The brushed steel buckle is out of view.",
+   "confidence": "high",
+   "source": "https://www.panerai.com/us/en/collections/watch-collection/luminor/pam00422-luminor.html"
+  },
+  {
+   "part": "other (parts this watch does not have)",
+   "material": "n/a",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No wire lugs, no rotating bezel or insert, no bezel markings, no pushers, no date, no centre seconds hand, no ring or sunk level round the small seconds, no applied or painted hour markers, no screws on the front of the case.",
+   "confidence": "high",
+   "source": "https://web.archive.org/web/20140527011729/http://www.panerai.com/en/collections/watch-collection/luminor-1950/20-luminor-marina-1950-3-days-pam00422"
+  }
+ ],
+ "lightBehaviour": [
+  "The polished cushion and bezel are mirrors: the lamp is a bright patch gliding over the cushion and a bright arc running round the bezel, with dark reflections between, so the case changes strongly as the lamp moves.",
+  "The brushed crown bridge never mirrors: it shows a soft streak of light stretched across the grain that brightens and dims with the lamp, a satin contrast right beside the polished case.",
+  "The sandwich cut-outs have real depth: the wall of each numeral facing the lamp catches a thin light edge and the opposite wall throws a shadow onto the lume, and the two swap sides as the lamp moves.",
+  "The polished gold hands flip between bright warm gold and near-black as the lamp passes the reflection angle; their lume strips stay matte.",
+  "The domed sapphire gives a small, crisp, subdued reflection (it is anti-reflective coated) and a pale ring of refraction just inside the bezel.",
+  "The matte dial stays black at all angles."
+ ],
+ "geometry": "47 mm Luminor 1950 cushion case with four short, thick integral lugs (strap 26 mm wide) and a round bezel about nine tenths of the case width across, its band about a tenth of the case width wide (both measured on a straight-on dealer photograph), so the cushion shows mainly at the four corners. On the right flank, from about 2 to 4 o'clock, a half-moon bridge stands out from the case with a slot in which the fluted crown sits and a lever whose tab projects at the upper end; this takes the place of crown guards. No pushers, no date, no rotating bezel or insert, no centre seconds, nothing applied to the dial; the only fastener in view is a small pin on the bridge face. Thick domed sapphire crystal. Leather strap between the lugs.",
+ "avoid": [
+  "Wire lugs and an onion crown: those are the Radiomir of design 11. This watch has solid integral lugs and the crown bridge.",
+  "Brushing the case or bezel: only the crown bridge and its lever are brushed.",
+  "Polishing the crown bridge to match the case.",
+  "Painted or applied markers: the numerals and sticks are openings in the top plate with the lume below.",
+  "Dark hands or green-white lume: the drawn gold hands and beige lume are those of the PAM00422.",
+  "Brushed or matte hands; they are polished.",
+  "A date window, a ring or sunk level round the small seconds, or a centre seconds hand."
+ ]
+}

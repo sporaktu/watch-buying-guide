@@ -1,0 +1,206 @@
+{
+ "n": 29,
+ "designName": "Off-centre dial",
+ "isRealWatch": true,
+ "reference": "A. Lange & Söhne Lange 1 ref. 191.032 (750 pink gold, argenté solid-silver dial, calibre L121.1, the current generation). Chosen because the drawing has a rose-coloured case, hands, numerals and date frame on a silver-white dial in the classic layout: time dial left of centre, outsize date upper right, power reserve at 3, small seconds lower right. Checked against the drawing's definition and kept. Case and dial finishes are stated in words by Langepedia; they were checked against Lange's own front view and Fratello's photographs of this reference.",
+ "surfaces": [
+  {
+   "part": "bezel top",
+   "material": "18k pink gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A rounded bezel with a small step at its inner edge, fully polished. Langepedia: 'the bezel and case back rings are polished, while the case band is brushed'.",
+   "confidence": "high",
+   "source": "https://langepedia.com/a-lange-sohne-lange1/"
+  },
+  {
+   "part": "case flank",
+   "material": "18k pink gold",
+   "finish": "brushed",
+   "direction": "along the length of the part (around the case band)",
+   "detail": "The case band between the polished bezel and back rings is satin-brushed along its length (plain in Fratello's close-up). From the front it is almost entirely hidden under the bezel.",
+   "confidence": "high",
+   "source": "https://langepedia.com/a-lange-sohne-lange1/"
+  },
+  {
+   "part": "lug top",
+   "material": "18k pink gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Slim, slightly curved lugs with polished tops: in Fratello's photographs of this reference they mirror their surroundings with hard-edged highlights. Where each lug meets the band there is a small notch whose step is mirror polished too (Langepedia).",
+   "confidence": "high",
+   "source": "https://fratellowatches.com/hands-on-a-lange-sohne-lange-1-review-reference-191-032-with-caliber-l121-1"
+  },
+  {
+   "part": "lug chamfer",
+   "material": "18k pink gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Langepedia: the lugs are 'generously curved and beveled', the surface tapering 'from the two bevels at the top towards a sharp finish at the bottom'. A narrow bevel shows along the outer edge of each lug in Lange's front view.",
+   "confidence": "medium",
+   "source": "https://langepedia.com/a-lange-sohne-lange1/"
+  },
+  {
+   "part": "crown",
+   "material": "18k pink gold",
+   "finish": "mirror polished",
+   "direction": "flutes parallel to the stem (9 to 3)",
+   "detail": "Polished crown with coarse rounded fluting at 3. There are no guards.",
+   "confidence": "high",
+   "source": "https://fratellowatches.com/hands-on-a-lange-sohne-lange-1-review-reference-191-032-with-caliber-l121-1"
+  },
+  {
+   "part": "pusher",
+   "material": "18k pink gold",
+   "finish": "brushed",
+   "direction": "along the length of the part (around the case band)",
+   "detail": "The outsize-date corrector at 10 is a flat rectangular bar projecting slightly from the band. Langepedia says only that it has 'beveled, brushed, and polished surfaces'; which face is which I could not confirm. My reading of the photographs is a brushed outer face with polished bevels.",
+   "confidence": "low",
+   "source": "https://langepedia.com/a-lange-sohne-lange1/"
+  },
+  {
+   "part": "dial base",
+   "material": "solid silver",
+   "finish": "grained",
+   "direction": "n/a",
+   "detail": "Lange: an 'argenté-coloured dial crafted from solid silver'. Langepedia: 'The main dial features a subtle grained texture'. Matte and nearly white, with a warm silver glow.",
+   "confidence": "high",
+   "source": "https://www.alange-soehne.com/us-en/timepieces/lange-1/lange-1/lange-1-in-750-pink-gold-191-032"
+  },
+  {
+   "part": "sub-dial",
+   "material": "solid silver",
+   "finish": "textured",
+   "direction": "circular around the sub-dial's own centre",
+   "detail": "The hour-and-minute dial and the small-seconds dial are slightly recessed discs covered in very fine concentric circles (153 on the time dial, according to Langepedia), each bounded by a crisp step.",
+   "confidence": "high",
+   "source": "https://langepedia.com/a-lange-sohne-lange1/"
+  },
+  {
+   "part": "applied markers",
+   "material": "pink gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Applied Roman XII, III, VI and IX and eight lozenge-shaped markers, mirror polished with fine bevels (Langepedia: 'flawless mirror polishing and delicate bevels').",
+   "confidence": "high",
+   "source": "https://langepedia.com/a-lange-sohne-lange1/"
+  },
+  {
+   "part": "printed markings",
+   "material": "black print",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Black lettering (left off the unbranded drawing), black minute and seconds tracks, and AUF and AB with five small black triangles, unevenly spaced, for the power reserve.",
+   "confidence": "high",
+   "source": "https://www.alange-soehne.com/us-en/timepieces/lange-1/lange-1/lange-1-in-750-pink-gold-191-032"
+  },
+  {
+   "part": "lume",
+   "material": "none",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No luminous material is visible on this reference in Lange's or Fratello's images: the hands and markers are plain gold. Lange's page does not state it in words.",
+   "confidence": "medium",
+   "source": "https://www.alange-soehne.com/us-en/timepieces/lange-1/lange-1/lange-1-in-750-pink-gold-191-032"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "pink gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Lancet-shaped hands with a ridge down the centre, so each shows two polished facets, one bright and one dark; pink gold to match the case (Fratello: 'The hands and applied hour markers have the same nice tone as the case').",
+   "confidence": "high",
+   "source": "https://www.alange-soehne.com/us-en/timepieces/lange-1/lange-1/lange-1-in-750-pink-gold-191-032"
+  },
+  {
+   "part": "seconds hand",
+   "material": "pink gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A slim pink-gold hand with a small lozenge-shaped counterweight on the small-seconds dial.",
+   "confidence": "high",
+   "source": "https://www.alange-soehne.com/us-en/timepieces/lange-1/lange-1/lange-1-in-750-pink-gold-191-032"
+  },
+  {
+   "part": "other hands",
+   "material": "pink gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The power-reserve pointer is a slender pink-gold lancet on a round boss, sweeping between AUF and AB.",
+   "confidence": "high",
+   "source": "https://www.alange-soehne.com/us-en/timepieces/lange-1/lange-1/lange-1-in-750-pink-gold-191-032"
+  },
+  {
+   "part": "centre cap and pinion",
+   "material": "pink gold boss with a bright steel-coloured pin",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The hour and minute hands share a round stepped gold boss with a small bright domed pin at its centre; the seconds and power-reserve hands have smaller gold bosses with a dark centre dot.",
+   "confidence": "high",
+   "source": "https://www.alange-soehne.com/us-en/timepieces/lange-1/lange-1/lange-1-in-750-pink-gold-191-032"
+  },
+  {
+   "part": "date window frame",
+   "material": "pink gold, the same as the case",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "One polished gold frame with a central bar forming two windows; the bar hides the overlap of the two date discs (Langepedia: 'the central frame cleverly hiding the overlap').",
+   "confidence": "high",
+   "source": "https://langepedia.com/a-lange-sohne-lange1/"
+  },
+  {
+   "part": "date disc",
+   "material": "printed discs",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "White with black serif numerals, set deep behind the frame so that the frame shades their upper edge.",
+   "confidence": "high",
+   "source": "https://www.alange-soehne.com/us-en/timepieces/lange-1/lange-1/lange-1-in-750-pink-gold-191-032"
+  },
+  {
+   "part": "crystal",
+   "material": "sapphire",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Sapphire crystal, flat or very nearly so, standing just above the bezel. Lange's page states sapphire only for the case back; the front crystal is given as sapphire in retailer listings I could not open, hence medium.",
+   "confidence": "medium",
+   "source": "https://www.alange-soehne.com/us-en/timepieces/lange-1/lange-1/lange-1-in-750-pink-gold-191-032"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "alligator leather",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Stitched reddish-brown alligator strap with large scales and a soft sheen, on a pink-gold prong buckle. It fills the gap between the lugs with no end-piece.",
+   "confidence": "high",
+   "source": "https://www.alange-soehne.com/us-en/timepieces/lange-1/lange-1/lange-1-in-750-pink-gold-191-032"
+  },
+  {
+   "part": "other (not present)",
+   "material": "n/a",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No bezel insert or markings, no screws on the front, no crown guards.",
+   "confidence": "high",
+   "source": "https://www.alange-soehne.com/us-en/timepieces/lange-1/lange-1/lange-1-in-750-pink-gold-191-032"
+  }
+ ],
+ "lightBehaviour": [
+  "The polished bezel is a convex gold mirror: a soft ring of warm highlight that is brightest toward the lamp and follows it round.",
+  "The main dial is frosted silver with no hotspot; it brightens and dims evenly and stays nearly white.",
+  "Each recessed sub-dial shows a pair of opposed bright wedges, a bow-tie, pointing toward and away from the lamp and turning as it moves; that sheen and a thin shadow at the step are what separate the sub-dials from the main dial.",
+  "Gold numerals, lozenges and the date frame give small sharp glints; each lancet hand shows one bright and one dark facet split along its ridge, swapping as the lamp crosses.",
+  "The date discs sit deep, so the frame throws a shadow along their upper edge; the polished lugs carry bright streaks."
+ ],
+ "geometry": "Round case 38.5 mm across and 9.8 mm thick, built in three tiers: a rounded stepped bezel, a straight case band and a back ring. Four slender, slightly curved lugs attach to the band below the bezel line, with a notch where they join. Fluted crown at 3 and a flat rectangular date pusher projecting from the band at 10. Sapphire crystal. On the dial nothing overlaps: time dial left of centre, outsize date at upper right, power-reserve scale at the right edge, small seconds at lower right.",
+ "avoid": [
+  "Do not give the whole dial one finish: the main plate is frosted, the two sub-dials are recessed and concentrically ringed.",
+  "Do not brush the bezel or lug tops, and do not polish the case band.",
+  "No lume and no blued hands on the 191.032: hands, numerals, markers and date frame are all pink gold.",
+  "Do not draw the hands as flat swords: they are lancets with a centre ridge.",
+  "The date frame is a single gold frame with a centre bar, not two separate boxes with a gap as in the current sketch; discs are white with black numerals.",
+  "Do not forget the date pusher at 10.",
+  "Not a white lacquer or enamel dial, and no guilloché on the main plate.",
+  "The power-reserve scale is five small black triangles between AUF and AB, not a drawn arc with ticks."
+ ]
+}

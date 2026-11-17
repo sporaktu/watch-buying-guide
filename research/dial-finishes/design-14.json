@@ -1,0 +1,216 @@
+{
+ "n": 14,
+ "designName": "Moon chronograph",
+ "isRealWatch": true,
+ "reference": "Omega Speedmaster Moonwatch Professional ref. 310.30.42.50.01.001 (steel, Hesalite crystal, calibre 3861, 2021 to present). The drawing has white baton hands, painted baton markers, three registers at 9, 3 and 6, a black tachymeter bezel and no date, which is the Professional 'Moonwatch' of any generation since 1964. The caption gives no year, so this follows the current Hesalite version: it is the one documented by Omega and by detailed reviews, and it deliberately copies the flown-era ST 105.012 (asymmetric case, step dial, dot-over-90 bezel), so the finish scheme is that of the watches worn on the Moon. Case finishing was checked on Monochrome's and SJX's macro photographs; the SJX watch is the sapphire-crystal version, whose case is finished the same way (only its bracelet and logo differ).",
+ "surfaces": [
+  {
+   "part": "case top",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "circular around the centre",
+   "detail": "The narrow shoulder round the bezel and the top faces of the lugs are one satin surface whose grain follows the curve of the bezel. Monochrome: 'brushed surfaces - angled inside the lugs, horizontal on the casebands'. The grain does not run along the lugs.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/2021-omega-speedmaster-moonwatch-professional-master-chronometer-3861-review-price/"
+  },
+  {
+   "part": "lug top",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "circular around the centre",
+   "detail": "Each lug has a narrow brushed top face between the bezel and the polished bevel. Its grain is 'angled': measured on SJX's and Monochrome's photographs and on Omega's own front-on product picture, the lines sit about 45 to 60 degrees up from the 9-3 line and are mirrored from lug to lug ('/' upper left and lower right, '\\' upper right and lower left). That is a sweep round the dial, a little steeper than a true circle. On its outer side the face stops at a sharp line where the bevel begins.",
+   "confidence": "high",
+   "source": "https://watchesbysjx.com/2021/08/omega-speedmaster-moonwatch-3861-co-axial-chronograph-review.html"
+  },
+  {
+   "part": "lug chamfer",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A wide polished bevel twists along the outer edge of each 'lyre' lug and carries on round the case ('the bevel running from a lug to another'; 'twisted lyre-style lugs that feature a mirror-polished bevelling'). It is broadest near the lug tips, sits between the brushed top and the brushed case band, and is the brightest steel on the watch.",
+   "confidence": "high",
+   "source": "https://timeandtidewatches.com/introducing-omega-speedmaster-3861/"
+  },
+  {
+   "part": "case flank",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "along the length of the part (around the case band)",
+   "detail": "The case band is brushed along its length ('horizontal on the casebands'; measured dead level on SJX's side macro). From the front it shows only as slivers, widest on the right where the case swells into 'protective shoulders for the crown and pushers'.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/2021-omega-speedmaster-moonwatch-professional-master-chronometer-3861-review-price/"
+  },
+  {
+   "part": "crown",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "flutes parallel to the stem (9 to 3)",
+   "detail": "Fluted crown with polished flutes and an Omega logo on its end, sitting close against the case between the pushers. Polish read from SJX's macro photographs.",
+   "confidence": "medium",
+   "source": "https://watchesbysjx.com/2021/08/omega-speedmaster-moonwatch-3861-co-axial-chronograph-review.html"
+  },
+  {
+   "part": "pusher",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Two round pump pushers at 2 and 4: short polished stems with polished, very slightly domed caps (SJX macro).",
+   "confidence": "medium",
+   "source": "https://watchesbysjx.com/2021/08/omega-speedmaster-moonwatch-3861-co-axial-chronograph-review.html"
+  },
+  {
+   "part": "bezel edge",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A narrow polished steel rim frames the insert ('external stainless steel bezel with aluminium insert'). Monochrome calls the identical rim of the previous generation 'polished stainless steel', and it is mirror bright in both sets of photographs.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/2021-omega-speedmaster-moonwatch-professional-master-chronometer-3861-review-price/"
+  },
+  {
+   "part": "bezel insert",
+   "material": "black anodised aluminium",
+   "finish": "anodised",
+   "direction": "n/a",
+   "detail": "A sloping black ring with a smooth satin-to-soft-gloss sheen ('the classic black anodized aluminium insert'; the reviewer adds that ceramic 'often appears too glossy for such an instrument-like watch'). Reflections on it are broad and blurred, never sharp.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/2021-omega-speedmaster-moonwatch-professional-master-chronometer-3861-review-price/"
+  },
+  {
+   "part": "bezel markings",
+   "material": "white scale on the anodised surface",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "TACHYMETRE, the numerals from 500 to 60 and their dots (Omega: 'the famous dot over 90') are flat, flush and white with a faint silvery cast in macro. Whether they are print or undyed aluminium was not confirmed.",
+   "confidence": "medium",
+   "source": "https://www.omegawatches.com/en-us/watch-omega-speedmaster-moonwatch-professional-co-axial-master-chronometer-chronograph-42-mm-31030425001001"
+  },
+  {
+   "part": "dial base",
+   "material": "black-finished brass",
+   "finish": "matte",
+   "direction": "n/a",
+   "detail": "Matte black with a fine grain: 'still embossed brass and still has its matte black, slightly grained texture'. It soaks up light.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/2021-omega-speedmaster-moonwatch-professional-master-chronometer-3861-review-price/"
+  },
+  {
+   "part": "dial texture",
+   "material": "black-finished brass",
+   "finish": "grained",
+   "direction": "n/a",
+   "detail": "A fine even grain all over, plus a 'step': the outer ring that carries the minute track sits a little lower than the centre ('the peripheral chapter ring being slightly recessed'), and the hour markers straddle the step. It shows only as a faint circular line of shadow and highlight.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/2021-omega-speedmaster-moonwatch-professional-master-chronometer-3861-review-price/"
+  },
+  {
+   "part": "sub-dial",
+   "material": "black-finished brass",
+   "finish": "textured",
+   "direction": "circular around the sub-dial's own centre",
+   "detail": "Three registers at 9, 3 and 6, sunk below the dial with a sharp step ('The sub-counters are still recessed and the central part still has a fine concentric pattern'). SJX finds this 'concentric graining, or azurage' to be 'shallow', so the rings are barely visible; the outer track of each register is plain.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/2021-omega-speedmaster-moonwatch-professional-master-chronometer-3861-review-price/"
+  },
+  {
+   "part": "printed markings",
+   "material": "white print",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Minute track, register scales and numerals are printed flat in white; on the Hesalite version the Omega logo is printed too, not applied ('the Hesalite versions have the Omega logo printed').",
+   "confidence": "high",
+   "source": "https://timeandtidewatches.com/introducing-omega-speedmaster-3861/"
+  },
+  {
+   "part": "lume",
+   "material": "Super-LumiNova",
+   "finish": "lume",
+   "direction": "n/a",
+   "detail": "The hour markers are flat batons of luminous paint laid on the dial, with no metal; the same material fills the hands. Matte, off-white: 'light cream Super-LumiNova on hands and hour markers'.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/2021-omega-speedmaster-moonwatch-professional-master-chronometer-3861-review-price/"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "white-painted metal",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Straight baton hands with pointed tips in what Monochrome calls 'granular white paint', with a lume strip down the middle.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/2021-omega-speedmaster-moonwatch-professional-master-chronometer-3861-review-price/"
+  },
+  {
+   "part": "seconds hand",
+   "material": "white-painted metal",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "The central chronograph hand: a long thin white needle with a lume-filled lozenge near the tip ('a slightly larger diamond luminous tip') and a teardrop-shaped tail ('a teardrop counterweight'). Its hub is painted white like the rest.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/2021-omega-speedmaster-moonwatch-professional-master-chronometer-3861-review-price/"
+  },
+  {
+   "part": "other hands",
+   "material": "white-painted metal with bare polished bosses",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Three small white baton hands in the registers. Their centres are bare polished metal, not paint ('the centre part being metal and not painted anymore'; SJX: 'polished instead of painted white, which creates contrast and a tiny, shiny point').",
+   "confidence": "high",
+   "source": "https://watchesbysjx.com/2021/08/omega-speedmaster-moonwatch-3861-co-axial-chronograph-review.html"
+  },
+  {
+   "part": "centre cap and pinion",
+   "material": "white-painted metal",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "The stack of hands ends in the white-painted hub of the chronograph hand, a plain white disc at the centre of the dial (photographs).",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/2021-omega-speedmaster-moonwatch-professional-master-chronometer-3861-review-price/"
+  },
+  {
+   "part": "crystal",
+   "material": "Hesalite (acrylic)",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "A domed crystal rising above the bezel, with a tiny Omega logo in its centre ('Hesalite crystal with OMEGA logo in the centre'). It carries a large soft highlight and bends the edge of the dial; seen from the front its thick edge shows as a pale, slightly milky ring between the dial and the black insert.",
+   "confidence": "high",
+   "source": "https://www.omegawatches.com/en-us/watch-omega-speedmaster-moonwatch-professional-co-axial-master-chronometer-chronograph-42-mm-31030425001001"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "stainless steel five-link bracelet with fitted end link",
+   "finish": "brushed",
+   "direction": "straight vertical (12 to 6)",
+   "detail": "'the Hesalite version has a fully brushed bracelet': every link and the end link are brushed lengthwise on top (Omega: 'a brushed five-arched-links-per-row bracelet'; the grain measures vertical on Omega's front-on picture). Polish appears only on the side flanks.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/2021-omega-speedmaster-moonwatch-professional-master-chronometer-3861-review-price/"
+  },
+  {
+   "part": "other (parts this watch does not have)",
+   "material": "n/a",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No separate crown guards (the swollen right side of the case does that job), no applied hour markers, no marker surrounds, no applied logo on the Hesalite version, no date, no screws visible from the front.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/2021-omega-speedmaster-moonwatch-professional-master-chronometer-3861-review-price/"
+  }
+ ],
+ "lightBehaviour": [
+  "The polished lyre bevels are the signature: long, thin, curving highlights down each side of the case that snap from bright to black as the lamp moves.",
+  "The brushed lug tops beside them carry a grain that follows the bezel, so they do not light up together: the lug nearest the lamp and the one diagonally opposite glow, the other two stay dull, and the pair swaps as the lamp crosses over. The bracelet, brushed straight, is brightest with the lamp to the left or right.",
+  "The Hesalite dome carries one large soft-edged highlight and a pale ring at its rim; it never gives the flat hard glare of sapphire.",
+  "The aluminium insert shows a broad blurred sheen; the white scale stays evenly white.",
+  "The dial is a light sink: the step and the sunken registers show only as hairlines of shadow and highlight, and the white hands and lume stay flat and bright. The only sparkles on the dial are the three polished bosses of the register hands.",
+  "Polished pushers, crown and bezel rim give small hard sparkles down the right side."
+ ],
+ "geometry": "42 mm asymmetric case: the right side swells outward to shelter the crown and pushers. Short twisted 'lyre' lugs, 20 mm apart, each with a narrow brushed top face and a wide polished bevel that carries on round the case from lug to lug. Thin fixed bezel with a sloped black insert and a narrow polished steel rim, slightly overhanging the case. Fluted crown at 3 between round pump pushers at 2 and 4. No screws visible from the front. Domed acrylic crystal rising above the bezel. The dial steps down to the outer minute track and has three sunken registers. Brushed five-link bracelet with a fitted end link.",
+ "avoid": [
+  "No ceramic bezel and no high-gloss black: ceramic belongs to the Dark Side of the Moon and the precious-metal Moonwatches.",
+  "No polished small links in the bracelet and no applied metal Omega logo: both mark the sapphire-crystal version. The Hesalite watch is all brushed with a printed logo.",
+  "No sunray or gloss dial (gold versions), and no strongly grooved sub-dials: the dial is matte and the rings are almost invisible.",
+  "No raised applied hour markers: they are flat painted lume.",
+  "Do not polish the lug tops: only the bevel is polished. Do not brush them lengthwise either: the grain follows the bezel.",
+  "Do not polish the case band: it is brushed horizontally.",
+  "No straight lugs, steel engraved bezel, broad-arrow or leaf-shaped hands: those are the early straight-lug references.",
+  "Hands are white paint, not polished metal, and the hub at the centre is white too. No flat crystal, no date."
+ ]
+}

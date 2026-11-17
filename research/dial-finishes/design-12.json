@@ -1,0 +1,161 @@
+{
+ "n": 12,
+ "designName": "Sector dial",
+ "isRealWatch": true,
+ "reference": "A genre piece ('after the scientific dials of the 1930s'): no single production watch I could find has exactly the drawn layout, so this sheet is put together from three real Longines sector watches, all with calibre 12.68Z, and every row says which one it describes. (1) Main exemplar, because it carries the drawn handset: the 37 mm steel wristwatch with sweep centre seconds made in 1938 (Christie's sale 1407, lot 217, movement and case no. 5'540'111; a watch from the same serial block, 5,540,***, is photographed in detail by the dealer Watchnet). It has blued leaf hands, a blued sweep seconds with a round counterweight, a two-tone silvered sector dial with black hard-enamel batons and numerals, a polished bezel over a brushed case band, fixed bars and a domed acrylic crystal. Its numerals are 12, 3, 6 and 9 with batons between and five-minute figures on the outer track, so its layout is not the drawn one. (2) Layout: a 35 mm example of about 1942 (Stetz & Co.) has the drawn six sectors, with black even numerals and dividing bars at the odd hours, but small seconds. (3) How the two dial tones are made is documented only for Longines' 1934 museum watch and its 2019 re-edition, the Heritage Classic Sector (L2.828.4.73.x).",
+ "surfaces": [
+  {
+   "part": "bezel top",
+   "material": "stainless steel (Staybrite)",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Changed from brushed. Wide, flat, single-step bezel. On the 1938 centre-seconds watch it is polished: in the dealer's photographs it goes near-black against a dark backdrop with one sharp white highlight. Two Longines sector watches of about 1942 show the same plain mirror, with scratches but no grain (Stetz & Co., which says it did not polish the case, and European Watch Company no. 24308). Against this: the brushed bezel with circular grain of the 2019 re-edition ('a clean brushed finish on all surfaces') and of Longines' studio picture of its 1934 museum watch, both with baton hands and small seconds, and a 33 mm flat-bezel watch of 1938 shown by the dealer Hairspring, whose bezel top reads as an even satin grey beside mirror-bright lugs. Read from photographs of old watches that may have been refinished.",
+   "confidence": "medium",
+   "source": "https://www.watchnet.co.jp/en/item/view/5621"
+  },
+  {
+   "part": "bezel edge",
+   "material": "stainless steel (Staybrite)",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The short outer wall of the bezel is polished too: in the dealer's side view of the 1938 watch it mirrors the leather strap, and it meets the brushed case band at a crisp line. Just inside the bezel the edge of the acrylic crystal shows as a thin brighter ring.",
+   "confidence": "medium",
+   "source": "https://www.watchnet.co.jp/en/item/view/5621"
+  },
+  {
+   "part": "case flank",
+   "material": "stainless steel (Staybrite)",
+   "finish": "brushed",
+   "direction": "along the length of the part (around the case band)",
+   "detail": "Slim case band with a horizontal satin grain, plainly visible in the dealer's side views of the 1938 watch and running on along the outer sides of the lugs; the re-edition is brushed the same way. From the front only its outline and the areas between the lugs show.",
+   "confidence": "medium",
+   "source": "https://www.watchnet.co.jp/en/item/view/5621"
+  },
+  {
+   "part": "lug top",
+   "material": "stainless steel (Staybrite)",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Changed from brushed. Slim tapering lugs. On the 1938 watch their tops read as polished, a dark mirror with bright edges in the frontal photograph, while their outer sides carry the brushed grain of the case band. The re-edition instead has lugs brushed from base to tip ('The case is brushed all around', 'Without a bevel or any other notable case work'). The least certain row on this sheet.",
+   "confidence": "low",
+   "source": "https://www.watchnet.co.jp/en/item/view/5621"
+  },
+  {
+   "part": "crown",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "flutes parallel to the stem (9 to 3)",
+   "detail": "Flat-topped push-pull crown with fine straight knurling and no guards, unsigned (the 1942 watch is listed with its 'Original unsigned crown', and the crown of the 1938 watch is plain in the dealer's photograph). The polish is read from photographs; the re-edition's crown is signed.",
+   "confidence": "medium",
+   "source": "https://www.stetzcowatches.com/product/1942-longines-sector-dial-steel-35mm/"
+  },
+  {
+   "part": "dial base",
+   "material": "silvered brass",
+   "finish": "grained",
+   "direction": "n/a",
+   "detail": "The clear centre disc inside the inner circle: silver-white to cream and matte, the lightest and flattest zone in every photograph of the 1938 watch. 'Finely grained' is SJX's description of the 1934 museum watch and its re-edition. On old dials it has usually aged toward ivory or honey.",
+   "confidence": "medium",
+   "source": "https://watchesbysjx.com/2019/10/longines-heritage-classic-sector-dial.html"
+  },
+  {
+   "part": "chapter ring",
+   "material": "silvered brass",
+   "finish": "brushed",
+   "direction": "circular around the centre",
+   "detail": "The band between the inner and middle circles that holds the numerals and the odd-hour dividers. On the 1938 watch it is the darker, greyer zone in every photograph. That the difference is one of finish is documented for the 1934 museum watch and its re-edition: 'the chapter ring for the hour markers having a concentric brushed finish', 'metallic silver and concentrically brushed', and the circular grain is plain in close-ups of the re-edition. I could not resolve the grain on the 1938 dial itself.",
+   "confidence": "medium",
+   "source": "https://watchesbysjx.com/2019/10/longines-heritage-classic-sector-dial.html"
+  },
+  {
+   "part": "dial texture",
+   "material": "silvered brass",
+   "finish": "matte",
+   "direction": "n/a",
+   "detail": "The outer band carrying the minute ticks is plain matte off-white like the centre: on the re-edition 'a blank white border that frames the rest of the dial', and on the 1938 watch a light band outside the grey hour ring. Mapping this onto the drawing's outer minute band is my reading.",
+   "confidence": "medium",
+   "source": "https://wornandwound.com/review/review-longines-heritage-sector/"
+  },
+  {
+   "part": "printed markings",
+   "material": "black hard enamel (pad print on the re-edition)",
+   "finish": "enamel",
+   "direction": "n/a",
+   "detail": "Circles, radial dividers, minute ticks and deco-style numerals in black. Christie's describes the 1938 dial as having 'black hard enamel baton and Arabic numerals' and 'outer railway minute divisions': glossy black, flush with the dial and crisp-edged. The quotation names the batons and numerals; that the hairline circles, dividers and minute ticks are made the same way is an assumption, and the dealer who photographed the sister watch lists its indices simply as printed. The re-edition prints everything, slightly raised.",
+   "confidence": "medium",
+   "source": "https://www.christies.com.cn/en/lot/lot-5893026"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "steel",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "Changed: the leaf shape is not the drawing's invention. Christie's lists the 1938 centre-seconds watch with 'blued steel hands', the dealer's listing of the 37 mm centre-seconds watch from the same serial block speaks of its 'blue steel long leaf hands', and its photographs show long, slim, slightly domed blued leaves, the drawn shape. Small-seconds Longines sector watches, including the re-edition, have blued batons instead.",
+   "confidence": "high",
+   "source": "https://www.watchnet.co.jp/en/item/view/5621"
+  },
+  {
+   "part": "seconds hand",
+   "material": "steel",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "Christie's: 'sweep centre seconds'. The dealer's photographs of the 37 mm watch show a hairline blued needle with a small round counterweight on its tail, as drawn; the earlier sheet had the counterweight as unconfirmed.",
+   "confidence": "medium",
+   "source": "https://www.watchnet.co.jp/en/item/view/5621"
+  },
+  {
+   "part": "centre cap and pinion",
+   "material": "steel",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "A small stacked hub of dark, blued steel with a bright pin-point of the pinion at its centre. Read from the dealer's photographs of the 1938 watch; the colour of so small a part is hard to judge.",
+   "confidence": "low",
+   "source": "https://www.watchnet.co.jp/en/item/view/5621"
+  },
+  {
+   "part": "crystal",
+   "material": "acrylic (Plexiglas)",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "A tall acrylic dome on the 1938 watch, clear in the dealer's side views, and a 'Plexi crystal' on the 1942 watch. It gives soft, slightly warm reflections and bends the outer track when seen at an angle. The re-edition copies the profile in box-shaped sapphire.",
+   "confidence": "medium",
+   "source": "https://www.watchnet.co.jp/en/item/view/5621"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "leather",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Plain leather strap. The 1938 watch has 'soldered bars', fixed bars between the lugs of the kind found on military and scientific watches, so the strap runs close to the case with almost no gap.",
+   "confidence": "medium",
+   "source": "https://www.christies.com.cn/en/lot/lot-5893026"
+  },
+  {
+   "part": "other (parts this watch does not have)",
+   "material": "n/a",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No date, no lume on this non-luminous type of dial, no sub-dial in the drawn centre-seconds layout, no applied markers or surrounds, no bezel insert, no crown guards, no pushers and no visible screws.",
+   "confidence": "medium",
+   "source": "https://www.christies.com.cn/en/lot/lot-5893026"
+  }
+ ],
+ "lightBehaviour": [
+  "The brushed hour ring is the star: its circular grain produces two opposed bright wedges that lie along the direction of the lamp and sweep around the ring as the lamp moves.",
+  "Contrast between the zones inverts: outside the highlight the ring looks greyer and darker than the cream centre, and inside the highlight it becomes the brightest part of the dial.",
+  "The grained centre and the outer minute band hardly change at all, only brightening or dimming slightly.",
+  "The blued leaf hands go from black to bright blue, usually one at a time, as each reaches the angle that mirrors the lamp; because they are domed, the blue runs as a streak along one side of the leaf.",
+  "The polished bezel is a broad ring mirror: one bright arc on the lamp side with a crisp edge, the rest dark grey, which sets it apart from the soft satin of the dial ring.",
+  "The black enamel markings stay black but can show a tiny glossy glint; the acrylic dome adds a soft-edged reflection of the lamp and a slight magnification toward the rim."
+ ],
+ "geometry": "Round three-piece steel case of about 32 to 37 mm on the originals, with a wide flat bezel (roughly 5 to 8 percent of the diameter on each side in photographs) that steps down once to a slim case band. Slim tapered lugs curve down, with fixed bars on the 1938 watch; a knurled crown sits at 3 with no guards, and there are no pushers. The crystal is a tall acrylic dome and the strap is leather. The dial is one flat plate in concentric zones: a clear centre, the ring of numerals and dividers, and an outer minute track.",
+ "avoid": [
+  "Showing the two tones as two paint colours: it is one silvered plate with a brushed ring between matte areas.",
+  "Sunray brushing on the ring: the grain is concentric.",
+  "Mixing the two documented cases: either a polished bezel over a brushed band (the 1938 watch with the drawn hands, used here) or brushed all over with circular grain on the bezel (the 1934 museum watch and the 2019 re-edition), never a brushed bezel on a polished band.",
+  "Blue or gilt printing, which is the look of other makers' sector dials; here the markings are black.",
+  "Applied numerals, lume or a date window.",
+  "A glossy or pure white dial: it is silvered, matte and slightly warm.",
+  "Flat painted blue hands: they are domed, polished and heat-blued."
+ ]
+}

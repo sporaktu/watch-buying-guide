@@ -1,0 +1,226 @@
+{
+ "n": 26,
+ "designName": "Two-tone GMT",
+ "isRealWatch": true,
+ "reference": "Rolex GMT-Master ref. 6542 in steel with the original Bakelite bezel insert and gloss gilt dial (launched 1954-55, made to 1959): the only GMT-Master of the caption's year. The drawn bezel (even numerals, dots at the odd hours, triangle at 24, blue above red) is the layout of the 6542 insert, and the date at 3 and Mercedes hands fit. Three drawn details belong to later references and are flagged below, not followed: silver-coloured hands (the 6542's are gilt), white-metal marker surrounds (the 6542 has hairline gilt outlines that are part of the dial; raised white-gold surrounds arrive about 1984) and a large-triangle 24-hour hand (the 6542's is slim with a small arrowhead). If those are to be kept literally, the nearest match is a late 16750 or a 16700; the insert then becomes satin anodised aluminium and the case gains crown guards, while the gloss dial stays. Finishes were checked on Phillips's photographs of two examples, one of them described as never polished.",
+ "surfaces": [
+  {
+   "part": "case top",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "circular around the centre",
+   "detail": "Hidden by the bezel except for the lug tops and a narrow margin; same finish as the lug tops.",
+   "confidence": "medium",
+   "source": "https://phillips.com/detail/rolex/104375"
+  },
+  {
+   "part": "lug top",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "circular around the centre",
+   "detail": "Flat lug tops, satin-brushed at an angle and not lengthwise. On Phillips's Geneva example the grain measures about 55 to 60 degrees up from the 9-3 line and is mirrored from lug to lug ('/' upper left and lower right, '\\' upper right and lower left), a sweep round the dial. The never-polished New York example is less clear: two of its lugs show the same slant and two read close to lengthwise, perhaps because the polished bevel was caught in the measurement, so the direction stays uncertain. Monochrome's editor does say of a much later Rolex, the 1990s Explorer 14270, against the current one: 'the brushing is now straight, vs. angled on the 14270'.",
+   "confidence": "medium",
+   "source": "https://phillips.com/detail/rolex/104375"
+  },
+  {
+   "part": "lug chamfer",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A wide polished bevel runs along the outer edge of each lug between the brushed top and the polished side. Sotheby's lists 'sharply beveled lugs'; Phillips describes its never-polished example as retaining 'crisp facets'.",
+   "confidence": "high",
+   "source": "https://phillips.com/detail/rolex/NY080118/30"
+  },
+  {
+   "part": "case flank",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Polished sides with drilled lug holes, mirror bright in the side view of the never-polished example; from the front only a thin bright outline.",
+   "confidence": "high",
+   "source": "https://phillips.com/detail/rolex/NY080118/30"
+  },
+  {
+   "part": "crown",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "flutes parallel to the stem (9 to 3)",
+   "detail": "Fluted screw-down crown with the coronet in relief on its end, standing clear of the case side. Polish read from Phillips's side view.",
+   "confidence": "medium",
+   "source": "https://phillips.com/detail/rolex/NY080118/30"
+  },
+  {
+   "part": "bezel edge",
+   "material": "brass alloy, not steel (whether it was plated is not confirmed)",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Thin rotating bezel with a fine coin edge of small square-cut teeth, far finer than a Submariner's scallops. James Dowling writes of 'the brass alloy bezel itself' (another guide says steel), which explains why the rim looks pale yellow beside the white steel of the case on both Phillips examples. New, it would be bright white metal a touch warmer than the case.",
+   "confidence": "medium",
+   "source": "https://oracleoftime.com/rolex-gmt-master-ref-6542s-radioactive-bezel/"
+  },
+  {
+   "part": "bezel insert",
+   "material": "Bakelite (clear plastic coloured from behind)",
+   "finish": "gloss plastic",
+   "direction": "n/a",
+   "detail": "A ring of glossy transparent plastic, gently sloped, with blue (upper half, 18 to 6) and red (lower half, 6 to 18) behind it, so that it looks like colour under glass: smooth, deep and wet-looking, with rounded clear edges. Sotheby's: 'translucent Bakelite plastic with once-glowing radium markers inside', the colours seeming 'to float beneath the clear surface'.",
+   "confidence": "high",
+   "source": "https://www.sothebys.com/en/articles/the-rolex-gmt-master-the-complete-collectors-guide"
+  },
+  {
+   "part": "bezel markings",
+   "material": "radium luminous paint under the clear surface",
+   "finish": "lume",
+   "direction": "n/a",
+   "detail": "Even numerals 2 to 22, round dots at the odd hours and a solid triangle at 24, all luminous paint sealed beneath the plastic ('radium filled twenty-four-hour numerals painted on the underside'), so highlights slide over them. Off-white when new, tan today.",
+   "confidence": "high",
+   "source": "https://phillips.com/detail/rolex/201671"
+  },
+  {
+   "part": "dial base",
+   "material": "black lacquer on a gilt brass plate",
+   "finish": "gloss lacquer",
+   "direction": "n/a",
+   "detail": "Mirror-gloss black: 'a glossy (or mirror) and not matte' dial (Le Monde Edmond); 'still-glossy black lacquer dial with gilt lettering' (Phillips).",
+   "confidence": "high",
+   "source": "https://le-monde-edmond.com/in-depth-review-rolex-6542-gmt-master/"
+  },
+  {
+   "part": "printed markings",
+   "material": "gilt (the brass dial plate showing through the lacquer)",
+   "finish": "gilt",
+   "direction": "n/a",
+   "detail": "Coronet, text and minute track are metallic gold-toned and level with the lacquer, not raised paint: 'the text is actually the brass base plate of the dial showing through the black gloss lacquer'. The minute track is closed by a ring ('a chapter ring much like the submariners of this period'). They glow warm when lit and look pale and silvery in flat light.",
+   "confidence": "high",
+   "source": "https://wristcheck.com/us/discover/watch-101/wristchecks-guide-to-the-rolex-gmt-master-part-1"
+  },
+  {
+   "part": "marker surrounds",
+   "material": "gilt (part of the dial, flush)",
+   "finish": "gilt",
+   "direction": "n/a",
+   "detail": "Each luminous plot sits inside a hairline pale-gilt outline that is part of the dial and flush with its surface, clear in Phillips's dial macro. There is no raised metal surround; the drawing's white-metal rims belong to GMT-Masters from about 1984.",
+   "confidence": "high",
+   "source": "https://phillips.com/detail/rolex/NY080118/30"
+  },
+  {
+   "part": "lume",
+   "material": "radium paint",
+   "finish": "lume",
+   "direction": "n/a",
+   "detail": "The round, bar and triangle plots are thick luminous paint laid directly on the lacquer, slightly domed and grainy; off-white when new, cream to tan on survivors (Phillips: 'luminous hour markers that have aged, along with the hands, to a warm brown hue').",
+   "confidence": "high",
+   "source": "https://phillips.com/detail/rolex/NY080118/30"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "gilt (gold-coloured) metal",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Mercedes hour hand and pointed minute hand with flat polished gold-coloured frames around lume. They are clearly gold on the never-polished Phillips example; tarnished examples can look grey. The drawing's silver hands are a later detail. No written description of their finish was found.",
+   "confidence": "medium",
+   "source": "https://phillips.com/detail/rolex/NY080118/30"
+  },
+  {
+   "part": "seconds hand",
+   "material": "white-painted metal",
+   "finish": "gloss paint",
+   "direction": "n/a",
+   "detail": "Thin needle painted white ('a bright white seconds hands' in Sotheby's words; 'had to be white' in Le Monde Edmond's), with a small lume disc in a white ring about two-thirds of the way out. Its sheen cannot be made out in photographs.",
+   "confidence": "high",
+   "source": "https://www.sothebys.com/en/articles/the-rolex-gmt-master-the-complete-collectors-guide"
+  },
+  {
+   "part": "other hands",
+   "material": "red-lacquered stem with a gilt-framed tip",
+   "finish": "gloss paint",
+   "direction": "n/a",
+   "detail": "The 24-hour hand is 'a slim red GMT hand with a small arrow at the tip': a thin red stem ending in a small gilt-framed triangle filled with lume. The drawing's large solid red triangle is the later style.",
+   "confidence": "high",
+   "source": "https://www.sothebys.com/en/articles/the-rolex-gmt-master-the-complete-collectors-guide"
+  },
+  {
+   "part": "centre cap and pinion",
+   "material": "white-painted metal",
+   "finish": "gloss paint",
+   "direction": "n/a",
+   "detail": "The hub of the seconds hand covers the centre as a small white disc, sitting on the gilt bosses of the other hands (Phillips dial macro).",
+   "confidence": "medium",
+   "source": "https://phillips.com/detail/rolex/NY080118/30"
+  },
+  {
+   "part": "date disc",
+   "material": "printed disc",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "A 'roulette' disc: 'alternating black and red numerals' on white (a red 16 shows on the New York example). It sits in a plain rectangular opening in the lacquer with no frame. The drawing's plain black-on-white is close enough in finish.",
+   "confidence": "medium",
+   "source": "https://italianwatchspotter.com/vintage-rolex-gmt-master-guide/?lang=en"
+  },
+  {
+   "part": "crystal",
+   "material": "acrylic (Plexiglas)",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Tall domed crystal standing well above the bezel, as Phillips's side view shows. It carries a broad curved highlight and a bright refracting rim, and softens and bends what lies beneath.",
+   "confidence": "high",
+   "source": "https://phillips.com/detail/rolex/NY080118/30"
+  },
+  {
+   "part": "other (Cyclops lens over the date)",
+   "material": "acrylic (part of the crystal)",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "A raised magnifying bubble over the date at 3: 'the 6542 came with cyclop lens crystal above the date'. It adds a second small highlight and enlarges the date.",
+   "confidence": "high",
+   "source": "https://le-monde-edmond.com/in-depth-review-rolex-6542-gmt-master/"
+  },
+  {
+   "part": "other (steel ring seen through the edge of the crystal)",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "circular around the centre",
+   "detail": "Between the dial and the insert, the rim of the crystal shows a narrow steel ring with a fine circular grain (Phillips dial macro of the New York example). Seen on one photograph only.",
+   "confidence": "low",
+   "source": "https://phillips.com/detail/rolex/NY080118/30"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "riveted Rolex Oyster bracelet (ref. 7206, end links 65)",
+   "finish": "brushed",
+   "direction": "straight vertical (12 to 6)",
+   "detail": "Folded links with flat tops brushed lengthwise and polished sides showing rivet heads; stamped end links follow the curve of the case. Phillips lists a 'Rolex Oyster riveted bracelet stamped \"7206\", end links stamped \"65\"'. Brushing judged from photographs.",
+   "confidence": "medium",
+   "source": "https://phillips.com/detail/rolex/201671"
+  },
+  {
+   "part": "other (parts this watch does not have)",
+   "material": "n/a",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No crown guards ('its stainless-steel case has no crown guards'; they arrive with ref. 1675), no applied markers, no raised marker surrounds, no frame round the date window, no pushers, no visible screws.",
+   "confidence": "high",
+   "source": "https://www.sothebys.com/en/articles/the-rolex-gmt-master-the-complete-collectors-guide"
+  }
+ ],
+ "lightBehaviour": [
+  "The Bakelite ring gleams like wet glass: broad, soft-edged highlights slide across it and pass over the numerals, which lie underneath; its rounded clear edges catch a bright line.",
+  "The domed acrylic takes one large curved highlight plus a bright rim, and the Cyclops adds a second small one; both soften and bend what lies beneath.",
+  "On the mirror-black dial the gilt print lights up warm gold when the lamp is near the line of sight and sinks to dull bronze as it moves away.",
+  "Gilt hand frames flash yellow; the white seconds hand stays plain white.",
+  "The lug tops do not light up together. With their angled grain, the lug nearest the lamp and the one diagonally opposite glow while the other two stay dull; the polished bevels beside them are thin bright lines that switch on and off. The bracelet, brushed straight, is brightest with the lamp to the left or right.",
+  "The coin edge twinkles as a ring of tiny points."
+ ],
+ "geometry": "Round 38 mm Oyster case with no crown guards. Slender tapering lugs, flat on top with a wide bevel along the outer edge, 20 mm apart, with drilled lug holes in the flanks. Thin rotating bezel with a fine coin edge and a wide, gently sloped insert. Fluted crown at 3 standing clear of the case. No pushers, no visible screws. Tall domed acrylic crystal with a Cyclops over the date. Riveted Oyster bracelet with stamped end links.",
+ "avoid": [
+  "No crown guards: they date from the 1675.",
+  "Do not make the insert satin anodised aluminium (Rolex's replacement and every GMT-Master until 2007) or ceramic (2007 on): the 1954 insert is glossy plastic with the numerals under the surface.",
+  "No raised white-gold surrounds and no white print: the print is gilt and flush.",
+  "The dial is gloss, not matte (matte is the 1675 of about 1967 to 1980).",
+  "Do not use the large-triangle 24-hour hand or silver hands of later references if the 1954 watch is the aim.",
+  "No flat sapphire crystal: it is domed acrylic.",
+  "The bezel rim is a fine coin edge, not Submariner scallops.",
+  "Do not brush the lug tops straight from 12 to 6 as on a modern case: the grain crosses each lug at an angle. Do not leave out the polished bevel beside it.",
+  "Do not copy the faded black-and-burgundy bezel or brown dial of surviving examples: new, it was blue and red over black."
+ ]
+}

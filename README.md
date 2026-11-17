@@ -17,6 +17,7 @@ It's a single static page with no build step, no tracking and no third-party req
 | `site/style.css` | The design: one typeface (Jost), a ruled grid, and blue, red and yellow used as signals. |
 | `site/img/` | Photos of the picks, plus one small `b-*.jpg` thumbnail per brand in the index. |
 | `site/fonts/` | Jost, served from this repo. |
+| `research/dial-finishes/` | The research behind the dial finishes: one `design-NN.json` per dial, numbered as in the dial menu. Each names the real watch or clock it follows and lists every surface seen from the front with its material, its finish, the direction of any brushing, a confidence level and a source. It also notes how the piece catches light and which mistakes to avoid. It is not part of the published site. `site/dials.js` holds the finishes actually used, in each design's `fin` field. |
 | `.github/workflows/pages.yml` | Deploys `site/` to GitHub Pages on every push to `main`. |
 
 ## Updating

@@ -1,0 +1,144 @@
+{
+ "n": 27,
+ "designName": "Art Deco rectangle",
+ "isRealWatch": true,
+ "reference": "Jaeger-LeCoultre Reverso 'Shadow' in the Classique size, ref. 251.8.86 (1990s; dated examples are 1996 and about 1997): steel, 23 x 38 mm, hand-wound cal. 846, hours and minutes only. Chosen by the dial: it is the steel Reverso with a black-to-charcoal dial, pale Arabic numerals set outside an inner rectangular railway minute track, and no seconds, which is what is drawn. Two things in the drawing are not this reference: numerals only at the even hours with batons at the odd ones (the real dial has all twelve numerals), and dauphine hands (the real ones are lume-filled sword hands). No Reverso was found that matches those two details as well: the 1930s black dials checked have batons with an outer track, a round inner seconds chapter, or applied gold numerals with small seconds, all in fully polished cases. The matt blasted frame around the crystal belongs to the Shadow alone; the other steel Reversos looked at (1930s originals, the Tribute to 1931 and the Tribute Monoface) have that frame polished.",
+ "surfaces": [
+  {
+   "part": "bezel top",
+   "material": "stainless steel",
+   "finish": "bead-blasted",
+   "direction": "n/a",
+   "detail": "The flat frame around the crystal is matt micro-blasted steel, an even frosted grey with a fine grainy texture and no brush lines; a narrow matt groove separates it from the first polished gadroon above and below. Seen on three photographed examples and catalogued at auction as a case 'partially microblasted'; one dealer's text calls the matt areas 'brushed'.",
+   "confidence": "high",
+   "source": "https://loupethis.com/auctions/jaeger-lecoultre-reverso-classique-251-8-86-on-bracelet"
+  },
+  {
+   "part": "other (gadroons: three ridges above and three below the dial)",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Three horizontal ridges across the full case width at each end of the swivelling case and continuing round its sides. The ridge tops are mirror polished; the narrow grooves between them are matt blasted like the frame (clear in a side-on macro photograph).",
+   "confidence": "high",
+   "source": "https://loupethis.com/auctions/jaeger-lecoultre-reverso-classique-251-8-86-on-bracelet"
+  },
+  {
+   "part": "lug top",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The carrier's end blocks beyond the gadroons, which hold the strap: plain mirror-polished faces that slope away toward the strap, with no brushing and no separate chamfer.",
+   "confidence": "high",
+   "source": "https://loupethis.com/auctions/jaeger-lecoultre-reverso-classique-251-8-86-on-bracelet"
+  },
+  {
+   "part": "case flank",
+   "material": "stainless steel",
+   "finish": "bead-blasted",
+   "direction": "n/a",
+   "detail": "The sides of the swivelling case are matt blasted like the frame, with the polished gadroon ends wrapping round them; only a sliver shows from the front.",
+   "confidence": "medium",
+   "source": "https://loupethis.com/auctions/jaeger-lecoultre-reverso-classique-251-8-86-on-bracelet"
+  },
+  {
+   "part": "crown",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Small signed crown at 3 with a fluted edge (catalogued as a 'fluted crown'), standing just proud of the right-hand side; no guards.",
+   "confidence": "medium",
+   "source": "https://everywatch.com/jaeger-lecoultre/reverso/watch-13005577"
+  },
+  {
+   "part": "dial base",
+   "material": "black-to-charcoal dial (coating not stated)",
+   "finish": "matte",
+   "direction": "n/a",
+   "detail": "An even matt surface with no gloss, sunray or pattern, reading black in one photograph and mid-grey in another. Two sellers describe it as two close tones of dark grey with the centre a different shade (an auction text and AWCo); Loupe This calls it a 'monochromatic single-texture black dial'. In photographs the rectangle inside the track is at most a shade different, so treat any difference as slight.",
+   "confidence": "medium",
+   "source": "https://everywatch.com/jaeger-lecoultre/reverso/watch-13005577"
+  },
+  {
+   "part": "chapter ring",
+   "material": "pale silver-white print",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "A rectangular railway-track minute scale printed around the centre of the dial, inside the numerals ('white painted railroad minute track'); flat print, no raised ring.",
+   "confidence": "high",
+   "source": "https://everywatch.com/jaeger-lecoultre/reverso/watch-13005577"
+  },
+  {
+   "part": "printed markings",
+   "material": "pale printed outlines filled with luminous paint",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Twelve upright Art Deco Arabic numerals drawn as pale outlines and filled with luminous paint, flat on the dial; the JL monogram, 'Jaeger-LeCoultre' and 'Reverso' are printed in the centre and 'Swiss Made' at the foot.",
+   "confidence": "high",
+   "source": "https://www.europeanwatch.com/watch/jaeger-lecoultre-251886-251886-reverso-classique-shadow-ss-gray-d-66158"
+  },
+  {
+   "part": "lume",
+   "material": "luminous paint, aged",
+   "finish": "lume",
+   "direction": "n/a",
+   "detail": "Matt fill in the numerals and the hands: cream to yellow on some surviving examples, still near-white on others.",
+   "confidence": "medium",
+   "source": "https://www.europeanwatch.com/watch/jaeger-lecoultre-251886-251886-reverso-classique-shadow-ss-gray-d-66158"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "steel with luminous fill",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Sword-shaped ('kite') hands: thin polished steel frames around a luminous centre. The frames look black when they reflect a dark room and silver when they catch the light (silver in one dealer's photographs, near-black in two others); they are not blued.",
+   "confidence": "medium",
+   "source": "https://www.bachmann-scher.de/en/sold-watches/jaeger-lecoultre-reverso-classique-shadow-stainless-steel-ref-251886-box-and-warranty-bj-1996-4080.html"
+  },
+  {
+   "part": "other (hand centre)",
+   "material": "steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A plain round steel boss covers the centre, roughly an eighth of the dial width across, with a pin-point at its middle. It mirrors what is in front of it: black against a dark background, and showing the camera lens as rings in one macro photograph. Read from photographs only.",
+   "confidence": "low",
+   "source": "https://loupethis.com/auctions/jaeger-lecoultre-reverso-classique-251-8-86-on-bracelet"
+  },
+  {
+   "part": "crystal",
+   "material": "sapphire",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Flat rectangular sapphire seated flush in the blasted frame, with a thin grey seating line around it and no polished bevel. Sapphire is stated by a dealer; flatness is read from the photographs.",
+   "confidence": "high",
+   "source": "https://www.collectorsquare.com/en/watches/jaeger-lecoultre/reverso/shadow/jaeger-lecoultre-shadow-in-stainless-steel-ref-jaeger-lecoultre-251-8-86-circa-1990-419758.html"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "steel bracelet or leather strap (width not checked)",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Two photographed examples wear the JLC steel bracelet, whose links alternate matt and polished, tucked under the polished end block; another is on a plain leather strap of the same width.",
+   "confidence": "medium",
+   "source": "https://loupethis.com/auctions/jaeger-lecoultre-reverso-classique-251-8-86-on-bracelet"
+  }
+ ],
+ "lightBehaviour": [
+  "The case is a contrast of two finishes: the blasted frame around the glass stays an even soft grey from any angle, while the polished gadroons and end blocks flash bright and drop to dark as the lamp moves.",
+  "Each of the six gadroon ridges carries its own thin horizontal highlight line, with matt grey grooves between; the lines slide up and down the ridges as the lamp rises or falls.",
+  "The polished end blocks slope away from the viewer, so one usually reflects the lamp and looks white while the other reflects the room and looks dark; they swap when the lamp passes overhead.",
+  "The dial is subdued: one even matt surface that lifts from black to charcoal grey under direct light, with no moving sheen and no pattern.",
+  "The polished rims of the sword hands and the round centre boss catch thin, sharp glints; the luminous centres of the hands and the numerals stay flat and matt.",
+  "The flat sapphire gives one flat rectangular reflection."
+ ],
+ "geometry": "Rectangular swivelling case in a carrier, 23 mm wide by 38 mm long and slim. From the front, top to bottom: a polished end block sloping toward the strap (roughly a sixth of the length, lug horns included), a narrow band of three horizontal gadroons (about a twentieth of the length), the flat frame around a flat rectangular crystal, three more gadroons, and the second end block. The crystal opening is about three-quarters of the case width and a little over half its length, so the frame is narrow at the sides and almost nothing above and below. Small fluted crown at 3, no guards, pushers or date. Square corners with only a slight softening.",
+ "avoid": [
+  "Do not polish the frame around the crystal: on the Shadow it is matt blasted. A fully polished frame is what the 1930s originals and the Tribute models show.",
+  "Do not blast or brush the gadroon ridge tops or the end blocks; those stay mirror polished. Only the narrow grooves between the ridges are matt.",
+  "Do not draw brush lines on the frame: the matt areas are blasted, with no direction.",
+  "Do not leave out the gadroons. The baseline drawing shows a plain frame; the real case has three ridges above and three below the dial.",
+  "Faceted dauphine hands are not on this reference (they belong to the Reverso Tribute line, which has applied markers and a fully polished case); the real hands are lume-filled swords, and they are not blued.",
+  "The real dial has twelve numerals. If the drawn layout of six numerals and six batons is kept, finish the batons like the numerals (flat pale print with luminous fill), not as applied polished indexes.",
+  "No gloss lacquer, no sunray and no guilloche centre panel: the dial reads as one even matt texture, with the centre rectangle at most a shade different.",
+  "No small seconds, no date, no domed crystal."
+ ]
+}

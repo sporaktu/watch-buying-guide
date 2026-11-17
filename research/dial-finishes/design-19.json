@@ -1,0 +1,162 @@
+{
+ "n": 19,
+ "designName": "Military small seconds",
+ "isRealWatch": true,
+ "reference": "British Army W.W.W. (Watch, Wrist, Waterproof) of 1945, one of the twelve so-called Dirty Dozen, in the version by Timor (36.5 mm, calibre 6060, about 13,000 made). All twelve followed one specification (black dial, Arabic numerals, railroad minute track, small seconds at 6), but hands, sub-dials, case metal and finish differ by maker, so the maker decides the finish. Checked against all twelve: cathedral hands rule out Longines and Jaeger-LeCoultre, sword hands Omega and Büren, and a small-seconds dial without a railroad ring Vertex; Timor has the drawn straight pencil hands and railroad-ringed small seconds (Revolution; the group photograph in A Collected Man). Record, Cyma, Eterna, Grana, IWC and Lemania come close as well, but Timor's all-matte steel case also suits the plain grey case that is drawn. Only Timor's finishes are given below.",
+ "surfaces": [
+  {
+   "part": "case top",
+   "material": "stainless steel (most sources; one says plated)",
+   "finish": "bead-blasted",
+   "direction": "n/a",
+   "detail": "Even, fine granular light-grey matte over the case middle and lugs. SJX says the remake has 'the same sandblasted finish' as the original, and Craft & Tailored describe an original whose unpolished case 'retains its original bead blasted finishing'; its macro photograph shows the grain. The sources are not unanimous: Vintage Portfolio calls an original's finish 'original circular brushed case finishing', another dealer calls the case 'satin finished', and Fratello finds the remake's 'a blasted, more industrial surface finish', so keep the texture fine. Metal: steel according to SJX, Craft & Tailored and two other sellers; Everest says 'plated stainless steel'.",
+   "confidence": "medium",
+   "source": "https://www.craftandtailored.com/products/1940s-timor-dirty-dozen-military-watch-cal-6060"
+  },
+  {
+   "part": "bezel top",
+   "material": "stainless steel (most sources; one says plated)",
+   "finish": "bead-blasted",
+   "direction": "n/a",
+   "detail": "Stepped bezel: the case shoulder rises in a small square step to a flat ring round the crystal, giving two concentric matte bands. A Collected Man explains the upper ring: every maker except IWC used 'flanged crystals with a screw-in retention ring'. Same blasted finish as the case; the edges of the step are the only crisp lines and have worn bright on the originals photographed.",
+   "confidence": "medium",
+   "source": "https://www.acollectedman.com/blogs/journal/dirty-dozen-first-wristwatches-specially-commissioned-for-british-army"
+  },
+  {
+   "part": "lug top",
+   "material": "stainless steel (most sources; one says plated)",
+   "finish": "bead-blasted",
+   "direction": "n/a",
+   "detail": "Short tapering lugs in the same matte finish, with fixed strap bars between them and no chamfers or polished edges (Craft & Tailored's photographs).",
+   "confidence": "medium",
+   "source": "https://www.craftandtailored.com/products/1940s-timor-dirty-dozen-military-watch-cal-6060"
+  },
+  {
+   "part": "crown",
+   "material": "steel",
+   "finish": "bead-blasted",
+   "direction": "knurling parallel to the stem (9 to 3)",
+   "detail": "Large crown with straight knurling and a plain flat end, among the bigger ones of the twelve (Fratello). Craft & Tailored say their watch 'retains its original unmarked bead blasted crown', so it is matte like the case, a little brighter on the knurl crests where it is handled. Another dealer calls the crown 'satin finished', the same disagreement as over the case.",
+   "confidence": "medium",
+   "source": "https://www.craftandtailored.com/products/1940s-timor-dirty-dozen-military-watch-cal-6060"
+  },
+  {
+   "part": "dial base",
+   "material": "black-painted metal dial",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Flat matte black (Craft & Tailored: 'Matte Black'; matte with a fine grain in their macro photograph and in SJX's), carrying TIMOR and the broad arrow below 12 on the real watch. Survivors have aged to a finely speckled black or dark grey.",
+   "confidence": "high",
+   "source": "https://www.craftandtailored.com/products/1940s-timor-dirty-dozen-military-watch-cal-6060"
+  },
+  {
+   "part": "chapter ring",
+   "material": "white paint",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Railroad minute track (two fine circles joined by a stroke for each minute) printed flat in white at the edge of the dial; Vintage Portfolio lists 'a railroad minute track' among the requirements, and it is on every original photographed.",
+   "confidence": "high",
+   "source": "https://vintage-portfolio.com/the-dirty-dozen/"
+  },
+  {
+   "part": "printed markings",
+   "material": "white paint, aged to cream",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Arabic numerals 1 to 12 without the 6, printed flat and matte; in the macro photographs they are an off-white print quite unlike the lumpy lume plots. The 5 and 7 are cut into by the sub-dial.",
+   "confidence": "medium",
+   "source": "https://www.craftandtailored.com/products/1940s-timor-dirty-dozen-military-watch-cal-6060"
+  },
+  {
+   "part": "lume",
+   "material": "radium luminous paint",
+   "finish": "lume",
+   "direction": "n/a",
+   "detail": "A round luminous dot on the track at each hour, bars at 12, 3, 6 and 9, and the fill of both hands (Everest: the track is 'complete with luminescent plots at each hour marker'). The plots are thick, matte and slightly raised, pale green-white where well kept and brown or black where they have decayed. The drawing leaves out the hour plots.",
+   "confidence": "medium",
+   "source": "https://www.everestbands.com/blogs/bezel-barrel/then-and-now-the-timor-w-w-w"
+  },
+  {
+   "part": "sub-dial",
+   "material": "black dial plate with concentric rings",
+   "finish": "textured",
+   "direction": "circular around the sub-dial's own centre",
+   "detail": "Small seconds at 6: a slightly sunk disc cut with fine concentric circles, inside a white printed railroad ring with longer strokes at the quarters. The grooving is plain in macro photographs of two originals (Craft & Tailored; Vintage Portfolio), so the grooved sub-dial of the modern remake follows the original. Revolution notes the Timor 'has been found with both types of subsidiary dials', so a version without the railroad ring also exists.",
+   "confidence": "medium",
+   "source": "https://www.craftandtailored.com/products/1940s-timor-dirty-dozen-military-watch-cal-6060"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "steel frames filled with luminous paint",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "Straight pencil hands 'filled with luminous paint' (SJX): a long lume strip, a cross-bar, then a small lume-filled pointed tip. The frames are dark grey to black on two originals photographed (SJX; Craft & Tailored), which suggests blued or oxidised steel, but look brass-yellow on a third (Vintage Portfolio) and no page I read states the finish. Render them as a dark steel outline, not a bright blue one. The drawing shows them white.",
+   "confidence": "low",
+   "source": "https://watchesbysjx.com/2020/02/timor-www-heritage-field.html"
+  },
+  {
+   "part": "other hands",
+   "material": "thin metal needle (small seconds hand)",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Plain thin small-seconds needle, slightly tapered, with no lume. It is pale bright metal on two originals photographed (steel-coloured on one, brass-coloured on the other) and dark on a third, so neither its colour nor its finish is settled; a plain polished needle is the nearest reading.",
+   "confidence": "low",
+   "source": "https://www.craftandtailored.com/products/1940s-timor-dirty-dozen-military-watch-cal-6060"
+  },
+  {
+   "part": "other (centre boss)",
+   "material": "steel",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "Large round boss at the centre with a small pin hole, dull and dark on the originals photographed, like the hand frames. Its finish is not stated anywhere I read; treat it as dark steel, not bright blue.",
+   "confidence": "low",
+   "source": "https://www.craftandtailored.com/products/1940s-timor-dirty-dozen-military-watch-cal-6060"
+  },
+  {
+   "part": "crystal",
+   "material": "Perspex (acrylic)",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "High-domed Perspex, 'effectively a bubble lens' beside the modern sapphire (Fratello), flanged and held down by the screw-in ring.",
+   "confidence": "high",
+   "source": "https://www.fratellowatches.com/timor-heritage-field-watch-review-an-honorable-successor-to-the-dirty-dozen/"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "khaki canvas webbing or pigskin",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Issued on a pigskin or canvas strap (A Collected Man); SJX names the webbing pattern as AF0210. It threads through the fixed bars: plain khaki webbing with no metal keepers at the case.",
+   "confidence": "high",
+   "source": "https://www.acollectedman.com/blogs/journal/dirty-dozen-first-wristwatches-specially-commissioned-for-british-army"
+  },
+  {
+   "part": "other (parts this watch does not have)",
+   "material": "n/a",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No bezel insert or markings, no rotating bezel, no crown guards, no pushers, no date, no centre seconds hand, no numeral 6, nothing applied to the dial, no screws visible from the front, no polished chamfers.",
+   "confidence": "high",
+   "source": "https://revolutionwatch.com/dearer-by-the-dozen/"
+  }
+ ],
+ "lightBehaviour": [
+  "The whole case is frosted matte: it only shades softly, brighter toward the lamp and darker away, and the pattern turns with the lamp without any hot spot.",
+  "The bezel step is the one crisp feature: it shows a thin brighter line on the side facing the lamp and a thin shadow on the other.",
+  "The bubble-domed Perspex throws a large soft reflection that slides over the dome, and bends and brightens the minute track near the rim.",
+  "The dial and its print are flat and matte, but the small-seconds disc is finely grooved: a faint pale sector of light sweeps round it, like a record, as the lamp moves.",
+  "The lume dots and hand fill are chalky and very slightly raised, so they pick up a raking light.",
+  "The dark hand frames show as thin outlines that glint once when the lamp crosses the reflection angle; the knurled crown gives a row of short dull glints."
+ ],
+ "geometry": "Round 36.5 mm case with a stepped bezel, so the front shows two concentric matte bands: the case shoulder and, one small step up, a flat ring round the crystal. Short tapering lugs 18 mm apart with fixed bars. One large knurled crown at 3 with no crown guards; no pushers, date, rotating bezel or insert. The small seconds at 6 is a shallow sunk disc; nothing is applied to the dial and no screws show from the front. High-domed acrylic crystal. Strap threaded through the fixed bars.",
+ "avoid": [
+  "Bright polished or mirror-chrome surfaces: this maker's case is matte all over.",
+  "A coarse, gritty blast: reviewers find the modern remake rougher than the original.",
+  "Mixing in other makers: cathedral hands (Longines, Jaeger-LeCoultre), sword hands (Omega, Büren) and the wide-bezelled Cyma are different watches with their own finishing.",
+  "A flat printed small seconds: on the originals photographed it is sunk and finely ringed.",
+  "The modern Timor Heritage Field's wider bezel, nearly flat sapphire and crisp white print with beige faux-aged lume.",
+  "White or polished-steel hand frames; on the originals they read dark round the lume.",
+  "A NATO strap with metal keepers, which did not exist in 1945.",
+  "A numeral 6, a centre seconds hand or a date."
+ ]
+}

@@ -1,0 +1,107 @@
+{
+ "n": 30,
+ "designName": "Regulator",
+ "isRealWatch": true,
+ "reference": "A watchmakers' precision pendulum regulator of the Glashütte type, followed from a Strasser & Rohde (Glashütte in Saxony) seconds-pendulum clock of about 1910 sold by Auktionen Dr. Crott (112th auction, lot 33): silvered dial with engraved, black-filled minute ring and two subsidiary dials, blued steel hands, lacquered brass bezel, in a glazed oak case. A second Strasser & Rohde (movement No. 532, about 1900) and a Clemens Riefler regulator of 1940 from the same auction house show the same scheme. The German Watch Museum Glashütte suggests that pocket watches were placed beside its own Strasser & Rohde clock to compare their rate with it. Two things in the drawing differ from the clocks: it puts the hours above and the seconds below, which is the wristwatch convention (as on the Chronoswiss Régulateur of 1987), whereas all three clocks checked have seconds above and hours below; and it shows a silver-grey rim where the clocks have brass (the catalogue entries that mention the bezel give 'laquered brass bezel' for this clock and 'brass bezel' for a Riefler, and the second Strasser & Rohde is brass in its photographs).",
+ "surfaces": [
+  {
+   "part": "bezel top",
+   "material": "brass, clear-lacquered",
+   "finish": "brushed",
+   "direction": "circular around the centre",
+   "detail": "Turned brass ring with a rounded outer bead and a concave inner slope, catalogued as a 'lacquered brass bezel'. In the photographs of both Strasser & Rohde clocks it has a soft golden satin sheen with faint concentric turning lines and broad, blurred highlights, not a mirror polish. The drawing shows this ring silver-grey; on the clocks it is brass.",
+   "confidence": "medium",
+   "source": "https://uhren-muser.de/en/archives/112/61265"
+  },
+  {
+   "part": "dial base",
+   "material": "brass plate, silvered",
+   "finish": "grained",
+   "direction": "circular around the centre",
+   "detail": "Certain: one flat plate, silvered ('Dial: Silvered'), matt pale silver, plain frosted white at normal viewing distance on both Strasser & Rohde clocks. Not confirmed: a very fine circular grain centred on the main arbor. It shows as concentric arcs in a contrast-enhanced close-up of the clock followed, could not be resolved on the second clock, and is stated in no text; the low confidence is for this grain, so keep it faint or leave the dial plain matt.",
+   "confidence": "low",
+   "source": "https://uhren-muser.de/en/archives/112/61265"
+  },
+  {
+   "part": "printed markings",
+   "material": "black filling in engraved silvered brass",
+   "finish": "matte",
+   "direction": "n/a",
+   "detail": "Engraved and black-filled ('inlaid'), not printed: a railway minute ring with five-minute figures outside it, set radially so that those at the bottom stand upside-down, and the maker's name either side of the centre, all matt black and very slightly sunk.",
+   "confidence": "high",
+   "source": "https://uhren-muser.de/en/archives/112/61265"
+  },
+  {
+   "part": "sub-dial",
+   "material": "same silvered plate",
+   "finish": "grained",
+   "direction": "circular around the centre",
+   "detail": "Hour dial. Certain: a single engraved circle with radial Roman numerals on the same level as the main dial, not recessed and not a separate piece (both clocks). Not confirmed: the grain, which is simply the plate's own, centred on the main arbor and running straight across this dial; the low confidence is for the grain. On the clock this is the lower dial and has all twelve numerals; the drawing puts it on top with only XII, III, VI and IX.",
+   "confidence": "low",
+   "source": "https://uhren-muser.de/en/archives/112/61265"
+  },
+  {
+   "part": "sub-dial",
+   "material": "same silvered plate",
+   "finish": "grained",
+   "direction": "circular around the centre",
+   "detail": "Seconds dial. Certain: an engraved railway ring with ten-second figures, flush with the plate (both clocks). Not confirmed: the grain, shared with the main dial; the low confidence is for the grain. On the clock this is the upper dial.",
+   "confidence": "low",
+   "source": "https://uhren-muser.de/en/archives/112/61265"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "steel",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "Catalogued as 'blued spade hands': a long, slender tapering minute hand from the centre and a short spade-tipped hour hand in its own dial, polished and blued. Each sits on a small round steel boss, bright on the clock followed.",
+   "confidence": "high",
+   "source": "https://uhren-muser.de/en/archives/112/61265"
+  },
+  {
+   "part": "seconds hand",
+   "material": "steel",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "Hair-thin blued needle with a small ring as counterweight on its tail and a small round boss (bright steel on the clock followed, dark on the second clock).",
+   "confidence": "high",
+   "source": "https://uhren-muser.de/en/archives/112/61265"
+  },
+  {
+   "part": "screws",
+   "material": "steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Four slotted dial screws with bright, unblued flat heads sit on the dial face, a pair flanking each subsidiary dial (the same on both Strasser & Rohde clocks).",
+   "confidence": "high",
+   "source": "https://uhren-muser.de/en/archives/95/44326"
+  },
+  {
+   "part": "crystal",
+   "material": "flat glass",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "The dial is seen through a plain flat pane in the glazed case front; no dome, and no glass of its own in the bezel as far as the photographs show.",
+   "confidence": "medium",
+   "source": "https://uhren-muser.de/en/archives/112/61265"
+  }
+ ],
+ "lightBehaviour": [
+  "The silvered dial is matt and takes light as a soft, even glow with no hot spot. If the unconfirmed circular grain is rendered at all, it shows only under a low raking lamp, as a pale wedge of sheen that swings round the centre with the lamp, far weaker than a sunray dial.",
+  "The engraved, black-filled figures stay dead black and matt, and being cut in they never glint.",
+  "The blued hands change the most: bright electric blue where they catch the lamp, purple-black where they do not, with a thin highlight line running the length of the long minute hand.",
+  "Small bright points come from the polished steel hand bosses and the four steel dial screws.",
+  "The lacquered brass bezel carries a warm, soft highlight band that travels round the ring, and the flat glass gives one flat reflection."
+ ],
+ "geometry": "Not a wristwatch: a round dial a few tens of centimetres across, set behind the glazed front of a tall wooden pendulum case and framed by a turned brass bezel only about 3 percent of the diameter wide, with a rounded moulding. Flat glass. No lugs, crown, pushers, date or strap: add none. On the dial: a railway minute ring with radial five-minute figures outside it, close to the edge; one long minute hand from the centre; two equal subsidiary dials on the vertical axis, each reaching almost to the centre (seconds above and hours below on the clocks; drawn the other way round); the maker's name to left and right of the centre; four small screw heads, two beside each subsidiary dial.",
+ "avoid": [
+  "Do not turn it into a regulator wristwatch such as the Chronoswiss Régulateur: no knurled steel bezel, onion crown or lugs.",
+  "The real clocks checked have seconds above and hours below; the drawing swaps them. If the drawn order is kept, the finishes are unchanged.",
+  "The bezel is lacquered brass. The silver-grey ring of the drawing has no counterpart on the clocks checked, so do not invent a brushed-steel bezel with a polished chamfer for it. If the ring stays silver-grey, give it the same soft turned satin, not a mirror polish.",
+  "No guilloche, no recessed or snailed sub-dials and no applied numerals: one flat silvered plate with engraved figures.",
+  "Do not give each subsidiary dial its own circular grain, and do not make the dial's grain prominent: at most one barely visible grain centred on the main arbor, and plain matt is an acceptable reading.",
+  "Not enamel, not porcelain white and not glossy: matt silvering.",
+  "The hands are heat-blued steel, not blue paint; they must darken at off angles.",
+  "No lume and no date."
+ ]
+}

@@ -1,0 +1,97 @@
+{
+ "n": 2,
+ "designName": "Railway station clock",
+ "isRealWatch": true,
+ "reference": "The Swiss Federal Railways (SBB) station clock itself, not a wristwatch: Hans Hilfiker's design of 1944 in the form with the red disc seconds hand, made by Moser-Baer (Mobatime), Sumiswald. Followed from the example in the Swiss Museum of Transport, Lucerne (inv. VHS-9971, catalogued as the Hilfiker station clock 'from 1947', signed MOBATIME, materials 'Metall, Glas'), and checked against two clocks photographed in service (Zürich main station; Schwendi station, 2025) and against Mobatime's current Profiline data sheet. The drawing shows that object as it is: plain white dial, black blocks, black bar hands, red disc seconds, a thin light-metal rim, no lugs and no crown. Current production equivalent: Mobatime's Profiline outdoor clock (aluminium housing powder-coated RAL 9006, mineral glass), offered with this bar dial and red disc seconds hand. Mondaine's licensed wristwatches are tributes and are not the reference.",
+ "surfaces": [
+  {
+   "part": "bezel top",
+   "material": "light metal (the museum record says only 'Metall'; aluminium on current Mobatime housings)",
+   "finish": "brushed",
+   "direction": "circular around the centre",
+   "detail": "Narrow front ring of the drum housing. On the museum clock and on the Zürich main-station clock it is bare bright metal with a satin, turned look: reflections are blurred and smeared along the circumference, never a mirror image. Not every clock is like this: Mobatime's current housings are aluminium powder-coated silver (RAL 9006), an even satin paint with no grain, and the clock photographed at Schwendi in 2025 shows that flat matt silver. The grain direction is read from photographs, not stated anywhere.",
+   "confidence": "medium",
+   "source": "https://sammlung.verkehrshaus.ch/en/collection/item/149332/"
+  },
+  {
+   "part": "bezel chamfer",
+   "material": "same metal as the front ring",
+   "finish": "brushed",
+   "direction": "circular around the centre",
+   "detail": "No separate chamfer finish: give this zone the same satin metal as the bezel top. The front ring slopes slightly inward and steps down to a narrow lip that holds the glass; nothing on the rim is polished. Just inside the lip a thin band of plain white shows before the minute blocks begin. Read from the museum photograph and the Zürich photograph.",
+   "confidence": "low",
+   "source": "https://sammlung.verkehrshaus.ch/en/collection/item/149332/"
+  },
+  {
+   "part": "case flank",
+   "material": "same metal as the front ring; painted silver on current production",
+   "finish": "brushed",
+   "direction": "circular around the centre",
+   "detail": "Cylindrical side of the drum. It is hidden when the clock is seen straight on (at most a hairline outside the front ring), so it needs no treatment of its own. On the museum clock it is the same bright satin metal as the front; on the Schwendi clock and in Mobatime's data sheet it is plain silver powder coat.",
+   "confidence": "low",
+   "source": "https://commons.wikimedia.org/wiki/File:Mobatime_Railway_Station_Clock_at_la_Schwendi_Railway_Station_2025.jpg"
+  },
+  {
+   "part": "crystal",
+   "material": "glass (museum record: 'Metall, Glas'; Mobatime Profiline: mineral glass, or a ball-proof pane as an option)",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Flat clear cover pane set just inside the rim. The Zürich photograph shows it as one flat, pale reflection lying over part of the face, and small clips at the rim hold it. No dome on the museum, Zürich or Schwendi clocks.",
+   "confidence": "high",
+   "source": "https://resources.mobatime.com/wp-content/uploads/2025/01/LE-800078.28-PROFILINE-Analoguhr.pdf"
+  },
+  {
+   "part": "dial base",
+   "material": "white dial panel (material not stated; it passes light on illuminated clocks)",
+   "finish": "matte",
+   "direction": "n/a",
+   "detail": "Perfectly flat, even white with no texture, sheen, rings or sunray in any of the photographs checked. Station clocks were designed with interior illumination: a night photograph at Frutigen shows the whole face glowing evenly with the hands, blocks and even the red seconds hand as dark silhouettes.",
+   "confidence": "high",
+   "source": "https://commons.wikimedia.org/wiki/File:Horloge_gare_Frutigen_voie_1.jpg"
+  },
+  {
+   "part": "printed markings",
+   "material": "black print or paint on the dial",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Sixty black rectangles, long and heavy at the hours and short at the minutes, flat on the dial with no relief, outline or numerals. Real clocks also carry a small black MOBATIME logo (an arch over the word) below the centre.",
+   "confidence": "high",
+   "source": "https://blog.nationalmuseum.ch/en/2022/09/the-iconic-swiss-station-clock/"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "flat metal, painted black (alloy not stated)",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Plain flat black bars with square ends that narrow slightly toward the tip and carry long tails past the centre; no bevels, no lume, no polished edges, and no glint in any of the three clocks photographed. They stand well clear of the dial and throw soft shadows on it.",
+   "confidence": "high",
+   "source": "https://sammlung.verkehrshaus.ch/en/collection/item/149332/"
+  },
+  {
+   "part": "seconds hand",
+   "material": "painted metal",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Thin signal-red rod ending in a flat red disc (the train dispatcher's baton) with a short tail. The paint is opaque and satin to matt: on the museum, Zürich and Schwendi clocks the disc shows no highlight at all, only its shadow on the dial. One clockmaker's article calls the disc 'glossy' (lumichron.com), which the photographs do not bear out. It sits on top of the other hands with only a pin-point at the centre and no cap.",
+   "confidence": "medium",
+   "source": "https://commons.wikimedia.org/wiki/File:BahnhofsuhrZuerich_RZ.jpg"
+  }
+ ],
+ "lightBehaviour": [
+  "The dial stays one flat, even white from every angle: no sunray, no sheen, no hot spot. Lit from inside it glows uniformly and the hands and blocks read as pure silhouettes.",
+  "The only highlight that moves is on the metal rim: a soft bright streak that slides round the ring as the lamp moves, stretched along the circumference. It never sharpens into a mirror reflection.",
+  "The hands are matt black and never flash. What changes is the soft shadow they cast on the dial, which shifts away from the lamp because the hands stand well proud of the face.",
+  "The red disc keeps its colour at every angle and shows no glint; like the black hands it is read by its shadow.",
+  "The flat cover glass gives one big, straight-edged reflection that passes over the whole face at once, not a curved glint."
+ ],
+ "geometry": "A round drum housing seen end-on. A narrow metal front ring, about 4 percent of the diameter wide on each side and sloping slightly inward, steps down to a thin inner lip; then a flat glass with the flat dial close behind it and a thin band of plain white before the blocks begin. No lugs, crown, crown guards, pushers, date or strap: add none. (Platform clocks are double-sided and hang from a bracket, which a straight-on view does not show.) The hands are stacked well above the dial: the short, wide hour hand lowest, the longer and slightly narrower minute hand above it, the red seconds hand on top; all three have tails.",
+ "avoid": [
+  "Do not turn it into the Mondaine wristwatch: no lugs, no crown, no polished steel watch case, no domed sapphire.",
+  "Do not mirror-polish the rim like a watch bezel or give it a polished chamfer; it is bright satin metal (or, on current production, plain silver powder coat).",
+  "Do not give the hands bevels, polished edges, lume or a steel centre cap; they are flat matt-black bars.",
+  "No sunray, lacquer gloss or enamel shine on the dial; flat matt white.",
+  "Do not make the red seconds hand glossy, metallic or translucent, and keep its disc flat rather than a ball.",
+  "Do not add numerals, a minute ring line or a date.",
+  "Do not dome the glass: the clocks checked have a flat pane."
+ ]
+}

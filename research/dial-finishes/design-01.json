@@ -1,0 +1,160 @@
+{
+ "n": 1,
+ "designName": "Blued hands, gold indices",
+ "isRealWatch": false,
+ "reference": "Original house design ('the house dial'), not a copy of any one watch, so no row can be checked against a real reference: every row is a recommendation by analogy with real watches. I checked each borrowed quotation against its source and each is attributed to the right watch: polished tops over brushed sides is said of the steel Jaeger-LeCoultre Master Control Date (SJX); 'matte, lightly grained surface' is Monochrome's gloss on the opaline dial of the Patek Philippe 6196P; the double baton at 12 and the prism-shaped gold indices are the Patek Philippe 5196; the 290 degree bluing quotation is about the NOMOS Tangente ref. 139. The set agrees with the project brief for this design: polished steel, matte silvered dial, polished gold batons, heat-blued hands.",
+ "surfaces": [
+  {
+   "part": "bezel top",
+   "material": "316L stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Narrow, gently rounded ring around the crystal, polished all round with no grain. Recommended by analogy with the steel Jaeger-LeCoultre Master Control Date, whose case SJX describes as 'finished simply with a mirror-polish on the top and brushing on the sides'.",
+   "confidence": "medium",
+   "source": "https://watchesbysjx.com/2017/06/hands-on-with-the-jaeger-lecoultre-master-control-sector-dial-trio.html"
+  },
+  {
+   "part": "bezel chamfer",
+   "material": "316L stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A hairline polished step where the bezel drops to the crystal; it shows as a thin bright or dark ring just outside the glass. A suggestion, not taken from a source.",
+   "confidence": "low",
+   "source": "general knowledge"
+  },
+  {
+   "part": "case flank",
+   "material": "316L stainless steel",
+   "finish": "brushed",
+   "direction": "along the length of the part (around the case band)",
+   "detail": "Only a sliver shows outside the bezel and between the lugs when seen straight on. It meets the polished bezel at a crisp edge just under the bezel's widest point. Same Jaeger-LeCoultre analogy ('brushing on the sides').",
+   "confidence": "medium",
+   "source": "https://watchesbysjx.com/2017/06/hands-on-with-the-jaeger-lecoultre-master-control-sector-dial-trio.html"
+  },
+  {
+   "part": "lug top",
+   "material": "316L stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Short tapering lugs curving down toward the strap; their top faces carry the same polish as the bezel and read as small curved mirrors. The polished top meets the brushed outer side of each lug at a sharp edge.",
+   "confidence": "medium",
+   "source": "https://watchesbysjx.com/2017/06/hands-on-with-the-jaeger-lecoultre-master-control-sector-dial-trio.html"
+  },
+  {
+   "part": "lug chamfer",
+   "material": "316L stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "No wide decorative bevel: at most a hairline polished break of edge between lug top and lug side, visible as a thin bright line when the lamp is on that side. A suggestion.",
+   "confidence": "low",
+   "source": "general knowledge"
+  },
+  {
+   "part": "crown",
+   "material": "316L stainless steel",
+   "finish": "mirror polished",
+   "direction": "flutes parallel to the stem (9 to 3)",
+   "detail": "Small push-pull crown at 3 with fine straight fluting; the polished crests of the flutes glint as a row of tiny lines. No crown guards.",
+   "confidence": "medium",
+   "source": "general knowledge"
+  },
+  {
+   "part": "dial base",
+   "material": "brass, silvered and lacquered ivory",
+   "finish": "grained",
+   "direction": "n/a",
+   "detail": "Opaline: warm ivory with a very fine even grain like eggshell, no sunray and no gloss, so that it scatters light softly and the gold and blued parts stand out against it. The wording 'matte, lightly grained surface' is how Monochrome explains the opaline dial of the Patek Philippe 6196P; Patek's own certificate for the 5196J calls the same kind of dial 'OPALIN ARGENTE'.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/thoughts-patek-philippe-calatrava-6196p-review-new-generation-96-series-replacement-5196-price/"
+  },
+  {
+   "part": "printed markings",
+   "material": "pad-printed ink in an ochre-gold colour",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "The forty-eight hairline minute ticks between the batons (the drawing leaves the twelve hour positions to the batons alone). Printed flat, so they never flash and should look duller and browner than the polished batons.",
+   "confidence": "low",
+   "source": "general knowledge"
+  },
+  {
+   "part": "applied markers",
+   "material": "18k yellow gold (gilt brass on cheaper watches)",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Eleven applied batons and a double baton at 12, standing roughly 0.3 to 0.5 mm proud of the dial, each with a roof-shaped or bevelled top whose facets are polished like the 'prism-shaped hour indices' of the Calatrava 5196, which also doubles its marker at 12. No surrounds and no lume.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/history-patek-philippe-calatrava-part-3-present-day/"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "carbon steel",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "Leaf (feuille) hands, slightly domed across their width and polished before bluing. The quotation usually given for this, that the colour 'is not painted but achieved the traditional and painstaking way by heating the hands to 290 degrees Celsius', describes the NOMOS Tangente ref. 139 and is used here only by analogy.",
+   "confidence": "medium",
+   "source": "https://atelierdegriff.com/2019/10/08/hands-on-nomos-tangente-35mm-ref-139/"
+  },
+  {
+   "part": "seconds hand",
+   "material": "carbon steel",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "Hairline sweep seconds with a small round counterweight on its tail, flat, polished and blued like the main hands. The same hand, with the same counterweight, is on the 1938 Longines used for design 12.",
+   "confidence": "medium",
+   "source": "general knowledge"
+  },
+  {
+   "part": "centre cap and pinion",
+   "material": "carbon steel",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "The small blue disc at the centre of the drawing: the stacked hubs of the hands, blued like them and slightly domed, with the polished end of the steel pinion as a bright pin-point in the middle. This is how the centres of the blued hands on the NOMOS Tangente and the Breguet 5157 look in macro photographs.",
+   "confidence": "low",
+   "source": "general knowledge"
+  },
+  {
+   "part": "crystal",
+   "material": "sapphire",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Low dome with anti-reflective coating on the inside: nearly invisible face on, with only a faint cool reflection of the lamp toward the edge. A suggestion for a modern steel dress watch.",
+   "confidence": "medium",
+   "source": "general knowledge"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "leather",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Dark calf or alligator strap, semi-matte, sitting between the lugs with a narrow shadow gap to the case. The choice of strap is open; this is only the conventional one.",
+   "confidence": "low",
+   "source": "general knowledge"
+  },
+  {
+   "part": "other (parts this design does not have)",
+   "material": "n/a",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No date window or date disc, no sub-dial, no lume, no marker surrounds, no bezel insert or bezel markings, no crown guards, no pushers and no visible screws.",
+   "confidence": "high",
+   "source": "general knowledge"
+  }
+ ],
+ "lightBehaviour": [
+  "The polished bezel is a ring mirror: a lamp shows as one small bright arc on the side facing it, which slides around the ring as the lamp moves, while the rest stays mid to dark grey.",
+  "The gold batons switch on and off one at a time: a facet is bright yellow-white only when it mirrors the lamp and a deep brownish gold otherwise, so batons on opposite sides of the dial never light together.",
+  "The blued hands and the blued centre boss read almost black against the ivory dial until they catch the lamp, then show a narrow streak of saturated blue along their length; because the hands are domed, the streak slides across the hand's width as the lamp moves.",
+  "The opaline dial has no hot spot: it only brightens or dims slightly, and it carries short soft shadows from the batons and hands on the side away from the lamp.",
+  "The printed gold-ochre minute ticks stay the same dull tone from every angle, which is what separates them from the batons.",
+  "The domed crystal adds a faint, cool, curved reflection near its edge on the lamp side."
+ ],
+ "geometry": "Round three-part case of about 38 mm with a narrow rounded bezel roughly 6 percent of the case radius wide, as in the drawing. Short tapering lugs curve down, about 20 mm apart; a small fluted crown sits at 3 with no guards; there are no pushers. A low-domed sapphire crystal stands slightly proud of the bezel and a leather strap fills the space between the lugs. The dial is flat with applied batons, doubled at 12, forty-eight printed minute ticks between them, and the hands are stacked hour, minute, seconds on a small blued centre boss.",
+ "avoid": [
+  "Painting the hands a flat bright blue: heat-blued steel is a dark mirror that turns blue only where it reflects light.",
+  "Drawing the batons as flat yellow shapes or giving them the same tone as the printed minute ticks.",
+  "A sunray, glossy lacquer or enamel-white dial: this design depends on a calm matte ground.",
+  "Brushing the bezel, widening it, or adding crown guards or lume: those belong to sports watches.",
+  "Gold for the case or crown: only the indices are gold.",
+  "Rendering steel as chrome or white gold: steel is a slightly cooler, darker grey mirror."
+ ]
+}

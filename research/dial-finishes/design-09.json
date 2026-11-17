@@ -1,0 +1,208 @@
+{
+ "n": 9,
+ "designName": "Snowflake diver",
+ "isRealWatch": true,
+ "reference": "Tudor Oyster Prince Submariner ref. 7016/0 with blue dial and blue bezel, the 'Snowflake' that appears in Tudor's 1969 catalogue and was made until about 1975. The caption gives the year; the drawing has snowflake hands, square plots, a blue dial and bezel and no date, which is the no-date 7016/0 and not its dated twin, the 7021/0. Two drawn details are not on the real watch: the thin metal surrounds round the plots (the real markers are luminous paint with no rim) and the round 'lollipop' on the seconds hand (the real one carries a small square of lume). Finishes were checked on macro photographs of a blue and a black 7016 from Bulang & Sons (reproduced by Fratello) and of a 7016/0 that Phillips sold as being 'in nearly new condition'.",
+ "surfaces": [
+  {
+   "part": "case top",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "circular around the centre",
+   "detail": "The upper face of the case shows only as the lug tops and a narrow margin round the bezel. It is satin-brushed (Watchonista's page for Tudor's own 1969 example lists the case as 'Stainless steel, Brushed & Polished'), and the grain sweeps round the bezel; it does not run 12 to 6. See 'lug top' for the measurements.",
+   "confidence": "high",
+   "source": "https://www.fratellowatches.com/dear-tudor-bring-back-the-oyster-prince-submariner-snowflake-ref-7016/"
+  },
+  {
+   "part": "lug top",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "circular around the centre",
+   "detail": "Flat lug tops with a diagonal grain, not a lengthwise one. Measured on three watches (the blue and the black example from Bulang & Sons, and Phillips's near-new 7016/0), the lines sit about 45 to 55 degrees up from the 9-3 line and are mirrored from lug to lug: '/' on the upper-left and lower-right lugs, '\\' on the upper-right and lower-left. That is a sweep around the dial, somewhat steeper than a true circle. The grain is plainly at an angle to the end link beside it, whose lines run straight 12 to 6.",
+   "confidence": "high",
+   "source": "https://www.fratellowatches.com/dear-tudor-bring-back-the-oyster-prince-submariner-snowflake-ref-7016/"
+  },
+  {
+   "part": "lug chamfer",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A polished bevel runs along the outer edge of each lug between the brushed top and the polished side. Phillips describes its example as having 'well-defined bevels to the case lugs as it left the factory'; a dealer writes of 'thick, sharply beveled lugs'.",
+   "confidence": "high",
+   "source": "https://www.phillips.com/detail/tudor/105753"
+  },
+  {
+   "part": "case flank",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Polished sides with drilled lug holes; from the front only a thin bright line outside each lug. Polish read from the Phillips and Bulang & Sons photographs.",
+   "confidence": "medium",
+   "source": "https://www.phillips.com/detail/tudor/105753"
+  },
+  {
+   "part": "crown guard",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Rounded guards either side of the crown ('round crown guards' in Tudor's history; only the very first 7016 cases were semi-pointed), polished with the flank. Polish judged from photographs.",
+   "confidence": "medium",
+   "source": "https://www.watchonista.com/?p=19085"
+  },
+  {
+   "part": "crown",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "flutes parallel to the stem (9 to 3)",
+   "detail": "Large fluted screw-down crown ('a screw-down crown signed Rolex') with polished flutes and a coronet on the end. Polish judged from photographs.",
+   "confidence": "medium",
+   "source": "https://www.watchonista.com/?p=19085"
+  },
+  {
+   "part": "bezel edge",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Bidirectional bezel ('a 60-minute graduated bidirectional rotatable bezel') with a rim of coarse, sharp triangular teeth. In the macros every tooth is bright and carries its own highlight; the polish is judged from those photographs.",
+   "confidence": "medium",
+   "source": "https://www.watchonista.com/?p=19085"
+  },
+  {
+   "part": "bezel insert",
+   "material": "blue anodised aluminium",
+   "finish": "anodised",
+   "direction": "n/a",
+   "detail": "A thin ring that rises gently toward the crystal, with a smooth satin sheen: shinier than paint, far softer than ceramic or glass. A dealer describes the black version on a 7016/0 as 'a rotating bezel with a black aluminum insert'; the blue watch has the same insert dyed blue to match the dial.",
+   "confidence": "high",
+   "source": "https://www.europeanwatch.com/watch/tudor-7016-0-7016-0-submariner-snowflake-ss-black-dial-circa-1970-67121"
+  },
+  {
+   "part": "bezel markings",
+   "material": "silver-coloured aluminium",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Numerals at 10 to 50, bars at the fives, ticks for the first 15 minutes and the zero triangle are flat, flush and silver with a soft metallic sheen in the Bulang & Sons macro: not white paint and not recessed. That they are the undyed aluminium of the insert is general knowledge of such inserts, not a quoted fact.",
+   "confidence": "medium",
+   "source": "https://www.fratellowatches.com/dear-tudor-bring-back-the-oyster-prince-submariner-snowflake-ref-7016/"
+  },
+  {
+   "part": "other (luminous pearl in the bezel's zero triangle)",
+   "material": "tritium pearl in a metal ring",
+   "finish": "lume",
+   "direction": "n/a",
+   "detail": "A small round luminous pearl in a polished ring, centred in the silver triangle (clear in the Bulang & Sons and Phillips photographs).",
+   "confidence": "medium",
+   "source": "https://www.fratellowatches.com/dear-tudor-bring-back-the-oyster-prince-submariner-snowflake-ref-7016/"
+  },
+  {
+   "part": "dial base",
+   "material": "blue paint",
+   "finish": "matte",
+   "direction": "n/a",
+   "detail": "An even blue with a low, soft sheen and no mirror gloss or sunray. In the Bulang & Sons macro the hands throw soft shadows on it and it shows only a broad faint glow. A dealer calls the black version of the same dial 'matte'. The exact sheen is judged from photographs.",
+   "confidence": "medium",
+   "source": "https://www.fratellowatches.com/dear-tudor-bring-back-the-oyster-prince-submariner-snowflake-ref-7016/"
+  },
+  {
+   "part": "printed markings",
+   "material": "white print",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Shield logo, text and a minute track of fine lines printed flat in white.",
+   "confidence": "high",
+   "source": "https://www.fratellowatches.com/dear-tudor-bring-back-the-oyster-prince-submariner-snowflake-ref-7016/"
+  },
+  {
+   "part": "marker surrounds",
+   "material": "none on the real watch",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Not present: the plots have no metal rim, only the edge of the paint against the blue. The drawing does show rims. If they are kept for the sake of the drawing they are an anachronism on a 1969 watch; polished white-metal surrounds belong to much later Tudor divers.",
+   "confidence": "high",
+   "source": "https://www.fratellowatches.com/dear-tudor-bring-back-the-oyster-prince-submariner-snowflake-ref-7016/"
+  },
+  {
+   "part": "lume",
+   "material": "tritium paint",
+   "finish": "lume",
+   "direction": "n/a",
+   "detail": "The hour markers are thick luminous paint laid straight on the dial: square plots, rectangles at 3, 6 and 9 and a triangle at 12, with slightly soft edges and a little height. Matte and slightly grainy; near white when new, cream with age (Phillips: 'aged to a warm cappuccino hue, matching perfectly with the luminous of the \"snowflake\" hands'). Hands and plots should be the same shade.",
+   "confidence": "high",
+   "source": "https://www.phillips.com/detail/tudor/105753"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "white metal (plating not confirmed)",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Snowflake hour hand with its square head and a straight minute hand with a pointed tip: narrow polished silver-coloured rims around large lume panels. Read from macro photographs of two watches; no written description of the finish was found.",
+   "confidence": "medium",
+   "source": "https://www.fratellowatches.com/dear-tudor-bring-back-the-oyster-prince-submariner-snowflake-ref-7016/"
+  },
+  {
+   "part": "seconds hand",
+   "material": "white metal",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Thin polished needle carrying a small square of lume in a metal frame about two-thirds of the way out, with a short tail. The drawing's round lollipop is not correct for this watch.",
+   "confidence": "medium",
+   "source": "https://www.fratellowatches.com/dear-tudor-bring-back-the-oyster-prince-submariner-snowflake-ref-7016/"
+  },
+  {
+   "part": "centre cap and pinion",
+   "material": "white metal",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A small polished boss with the pinion showing as a dot at its centre (macro photograph).",
+   "confidence": "medium",
+   "source": "https://www.fratellowatches.com/dear-tudor-bring-back-the-oyster-prince-submariner-snowflake-ref-7016/"
+  },
+  {
+   "part": "crystal",
+   "material": "acrylic (Plexiglas)",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Flat-topped, thick and standing well clear of the bezel: 'The Plexiglas crystal was no longer domed but flat, thick and prominent'. It has a small chamfer at the top edge, and its vertical wall refracts as a pale ring around the dial. No Cyclops on the no-date 7016.",
+   "confidence": "high",
+   "source": "https://www.watchonista.com/?p=19085"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "Rolex-signed folded-link Oyster bracelet (ref. 7836) with stamped end links",
+   "finish": "brushed",
+   "direction": "straight vertical (12 to 6)",
+   "detail": "Three-piece links and the end link are brushed lengthwise on top, with polished sides ('Oyster bracelets, reference 7836 with folding links and the Rolex signature'). The straight grain is clear in the Bulang & Sons macro and contrasts with the angled grain of the lugs beside it.",
+   "confidence": "high",
+   "source": "https://www.rescapement.com/blog/tudor-submariner-a-brief-history"
+  },
+  {
+   "part": "other (parts this watch does not have)",
+   "material": "n/a",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No applied markers, no date window, no Cyclops, no pushers, no visible screws, no sub-dials.",
+   "confidence": "high",
+   "source": "https://www.watchonista.com/?p=19085"
+  }
+ ],
+ "lightBehaviour": [
+  "The thick flat acrylic is the showiest part: one broad glare across its flat top at the right angle, and a pale refracting ring at its edge at every angle.",
+  "The blue aluminium insert gives a wide, soft-edged sheen, never a sharp streak; its silver numerals brighten together when the lamp is close to the line of sight.",
+  "The matte dial takes no mirror reflection and stays an even blue; the hands throw soft shadows on it and the big lume plots are the brightest things on it.",
+  "The hands show only narrow mirror rims that flick on and off around flat matte lume.",
+  "The lug tops do not light up together. With their angled grain, the lug nearest the lamp and the one diagonally opposite glow while the other two stay dull, and the pair swaps as the lamp crosses over. The end link and bracelet, brushed straight, keep their own rhythm: brightest with the lamp to the left or right.",
+  "The polished bevels beside the lug tops are thin bright lines that come and go, and the bezel teeth sparkle point by point."
+ ],
+ "geometry": "Round 39 mm Oyster-type case made by Rolex. Thick lugs with flat tops and a polished bevel along the outer edge, 20 mm apart, with drilled lug holes in the flanks. Rounded crown guards. Rotating bezel with a sharply toothed rim and an insert that rises gently toward the crystal. Large fluted crown at 3. No pushers, no visible screws. Thick flat-topped acrylic crystal with a visible cylindrical wall and a small chamfer at its top edge; no Cyclops. Folded-link Oyster bracelet with stamped end links.",
+ "avoid": [
+  "Do not use ceramic or any high-gloss insert: that is the modern Black Bay and Pelagos, not 1969.",
+  "Do not give the hour plots raised metal surrounds: the 7016 has paint only.",
+  "Do not make the dial gloss, gilt or sunray: gilt gloss belongs to the earlier 7922 to 7928.",
+  "No date window, Cyclops or red-and-black date disc: that is the 7021/0.",
+  "No domed crystal and no pointed crown guards: those belong to the 7928 and the very first 7016 cases.",
+  "Hands are polished white-metal frames, not white paint and not gilt.",
+  "Do not polish the lug tops or brush the bevels.",
+  "Do not brush the lug tops straight from 12 to 6 as on a modern case: here the grain crosses each lug at an angle, and only the bracelet is straight.",
+  "No round lollipop on the seconds hand: the real one carries a small square of lume."
+ ]
+}

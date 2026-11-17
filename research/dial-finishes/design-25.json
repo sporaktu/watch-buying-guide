@@ -1,0 +1,233 @@
+{
+ "n": 25,
+ "designName": "Orange diver",
+ "isRealWatch": true,
+ "reference": "DOXA SUB 300 Professional of 1967: the first-series 'no T' thin-case watch with orange dial, as photographed by Monochrome from an original. The caption gives model and year, and the drawing's cushion case, orange dial, black block markers, date at 3, black hands, short hour hand and oversized minute hand all match it. The 2017 '50th Anniversary' reissue copies the original closely and is used where no description of the original was found; differences between the two are flagged, and the brushing direction was read from the original and from a second, unpolished 1967 example (a silver Searambler shown by Hairspring). The drawing simplifies the bezel to a single ring with black figures; the real one has two zones, described below.",
+ "surfaces": [
+  {
+   "part": "case top",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "circular around the centre",
+   "detail": "The wide top of the cushion case is satin-brushed in lines that run round the bezel, parallel to the case outline: measured on Monochrome's macro of the original the grain is vertical on the shoulder at 3 and follows the edge at the lower corners, and the unpolished Hairspring example agrees. It is not radial. The top is not flat either; it slopes gently away from the bezel to a crisp edge. Fratello confirms for the reissue that 'The top of the case is brushed'.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/historical-perspective-the-doxa-sub-300-the-dive-watch-personified/"
+  },
+  {
+   "part": "lug top",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "circular around the centre",
+   "detail": "There are no separate lugs: the short lugs are hidden under the cushion, and the case top runs on to a square notch where the bracelet enters. It carries the same grain as the rest of the case top.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/historical-perspective-the-doxa-sub-300-the-dive-watch-personified/"
+  },
+  {
+   "part": "lug chamfer",
+   "material": "none (not present)",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Not present: the brushed top ends in a single crisp edge above the case side (macro of the original).",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/historical-perspective-the-doxa-sub-300-the-dive-watch-personified/"
+  },
+  {
+   "part": "case flank",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "along the length of the part (around the case band)",
+   "detail": "Uncertain, and almost invisible from the front. On both 1967 examples examined the side is not a mirror: Monochrome's macro shows coarse lengthwise brushing and the unpolished Hairspring watch a dull satin. The 2017 reissue is different: 'whereas the side has a polished finish'.",
+   "confidence": "low",
+   "source": "https://monochrome-watches.com/historical-perspective-the-doxa-sub-300-the-dive-watch-personified/"
+  },
+  {
+   "part": "other (narrow ring between bezel and case top)",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A bright raised ring on which the bezel sits; in the macro of the original it is smooth and reflective with faint circular turning lines. On the reissue 'The ring between the carved bezel and top of the case also has a polished finish'. It shows as a fine bright line under the bezel teeth.",
+   "confidence": "medium",
+   "source": "https://www.fratellowatches.com/doxa-sub-300-searambler-review/"
+  },
+  {
+   "part": "bezel top",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The outer, sloping zone that carries the depth scale is smooth and bright. On the reissue it is described as 'a polished outer ring'; on the well-worn original in Monochrome's macro it is smooth and reflective but hairlined. A fine dark groove separates it from the matte inner zone.",
+   "confidence": "medium",
+   "source": "https://www.thetimebum.com/2018/02/doxa-sub-300-50th-anniversary.html"
+  },
+  {
+   "part": "other (inner bezel ring carrying the minute scale)",
+   "material": "stainless steel",
+   "finish": "bead-blasted",
+   "direction": "n/a",
+   "detail": "On the 1967 original the inner zone is frosted: Monochrome's macro shows a pebbled, grainy surface with no direction. The 2017 reissue differs ('a brushed inner ring', with fine radial lines in photographs). Either way it stays an even pale grey beside the bright outer ring.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/historical-perspective-the-doxa-sub-300-the-dive-watch-personified/"
+  },
+  {
+   "part": "bezel edge",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Saw-tooth grip ('a saw-tooth edge for optimum grip with gloves or wet hands'): groups of notches cut into the rim, with bright machined facets. From the front they show as small bright teeth beyond the outer ring.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/historical-perspective-the-doxa-sub-300-the-dive-watch-personified/"
+  },
+  {
+   "part": "bezel markings",
+   "material": "engraved and filled with paint",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Outer depth figures in orange and inner minute numerals 5 to 55 with minute ticks in black, all cut into the steel and paint-filled so that they sit just below the surface ('the markers are filled with orange paint' and 'filled with black' on the reissue). At 12 there is an orange dot on the outer zone and a black dot on the inner one. The depth figures are in feet or metres depending on the example.",
+   "confidence": "high",
+   "source": "https://www.thetimebum.com/2018/02/doxa-sub-300-50th-anniversary.html"
+  },
+  {
+   "part": "crown",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "flutes parallel to the stem (9 to 3)",
+   "detail": "Small crown with fine straight knurling and a domed cap, half sunk into the case side at 3 (the reissue 'retains the original DOXA lettering' on it). Polish is assumed from the reissue; the original photographed is too worn to tell.",
+   "confidence": "medium",
+   "source": "http://www.doxa300t.com/sub300/300searambler.htm"
+  },
+  {
+   "part": "dial base",
+   "material": "orange paint",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Opaque saturated orange, smooth, with a low satin sheen in photographs of the original: under the dome it shows broad soft reflections but no mirror gloss. One modern review calls the current dial glossy, so the exact sheen is uncertain.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/historical-perspective-the-doxa-sub-300-the-dive-watch-personified/"
+  },
+  {
+   "part": "printed markings",
+   "material": "black print",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Minute track of fine black lines, the text, and thin index lines running inward from the markers at 12, 6 and 9 (and a short one toward the date), all printed flat in black.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/historical-perspective-the-doxa-sub-300-the-dive-watch-personified/"
+  },
+  {
+   "part": "marker surrounds",
+   "material": "black print",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Each hour marker is a printed black rectangle with a narrow stripe of lume down its middle; the black is the surround. No metal anywhere: aBlogtoWatch notes the 'Dial is relatively flat where applied markers would have given a slightly better sense of depth'.",
+   "confidence": "high",
+   "source": "https://ablogtowatch.com/watch-reviews-doxa-sub-300-sub-300t"
+  },
+  {
+   "part": "lume",
+   "material": "tritium paint",
+   "finish": "lume",
+   "direction": "n/a",
+   "detail": "Narrow cream stripes in the markers and hands, matte. There is also a tiny lume dot at the left edge of the date window ('the small bead of luminous material to the left of the date window').",
+   "confidence": "high",
+   "source": "http://www.doxa300t.com/sub300/300searambler.htm"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "black-painted metal",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "A short 'dwarf' hour hand and a long, wide minute hand, both matte black with a slim lume strip.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/historical-perspective-the-doxa-sub-300-the-dive-watch-personified/"
+  },
+  {
+   "part": "seconds hand",
+   "material": "black-painted metal",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Thin black needle with a solid black square paddle near the tip. On the original it carries no lume ('the vintage SUB 300 sweep hand did not have any Tritium on it'); the reissue fills the square with lume. The drawing's round lume dot is neither.",
+   "confidence": "high",
+   "source": "http://www.doxa300t.com/sub300/300searambler.htm"
+  },
+  {
+   "part": "centre cap and pinion",
+   "material": "black-painted metal",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "The hub of the hands is matte black like the hands themselves (macro of the original).",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/historical-perspective-the-doxa-sub-300-the-dive-watch-personified/"
+  },
+  {
+   "part": "date window frame",
+   "material": "black print around a bevelled opening",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "A bevelled rectangular opening outlined in black print; the bevel itself is dial orange. Fratello: 'a framed date aperture with a white disc and black writing'.",
+   "confidence": "high",
+   "source": "https://www.fratellowatches.com/doxa-sub-300-searambler-review/"
+  },
+  {
+   "part": "date disc",
+   "material": "printed disc",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "White disc with black numerals.",
+   "confidence": "high",
+   "source": "https://www.fratellowatches.com/doxa-sub-300-searambler-review/"
+  },
+  {
+   "part": "crystal",
+   "material": "acrylic (Perspex)",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "A high domed bubble standing well above the bezel ('The domed perspex crystal'; Monochrome: 'a domed acrylic crystal'). It bends the edge of the dial into a bright ring and carries a large curved highlight.",
+   "confidence": "high",
+   "source": "http://www.doxa300t.com/sub300/300searambler.htm"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "stainless steel 'beads of rice' bracelet: flat end piece and outer links",
+   "finish": "brushed",
+   "direction": "straight vertical (12 to 6)",
+   "detail": "What meets the case is a straight, flat end piece sitting in the case notch, and the flat outer links that run on from it. Both are satin-brushed lengthwise; the grain is clear on the original in Monochrome's macro. Fratello on the reissue: 'the two outer links are larger than the others and have a brushed finish'. The rice-bead rows between them are polished; see the next entry.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/historical-perspective-the-doxa-sub-300-the-dive-watch-personified/"
+  },
+  {
+   "part": "other (centre rows of rice-bead links)",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Five rows of small rounded 'rice grain' links polished bright ('five columns of polished \"beads of rice\" links between more traditional brushed links on the sides'). They start just below the brushed end piece and are mirror bright on the original in Monochrome's macro too.",
+   "confidence": "high",
+   "source": "https://ablogtowatch.com/watch-reviews-doxa-sub-300-sub-300t"
+  },
+  {
+   "part": "other (parts this watch does not have)",
+   "material": "n/a",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No bezel insert, no applied or metal-framed markers, no crown guards, no Cyclops, no pushers, no visible screws.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/historical-perspective-the-doxa-sub-300-the-dive-watch-personified/"
+  }
+ ],
+ "lightBehaviour": [
+  "The circular brushing on the sloping case top shows a bow tie: two opposite bright fans, one pointing toward the lamp and one away from it, which swing round the case as the lamp moves.",
+  "The outer bezel zone is a bright band with a strong arc toward the lamp; the blasted inner zone stays an even pale grey at every angle.",
+  "The acrylic dome carries one large soft curved highlight and turns the dial edge into a bright distorted ring.",
+  "The orange dial hardly changes with the lamp beyond a broad faint sheen; the black hands and markers stay dead matte.",
+  "The polished rice-grain links sparkle with dozens of pin highlights against calm brushed outer links.",
+  "The saw-teeth and the polished ring under them glint as a broken bright circle just outside the bezel."
+ ],
+ "geometry": "Cushion (tonneau) case about 42.5 mm across. Its top is not flat: it slopes gently away from the bezel to a crisp edge above the case side. No visible lugs: the bracelet's flat end piece sits in a straight-sided notch cut into the case at top and bottom. The round bezel is clearly smaller than the case, so broad brushed shoulders show to the left and right. Two-zone bezel: a sloping outer zone, a dark groove, then an inner zone beside the crystal, with saw-tooth grips in groups round the rim. Small crown at 3 partly sunk into the flank, no crown guards. No pushers, no visible screws. High domed acrylic crystal over a comparatively small dial of about 26 mm.",
+ "avoid": [
+  "Do not give the bezel a black or coloured insert: it is bare steel with engraved, paint-filled figures.",
+  "Do not finish both bezel zones alike: outer bright, inner matte. The outer depth figures are orange, not black.",
+  "Do not brush the case top in straight lines like an Oyster case, do not brush it radially like a sunray, and do not polish it: the grain runs round the bezel.",
+  "No orange minute hand: among the original SUB 300s only the silver Searambler had one. On the orange Professional every hand is black.",
+  "No applied or metal-framed markers and no sunray dial (the silver Searambler is the sunray one).",
+  "Do not put lume in the seconds-hand square if the 1967 watch is the aim (reissue only), and do not use a round lollipop.",
+  "No flat crystal, no Cyclops, no crown guards, no three-link Oyster-style bracelet."
+ ]
+}

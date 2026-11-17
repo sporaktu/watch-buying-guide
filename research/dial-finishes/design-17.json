@@ -1,0 +1,216 @@
+{
+ "n": 17,
+ "designName": "Porthole",
+ "isRealWatch": true,
+ "reference": "Patek Philippe Nautilus ref. 5711/1A-010 (steel, blue-black gradient dial, made until 2021). Chosen over Genta's original 1976 ref. 3700/1A because the drawing has a centre seconds hand, which the 5711 added, with the date at 3 on a white disc; chosen over the white-gold successor 5811/1G because that watch has an applied frame round the date. Checked against the drawing's definition and kept. The main written source is Patek's own October 2006 press release, whose technical sheet for the steel 5711/1 gives the bezel finish, the dial and the bracelet in words; from memory the -010 differs from that first series in its movement, not its finishing. Photographs were read from Phillips' pictures of a 2019 example.",
+ "surfaces": [
+  {
+   "part": "bezel top",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "straight vertical (12 to 6)",
+   "detail": "The flat top of the rounded-octagon bezel is satin-brushed vertically all the way round, the grain ignoring the bezel's outline. Patek's technical sheet: 'Bezel with vertical satin finish'.",
+   "confidence": "high",
+   "source": "https://static.patek.com/pdf/pressreleases/ar/2006_PatekPhilippe_Nautilus_2006.pdf"
+  },
+  {
+   "part": "bezel chamfer",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The bezel's outer flank is a broad polished slope that completely surrounds the brushed top and overhangs the case, meeting the top at a crisp line. SJX, writing about the rose-gold 5711 (whose case finishing it calls 'identical to that of a steel Nautilus'): 'the polished flank of the bezel that extends over the side of the case'.",
+   "confidence": "high",
+   "source": "https://watchesbysjx.com/2015/04/up-close-with-the-patek-philippe-nautilus-ref-57111r-rose-gold-on-bracelet-with-original-photos-price.html"
+  },
+  {
+   "part": "case top",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "straight vertical (12 to 6)",
+   "detail": "The case surfaces above and below the bezel, where the bracelet joins, carry the same vertical satin as the bezel top (read from Phillips' photographs).",
+   "confidence": "high",
+   "source": "https://www.phillips.com/detail/patek-philippe/HK090321/1"
+  },
+  {
+   "part": "other (the two ears at 9 and 3)",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "straight vertical (12 to 6)",
+   "detail": "Flat-topped lateral 'ears' (Patek calls them hinges): satin on top like the case, with small bright polished facets at their corners. The right ear is notched round the crown. The grain direction is my reading of Phillips' front view.",
+   "confidence": "medium",
+   "source": "https://www.phillips.com/detail/patek-philippe/HK090321/1"
+  },
+  {
+   "part": "case flank",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "along the length of the part (around the case band)",
+   "detail": "Not visible straight on. Phillips' side view shows a satin flank with the grain running along its length and polished chamfers above it; Patek says only that the case mixes satin and polished finishes.",
+   "confidence": "medium",
+   "source": "https://www.phillips.com/detail/patek-philippe/HK090321/1"
+  },
+  {
+   "part": "lug chamfer",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "There are no lugs; a thin polished chamfer follows the outer edge of the case and continues along the bracelet (SJX: 'The polished edges of the case and bracelet').",
+   "confidence": "medium",
+   "source": "https://watchesbysjx.com/2015/04/up-close-with-the-patek-philippe-nautilus-ref-57111r-rose-gold-on-bracelet-with-original-photos-price.html"
+  },
+  {
+   "part": "crown",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "flutes parallel to the stem (9 to 3)",
+   "detail": "Crown with broad scalloped fluting, bright polished on the flutes, sitting in a notch of the right ear, which serves as its guard. Polish read from Phillips' photographs.",
+   "confidence": "medium",
+   "source": "https://www.phillips.com/detail/patek-philippe/HK090321/1"
+  },
+  {
+   "part": "dial base",
+   "material": "metal dial, blue shading to black at the rim",
+   "finish": "brushed",
+   "direction": "radial sunray from the dial centre",
+   "detail": "Blue at the centre grading to near-black at the rim, so it moves between steel-blue, teal-grey and charcoal. Patek's 2006 release says these dials 'are lacquered to produce a light-to-dark gradation from the center to the periphery'. Under the colour a faint radial satin shows as a soft wedge in Phillips' photograph (SJX describes 'a subtle radial brushing' on the rose-gold sibling); Patek's own text for this dial says only 'black-blue', so keep the sunray weak.",
+   "confidence": "medium",
+   "source": "https://static.patek.com/pdf/pressreleases/ar/2006_PatekPhilippe_Nautilus_2006.pdf"
+  },
+  {
+   "part": "dial texture",
+   "material": "stamped dial",
+   "finish": "textured",
+   "direction": "straight horizontal (9 to 3)",
+   "detail": "'Horizontal embossed pattern' (Patek): broad flat-topped raised bands separated by narrow darker grooves running straight across the dial. The grooves are relief, not printed lines, and they stop short of the printed name, leaving small smooth reserves round the lettering.",
+   "confidence": "high",
+   "source": "https://static.patek.com/pdf/pressreleases/ar/2006_PatekPhilippe_Nautilus_2006.pdf"
+  },
+  {
+   "part": "printed markings",
+   "material": "white print",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "White maker's name under 12 (left off the unbranded drawing), a ring of small white minute dots near the edge and SWISS at 6.",
+   "confidence": "high",
+   "source": "https://www.phillips.com/detail/patek-philippe/HK090321/1"
+  },
+  {
+   "part": "applied markers",
+   "material": "18k white gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "'12 applied baton hour markers in 18K white gold with luminous coating' (Patek): polished frames with softly rounded corners, filled with lume; two side by side at 12 and none at 3.",
+   "confidence": "high",
+   "source": "https://static.patek.com/pdf/pressreleases/ar/2006_PatekPhilippe_Nautilus_2006.pdf"
+  },
+  {
+   "part": "lume",
+   "material": "white luminescent coating",
+   "finish": "lume",
+   "direction": "n/a",
+   "detail": "Matt white, very slightly green-tinted fill in every marker and in the hour and minute hands.",
+   "confidence": "high",
+   "source": "https://static.patek.com/pdf/pressreleases/ar/2006_PatekPhilippe_Nautilus_2006.pdf"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "18k white gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Rounded baton hands, a bar with a semicircular tip: a polished white-gold outline round a lume centre ('Baton-style hour and minute hands in 18K white gold with luminous coating').",
+   "confidence": "high",
+   "source": "https://static.patek.com/pdf/pressreleases/ar/2006_PatekPhilippe_Nautilus_2006.pdf"
+  },
+  {
+   "part": "seconds hand",
+   "material": "white gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Thin straight centre seconds hand with a short counterweight and no lume. Patek's sheet gives 'Seconds hand in white gold' but not its finish; it photographs pale grey, so polished is an assumption.",
+   "confidence": "low",
+   "source": "https://static.patek.com/pdf/pressreleases/ar/2006_PatekPhilippe_Nautilus_2006.pdf"
+  },
+  {
+   "part": "centre cap and pinion",
+   "material": "bright metal",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The hand collars form a small stepped round boss of bright metal with a tiny pin at its centre (read from Phillips' photograph).",
+   "confidence": "medium",
+   "source": "https://www.phillips.com/detail/patek-philippe/HK090321/1"
+  },
+  {
+   "part": "date window frame",
+   "material": "none applied, a bevelled aperture in the dial",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "The window at 3 has a narrow bevelled surround in the dial colour that catches light along one edge; there is no applied metal frame. Monochrome lists 'the metal frame around the date window' among the changes on the later 5811, and Patek lists an applied white-gold aperture frame only for that watch.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/introducing-patek-philippe-nautilus-5811-1g-replaces-the-5711-specs-price/"
+  },
+  {
+   "part": "date disc",
+   "material": "printed disc",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "White with black numerals.",
+   "confidence": "high",
+   "source": "https://www.phillips.com/detail/patek-philippe/HK090321/1"
+  },
+  {
+   "part": "chapter ring",
+   "material": "stainless steel, or the bevelled edge of the crystal",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A narrow pale ring separates the dial from the brushed bezel top and follows the rounded-octagon opening. Read from Phillips' photograph; I could not tell whether it is the polished inner wall of the bezel or the edge of the crystal.",
+   "confidence": "low",
+   "source": "https://www.phillips.com/detail/patek-philippe/HK090321/1"
+  },
+  {
+   "part": "crystal",
+   "material": "sapphire",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Flat sapphire in the same rounded-octagon shape as the dial opening, close to flush with the bezel. Fratello's comparison with the 3700 mentions the 5711's 'sapphire crystal'; whether it is anti-reflective coated I could not establish.",
+   "confidence": "medium",
+   "source": "https://www.fratellowatches.com/comparison-of-two-patek-philippe-nautilus-watches-37001a-versus-57111a"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "straight vertical (12 to 6)",
+   "detail": "Integrated bracelet (Patek: 'middle links polished, outer links satin-finished'): the wide outer links are satin-brushed lengthwise and the slightly domed centre links are mirror polished. The first centre link sits in a recess of the case.",
+   "confidence": "high",
+   "source": "https://static.patek.com/pdf/pressreleases/ar/2006_PatekPhilippe_Nautilus_2006.pdf"
+  },
+  {
+   "part": "other (not present)",
+   "material": "n/a",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No screws on the bezel, no bezel insert or markings, no pushers, no sub-dials.",
+   "confidence": "high",
+   "source": "https://www.phillips.com/detail/patek-philippe/HK090321/1"
+  }
+ ],
+ "lightBehaviour": [
+  "The polished bezel flank is a continuous ribbon of reflection round the watch, brightest on the side facing the lamp and dark opposite, in sharp contrast with the matte top it surrounds.",
+  "Bezel top, case, ears and outer bracelet links share one vertical grain: they glow together when the lamp is off to one side and go flat grey when it is above or below.",
+  "On the dial the grooves show as fine dark lines with a bright edge that flips from one side of each groove to the other as the lamp moves from above to below; lit from the side the ribs nearly vanish.",
+  "The dial colour is brightest blue in the centre and falls to black at the rim, and a soft, weak sunray wedge swings round as the lamp moves.",
+  "The polished centre links flash as small mirrors between the matte outer links; marker and hand frames glint round flat white lume."
+ ],
+ "geometry": "A rounded-octagon bezel sits on a case with two flat ears projecting at 9 and 3; the dial opening is the same rounded-octagon shape, not a circle. Patek gives 40 mm from 10 to 4 o'clock, 43 mm across the ears, 38 mm from 6 to 12 across the bezel and 8.3 mm in height. The bezel is a flat-topped ring with a broad sloping polished flank. Crown at 3, tucked into the right ear. No lugs: the case runs straight into an integrated bracelet whose first centre link is set into the case. Flat sapphire crystal.",
+ "avoid": [
+  "No screws on the bezel and no hexagonal crown: those are the Royal Oak.",
+  "Do not make the bezel or the dial opening a circle or a hard-cornered octagon, and do not leave out the two ears; they are visible from the front.",
+  "Do not brush the bezel in circles and do not polish its top: vertical satin on top, mirror polish only on the flank.",
+  "Do not put a metal frame round the date on the 5711/1A-010 (that arrived with the later green-dial 5711 and the 5811), and do not make the date disc blue: it is white.",
+  "The 1976 ref. 3700/1A has no centre seconds hand; the 5711/1A-014 has an olive-green dial and the 5711/1A-011 a silver-white one.",
+  "The ribs are raised relief, not printed stripes, and the gradient is radial with a dark rim, not the top-to-bottom fade in the current sketch.",
+  "The 5711 has a double baton at 12; the current sketch draws a single one.",
+  "Centre bracelet links are polished and outer links brushed, not the reverse.",
+  "Do not render the dial as a glossy lacquer or a strong sunburst: it is a satin metallic blue with only a faint radial sheen."
+ ]
+}

@@ -1,0 +1,198 @@
+{
+ "n": 10,
+ "designName": "Expedition 3-6-9",
+ "isRealWatch": true,
+ "reference": "Rolex Explorer ref. 124270 (Oystersteel, 36 mm, 2021 to present). The drawing has metal surrounds on the baton markers, 3-6-9 numerals in lume colour and Mercedes hands. Numerals with a pale fill inside white-gold outlines have been on the Explorer since the 14270 of 1989 (after a short first run with black fill); only the 39 mm 214270 of 2010-16 had bare white-gold numerals 'without any paint filling them', and since 2016 the fill has been luminous. The 1016 (1963-89) had painted markers with no surrounds, so the drawn surrounds rule it out. The caption names no year, so this follows the current 36 mm watch. The drawing leaves the numerals without a rim; the real ones have one.",
+ "surfaces": [
+  {
+   "part": "case top",
+   "material": "Oystersteel (904L-family stainless steel)",
+   "finish": "brushed",
+   "direction": "straight vertical (12 to 6)",
+   "detail": "Hidden by the bezel except for the lug tops: 'The case and the bracelet are fully brushed on flat surfaces, with polished accents on the sides'.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/2021-rolex-explorer-1-36mm-oystersteel-124270-and-rolesor-124273-hands-on-price/"
+  },
+  {
+   "part": "lug top",
+   "material": "Oystersteel",
+   "finish": "brushed",
+   "direction": "straight vertical (12 to 6)",
+   "detail": "Flat lug tops satin-brushed in straight lengthwise lines; Monochrome's editor notes 'the brushing is now straight, vs. angled on the 14270'. In its photographs the grain of lug, end link and bracelet is one continuous 12-to-6 direction.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/2021-rolex-explorer-1-36mm-oystersteel-124270-and-rolesor-124273-hands-on-price/"
+  },
+  {
+   "part": "lug chamfer",
+   "material": "none (not present)",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Not present: in the photographs the brushed top meets the polished side at a plain crisp edge. Monochrome says of the Submariner of the same generation, 'As with all modern models, no more polished bevels on the side of the lugs'.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/2021-rolex-explorer-1-36mm-oystersteel-124270-and-rolesor-124273-hands-on-price/"
+  },
+  {
+   "part": "case flank",
+   "material": "Oystersteel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "'polished accents on the sides'. From the front the polished side is a thin bright line outside each lug.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/2021-rolex-explorer-1-36mm-oystersteel-124270-and-rolesor-124273-hands-on-price/"
+  },
+  {
+   "part": "bezel top",
+   "material": "Oystersteel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Smooth fixed bezel, convex in section, mirror polished from the crystal out to its edge with no markings and no knurling ('The bezel is, traditionally, polished too'; Worn & Wound: 'that polished bezel ring').",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/2021-rolex-explorer-1-36mm-oystersteel-124270-and-rolesor-124273-hands-on-price/"
+  },
+  {
+   "part": "bezel edge",
+   "material": "Oystersteel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "No separate chamfer or step: the dome simply rolls over to the outer edge, which slightly overhangs the lugs. Polished bezel meets brushed lug top along one clean circular line.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/2021-rolex-explorer-1-36mm-oystersteel-124270-and-rolesor-124273-hands-on-price/"
+  },
+  {
+   "part": "crown",
+   "material": "Oystersteel",
+   "finish": "mirror polished",
+   "direction": "flutes parallel to the stem (9 to 3)",
+   "detail": "Fluted screw-down Twinlock crown with polished flutes, standing free of the case. Polish judged from photographs.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/2021-rolex-explorer-1-36mm-oystersteel-124270-and-rolesor-124273-hands-on-price/"
+  },
+  {
+   "part": "dial base",
+   "material": "black lacquer on a brass plate",
+   "finish": "gloss lacquer",
+   "direction": "n/a",
+   "detail": "Gloss black: 'the lacquered black dial' (Monochrome); 'The base of the dial is glossy black' (Worn & Wound).",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/2021-rolex-explorer-1-36mm-oystersteel-124270-and-rolesor-124273-hands-on-price/"
+  },
+  {
+   "part": "printed markings",
+   "material": "white print",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Minute track, coronet and text printed flat in opaque white.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/2021-rolex-explorer-1-36mm-oystersteel-124270-and-rolesor-124273-hands-on-price/"
+  },
+  {
+   "part": "applied markers",
+   "material": "18 ct white gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Applied batons, an inverted triangle at 12 and applied 3, 6 and 9 numerals. All are raised polished white-gold shapes filled with lume: 'white gold hands and applied indexes - with the 3-6-9 numerals, like the rest of the markers - filled with Chromalight material'.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/2021-rolex-explorer-1-36mm-oystersteel-124270-and-rolesor-124273-hands-on-price/"
+  },
+  {
+   "part": "marker surrounds",
+   "material": "18 ct white gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Thin polished rims round the batons, the triangle and every stroke of the numerals (the drawing has no rim on the numerals; the real ones do). 'The white gold surrounds create a bit of glare under artificial light'.",
+   "confidence": "high",
+   "source": "https://wornandwound.com/review/rolex-looks-the-new-explorer-124270-review/"
+  },
+  {
+   "part": "lume",
+   "material": "Chromalight",
+   "finish": "lume",
+   "direction": "n/a",
+   "detail": "Flat matte white fill in markers, numerals and hands; blue glow in the dark.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/2021-rolex-explorer-1-36mm-oystersteel-124270-and-rolesor-124273-hands-on-price/"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "18 ct white gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Mercedes hour hand and straight pointed minute hand: flat polished frames around lume ('white gold hands').",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/2021-rolex-explorer-1-36mm-oystersteel-124270-and-rolesor-124273-hands-on-price/"
+  },
+  {
+   "part": "seconds hand",
+   "material": "18 ct white gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Thin polished needle with a small lume disc in a polished ring and a short tail.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/2021-rolex-explorer-1-36mm-oystersteel-124270-and-rolesor-124273-hands-on-price/"
+  },
+  {
+   "part": "centre cap and pinion",
+   "material": "18 ct white gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The boss of the seconds hand covers the centre: a small polished disc (photograph).",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/2021-rolex-explorer-1-36mm-oystersteel-124270-and-rolesor-124273-hands-on-price/"
+  },
+  {
+   "part": "crystal",
+   "material": "sapphire",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Flat sapphire with a small polished edge bevel, almost flush with the bezel, no Cyclops. It 'now features anti-reflective coating', so its glare is somewhat weaker than that of an uncoated crystal.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/2021-rolex-explorer-1-36mm-oystersteel-124270-and-rolesor-124273-hands-on-price/"
+  },
+  {
+   "part": "other (rehaut: the inner flange between dial and crystal)",
+   "material": "Oystersteel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A sloping reflective ring engraved with ROLEX repeated around it (a reader's comment under the review mentions 'the tacky Rolex wording around the chapter ring'). Its polish is read from photographs.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/2021-rolex-explorer-1-36mm-oystersteel-124270-and-rolesor-124273-hands-on-price/"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "Oystersteel Oyster bracelet with solid end link",
+   "finish": "brushed",
+   "direction": "straight vertical (12 to 6)",
+   "detail": "'This fully brushed oyster bracelet': all three links and the end link are brushed lengthwise on top, with polished side edges. The straight grain is clear in Monochrome's photographs.",
+   "confidence": "high",
+   "source": "https://wornandwound.com/review/rolex-looks-the-new-explorer-124270-review/"
+  },
+  {
+   "part": "other (parts this watch does not have)",
+   "material": "n/a",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No crown guards, no date, no Cyclops, no bezel insert or bezel markings, no pushers, no visible screws.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/2021-rolex-explorer-1-36mm-oystersteel-124270-and-rolesor-124273-hands-on-price/"
+  }
+ ],
+ "lightBehaviour": [
+  "The polished bezel dominates: a continuous mirror ring with a bright arc on the lamp side and a dark arc opposite, both sliding round as the lamp moves.",
+  "Lug tops, end link and bracelet share one straight 12-to-6 grain and so brighten together: a soft linear sheen, strongest with the lamp off to the left or right.",
+  "The gloss dial is a black mirror with a soft moving reflection; the white-gold outlines of numerals and batons flash and can glare.",
+  "The lume fields stay flat matte white whatever the lamp does.",
+  "The coated flat crystal gives a weaker glare than bare sapphire; the rehaut is a thin reflective ring.",
+  "Crown flutes and case flanks are small hard sparkles at the edge."
+ ],
+ "geometry": "Round 36 mm Oyster case. Slim tapering lugs with flat tops, 19 mm apart, no bevels. Smooth fixed bezel, domed in section, roughly a tenth of the case diameter wide on each side. Fluted screw-down crown at 3 standing free of the case, with no crown guards. No pushers, no visible screws. Flat sapphire crystal almost flush with the bezel, no Cyclops. Solid Oyster end link between the lugs.",
+ "avoid": [
+  "Do not brush the bezel and do not engrave it: an engraved 24-hour bezel is the Explorer II.",
+  "Do not use a matte dial: the 124270 is gloss lacquer. Matte belongs to the 1016 from the late 1960s on.",
+  "Do not render 3-6-9 as plain polished metal: only the 214270 of 2010-16 had unfilled white-gold numerals. Here they are white inside white-gold outlines.",
+  "Do not paint the markers straight on the dial with no surrounds: that is the 1016.",
+  "Do not set the lug brushing at an angle: that is the 14270 and earlier. Here it is straight, in line with the bracelet.",
+  "No crown guards, no date, no Cyclops.",
+  "The bracelet is brushed throughout: no polished centre links.",
+  "Lume is white by day, not aged cream."
+ ]
+}

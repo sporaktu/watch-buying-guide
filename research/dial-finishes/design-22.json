@@ -1,0 +1,169 @@
+{
+ "n": 22,
+ "designName": "Round dress watch",
+ "isRealWatch": true,
+ "reference": "Patek Philippe Calatrava ref. 5196J-001 (yellow gold, 37 mm, hand-wound calibre 215 PS, presented in 2004 and discontinued in 2022), the modern restatement of the ref. 96 of 1932. The drawing matches it: yellow gold case, opaline dial, applied gold batons, a dotted minute track with larger dots at the hours, gold dauphine hands and a small seconds marked only by ticks with no ring. Patek's own Certificate of Origin, photographed with a 5196J-001 at European Watch Company, gives the dial as 'OPALIN ARGENTE 13 OBUS OR JNE': silvered opaline with thirteen yellow-gold obus markers. Vintage ref. 96 watches of the 1940s and 1950s use the same recipe but usually have a printed ring around the small seconds, minute pearls cut into the dial and an acrylic crystal, so the sheet follows the 5196J.",
+ "surfaces": [
+  {
+   "part": "bezel top",
+   "material": "18k yellow gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Wide, flat bezel; Patek's launch press material, quoted in Japanese by Hodinkee Japan, describes a polish-finished flat bezel (my translation), and a dealer's English description of a 5196J-001 speaks of its 'polished bezel'. Measured from the press picture it is roughly 7 percent of the case diameter on each side.",
+   "confidence": "high",
+   "source": "https://hodinkee.jp/articles/the-patek-philippe-calatrava-5196r-in-depth"
+  },
+  {
+   "part": "bezel chamfer",
+   "material": "18k yellow gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The bezel is stepped ('flat stepped bezel', said of the 5196 in a review of its successor): a thin second ring sits inside the wide one before the crystal. Both read as polished in the press picture and in dealer photographs.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/thoughts-patek-philippe-calatrava-6196p-review-new-generation-96-series-replacement-5196-price/"
+  },
+  {
+   "part": "case flank",
+   "material": "18k yellow gold",
+   "finish": "brushed",
+   "direction": "along the length of the part (around the case band)",
+   "detail": "Satin-brushed case band, running on along the outer sides of the lugs: unmistakable in a dealer's side views of a 5196J-001. Phillips describes the platinum 5196, which shares the case, as having a 'thin flat bezel and brushed case flanks', and the successor 6196P is specified as 'polished with brushed flanks'. That the grain runs along the band is read from the photographs. The flanks lie below the bezel and do not show straight on.",
+   "confidence": "high",
+   "source": "https://www.europeanwatch.com/watch/patek-philippe-5196j-001-5196j-calatrava-manual-wind-18k-yellow-g-66248"
+  },
+  {
+   "part": "lug top",
+   "material": "18k yellow gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The lugs are one piece with the case middle, not soldered on; they curve out of the case and taper, set unusually wide at about 21 mm. Their tops are polished like the bezel in the press picture and in dealer photographs, and meet the brushed outer sides at a clean edge with no separate chamfer.",
+   "confidence": "medium",
+   "source": "https://www.europeanwatch.com/watch/patek-philippe-5196j-001-5196j-calatrava-manual-wind-18k-yellow-g-66248"
+  },
+  {
+   "part": "crown",
+   "material": "18k yellow gold",
+   "finish": "mirror polished",
+   "direction": "flutes parallel to the stem (9 to 3)",
+   "detail": "Small fluted crown at 3 with the Calatrava cross in relief on its end and no crown guards, read from dealer photographs.",
+   "confidence": "medium",
+   "source": "https://www.europeanwatch.com/watch/patek-philippe-5196j-001-5196j-calatrava-manual-wind-18k-yellow-g-66248"
+  },
+  {
+   "part": "dial base",
+   "material": "silvered dial, 'opalin argenté' in Patek's own wording",
+   "finish": "grained",
+   "direction": "n/a",
+   "detail": "Patek's certificate: 'OPALIN ARGENTE'; described elsewhere as 'the opaline white dial that emits a unique luster'. Silver-white to cream, matte and very finely grained, and very slightly domed. No sunray and no gloss. Patek's press picture hints at a faint vertical grain, clearer on the white gold version, but real photographs of the 5196J show an even matte white.",
+   "confidence": "high",
+   "source": "https://www.europeanwatch.com/watch/patek-philippe-5196j-001-5196j-calatrava-manual-wind-18k-yellow-g-66248"
+  },
+  {
+   "part": "applied markers",
+   "material": "18k yellow gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Applied 'obus-style hour markers' ('13 OBUS OR JNE' on the certificate: eleven singles and a pair at 12): long prisms with a ridge down the middle and a pointed inner end, every face polished. The drawing simplifies them to rectangles and leaves 12 single; there are no surrounds.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/thoughts-patek-philippe-calatrava-6196p-review-new-generation-96-series-replacement-5196-price/"
+  },
+  {
+   "part": "other (minute pearls)",
+   "material": "gold-coloured dots",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Changed: the dots are not all alike. Sixty small round gold dots around the edge of the dial, outside the hour markers, with the twelve at the hours clearly larger than the rest, as the drawing has them (press picture and dealer photographs). Phillips calls them 'half pearl minute markers'. Whether they are raised beads or cut into the dial, as the pearls of the vintage ref. 96 were, is not established; either way they are tiny bright points with almost no height.",
+   "confidence": "medium",
+   "source": "https://phillips.com/detail/patek-philippe/CH080116/155"
+  },
+  {
+   "part": "sub-dial",
+   "material": "same opaline dial surface",
+   "finish": "grained",
+   "direction": "n/a",
+   "detail": "Small seconds above 6, level with the dial and not engine-turned: twelve printed black ticks, four long and eight short, with no ring. A reviewer calls the gold versions' sub-dial 'almost invisible' with 'very discreet graduation'; dealer photographs confirm that it is flush.",
+   "confidence": "high",
+   "source": "https://www.watchprosite.com/digest/patek-philippe-5196p-calatrava-review-4/"
+  },
+  {
+   "part": "printed markings",
+   "material": "black print",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "PATEK PHILIPPE GENEVE, SWISS and the seconds ticks in black. On vintage ref. 96 dials these were 'engraved and then filled with enamel'; the sheen of the modern print is an assumption.",
+   "confidence": "medium",
+   "source": "https://collectability.com/learn/a-collectors-guide-to-the-patek-philippe-calatrava-ref-96/"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "18k yellow gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Dauphine hands: an elongated diamond with a ridge down the middle and two flat facets, 'milled from solid material'. No source states their finish. In dealer photographs the two facets read as one light and one dark plane, as polished facets do, but one frontal photograph shows faint lengthwise streaks that the markers do not have, so a fine satin on the facets cannot be ruled out.",
+   "confidence": "medium",
+   "source": "https://openers.jp/en/watch-and-jewelry/24278"
+  },
+  {
+   "part": "seconds hand",
+   "material": "18k yellow gold",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Small leaf-shaped gold hand, widest near its middle, on a round gold boss in the sub-dial. Read from the press picture and dealer photographs.",
+   "confidence": "medium",
+   "source": "https://www.europeanwatch.com/watch/patek-philippe-5196j-001-5196j-calatrava-manual-wind-18k-yellow-g-66248"
+  },
+  {
+   "part": "centre cap and pinion",
+   "material": "18k yellow gold hub with a steel pin",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "No separate cap: the two dauphine hands overlap at a small faceted gold hub, and the polished end of the steel pinion shows as a bright dot in its middle. The seconds hand has the same dot in its round boss. Read from dealer photographs.",
+   "confidence": "medium",
+   "source": "https://www.europeanwatch.com/watch/patek-philippe-5196j-001-5196j-calatrava-manual-wind-18k-yellow-g-66248"
+  },
+  {
+   "part": "crystal",
+   "material": "sapphire",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "A dealer describes a 'domed sapphire crystal'; in pictures the dome is low and the glass stands only slightly above the bezel. Patek's own wording was not available to me.",
+   "confidence": "medium",
+   "source": "https://www.europeanwatch.com/watch/patek-philippe-5196j-001-5196j-calatrava-manual-wind-18k-yellow-g-66248"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "brown alligator leather",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "A dealer lists a 'brown alligator strap' (the watch photographed there wears a blue one); in Patek's press picture it is dark brown with large square scales and fills the wide gap between the lugs. Patek's certificate says only 'CUIR'.",
+   "confidence": "medium",
+   "source": "https://www.europeanwatch.com/watch/patek-philippe-5196j-001-5196j-calatrava-manual-wind-18k-yellow-g-66248"
+  },
+  {
+   "part": "other (parts this watch does not have)",
+   "material": "n/a",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No date, no lume, no marker surrounds, no bezel insert or bezel markings, no crown guards, no pushers and no visible screws.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/history-patek-philippe-calatrava-part-3-present-day/"
+  }
+ ],
+ "lightBehaviour": [
+  "Each dauphine hand shows one facet bright and the other dark, split exactly along its ridge; as the lamp crosses the line of the hand the two halves swap.",
+  "The faceted gold markers do the same in miniature and fire in sequence around the dial as the lamp moves, each flashing from deep amber to almost white.",
+  "The wide flat polished bezel is a broad ring mirror: the lamp fills a whole arc of it with pale glare while the rest reflects the surroundings in warm gold, and its stepped inner ring repeats the highlight as a fine line.",
+  "The opaline dial stays calm and even, with only a soft falloff toward the edge and short soft shadows from the hands and markers.",
+  "The gold minute pearls sparkle as pin-points, a few at a time, the twelve larger ones first."
+ ],
+ "geometry": "Round three-part case, 37 mm across and slim (sources give between 6.8 and 8 mm). A wide flat stepped bezel sits over a case middle whose lugs are part of the same piece; the lugs curve and taper and are set about 21 mm apart, wide for the size. A small fluted crown sits at 3 with no guards and there are no pushers. The sapphire crystal has a low dome and the strap is alligator. The dial is very slightly domed, with applied markers, a ring of minute pearls at the edge that are larger at the hours, and a small seconds that sits rather high above 6 because the movement is small for the case.",
+ "avoid": [
+  "Flat painted batons or hands: every gold part on the dial is faceted metal.",
+  "A recessed or engine-turned small seconds with a printed ring: the 5196's is flush and marked only by ticks, and the ring belongs to many vintage ref. 96 dials.",
+  "A hobnail (Clous de Paris) bezel: that is a different Calatrava line.",
+  "The platinum 5196P's two-tone dial with Breguet numerals and leaf hands.",
+  "A sunray, vertically brushed or glossy lacquer dial, a date window, centre seconds or lume.",
+  "Brushing the bezel or the lug tops, or giving it a thin rounded bezel.",
+  "Plain rectangular markers if detail allows: the real ones are prisms pointed toward the centre, doubled at 12."
+ ]
+}

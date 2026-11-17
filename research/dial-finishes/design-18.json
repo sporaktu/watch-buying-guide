@@ -1,0 +1,142 @@
+{
+ "n": 18,
+ "designName": "Field watch",
+ "isRealWatch": true,
+ "reference": "U.S. Army Air Forces Type A-11 navigation (hack) watch, specification 94-27834, in its black-dial form of 1942 to 1945, made by Elgin, Bulova and Waltham. The caption names the A-11 and the drawing has its essentials: black dial, white Arabic numerals 1 to 12, minute strokes all round, white hands and a centre seconds hand, no date. The drawn smooth bezel is that of the 'waterproof' case and the plain stroke track matches the dial drawn in the wartime instruction handbook; the other issued case, the 'dustproof' one, has a coin-edge bezel, and one Bulova dial I saw adds a railroad ring. Three drawn features are not A-11 at all: the inner 13 to 24 ring, the darts at the hours and the syringe hands come from later U.S. issue watches (to my knowledge the A-17 and the GG-W-113 family; not checked on a page I read in full). Finish decision: the A-11's bright chromium-plated case is kept, not the dull grey case of those later watches, because the caption fixes the model and the decade; the borrowed markings are treated as more flat white print, which is how every A-11 marking is done.",
+ "surfaces": [
+  {
+   "part": "bezel top",
+   "material": "chromium-plated brass (occasionally silver or stainless steel)",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Bright plate: Worn & Wound says the cases were 'generally chromium-plated brass'. No text I read states the factory polish in words; it is read from photographs. An unissued Elgin still on its factory tag is mirror-bright all over, and the worn Bulova that Worn & Wound shows is still bright on the bezel. The drawn bezel is the smooth type of the 'waterproof' case, which a collector tutorial describes as having 'a two stepped appearance': a low outer ring and a narrower inner one round the crystal. The unissued Elgin has the other, coin-edge bezel, so the bright finish on the smooth bezel rests on the worn Bulova alone. On worn watches the plate thins and warmer brass shows at the high points.",
+   "confidence": "medium",
+   "source": "https://wornandwound.com/military-watches-world-11-watch-won-war/"
+  },
+  {
+   "part": "case top",
+   "material": "chromium-plated brass (occasionally silver or stainless steel)",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The case middle shows from the front as a narrow rounded shoulder outside the bezel, in the same bright plate with no brushing and no chamfer (mirror-bright on the unissued Elgin).",
+   "confidence": "medium",
+   "source": "https://www.ima-usa.com/products/original-u-s-wwii-new-old-stock-a-11-usaaf-wrist-watch-by-elgin-with-factory-tag-serial-t424462-1944"
+  },
+  {
+   "part": "lug top",
+   "material": "chromium-plated brass (occasionally silver or stainless steel)",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Thin, slightly curved lugs carrying the same bright plate, with no brushing and no chamfer; drilled for spring bars and 16 mm apart (Worn & Wound). Mirror-bright on the unissued Elgin.",
+   "confidence": "medium",
+   "source": "https://www.ima-usa.com/products/original-u-s-wwii-new-old-stock-a-11-usaaf-wrist-watch-by-elgin-with-factory-tag-serial-t424462-1944"
+  },
+  {
+   "part": "crown",
+   "material": "plated base metal",
+   "finish": "mirror polished",
+   "direction": "knurling parallel to the stem (9 to 3)",
+   "detail": "Plain unsigned crown, 'notched for easy grip' (Worn & Wound), with coarse straight knurling and fairly large for the case. Bright on the unissued Elgin; dulled to grey on the worn Bulova.",
+   "confidence": "medium",
+   "source": "https://wornandwound.com/military-watches-world-11-watch-won-war/"
+  },
+  {
+   "part": "dial base",
+   "material": "black-painted metal dial",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Plain black dial with no maker's name (the tutorial: 'No maker on dial'). Black is stated in every source; the low sheen is read from photographs and is satin-matte, not dead flat, on the unissued Elgin.",
+   "confidence": "medium",
+   "source": "https://www.vintageleatherjackets.org/threads/a-11-watch-tutorial-long-winded.11293/"
+  },
+  {
+   "part": "printed markings",
+   "material": "white paint",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Arabic numerals 1 to 12 and the minute strokes are flat white print; the real dial also carries small numerals 10 to 60 outside the track (the tutorial: '60 second tic numerals only on the 10s'). The drawn 13 to 24 ring and hour darts are not A-11 features and should be the same flat white print, never applied or raised.",
+   "confidence": "high",
+   "source": "https://www.vintageleatherjackets.org/threads/a-11-watch-tutorial-long-winded.11293/"
+  },
+  {
+   "part": "lume",
+   "material": "none on the standard A-11",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "The standard Air Forces A-11 is not luminous (the tutorial: 'Not lumed'; Worn & Wound notes that unlumed and lumed versions were both produced, the fully lumed one for the Navy). Markings and hands are therefore plain paint with no raised or glowing compound.",
+   "confidence": "medium",
+   "source": "https://www.vintageleatherjackets.org/threads/a-11-watch-tutorial-long-winded.11293/"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "steel, painted white",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Flat hands painted white and dark at the hub (the tutorial: 'White but black at the base and not lumed. They are tapered'; a dealer's summary of the type: 'Black dial; white hands'). The real shape is a tapered lance; the drawn syringe outline comes from later U.S. issue watches but takes the same flat white paint.",
+   "confidence": "high",
+   "source": "https://www.vintageleatherjackets.org/threads/a-11-watch-tutorial-long-winded.11293/"
+  },
+  {
+   "part": "seconds hand",
+   "material": "steel, painted white",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Thin white centre seconds hand of constant width with a short tail, as on the unissued Elgin, the Bulova that Worn & Wound shows and the wartime handbook drawing.",
+   "confidence": "medium",
+   "source": "https://www.ima-usa.com/products/original-u-s-wwii-new-old-stock-a-11-usaaf-wrist-watch-by-elgin-with-factory-tag-serial-t424462-1944"
+  },
+  {
+   "part": "other (centre boss)",
+   "material": "bare metal",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Small pale metal hub at the centre of the hands, bright in the photographs of the Bulova and the Elgin. Its finish is not described anywhere I read, so polished is only a reading from those photographs.",
+   "confidence": "low",
+   "source": "https://wornandwound.com/military-watches-world-11-watch-won-war/"
+  },
+  {
+   "part": "crystal",
+   "material": "acrylic",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Domed acrylic standing well above the bezel: Worn & Wound says the crystals were specified as unbreakable acrylic and the tutorial that they 'were domed and plexi'. Originals have yellowed with age.",
+   "confidence": "high",
+   "source": "https://wornandwound.com/military-watches-world-11-watch-won-war/"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "olive drab cotton canvas",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "One- or two-piece canvas strap in olive drab, as laid down in the War Department handbook (Worn & Wound). The unissued Elgin is on a one-piece khaki-olive cotton strap that passes behind the case, so plain woven fabric shows between both pairs of lugs.",
+   "confidence": "high",
+   "source": "https://wornandwound.com/military-watches-world-11-watch-won-war/"
+  },
+  {
+   "part": "other (parts this watch does not have)",
+   "material": "n/a",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No bezel insert or markings, no rotating bezel, no crown guards, no pushers, no date, no sub-dial, nothing applied to the dial, no maker's name, no screws visible from the front, no brushing and no chamfers.",
+   "confidence": "high",
+   "source": "https://www.vintageleatherjackets.org/threads/a-11-watch-tutorial-long-winded.11293/"
+  }
+ ],
+ "lightBehaviour": [
+  "The chrome bezel, shoulder and lugs are the brightest parts: on so small and rounded a case the lamp shows as a tight hot highlight that runs round the bezel as the lamp moves, against dark reflections elsewhere, in a slightly colder white than steel.",
+  "The dial does nothing: flat black and flat white paint, with no sparkle and no raised edges to catch light.",
+  "The white hands are matte; a low lamp throws their thin shadow onto the dial but they never flash.",
+  "The domed acrylic carries a broad soft reflection of the lamp and a bright ring where the dome meets the bezel, and it softens the edge of the minute track.",
+  "The knurled crown gives a row of small glints; on a worn example the bezel highlight breaks up and warm brass shows at the edges."
+ ],
+ "geometry": "Small round case about 32 mm across with a narrow smooth bezel in two low steps, a rounded shoulder of the case middle outside it, and thin slightly curved lugs 16 mm apart, about 39 mm from tip to tip. One knurled crown at 3 with no crown guards; no pushers, no date, no rotating bezel or insert. Nothing is applied to the dial and no screws show from the front. High-domed acrylic crystal. Olive drab canvas strap on spring bars between drilled lugs.",
+ "avoid": [
+  "The dull grey case of the later U.S. issue watches and of modern A-11-style field watches: the 1940s case is bright chrome plate.",
+  "Brushing or polished chamfers on the case; the plate simply follows the pressed shape.",
+  "A coin-edge bezel: it exists on the 'dustproof' A-11 case but is not what is drawn.",
+  "Raised or glowing lume on the numerals, darts or hands; the standard A-11 is flat white paint.",
+  "Polished steel or gilt hands; they are painted white.",
+  "Reading the 13 to 24 ring, the hour darts or the syringe hands as a reason to use a later watch's finishing; they are borrowed layout only.",
+  "A maker's name or a date on the dial, a sapphire crystal or crown guards."
+ ]
+}

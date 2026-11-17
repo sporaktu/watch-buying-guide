@@ -1,0 +1,160 @@
+{
+ "n": 4,
+ "designName": "Glashütte numerals",
+ "isRealWatch": true,
+ "reference": "NOMOS Glashütte Tangente, the 35 mm hand-wound model, ref. 139 (sapphire crystal back, 6.6 mm high; ref. 101 is the same watch with a steel back, and the design has barely changed since 1992). The drawing shows its standard dial: silver-white, printed numerals at 12, 2, 4, 8 and 10 with thin batons between, small seconds at 6, blued stick hands and no date. One difference: the drawing puts a baton at 6 below the small seconds, where the real dial has only the minute track. Date, neomatik and coloured Tangentes differ on the dial, not in how the case is finished.",
+ "surfaces": [
+  {
+   "part": "bezel top",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A slender flat ring only about 1.5 mm wide (another reviewer: 'just a hint of a bezel'), polished like the rest of the case ('stainless steel case, polished'). In photographs its outer edge is very slightly rounded where it drops to the vertical case wall, and a hairline step leads down to the crystal on the inside.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/revisiting-the-most-classic-nomos-the-35mm-hand-wound-tangente-review-price/"
+  },
+  {
+   "part": "case flank",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The straight wall of a flat cylinder ('Cylindrical in form and with straight flanks') in a 'highly polished 35mm steel case'. Seen straight on it is hidden under the bezel edge and shows only as the outline.",
+   "confidence": "high",
+   "source": "https://escapementmagazine.com/articles/nomos-glashutte-tangente/"
+  },
+  {
+   "part": "lug top",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The lugs are 'simple straight steel bands, attached directly to the case' with no blending: long, thin bars with flat tops, cut off at the tip by an angled facet. Every face is polished, so each top lights up or goes dark as a whole.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/revisiting-the-most-classic-nomos-the-35mm-hand-wound-tangente-review-price/"
+  },
+  {
+   "part": "lug chamfer",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "There are no decorative bevels: flat polished faces meet at sharp edges, which is what makes the lugs look 'slim, angular and elongated'. The only extra face is the polished facet that cuts off each lug tip.",
+   "confidence": "medium",
+   "source": "https://escapementmagazine.com/articles/nomos-glashutte-tangente/"
+  },
+  {
+   "part": "crown",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "flutes parallel to the stem (9 to 3)",
+   "detail": "Fairly large, flat crown with coarse, widely spaced flutes, polished, and no crown guards. The press calls it only 'a crown that couldn't be simpler'; the shape is read from Monochrome's photographs.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/revisiting-the-most-classic-nomos-the-35mm-hand-wound-tangente-review-price/"
+  },
+  {
+   "part": "dial base",
+   "material": "metal dial, galvanized and white silver-plated",
+   "finish": "grained",
+   "direction": "n/a",
+   "detail": "Specification: 'galvanized dial, slightly grained, white silver-plated' (NOMOS: 'galvanized, white silver-plated'). A matte, faintly metallic white that 'can change from metallic blue to champagne, depending on the ambient light'; the grain is fine enough to sparkle faintly in raking light.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/revisiting-the-most-classic-nomos-the-35mm-hand-wound-tangente-review-price/"
+  },
+  {
+   "part": "sub-dial",
+   "material": "same silver-plated dial plate",
+   "finish": "textured",
+   "direction": "circular around the sub-dial's own centre",
+   "detail": "Small seconds at 6, 'recessed' below the dial and decorated with fine concentric grooves ('snailed small seconds', 'softly-spoken snailing'). Twelve short printed black ticks, the four at the quarters a little heavier.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/revisiting-the-most-classic-nomos-the-35mm-hand-wound-tangente-review-price/"
+  },
+  {
+   "part": "other (lip of the small-seconds recess)",
+   "material": "same silver-plated dial plate",
+   "finish": "grained",
+   "direction": "n/a",
+   "detail": "Corrected from 'a sharp step': in Monochrome's close-up the recess has a softly rounded, sloping lip a fraction of a millimetre wide with the same silver grain as the dial, so the small seconds looks dished, not punched. The lip shows a thin bright crescent on the side away from the lamp and a soft shadow on the side nearest it.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/revisiting-the-most-classic-nomos-the-35mm-hand-wound-tangente-review-price/"
+  },
+  {
+   "part": "printed markings",
+   "material": "black print",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Specification: 'black printed numerals and markers'. Thin condensed numerals at 12, 2, 4, 8 and 10, hairline batons at the odd hours, a fine minute track at the very edge with slightly heavier five-minute ticks, NOMOS GLASHÜTTE under 12 and MADE IN GERMANY at the foot. There is no baton at 6. Nothing is applied; the matte sheen is an assumption.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/revisiting-the-most-classic-nomos-the-35mm-hand-wound-tangente-review-price/"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "steel",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "Ultra-thin straight stick hands; the maker lists them as 'steel, tempered blue' and says 'their color is created by heating to 290°C', so the colour is an oxide film on polished steel, not paint.",
+   "confidence": "high",
+   "source": "https://nomos-glashuette.com/en/tangente/tangente-139"
+  },
+  {
+   "part": "seconds hand",
+   "material": "steel",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "Small blued stick with a short tail, on its own small blued boss with a polished pin, in the sub-dial. Read from Monochrome's photographs; the maker's 'steel, tempered blue' covers all the hands.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/revisiting-the-most-classic-nomos-the-35mm-hand-wound-tangente-review-price/"
+  },
+  {
+   "part": "centre cap and pinion",
+   "material": "steel",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "A round, slightly domed blued boss about 1.5 mm across (the stacked hubs of the two hands) with the polished end of the steel pinion as a bright dot in the middle. Read from Monochrome's close-up photographs.",
+   "confidence": "medium",
+   "source": "https://monochrome-watches.com/revisiting-the-most-classic-nomos-the-35mm-hand-wound-tangente-review-price/"
+  },
+  {
+   "part": "crystal",
+   "material": "sapphire",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Monochrome writes that 'the Tangente relies on a flat sapphire crystal' and repeats 'flat sapphire crystal' in its specification list; NOMOS itself says only 'sapphire crystal glass'. In photographs it sits a fraction above the bezel.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/revisiting-the-most-classic-nomos-the-35mm-hand-wound-tangente-review-price/"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "Horween Genuine Shell Cordovan, black",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "'18mm in width, black with black stitching': smooth, dense leather with a soft waxy sheen. It sits between the long lugs and leaves a clear gap to the case.",
+   "confidence": "high",
+   "source": "https://monochrome-watches.com/revisiting-the-most-classic-nomos-the-35mm-hand-wound-tangente-review-price/"
+  },
+  {
+   "part": "other (parts this watch does not have)",
+   "material": "n/a",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No date, no lume, no applied markers or surrounds, no bezel insert or bezel markings, no crown guards, no pushers and no screws visible from the front.",
+   "confidence": "high",
+   "source": "https://nomos-glashuette.com/en/tangente/tangente-139"
+  }
+ ],
+ "lightBehaviour": [
+  "The blued hands look black or deep navy most of the time; when one of them mirrors the lamp it turns a vivid electric blue along its whole length while the other stays dark.",
+  "The silver-plated dial has a soft, wide sheen and no highlight: a gentle gradient drifts across it as the lamp moves, cooler or warmer with the colour of the light.",
+  "The snailed small-seconds floor throws a narrow bow-tie of light that turns around the sub-dial's centre as the lamp moves, and its rounded lip shows a thin bright crescent on the far side and a soft shadow on the near side.",
+  "The flat polished bezel and flat lug tops behave like plane mirrors: each is either fully bright or fully dark and switches abruptly.",
+  "The flat crystal is invisible until the lamp reaches the mirror angle, when the whole glass flares at once.",
+  "The cordovan strap carries a broad, soft, waxy highlight."
+ ],
+ "geometry": "A flat cylinder 35 mm across and 6.6 mm high with straight vertical walls. The bezel is a flat ring only about 1.5 mm wide, 'just a hint of a bezel', so the dial is nearly the full width. The lugs are long, thin, straight and angular, cranked down toward the wrist, 18 mm apart and attached to the case with no blending; the watch measures 45 mm from lug tip to lug tip, so they add 5 mm at each end. A large flat fluted crown sits at 3 with no guards and there are no pushers. The crystal is flat. The small seconds is centred about halfway between the dial centre and 6, dished into the dial with a soft lip.",
+ "avoid": [
+  "Painted or black hands: they are tempered blue steel.",
+  "A paper-white or glossy dial: it is silver-plated with a fine grain and a faint metallic sheen.",
+  "A flush, plain small seconds, or one punched in with a hard vertical step: it is dished with a soft lip and concentrically grooved.",
+  "Rounded, blended or brushed lugs and case: everything is polished, flat and sharp-edged.",
+  "A domed crystal, crown guards, lume, a date window or gold 'neomatik' lettering: those belong to other Tangente versions or other watches.",
+  "A numeral 6, a baton at 6, or numerals at the odd hours."
+ ]
+}

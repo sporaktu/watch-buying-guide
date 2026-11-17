@@ -1,0 +1,151 @@
+{
+ "n": 7,
+ "designName": "Pilot’s watch, type B",
+ "isRealWatch": true,
+ "reference": "Luftwaffe B-Uhr to specification FL 23883 with the Baumuster B dial, introduced in 1941 and made until 1945 by A. Lange & Söhne, Laco, Stowa and Wempe; IWC built only Type A (SJX). It matches the drawing: large minute numerals from 5 to 55 at the edge, a small inner circle carrying the hours 1 to 12, a marker at the top and a short hour hand that reads against the inner circle. Examples examined: the 1942 Stowa photographed by Quill & Pad, a Laco sold at auction and catalogued as a 'grey painted metal case' with 'blued luminous hands', and a Lange sold with a Glashütte museum certificate. Case, crown, crystal, hands and strap are those of design 6. Layout note only: the real dial prints a plain 5, not 05, and its top marker is an arrow pointing to the edge.",
+ "surfaces": [
+  {
+   "part": "bezel top",
+   "material": "steel (Lange, Laco) or nickel-plated brass (Stowa, Wempe) under a thin matte grey coat",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Plain ring sloping outward from a narrow lip round the crystal, in the same flat grey as the rest of the case, with no polished or brushed band and no chamfer. The sources agree on matte grey and mostly name a coat: Quill & Pad's 'gray-varnished' cases, an auction description of a Laco as a 'grey painted metal case', Antiquorum's 'matte gray' for another; a Lange is catalogued as a 'gray matted metal case'. Wear supports a coat too: on Quill & Pad's Laco the grey has chipped off a lug to brighter metal and their 1942 Stowa is speckled where it has worn through. How the grey was applied (varnish, paint or a chemical finish) is not settled. Tone runs from mid grey to charcoal between examples.",
+   "confidence": "medium",
+   "source": "https://quillandpad.com/2023/07/23/crash-course-in-flieger-pilot-and-b-uhren-navigator-watches-covering-both-historic-and-modern-examples-pilots-watch-photofest-reprise-2/"
+  },
+  {
+   "part": "case flank",
+   "material": "steel (Lange, Laco) or nickel-plated brass (Stowa, Wempe) under a thin matte grey coat",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "The same grey coat, seen from the front only as a thin rim outside the bezel. FL 23883 is stamped on the flank (Quill & Pad's photograph of a Wempe, where the surface has worn to patches) and cannot be seen straight on.",
+   "confidence": "medium",
+   "source": "https://quillandpad.com/2023/07/23/crash-course-in-flieger-pilot-and-b-uhren-navigator-watches-covering-both-historic-and-modern-examples-pilots-watch-photofest-reprise-2/"
+  },
+  {
+   "part": "lug top",
+   "material": "steel (Lange, Laco) or nickel-plated brass (Stowa, Wempe) under a thin matte grey coat",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Straight, slab-sided lugs that curve down toward the wrist (Antiquorum: 'concave lugs'), in the same matte grey; edges only lightly broken and no polished chamfer. Chips at the lug corners show brighter metal on worn watches.",
+   "confidence": "medium",
+   "source": "https://catalog.antiquorum.swiss/en/lots/lot-51-249"
+  },
+  {
+   "part": "crown",
+   "material": "steel or plated brass",
+   "finish": "bead-blasted",
+   "direction": "flutes parallel to the stem (9 to 3)",
+   "detail": "Large fluted onion or ball crown for gloved hands (Antiquorum: 'ball-shaped winding-crown'). Its surface is dull, never polished, but examples differ: on Quill & Pad's Laco and Stowa it is as dark as the case, while on a Laco and a Lange sold at auction it is bare, paler matte metal. Treat it as dull grey metal a shade lighter than the case; blasted metal is the nearest finish, not a confirmed one.",
+   "confidence": "low",
+   "source": "https://everywatch.com/laco/watch-9315759"
+  },
+  {
+   "part": "dial base",
+   "material": "black-finished metal dial",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Flat matte black on one level, with no logo or text (Christie's, of a Lange with this dial: 'black matte dial'; Craft & Tailored, of another: 'Matte Black').",
+   "confidence": "high",
+   "source": "https://www.christies.com.cn/lot/lot-5167160"
+  },
+  {
+   "part": "lume",
+   "material": "radium luminous paint, aged cream",
+   "finish": "lume",
+   "direction": "n/a",
+   "detail": "The minute numerals 5 to 55, the minute strokes, the top arrow and the small hour numerals are luminous paint standing slightly proud of the dial (Antiquorum: 'radium-coated Arabic numerals for the 60 minutes, and concentric for the 12 hours'). It is chalky and matte and has aged to cream.",
+   "confidence": "high",
+   "source": "https://catalog.antiquorum.swiss/en/lots/lot-51-249"
+  },
+  {
+   "part": "chapter ring",
+   "material": "cream paint on the dial",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "The inner hour circle is a thin painted line with a small dot at each hour and the hour numerals just inside it, on the same flat surface as the rest of the dial (photographs of the 1942 Stowa, a Laco and a Lange). It is not a raised ring or a sunk sub-dial. Whether the fine line itself is luminous is not confirmed.",
+   "confidence": "medium",
+   "source": "https://quillandpad.com/2023/07/23/crash-course-in-flieger-pilot-and-b-uhren-navigator-watches-covering-both-historic-and-modern-examples-pilots-watch-photofest-reprise-2/"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "flame-blued steel frames filled with luminous paint",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "Lozenge-shaped skeleton hands in blued steel, each almost filled with luminous paint, so the metal shows only as a thin blue border and tip (auction description of a Laco: 'blued luminous hands'; Worn & Wound: 'Blued sword hands coated in luminous material'). The hour hand is short and broad so that it reads against the inner circle; the minute hand reaches the outer numerals. Their lume has aged to tan or orange, darker than the dial's.",
+   "confidence": "high",
+   "source": "https://everywatch.com/laco/watch-9315759"
+  },
+  {
+   "part": "seconds hand",
+   "material": "steel coated with luminous paint; blued tail",
+   "finish": "lume",
+   "direction": "n/a",
+   "detail": "Thin centre seconds hand coated in luminous paint, aged cream to orange (Craft & Tailored describe a Lange's 'lumed center seconds hand'; it shows on the Stowa and Laco photographs). The short counterweight tail reads dark, as on the Type A watches where it is blued.",
+   "confidence": "medium",
+   "source": "https://www.craftandtailored.com/products/1940s-wwii-lange-sohne-lange-beobachtungsuhr"
+  },
+  {
+   "part": "other (centre boss)",
+   "material": "blued steel",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "Small round dark hub carrying the three hands (Quill & Pad's Stowa photograph); taken as blued like the Type A examples.",
+   "confidence": "low",
+   "source": "https://quillandpad.com/2023/07/23/crash-course-in-flieger-pilot-and-b-uhren-navigator-watches-covering-both-historic-and-modern-examples-pilots-watch-photofest-reprise-2/"
+  },
+  {
+   "part": "crystal",
+   "material": "acrylic (Plexiglas)",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Domed clear crystal standing above the bezel, with a pale refraction band at its edge. Two sellers of originals name the material: A Collected Man lists a Lange's crystal as 'plexiglass' and an Italian dealer describes a Laco's 'plastic crystal'.",
+   "confidence": "medium",
+   "source": "https://www.acollectedman.com/products/buy-preowned-a-lange-sohne-b-uhr-wwii-pilots-watch"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "brown leather",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Extra-long leather strap closed round each fixed lug bar (Quill & Pad: 'Extra-long, riveted straps'; Worn & Wound: 'double-riveted leather strap'). Smooth, lightly grained brown leather about half the case diameter wide.",
+   "confidence": "high",
+   "source": "https://quillandpad.com/2023/07/23/crash-course-in-flieger-pilot-and-b-uhren-navigator-watches-covering-both-historic-and-modern-examples-pilots-watch-photofest-reprise-2/"
+  },
+  {
+   "part": "other (strap rivets)",
+   "material": "brass or nickel-plated rivets",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Two domed rivet heads side by side on each strap end, just outside the lugs. Dull brass on Quill & Pad's Stowa and Laco, nickel-coloured on the Laco sold at auction; never bright polished.",
+   "confidence": "medium",
+   "source": "https://quillandpad.com/2023/07/23/crash-course-in-flieger-pilot-and-b-uhren-navigator-watches-covering-both-historic-and-modern-examples-pilots-watch-photofest-reprise-2/"
+  },
+  {
+   "part": "other (parts this watch does not have)",
+   "material": "n/a",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No bezel insert or markings, no rotating bezel, no crown guards, no pushers, no date, no sunk sub-dial or raised ring, nothing applied to the dial, no logo or text, no screws visible from the front, no chamfers.",
+   "confidence": "high",
+   "source": "https://quillandpad.com/2023/07/23/crash-course-in-flieger-pilot-and-b-uhren-navigator-watches-covering-both-historic-and-modern-examples-pilots-watch-photofest-reprise-2/"
+  }
+ ],
+ "lightBehaviour": [
+  "Nothing on the case mirrors: the grey coat shades softly round the bezel and along the lugs and the gradient turns with the lamp, with no hot spot and no streak.",
+  "The blued frames of the long minute hand and the stubby hour hand are the only mirror-like metal on the dial: near-black most of the time, a bright blue flash at the reflection angle.",
+  "The domed acrylic shows one large soft-edged reflection of the lamp sliding across the dome, plus a pale refraction ring just inside the bezel.",
+  "The big outer numerals are thick chalky paint that casts small shadows under a low lamp; the inner hour circle is only a painted line and never catches an edge highlight.",
+  "The dial stays black at every angle; the crown flutes and the strap rivets give the only small dull glints outside the crystal."
+ ],
+ "geometry": "Round 55 mm case that reads from the front as a plain sloping bezel ring, roughly a twentieth of the diameter wide on each side (measured on Quill & Pad's straight-on photograph of a Wempe), around a very large dial; just inside the bezel that photograph shows a pale band, a little wider than the bezel, where the edge of the domed crystal bends the light. Short straight lugs with squared ends; the strap is about half the case diameter wide. One oversized fluted onion or ball crown at 3, between a seventh and a fifth of the case diameter across depending on the maker, with no crown guards; no pushers, rotating bezel, insert or date. Nothing is applied to the dial and no screws show from the front. Domed crystal rising above the bezel. Long leather strap riveted shut around fixed bars. The dial is one flat level: the inner hour circle is painted, not stepped.",
+ "avoid": [
+  "Bare polished or brushed steel: there is no bright bezel, no brushed lug top and no polished chamfer.",
+  "Gloss: the grey is a dead-flat coat, not shiny enamel paint.",
+  "The finish of modern re-editions: blasted bare steel, sapphire and Super-LumiNova are not the wartime grey coat, acrylic and aged radium paint.",
+  "Modelling the inner hour circle as a metal ring, a recess or a sub-dial; it is paint on the flat dial.",
+  "Solid blue hands: the blue is only a thin steel border round a pale lume fill.",
+  "Bright white or green lume and crisp flat print: the markings are thick, matte, aged paint.",
+  "A logo, text or date on the dial, crown guards, pushers or a rotating bezel."
+ ]
+}

@@ -1,0 +1,134 @@
+{
+ "n": 11,
+ "designName": "California dial",
+ "isRealWatch": true,
+ "reference": "Panerai Radiomir ref. 3646 with Rolex's patented 'Error-Proof' (California) dial, about 1944: the 47 mm cushion-cased watch Rolex built for G. Panerai & Figlio and the Italian navy. It matches the drawing: a half-Roman, half-Arabic dial in a cushion case, a closed railroad minute track, pencil hands, no seconds hand and no date, under a caption that gives the 1940s. The finish is taken from the example Phillips sold in 2016 (case no. 260850), catalogued as never polished, with an unrestored dial and its original hands, and cross-checked against the two originals Perezcope photographed. One drawn detail is not from the 1940s watch: the hands are drawn gold, as on the modern re-edition PAM00424 ('gold coloured hands', Fratello); the originals have heat-blued steel hands. The gold-coloured track does match the original, whose minute track is gilt.",
+ "surfaces": [
+  {
+   "part": "case top",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "One-piece cushion case polished all over: the top is a single convex surface falling from the bezel to four rounded corners, with no brushing and no flat facets. It is polished on the watch Phillips sold with the note 'The case has never been polished before', and on both originals Perezcope photographed. This rests on photographs: no text I read states the factory finish, and one auction record describes a 3646 case as 'Brushed and polished cushion form', which reads like a catalogue formula.",
+   "confidence": "medium",
+   "source": "https://www.phillips.com/detail/panerai/97925"
+  },
+  {
+   "part": "bezel top",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Plain round bezel, polished, gently rounded and low on the California-dial watches (Perezcope: the later batches had slimmer cases and 'low bezels'). It meets the cushion at a fine dark seam with no change of finish.",
+   "confidence": "medium",
+   "source": "https://perezcope.com/2021/10/25/rolex-panerai-3646-error-proof-from-a-bosnian-bazaar/"
+  },
+  {
+   "part": "other (wire lugs)",
+   "material": "steel wire of round section",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A loop of round steel rod soldered to the case at top and bottom ('soldered curved wire lugs', Phillips). It is polished in the photographs, so each reads as a thin bright rod with the strap wrapped round it.",
+   "confidence": "medium",
+   "source": "https://www.phillips.com/detail/panerai/97925"
+  },
+  {
+   "part": "crown",
+   "material": "white metal, steel or plated (not stated)",
+   "finish": "mirror polished",
+   "direction": "flutes parallel to the stem (9 to 3)",
+   "detail": "Screw-down onion crown (Phillips) with deep rounded flutes, standing clear of the case with no guard. Bright polished on the Phillips watch, with raised lettering on its end that cannot be seen from the front. Whether it is solid steel or plated is not stated in anything I read.",
+   "confidence": "medium",
+   "source": "https://www.phillips.com/detail/panerai/97925"
+  },
+  {
+   "part": "dial base",
+   "material": "black lacquer over a metal dial",
+   "finish": "gloss lacquer",
+   "direction": "n/a",
+   "detail": "Phillips describes 'luminous numerals on a black lacquer background' and says of an unrestored dial that it is 'still retaining its shiny surface'; its photograph shows a smooth black with a broad soft sheen. So the factory finish is gloss, a little softened by age. Most survivors have dulled further to a finely speckled, almost matte surface, as both Perezcope watches have.",
+   "confidence": "medium",
+   "source": "https://www.phillips.com/detail/panerai/97925"
+  },
+  {
+   "part": "chapter ring",
+   "material": "gilt (gold-coloured) line work",
+   "finish": "plated",
+   "direction": "n/a",
+   "detail": "Closed railroad minute track in fine gold-coloured lines at the edge, with SWISS MADE in the same gilt below 6 (an auction description: 'gilt outer minute track'; clear in the Phillips and Perezcope photographs). Whether it is gilt metal showing through the lacquer or gold print is not stated in anything I read; either way it lies flat within the gloss of the dial.",
+   "confidence": "medium",
+   "source": "https://everywatch.com/panerai/radiomir/3646/watch-1608283"
+  },
+  {
+   "part": "lume",
+   "material": "radium luminous paint, aged cream to khaki-brown",
+   "finish": "lume",
+   "direction": "n/a",
+   "detail": "Roman X, XI, I, II, Arabic 4, 5, 7, 8, bars at 3, 6, 9 and the inverted triangle at 12 are painted on the lacquer in luminous compound (Perezcope: the patent wanted numerals that could be painted with 'as much radium lume as possible'). Matte, with soft hand-painted edges: nearly flat and cream on the well-kept Phillips dial, thicker-looking and darkened to khaki-brown where damp has got in. It is not a sandwich dial.",
+   "confidence": "high",
+   "source": "https://perezcope.com/2021/10/25/rolex-panerai-3646-error-proof-from-a-bosnian-bazaar/"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "heat-blued steel with luminous infill",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "Heat-blued steel pencil hands with a pointed tip, filled with lume (Phillips: 'original blued steel luminous hands'; an auction description: 'blued steel pointed baton hands with luminous inserts'). On the Phillips watch the hour hand's lume is divided in two by a cross-bar and the lume has aged tan, darker than the dial's. The drawing's gold colour is that of the modern PAM00424; if gold is kept the hands should be polished gilt, not brushed.",
+   "confidence": "high",
+   "source": "https://www.phillips.com/detail/panerai/97925"
+  },
+  {
+   "part": "other (centre boss)",
+   "material": "blued steel",
+   "finish": "heat-blued",
+   "direction": "n/a",
+   "detail": "Round blued hub with a small bright pin at the centre (Phillips photograph).",
+   "confidence": "low",
+   "source": "https://www.phillips.com/detail/panerai/97925"
+  },
+  {
+   "part": "crystal",
+   "material": "Perspex (acrylic)",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Thick, strongly domed Perspex ('a Perspex crystal', Phillips) standing well above the low bezel. Its thick edge shows as a wide pale ring between bezel and dial, and the Phillips example is covered in fine scratches.",
+   "confidence": "high",
+   "source": "https://www.phillips.com/detail/panerai/97925"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "leather",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Thick dark leather strap sewn shut round each wire loop with pale stitching, and no spring bars or metal ends at the case (Phillips lists the strap as leather and believes the one fitted to be original; the stitched loop shows in its photograph).",
+   "confidence": "medium",
+   "source": "https://www.phillips.com/detail/panerai/97925"
+  },
+  {
+   "part": "other (parts this watch does not have)",
+   "material": "n/a",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No solid lugs, no crown guard or bridge, no bezel insert or markings, no pushers, no date, no seconds hand, no brand name on the dial, nothing applied to the dial, no screws visible from the front, no brushed surface and no chamfer.",
+   "confidence": "high",
+   "source": "https://www.phillips.com/detail/panerai/97925"
+  }
+ ],
+ "lightBehaviour": [
+  "The polished cushion behaves as a curved mirror: the lamp is a bright patch that slides across the convex top and stretches into streaks over the rounded corners while the rest reflects dark surroundings, so contrast is high and changes fast.",
+  "The bezel carries a bright arc on the side facing the lamp that travels round the ring as the lamp moves.",
+  "Each wire lug shows one thin bright line along its length; the onion crown shows a row of small bright beads on its flutes.",
+  "The thick acrylic dome gives a broad, milky reflection, a pale ring at its edge, and bends the minute track near the rim.",
+  "The lacquer dial stays deep black but takes a broad soft sheen that drifts across it; the gilt track flashes warm gold at the reflection angle and falls back to dull brown, while the lume numerals stay matte.",
+  "The blued hands sit black most of the time and flash blue at one angle."
+ ],
+ "geometry": "47 mm cushion case (a square with bowed sides and broadly rounded corners) with a round bezel centred in it, the bezel about four fifths of the case width across (estimated from photographs) and low. No solid lugs: a wire loop of round rod, about two thirds of the case width wide (measured on Perezcope's photograph of a dismantled case), is soldered on at 12 and at 6. Onion-shaped screw-down crown at 3 with no guard or bridge. No pushers, no date, no seconds hand, no rotating bezel or insert. Nothing is applied to the dial and no screws show from the front. Thick, strongly domed acrylic crystal.",
+ "avoid": [
+  "The Luminor's crown-protecting bridge and solid lugs: those belong to design 24. This watch has wire loops and a bare onion crown.",
+  "Any brushed or blasted case surface.",
+  "A dead-matte dial: the original is black lacquer with a shine, however dull survivors have become.",
+  "A sandwich dial with cut-out numerals: the California dial is lume painted on lacquer.",
+  "Mixing eras on the hands: the 1940s original has blued steel hands and radium aged to tan; gold hands, faux-aged lume, a logo above 6 and a date belong to the modern PAM00424 that Fratello reviewed.",
+  "A white minute track; the original's is gilt.",
+  "A seconds hand, a brand name on the dial or a sapphire crystal."
+ ]
+}

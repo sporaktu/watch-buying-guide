@@ -1,0 +1,142 @@
+{
+ "n": 28,
+ "designName": "German functionalism",
+ "isRealWatch": true,
+ "reference": "Braun AW 10 as revised by Dietrich Lubs in 2018, the AW 10 EVO (39 mm), followed in the colourway it shares with the 1989 original: a black bezel ring on a matt stainless-steel case, with a black dial. The EVO is the only AW 10 found with a date; the 1989 original (33 mm, catalogued as 'chrome and black') and its 2017 re-edition have none, and Braun's AW 20 of 1990, which has a date, has no black ring and is a separate model. The dark ring in the drawing is the AW 10's black bezel ring; the drawing shows nothing of the case behind it. An all-black EVO also exists (ring, case block and crown all black, bolder numerals) and would be equally consistent with the drawing; the classic colourway is preferred here only because it is the one the 1989 AW 10 had. One drawn detail matches no AW 10: on the real watch the date takes the place of the numeral 3 and shows pale figures on a dark disc with a small red caret beside it, whereas the drawing keeps the 3 and sets a white window inboard of it.",
+ "surfaces": [
+  {
+   "part": "bezel top",
+   "material": "black bezel ring: plastic on the 1989 AW 10 ('reinforced plastic' in Wallpaper; a Braun design catalogue speaks of its 'black plastic ring'); the EVO ring material is not confirmed (one retailer reportedly lists plastic)",
+   "finish": "matte",
+   "direction": "n/a",
+   "detail": "Black ring with a flat top and softly rounded edges and a fine, slightly pebbled matt surface, no chamfer and no polish; it overhangs the case block behind it. Lubs says of the EVO that the black ring around the dial 'masks out the light'; the surface is read from Gear Patrol's photographs.",
+   "confidence": "medium",
+   "source": "https://wallpaper.com/watches-and-jewellery/braun-designer-dietrich-lubs-ressurects-classic-aw-10-watch"
+  },
+  {
+   "part": "other (thin ring between the bezel and the dial)",
+   "material": "not stated; probably the rim of the metal case around the crystal",
+   "finish": "matte",
+   "direction": "n/a",
+   "detail": "A thin ring shows just inside the bezel at the edge of the crystal: pale silver with an even soft sheen on the steel-and-black watch, dark grey on the all-black one. It shows no mirror reflections in the photographs. Whether it is the case rim, a crystal seat or a dial flange is not stated anywhere.",
+   "confidence": "low",
+   "source": "https://gearpatrol.com/2019/06/05/braun-aw10-evo-2/"
+  },
+  {
+   "part": "case top",
+   "material": "stainless steel, matt; black on the all-black colourway (coating type not stated)",
+   "finish": "bead-blasted",
+   "direction": "n/a",
+   "detail": "The flat rectangular block that shows above and below the ring is evenly matt silver-grey with crisp, unpolished edges. Sources say only 'matt stainless steel'; the photographs show no brush lines, so 'blasted' is an inference.",
+   "confidence": "medium",
+   "source": "https://hypebeast.com/2018/9/braun-aw-10-evo-classic-watch-details"
+  },
+  {
+   "part": "case flank",
+   "material": "as the case top",
+   "finish": "bead-blasted",
+   "direction": "n/a",
+   "detail": "The same matt finish on the straight sides, almost entirely hidden behind the ring from the front.",
+   "confidence": "low",
+   "source": "https://gearpatrol.com/2019/06/05/braun-aw10-evo-2/"
+  },
+  {
+   "part": "crown",
+   "material": "steel (black on the all-black colourway)",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Tiny ribbed crown at 3 set so low that it only just peeks out from under the bezel ring; no guards. Its ribs can catch a small glint.",
+   "confidence": "medium",
+   "source": "https://gearpatrol.com/2019/06/05/braun-aw10-evo-2/"
+  },
+  {
+   "part": "dial base",
+   "material": "black dial",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Flat, even matt black with no texture, rings or sheen ('a simple matte dial').",
+   "confidence": "high",
+   "source": "https://gearpatrol.com/2019/06/05/braun-aw10-evo-2/"
+  },
+  {
+   "part": "printed markings",
+   "material": "white print",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Numerals in a plain grotesque (no 3 on the EVO, where the date sits), minute strokes with longer strokes at the hours, the Braun logo and 'Made in Germany', all flat matt white print ('painted hour markers'); the all-black EVO uses a bolder weight.",
+   "confidence": "high",
+   "source": "https://gearpatrol.com/2019/06/05/braun-aw10-evo-2/"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "painted metal",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Two flat white baton hands with square ends; no lume, no bevel and no bare metal showing.",
+   "confidence": "high",
+   "source": "https://gearpatrol.com/2019/06/05/braun-aw10-evo-2/"
+  },
+  {
+   "part": "seconds hand",
+   "material": "painted metal",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Hair-thin custard-yellow hand with a short tail and a large round yellow hub that caps the centre over the white hands.",
+   "confidence": "high",
+   "source": "https://gearpatrol.com/2019/06/05/braun-aw10-evo-2/"
+  },
+  {
+   "part": "date window frame",
+   "material": "aperture cut in the dial",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "A plain rectangular cut-out at 3 in place of the numeral, with no frame or bevel; a small bright red caret is printed at its left edge, pointing at the date.",
+   "confidence": "high",
+   "source": "https://gearpatrol.com/2019/06/05/braun-aw10-evo-2/"
+  },
+  {
+   "part": "date disc",
+   "material": "printed disc",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "A dark disc with pale numerals sitting just below the dial surface (read from Gear Patrol's photographs).",
+   "confidence": "medium",
+   "source": "https://gearpatrol.com/2019/06/05/braun-aw10-evo-2/"
+  },
+  {
+   "part": "crystal",
+   "material": "mineral glass",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Flat mineral crystal lying within the bezel ring ('a flat mineral crystal'); no dome and no magnifier.",
+   "confidence": "high",
+   "source": "https://gearpatrol.com/2019/06/05/braun-aw10-evo-2/"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "black leather",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Smooth matt black leather as wide as the case block where it meets it, butting square against it with no visible lugs or gap, then tapering slightly.",
+   "confidence": "medium",
+   "source": "https://gearpatrol.com/2019/06/05/braun-aw10-evo-2/"
+  }
+ ],
+ "lightBehaviour": [
+  "Almost nothing on this watch sparkles. Dial and bezel ring stay near-uniform dark from any angle, told apart only by slightly different blacks and a soft sheen along the edges of the ring.",
+  "The one crisp reflection is the flat mineral crystal: a single flat patch of glare that crosses the dial when the lamp is near the line of sight.",
+  "White hands and numerals are paint, so they stay flat white under any lamp, and the yellow seconds hand stays flat yellow.",
+  "The matt steel block shows a broad soft gradient, never a sharp highlight; there are no polished edges anywhere. On the all-black colourway the block is as dark as the ring.",
+  "The thin ring inside the bezel and the tiny crown are the only parts that can show a faint line of light."
+ ],
+ "geometry": "A round bezel ring sitting on a narrower, flat, straight-sided case block: from the front, a circle with a rectangular tab above and below that is as wide as the strap. The EVO is 39 mm across. The black ring is about a fifteenth of the diameter wide on each side, flat-topped with rounded edges; inside it a thin ring (about a third as wide) and a flat crystal. The crown at 3 is tiny and tucked under the ring. The lug tabs are square and straight and, on the EVO, end in a 45-degree slope toward the wrist. The date opening sits at 3 in place of the numeral. No crown guards, no pushers.",
+ "avoid": [
+  "Do not add shine: no polished chamfer on the ring, no brushed steel with polished bevels, no gloss or ceramic look on the black ring.",
+  "No lume, no applied markers and no raised print; everything on the dial is flat matt paint.",
+  "The seconds hand is yellow with a large yellow hub. Red belongs only to the tiny date caret.",
+  "A white date disc with black figures set inboard of a retained 3, as in the baseline drawing, is not found on the AW 10, the AW 20 or the AW 10 EVO. The real EVO date replaces the 3 and is pale on dark; the 1989 AW 10 has no date at all.",
+  "Do not draw conventional curved lugs; the strap meets a flat rectangular block of its own width.",
+  "Do not dome the crystal or make it sapphire-bright; it is flat mineral glass.",
+  "Only the ring is black on the classic colourway: the block behind it is matt silver steel. Do not blacken the block unless the all-black EVO is deliberately being followed, and do not make the ring metallic on either."
+ ]
+}

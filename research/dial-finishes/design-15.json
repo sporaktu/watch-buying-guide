@@ -1,0 +1,206 @@
+{
+ "n": 15,
+ "designName": "Panda chronograph",
+ "isRealWatch": true,
+ "reference": "Universal Genève Compax ref. 885103/02 'Nina Rindt' (c. 1964-67), in the later execution with a printed logo and black handset, as Phillips Hong Kong lot 842 (made in 1967 according to Universal's archive extract). The caption names no watch, so this is an archetype chosen from what is drawn: a black tachymeter bezel with white scale, a white dial with three black registers at 3-6-9, flat black bar indexes, black baton hands, a red centre chronograph hand and no date. Checked against the drawing's definition and kept: black bars with black hands fit this watch better than the usual alternatives (from memory the Rolex Daytona 6239/6241 has steel markers and steel hands, and the Heuer Carrera has no external bezel). The red hand follows Nina Rindt's own watch, whose black chronograph hand was reportedly swapped for a red one. Finishes were read from photographs of three examples: Phillips lot 842 (printed logo, black hands), a Wind Vintage watch described as apparently unpolished (black hands, on a steel bracelet) and Hairspring's Mk1 (steel hands). No written source states the factory case finish, so the case entries stay at medium.",
+ "surfaces": [
+  {
+   "part": "case top",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Almost none of the case top shows: just a narrow polished shoulder outside the bezel that runs straight into the lugs. It is bright and unbrushed on all three examples photographed, including the one described as unpolished.",
+   "confidence": "medium",
+   "source": "https://www.phillips.com/detail/universal/HK080120/842"
+  },
+  {
+   "part": "case flank",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Not seen straight on. Side views of two examples (Hairspring's Mk1 and Wind Vintage's apparently unpolished watch) show a bright polished flank with wear scratches and no brushing grain.",
+   "confidence": "medium",
+   "source": "https://www.windvintage.com/universal-geneve-compax-nina-rindt-reference-885103/02-unpolished-with-box-blank-papers"
+  },
+  {
+   "part": "bezel edge",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The black insert sits in a steel bezel whose rim shows as a thin bright polished line outside the insert, with a second thin polished lip between the insert and the crystal. Both are plain in every photograph.",
+   "confidence": "high",
+   "source": "https://hairspring.com/products/885103-02-nina-rindt-compax-steel"
+  },
+  {
+   "part": "bezel insert",
+   "material": "black metal insert, most likely anodised aluminium",
+   "finish": "anodised",
+   "direction": "n/a",
+   "detail": "A sloping black ring with a smooth satin sheen, not a glassy gloss; worn examples chip and scratch through to pale metal. Hairspring: 'the bezel is metal with a printed metal insert, not the plastic you'd see on a black bezel Daytona'. No source I could open names the alloy.",
+   "confidence": "medium",
+   "source": "https://hairspring.com/blogs/finds/885103-02-nina-rindt-universal-geneve-compax"
+  },
+  {
+   "part": "bezel markings",
+   "material": "silver-white print on the insert",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Printed tachymeter scale: 60 at 12, the word TACHYMÈTRE, then 500, 400, 350, 300, 275, 250, 225, 200 and on down in small steps to 65, each number with a small dot beside it.",
+   "confidence": "high",
+   "source": "https://www.phillips.com/detail/universal/HK080120/842"
+  },
+  {
+   "part": "lug top",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Twisted 'lyre' lugs: the top of each lug is one broad facet that twists as it leaves the case, mirror polished, with a sharp ridge along its inner edge. Polished on all three examples; the unpolished one differs only in carrying wear scratches.",
+   "confidence": "medium",
+   "source": "https://www.windvintage.com/universal-geneve-compax-nina-rindt-reference-885103/02-unpolished-with-box-blank-papers"
+  },
+  {
+   "part": "lug chamfer",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "There is no separate chamfer: the twisted facet does that job, and the narrow inner face below the ridge is polished too. Phillips says of an unpolished example: 'The scroll lugs retain their facets'.",
+   "confidence": "medium",
+   "source": "https://www.phillips.com/detail/universal/HK080118/945"
+  },
+  {
+   "part": "crown",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "flutes parallel to the stem (9 to 3)",
+   "detail": "Steel crown with coarse fluting and a polished end. The real one carries a raised U on its end, which the unbranded drawing leaves off. There are no crown guards.",
+   "confidence": "high",
+   "source": "https://www.windvintage.com/universal-geneve-compax-nina-rindt-reference-885103/02-unpolished-with-box-blank-papers"
+  },
+  {
+   "part": "pusher",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Two plain round pump pushers at 2 and 4: a polished cap with a slightly domed end on a narrower polished neck.",
+   "confidence": "high",
+   "source": "https://www.windvintage.com/universal-geneve-compax-nina-rindt-reference-885103/02-unpolished-with-box-blank-papers"
+  },
+  {
+   "part": "dial base",
+   "material": "metal dial with a white finish",
+   "finish": "matte",
+   "direction": "n/a",
+   "detail": "Flat matte white that ages to eggshell, with a fine even grain plain to see in Phillips' macro; no sunray and no gloss. Universal's archive extract for the Phillips watch calls it a 'white coloured dial'.",
+   "confidence": "high",
+   "source": "https://www.phillips.com/detail/universal/HK080120/842"
+  },
+  {
+   "part": "sub-dial",
+   "material": "black registers",
+   "finish": "textured",
+   "direction": "circular around the sub-dial's own centre",
+   "detail": "Three black registers at 9 (running seconds), 3 (30 minutes) and 6 (12 hours), each covered in fine concentric circular graining with white printed scales. They read as flush or only very slightly sunk: no step shadow shows in Phillips' macro. On the Phillips watch they have faded to brown; they left the factory black.",
+   "confidence": "high",
+   "source": "https://www.phillips.com/detail/universal/HK080120/842"
+  },
+  {
+   "part": "printed markings",
+   "material": "black print and flat black bar indexes",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Flat black bar hour markers (the archive extract says 'black bar index with tritium at the base'), a black fifth-of-a-second track and printed lettering. In photographs the bars catch a slight sheen, and I could not establish whether they are pad-printed or thin painted batons; either way they are black, not polished metal.",
+   "confidence": "medium",
+   "source": "https://www.phillips.com/detail/universal/HK080120/842"
+  },
+  {
+   "part": "lume",
+   "material": "tritium, aged to cream",
+   "finish": "lume",
+   "direction": "n/a",
+   "detail": "Small rectangular plots at the outer end of each bar index (two at 12; at 3, 6 and 9 only the plot remains because the register takes the bar's place) and thin strips let into the hands. They have aged to cream or tan.",
+   "confidence": "high",
+   "source": "https://www.phillips.com/detail/universal/HK080120/842"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "metal, painted black",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Flat baton hands with squared tails, matte black with a thin lume strip in the outer half. In Phillips' macro they show no reflection at all, unlike polished steel.",
+   "confidence": "high",
+   "source": "https://www.phillips.com/detail/universal/HK080120/842"
+  },
+  {
+   "part": "seconds hand",
+   "material": "metal, painted red (black on the Phillips watch)",
+   "finish": "gloss paint",
+   "direction": "n/a",
+   "detail": "The centre chronograph hand is a thin flat needle with a short tail. It is matte black on the Phillips watch; Nina Rindt's own is said to have had 'the original black second hand replaced with a red one', and the 2025 Tribute to Compax has a 'red lacquered' hand, so the drawing's red is legitimate. The gloss is assumed from the 2025 watch.",
+   "confidence": "low",
+   "source": "https://swisswatches-magazine.com/universal-geneve-compax-chronograph/"
+  },
+  {
+   "part": "other hands",
+   "material": "metal, painted white",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "The register hands are short, broad, flat white batons with a thin lume strip and a dark dot at the pivot, standing out against the black registers.",
+   "confidence": "high",
+   "source": "https://www.phillips.com/detail/universal/HK080120/842"
+  },
+  {
+   "part": "centre cap and pinion",
+   "material": "black hub with a brass pin",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "The chronograph hand's round hub sits on top of the stack and is matte black like the hands, with a small bare brass pin at its centre.",
+   "confidence": "high",
+   "source": "https://www.phillips.com/detail/universal/HK080120/842"
+  },
+  {
+   "part": "crystal",
+   "material": "acrylic",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Domed acrylic with strong distortion at the rim; clear, with no anti-reflective tint. A dealer's listing of an 885103/02 gives 'acrylic crystal'. The real one has a tiny U inlaid at its centre, which the drawing leaves off.",
+   "confidence": "high",
+   "source": "https://www.watchpool24.com/en/30735283/universal-geneve-compax-88510302-nina-rindt-mk1"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "leather strap, or a Gay Frères steel bracelet",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Phillips' lot 842 is on a leather strap with a steel pin buckle. Other examples are on a Gay Frères bracelet of wide flat links brushed 12 to 6, joined by pairs of small polished links. Either simply sits between the lugs.",
+   "confidence": "medium",
+   "source": "https://www.phillips.com/detail/universal/HK080120/842"
+  },
+  {
+   "part": "other (not present)",
+   "material": "n/a",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No date, no crown guards, no screws and no chapter ring. Polished steel hands with a blued chronograph hand belong to the earlier Mk1 dial (a dealer describes that set as 'steel minute/hour hands, metallic blue chrono hand'); the drawing's black hands are the later set.",
+   "confidence": "medium",
+   "source": "https://www.watchpool24.com/en/30735283/universal-geneve-compax-88510302-nina-rindt-mk1"
+  }
+ ],
+ "lightBehaviour": [
+  "The polished twisted lugs throw hard mirror streaks that jump from one lug to the next as the lamp moves, because each facet faces a slightly different way.",
+  "The black bezel insert carries one soft, broad highlight that travels round the ring toward the lamp; the white scale does not change, and the steel rim stays a thin bright line.",
+  "The domed acrylic shows a large soft reflection of the lamp that slides across the dome, a bright ring at its edge, and it bends the outer track slightly.",
+  "The white dial has no hotspot and only brightens or dims as a whole; the black registers show a faint bow-tie sheen that turns with the lamp because of their concentric graining.",
+  "Black hands stay black at every angle and the bar indexes show at most a faint sheen; the red needle keeps its colour with only a thin glint; pusher caps and the crown give small point highlights."
+ ],
+ "geometry": "Round steel case about 36 mm across. A fixed external bezel with a sloping black insert a few millimetres wide, held in a thin steel rim. Four twisted 'lyre' lugs flow out of the case sides with no step. Fluted crown at 3 between two round pump pushers at 2 and 4, no crown guards. Domed acrylic crystal.",
+ "avoid": [
+  "Do not borrow Daytona details: no screw-down pushers and no plastic bezel insert; from memory the Daytona's applied steel markers and polished steel hands are also wrong here.",
+  "Do not brush the lug tops or the case sides as on a modern sports watch: every example photographed, including one sold as apparently unpolished, has mirror-polished twisted facets and a polished flank.",
+  "Do not make the dial glossy, sunray or enamel (grand feu enamel is only on the 2025 tribute); the 1960s dial is flat matte white with a fine grain.",
+  "Do not leave the black registers plain: they are concentrically grained. Do not sink them deeply either; they are flush or nearly so.",
+  "Hands are matte black paint. Polished steel hands with a blued sweep hand belong to the earlier Mk1 dial.",
+  "Only the centre chronograph hand is red; the register hands stay white.",
+  "The crystal is domed acrylic, not flat sapphire with coloured anti-reflective flashes.",
+  "No date window, and no lume on the bezel."
+ ]
+}
