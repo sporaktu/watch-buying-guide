@@ -14,6 +14,7 @@
     free: 1.5, minElev: 20,                       // it follows the pointer exactly this far out, then slows so it never sinks below this angle
     ease: 100,                                    // how fast it glides to the pointer, ms
     tilt: -1 / 28, tiltMax: 60,                   // on a phone: half widths the lamp moves per degree of tilt (negative: it stays put in the room), largest tilt used
+    tiltRest: [.4, 0],                            // on a phone the lamp rests this much further right, clear of a right thumb
     tiltDrift: 4000,                              // how slowly the level the phone is held at becomes the new resting tilt, ms
     keyColour: [1, .965, .9], key: .95,           // the lamp on matte surfaces (warm)
     fillColour: [.82, .9, 1], fill: .16,          // a soft cool light from the far side
@@ -493,7 +494,7 @@ void main() {
     const stepLamp = now => {
       if (dirty) {
         dirty = false;
-        if (tilt.on && !still && !fixed) { ptr = null; target = lampAt([LOOK.rest[0] + tilt.at[0], LOOK.rest[1] + tilt.at[1]]); }
+        if (tilt.on && !still && !fixed) { ptr = null; target = lampAt([LOOK.rest[0] + LOOK.tiltRest[0] + tilt.at[0], LOOK.rest[1] + LOOK.tiltRest[1] + tilt.at[1]]); }
         else if (ptr) { const b = el.getBoundingClientRect(), h = b.width / 2 || 1; target = lampAt([(ptr[0] - b.left - h) / h, (ptr[1] - b.top - b.height / 2) / h]); }
         else target = lampAt(LOOK.rest);
       }
