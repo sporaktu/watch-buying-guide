@@ -3,7 +3,7 @@ const TIERS = [
  {id:"t1", name:"Under $500", rows:[
   ["Casio and G-Shock","Japan","Tough quartz, solar power and radio time sync","$20–500","GW-M5610U",""],
   ["Citizen","Japan","Eco-Drive solar quartz and Promaster tool watches","$150–500","Promaster Diver",""],
-  ["Orient","Japan","Seiko-owned, in-house automatics for very little","$200–450","Bambino",""],
+  ["Orient","Japan","Owned by Seiko Epson; in-house automatics for very little","$200–450","Bambino",""],
   ["Seiko","Japan","In-house movements at every price","$250–500","Presage Cocktail Time",""],
   ["Seagull","China","Major movement maker with its own watches","$300–500","1963 Chronograph",""],
   ["Zelos","Singapore","Bronze, titanium and meteorite at low prices","$300–1,000","Mako diver",""],
@@ -111,7 +111,7 @@ const TIERS = [
   ["Maurice Lacroix","Switzerland","Integrated-bracelet sport watches","$1,000–3,000","Aikon",""],
   ["Alpina","Switzerland","Mountaineering sport watches, icy dial colours","$1,000–2,000","Alpiner Extreme",""],
   ["Farer","UK/Switzerland","Bright, airy colourways","$1,200–2,500","Field and GMT lines",""],
-  ["Studio Underd0g","UK","Playful mecha-quartz chronographs","$500–800","04 series",""],
+  ["Studio Underd0g","UK","Playful dials on hand-wound chronographs and calendars","$500–800","04SERIES",""],
   ["anOrdain","UK","Hand-made enamel dials from Glasgow","$1,200–3,000","Model 2",""],
   ["Marloe","UK","Design-led hand-wound watches","$400–800","Morar",""],
   ["Stowa","Germany","Bauhaus, marine and pilot designs sold direct","$700–1,500","Antea",""],
@@ -121,7 +121,7 @@ const TIERS = [
   ["Baltic","France","Vintage-inspired, sold direct","$500–1,000","Aquascaphe",""],
   ["Lip","France","French heritage, 1970s designs","$300–900","Himalaya",""],
   ["Yema","France","Divers and a French-made micro-rotor movement","$800–1,800","Superman",""],
-  ["Serica","France","Military-inspired COSC field watch","$900–1,500","Field Chronometer 4512",""],
+  ["Serica","France","Military-inspired field watches, every one a COSC chronometer","$900–1,500","Field Chronometer 6190",""],
   ["Furlan Marri","Italy/Switzerland","1940s-style chronographs","$500–1,500","Mecha-quartz chronograph",""],
   ["Unimatic","Italy","Minimal tool divers","$600–1,200","Modello Uno",""],
   ["Out of Order","Italy","Pre-aged vintage look","$500–900","Bomba diver",""],
@@ -232,7 +232,7 @@ const TIERS = [
   ["Monta","USA","St. Louis brand, finishing above its price","$1,500–2,500","Triumph",""],
   ["King Seiko","Japan","Sharp 1960s case designs","$1,700–3,500","KSK",""],
   ["Grand Seiko quartz","Japan","9F quartz, about 10 seconds a year","$3,000–5,000","9F models",""],
-  ["The Citizen quartz","Japan","Eco-Drive about 1 second a year, washi dials","$2,000–4,000","Caliber A060",""],
+  ["The Citizen quartz","Japan","Solar Eco-Drive to about 5 seconds a year, washi paper dials","$2,000–4,000","Caliber A060",""],
   ["Minase","Japan","Faceted cases from a Japanese case maker","$2,000–6,000","Divido",""],
   ["Ming","Malaysia/Hong Kong","Collector-favourite design studio","$1,500–20,000","37.09",""],
   ["Accutron","USA","Electrostatic movement with an open dial","$1,300–4,000","Spaceview 2020",""],
@@ -306,7 +306,7 @@ const TIERS = [
   ["Ulysse Nardin","Switzerland","Marine chronometers and bold designs","$7,000–15,000","Diver",""],
   ["Girard-Perregaux","Switzerland","Integrated sport watches","$10,000–15,000","Laureato",""],
   ["Hublot","Switzerland","Fusion of materials","$8,000–25,000","Big Bang",""],
-  ["Glashütte Original","Germany","100-hour in-house movements","$7,000–15,000","Seventies Chronograph",""],
+  ["Glashütte Original","Germany","In-house movements and dials; Calibre 36 runs 100 hours","$7,000–15,000","Seventies Chronograph",""],
   ["Grand Seiko mechanical","Japan","Spring Drive and Hi-Beat, nature dials","$5,000–12,000","Snowflake",""],
   ["Credor","Japan","Seiko's top hand-finished line","$5,000–50,000","Locomotive",""],
   ["The Citizen mechanical","Japan","High-accuracy in-house Caliber 0200","$5,000–9,000","Caliber 0200",""],
@@ -453,6 +453,7 @@ function card(p){
         ${SPEC.filter(([k]) => sp[k]).map(([k,l]) => `<div><dt>${l}</dt><dd>${esc(sp[k])}</dd></div>`).join('')}
       </dl>
       <p class="why">${esc(p.why)}</p>
+      ${PICK_WHY[p.key] ? `<p class="picked"><b>Why we picked it</b>${esc(PICK_WHY[p.key])}</p>` : ''}
       <ul class="chips">${p.chips.map(c=>`<li>${esc(c)}</li>`).join('')}</ul>
       <details class="buy">
         <summary>Where to buy</summary>
@@ -500,7 +501,12 @@ const all = TIERS.flatMap(t => t.rows.map(r => {
   return {tier:t, r, known, value, cred, cool, lines, unusual:!!unusual, sum, rng:range(r[3]),
     worth: sum >= 12 && value >= 4, skip: sum > 0 && sum <= 6, picks: PICKS.filter(p => p.row === r[0])};
 }));
-all.forEach((x, i) => { x.i = i; });
+// Recommended, what the list opens on: Worth a look, plus the brand of every pick.
+all.forEach((x, i) => { x.i = i; x.rec = x.worth || x.picks.length > 0; });
+// Desirable is about wanting one, never about price or fame: cred plus cool of 8 or more out of ten, the map's top two steps.
+all.forEach(x => { x.desirable = x.cred + x.cool >= 8; });
+// Why a recommended brand is recommended, in a sentence or two (reasons.js). Shown on its row and under the map.
+all.forEach(x => { x.why = WHY[x.r[0]] || ''; });
 const countries = [...new Set(all.map(x=>x.r[1]))].sort();
 const sel = document.getElementById('country');
 sel.innerHTML = `<option value="">All countries</option>` + countries.map(c=>`<option>${esc(c)}</option>`).join('');
@@ -519,8 +525,9 @@ const SORTS = [
   ["price","Lowest price first",(a,b)=>lo(a)-lo(b) || a.r[0].localeCompare(b.r[0])],
   ["az","A to Z",(a,b)=>a.r[0].localeCompare(b.r[0])]
 ];
-const SHOWS = [["all","All"],["worth","Worth a look"],["unusual","Unusual"]];
-let tier = 'all', sort = 'tier', show = 'all';
+const SHOWS = [["rec","Recommended"],["desirable","Desirable"],["unusual","Unusual"],["all","All brands"]];
+const SHOW0 = 'rec';   // the list and the map open on the recommended brands; All brands is one click away
+let tier = 'all', sort = 'tier', show = SHOW0;
 try { tier = localStorage.getItem('wbm-tier') || 'all'; } catch(e) {}
 const tabs = document.getElementById('tabs');
 tabs.innerHTML = [`<button data-t="all">All<span>${all.length}</span></button>`]
@@ -538,7 +545,7 @@ const minEl = document.getElementById('pmin'), maxEl = document.getElementById('
 document.getElementById('q').addEventListener('input', render);
 sel.addEventListener('change', render);
 document.getElementById('reset').addEventListener('click', () => {
-  tier = 'all'; show = 'all'; sort = sortEl.value = 'tier'; minEl.value = maxEl.value = ''; document.getElementById('q').value = ''; sel.value = '';
+  tier = 'all'; show = SHOW0; sort = sortEl.value = 'tier'; minEl.value = maxEl.value = ''; document.getElementById('q').value = ''; sel.value = '';
   try{localStorage.setItem('wbm-tier', tier)}catch(e){} render();
 });
 
@@ -548,21 +555,24 @@ function meters(x){
 }
 function rowHtml(x){
   const r = x.r;
-  return `<div class="row${x.worth?' worth':''}${x.skip?' skip':''}" data-b="${x.i}"><span class="t">${r[8]?`<img src="${esc(r[8])}" alt="" loading="lazy" width="176" height="176">`:''}</span><span class="n">${r[6]?`<a href="${esc(r[6])}" target="_blank" rel="noopener">${esc(r[0])}</a>`:esc(r[0])}${x.worth?`<span class="tag w">Worth a look</span>`:''}${pickBrands.has(r[0])?`<span class="tag pk">Pick</span>`:''}${x.unusual?`<span class="tag u">Unusual</span>`:''}${r[5]?`<span class="note">${esc(r[5])}</span>`:''}</span><span class="c">${esc(r[1])}</span><span class="k">${esc(r[2])}</span>${meters(x)}<span class="p">${esc(r[3])}${x.lines?`<small>about ${x.lines} model line${x.lines===1?'':'s'}</small>`:''}</span><span class="s">${r[7]?`<a href="${esc(r[7])}" target="_blank" rel="noopener">${esc(r[4])}</a>`:esc(r[4])}</span></div>`;
+  return `<div class="row${x.worth?' worth':''}${x.skip?' skip':''}" data-b="${x.i}"><span class="t">${r[8]?`<img src="${esc(r[8])}" alt="" loading="lazy" width="176" height="176">`:''}</span><span class="n">${r[6]?`<a href="${esc(r[6])}" target="_blank" rel="noopener">${esc(r[0])}</a>`:esc(r[0])}${x.worth?`<span class="tag w">Worth a look</span>`:''}${pickBrands.has(r[0])?`<span class="tag pk">Pick</span>`:''}${x.unusual?`<span class="tag u">Unusual</span>`:''}${r[5]?`<span class="note">${esc(r[5])}</span>`:''}</span><span class="c">${esc(r[1])}</span><span class="k">${esc(r[2])}</span>${meters(x)}<span class="p">${esc(r[3])}${x.lines?`<small>about ${x.lines} model line${x.lines===1?'':'s'}</small>`:''}</span><span class="s">${r[7]?`<a href="${esc(r[7])}" target="_blank" rel="noopener">${esc(r[4])}</a>`:esc(r[4])}</span>${x.why?`<span class="y"><b>${x.worth?'Why it’s worth a look':'Why it’s here'}</b>${esc(x.why)}</span>`:''}</div>`;
 }
 function render(){
-  tabs.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.t === tier));
+  // The tier counts follow the Show choice, so a tier with nothing recommended says 0 before it is chosen.
+  tabs.querySelectorAll('button').forEach(b => { b.setAttribute('aria-pressed', b.dataset.t === tier);
+    b.querySelector('span').textContent = all.filter(x => (b.dataset.t === 'all' || x.tier.id === b.dataset.t) && (show === 'all' || x[show])).length; });
   showEl.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.k === show));
   const q = document.getElementById('q').value.trim().toLowerCase();
   const c = sel.value;
   const hasMin = minEl.value !== '', hasMax = maxEl.value !== '';
   const mn = hasMin ? Math.max(0, +minEl.value) : 0, mx = hasMax ? Math.max(0, +maxEl.value) : Infinity;
-  const list = all.filter(x =>
+  const wide = all.filter(x =>
     (tier === 'all' || x.tier.id === tier) &&
-    (show === 'all' || x[show]) &&
     (!c || x.r[1] === c) &&
     (!q || x.r.slice(0,6).join(' ').toLowerCase().includes(q)) &&
     (!(hasMin || hasMax) || (x.rng && x.rng[0] <= mx && x.rng[1] >= mn)));
+  const list = show === 'all' ? wide : wide.filter(x => x[show]);
+  const more = wide.length - list.length;   // brands the other filters keep but the Show choice hides
   let html = `<div class="row head"><span></span><span>Brand</span><span>From</span><span>Known for</span><span>Ratings</span><span>Typical new</span><span>Standout watch</span></div>`;
   const cmp = SORTS.find(s => s[0] === sort)[2];
   if (cmp) html += list.slice().sort(cmp).map(rowHtml).join('');
@@ -572,7 +582,9 @@ function render(){
     if (tier === 'all') html += `<div class="tiername">${esc(t.name)}</div>`;
     html += rows.map(rowHtml).join('');
   }
-  if (!list.length) html += `<div class="empty">No brands match. Widen the dollar range, clear the search, or press Reset.</div>`;
+  const label = SHOWS.find(s => s[0] === show)[1].toLowerCase();
+  if (more) html += `<div class="more"><p>${list.length ? `These are the ${label} brands only.` : `No ${label} brands match.`} ${more} more ${more === 1 ? 'brand matches' : 'brands match'} in the full list.</p><button type="button" data-show="all">Show all brands</button></div>`;
+  else if (!list.length) html += `<div class="empty">No brands match. Widen the dollar range, clear the search, or choose another price tier.</div>`;
   document.getElementById('rows').innerHTML = html;
   document.getElementById('count').textContent = `${list.length} of ${all.length} brands`;
   BRAND_INDEX.shown = new Set(list);
@@ -604,5 +616,6 @@ const BRAND_INDEX = {
   }
 };
 render();
+document.getElementById('rows').addEventListener('click', e => { const b = e.target.closest('button[data-show]'); if (!b) return; show = b.dataset.show; render(); showEl.querySelector(`[data-k="${show}"]`).focus(); });
 document.getElementById('foot').textContent = FOOT;
 
