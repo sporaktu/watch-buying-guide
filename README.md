@@ -1,6 +1,6 @@
 # Watch Brand Map
 
-A plain-English watch buying guide: how to buy a mechanical watch without getting burned, 25 standout picks with where to buy each one, and more than 400 brands rated for fame, value, credibility and character, shown on a map and in a list, with sorting and filters to find the good ones.
+A plain-English watch buying guide: how to buy a mechanical watch without getting burned, 39 standout picks (14 of them 41mm and up, for larger wrists) with where to buy each one, and more than 400 brands rated for fame, value, credibility and character, shown on a map and in a list, with sorting and filters to find the good ones.
 
 It's a single static page with no build step, no tracking and no third-party requests. Fonts and photos are served from this repo. Outbound links to brand and shop sites are plain links.
 
@@ -9,7 +9,7 @@ It's a single static page with no build step, no tracking and no third-party req
 | Path | What it is |
 |---|---|
 | `site/index.html` | The page: masthead, the how-to-buy guide and the empty containers the script fills. |
-| `site/app.js` | All the data (brand tiers, links, the 25 picks with their specs) and the code that draws the cards and the brand index. |
+| `site/app.js` | All the data (brand tiers, links, the picks with their specs) and the code that draws the cards and the brand index. |
 | `site/ratings.js` | One line per brand: four 1–5 ratings (known, value, cred, cool), an approximate count of model lines and an "unusual" flag. All opinion. "Worth a look" is worked out in `app.js` from value, cred and cool, never from fame. The list and the map open on "Recommended", which is every Worth a look brand plus the brand of each pick. The Desirable button keeps the brands whose cred and cool add up to 8 or more, whatever their value, and the All brands button (or the Show all brands button under the list) shows the rest. |
 | `site/reasons.js` | The reasons, in plain sentences. `WHY` has a sentence or two for each recommended brand, keyed by the brand's name in `TIERS`, saying what earns it its ratings; it is shown on the brand's row and in the panel under the map. `PICK_WHY` has a line for each pick, keyed by the pick's `key`, saying why that watch was chosen; it is shown on the pick's card under the description. Facts in these lines were checked against the makers' sites and the watch press in November 2026. |
 | `site/map.js` | The brand map above the index: every brand as a dot, placed by cost, desirability (cred plus cool) and value. There are three views, and each puts two of the three on the axes and shows the third as colour. Picks have a yellow ring, and brands that mostly sell a logo are hollow. It's a hand-drawn SVG chart with no library. It reads the brands and the current filters from `app.js`, so the filters work on the map and the list together, and the list is the same data as a table. Choosing a dot shows that brand under the chart, with a button that finds it in the list. The Hide map button is remembered between visits. |
