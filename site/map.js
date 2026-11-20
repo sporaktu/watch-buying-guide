@@ -261,7 +261,7 @@
     bins.forEach((name, i) => { const b = H('span', 'bin', ramp); sample(b, {}, k + (i + 1)); H('span', '', b, name); });
     if (high) H('span', '', ramp, high);
     const item = (d, cls, label) => { const s = H('span', 'item', legend); sample(s, d, cls); H('span', '', s, label); };
-    item({ pick: true }, k + 4, 'makes one of the 25 picks');
+    item({ pick: true }, k + 4, 'makes one of the ' + PICKS.length + ' picks');
     item({ skip: true }, 'skip', 'mostly sells a logo');
     item({ open: true }, k + 4, 'starting price, no top');
     if (view === 'vd') item({ kc: 0 }, 'k0', 'no list price');
@@ -356,7 +356,7 @@
   const sentence = d => {
     const x = d.x, p = !x.rng ? 'No list price, ' + x.r[3].toLowerCase() : 'Typical price ' + (d.open ? 'from ' + money(x.rng[0]) + ' with no top' : money(x.rng[0]) + ' to ' + money(x.rng[1]));
     return `${d.name}, ${x.r[1]}. ${p}. Value ${d.val} of 5, desirability ${d.des} of 10.` +
-      (d.worth ? ' Worth a look.' : '') + (d.pick ? ' Makes one of the 25 picks.' : '') + (x.unusual ? ' Unusual.' : '') + (d.skip ? ' Mostly sells a logo.' : '');
+      (d.worth ? ' Worth a look.' : '') + (d.pick ? ' Makes one of the ' + PICKS.length + ' picks.' : '') + (x.unusual ? ' Unusual.' : '') + (d.skip ? ' Mostly sells a logo.' : '');
   };
   function tags(parent, d) {
     if (d.worth) H('span', 'tag w', parent, 'Worth a look');

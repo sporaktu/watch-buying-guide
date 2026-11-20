@@ -92,6 +92,20 @@ const WHY = {
 "Otsuka Lotec":"Jiro Katayama, a former car designer who taught himself watchmaking on a lathe bought at auction, builds his own displays on Japanese Miyota movements, such as a jumping hour or two retrograde hands. He won GPHG prizes in 2024 and 2026, at ¥396,000–1,089,000 (about $2,500–6,800). The big catch: they are sold only by lottery to buyers with a Japanese address and card, with a one-year warranty."
 };
 const PICK_WHY = {
+"tissot-seastar-1000-pm80-43-blue":"The cheapest watch here, and at 43mm with fairly short lugs it fills a 7.5-inch wrist without hanging over the edges.",
+"hamilton-khaki-navy-scuba-auto-43-blue":"The longest lugs and widest bracelet of the cheaper picks, so it has real presence on a big wrist without looking like a costume piece.",
+"mido-ocean-star-200c-blue":"A wide 22mm bracelet and a big dial that wears its 42.5mm fully, with a dial finish that looks dearer than the price.",
+"certina-ds-action-diver-43-blue":"Fairly long lugs and a solid build fill a big wrist, and it's a properly specified 300m diver for about the price of the Tissot.",
+"longines-spirit-42-silver":"The same watch as the Spirit 40 pick, a size up: at 51mm long it fills a 7.5-inch wrist, and it's the cheapest certified chronometer here with a light dial.",
+"longines-hydroconquest-42-blue":"The 2026 redesign replaced the 41 and 43mm sizes with a 42mm that's 51mm long but under 12mm thick, so it looks full size without feeling bulky.",
+"formex-reef-42-white":"A full-width 42mm white dial with the easiest bracelet sizing in the guide, which matters more on a big wrist that swells in the heat.",
+"oris-aquis-date-calibre-400-blue":"Five days of running and a 10-year warranty for under $4,000, in a chunky diver case with a wide 22mm bracelet.",
+"omega-aqua-terra-41-silver":"The dressiest of the bigger picks: a light dial and a case thick enough to look in proportion on a big wrist, smart enough for a suit.",
+"tissot-prx-auto-chrono-white":"The cheapest way to the chunky chronograph look: the bracelet runs straight out of a 14.5mm-thick case, so it covers a broad wrist like a much bigger watch.",
+"sinn-103-st-sa":"At about 17mm tall it's the chunkiest watch in the guide, with real presence on a big arm for well under the price of the Swiss chronographs.",
+"tudor-black-bay-chrono-opaline":"At 14.4mm thick and about 50mm lug to lug it wears bigger than 41mm suggests, and it's a good yardstick: if it fits you, so will the other big picks.",
+"tudor-pelagos-42-blue":"A size up from the Black Bay Chrono in every direction that matters, and the titanium keeps a big watch light enough to forget about.",
+"omega-speedmaster-moonwatch-sapphire":"A true 42mm with wide, twisting lugs from the most famous chronograph there is; try it on next to the Black Bay Chrono, as it wears a little shorter.",
 "formex":"It covers almost everything the guide asks of a first good watch: an officially tested chronometer, 65 hours of running, a light dial, and a clasp and straps you can adjust by hand, all for under $2,000.",
 "longines-spirit-40-ivory":"A chronometer from a big, long-established Swiss brand at a fair price, with a 72-hour reserve and a silicon hairspring that resists magnets. The pale dial and big numbers make it the easiest watch here to read at a glance.",
 "tissot-gentleman-pm80-ice-blue":"The most watch for the least money among the Swiss picks: 80 hours of running, a magnet-resistant silicon hairspring, sapphire crystal and a bracelet that swaps for a strap without tools, for under $1,000.",
