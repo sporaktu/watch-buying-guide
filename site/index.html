@@ -30,7 +30,7 @@
     <p class="dial-name" id="dialName"></p>
   </div>
 </header>
-<nav class="jump" aria-label="Sections"><a href="#guide">How to buy</a><a href="#picks"><span class="npicks">25</span> picks</a><a href="#index">Every brand</a><a href="#map" hidden>Brand map</a></nav>
+<nav class="jump" aria-label="Sections"><a href="#guide">How to buy</a><a href="#picks"><span class="npicks">25</span> picks</a><a href="#lab" hidden>Try them out</a><a href="#index">Every brand</a><a href="#map" hidden>Brand map</a></nav>
 
 <section id="guide" class="guide">
   <div class="sec-head"><h2>How to buy a watch</h2><p>The essentials in three boxes. The rest of the page is detail.</p></div>
@@ -63,6 +63,8 @@
       <h3>Words you'll see</h3>
       <dl class="gloss">
         <div><dt>Automatic</dt><dd>Winds itself as you wear it. No battery.</dd></div>
+        <div><dt>Chronograph</dt><dd>A watch with a stopwatch built in, worked by the buttons on the side. Not the same as a chronometer.</dd></div>
+        <div><dt>Complication</dt><dd>Anything a watch does beyond telling the time: a date, a stopwatch, a second time zone.</dd></div>
         <div><dt>Power reserve</dt><dd>How long it keeps running once it's off the wrist, in hours. 72 hours is three days.</dd></div>
         <div><dt>Chronometer or COSC</dt><dd>Tested by an official Swiss lab to stay within a few seconds a day.</dd></div>
         <div><dt>In-house movement</dt><dd>The brand built the engine itself instead of buying a common one.</dd></div>
@@ -80,13 +82,25 @@
 <section id="picks">
   <div class="sec-head">
     <h2><span class="npicks">25</span> standout picks</h2>
-    <p>Best all-rounders first: long running time, accuracy and easy sizing count most. Each card names the movement inside. The bar shows how long it runs off the wrist, and the red mark is three days.</p>
+    <p>Best all-rounders first: long running time, accuracy and easy sizing count most. Each card names the movement inside, and "How to use it" explains what its stopwatch, bezel or date does and when you'd use it. The bar shows how long it runs off the wrist, and the red mark is three days.</p>
   </div>
   <div class="pfilter" id="pfilter" role="group" aria-label="Filter picks"></div>
   <div class="picks" id="pickGrid"></div>
   <div class="sub-head" id="stepHead"><h3>Worth stretching for</h3><p>Over about $4,000 new, but each is a watch for decades. Most cost far less second hand.</p></div>
   <div class="picks" id="stepGrid"></div>
   <p class="empty" id="pickEmpty" hidden>No picks match that filter.</p>
+</section>
+
+<section id="lab" class="lab" hidden>
+  <div class="sec-head">
+    <h2>Try them out</h2>
+    <p>Working models of the trickier functions. Turn the rings and press the buttons: nothing here can break. Each one matches a "How to use it" entry on the cards above.</p>
+  </div>
+  <div class="tabs" id="labTabs" role="group" aria-label="Choose a working model"></div>
+  <div class="lab-plate">
+    <div class="lab-stage" id="labStage"></div>
+    <div class="lab-side" id="labSide"></div>
+  </div>
 </section>
 
 <section id="index">
@@ -142,6 +156,7 @@
 <script src="reasons.js" defer></script>
 <script src="app.js" defer></script>
 <script src="map.js" defer></script>
+<script src="lab.js" defer></script>
 <script src="dial3d.js" defer></script>
 <script src="dials.js" defer></script>
 </body>
