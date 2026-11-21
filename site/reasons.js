@@ -101,7 +101,7 @@ const PICK_WHY = {
 "certina-ds-action-diver-43-blue":"Fairly long lugs and a solid build fill a big wrist, and it's a properly specified 300m diver for about the price of the Tissot.",
 "longines-spirit-42-silver":"The same watch as the Spirit 40 pick, a size up: at 51mm long it fills a 7.5-inch wrist, and it's the cheapest certified chronometer here with a light dial.",
 "longines-hydroconquest-42-blue":"The 2026 redesign replaced the 41 and 43mm sizes with a 42mm that's 51mm long but under 12mm thick, so it looks full size without feeling bulky.",
-"formex-reef-42-white":"A full-width 42mm white dial with the easiest bracelet sizing in the guide, which matters more on a big wrist that swells in the heat.",
+"formex-reef-42-white":"A full-width 42mm white dial with a clasp you can let out 7mm by hand without taking the watch off, which matters more on a big wrist that swells in the heat.",
 "oris-aquis-date-calibre-400-blue":"Five days of running and a 10-year warranty for under $4,000, in a chunky diver case with a wide 22mm bracelet.",
 "omega-aqua-terra-41-silver":"The dressiest of the bigger picks: a light dial and a case thick enough to look in proportion on a big wrist, smart enough for a suit.",
 "tissot-prx-auto-chrono-white":"The cheapest way to the chunky chronograph look: the bracelet runs straight out of a 14.5mm-thick case, so it covers a broad wrist like a much bigger watch.",
