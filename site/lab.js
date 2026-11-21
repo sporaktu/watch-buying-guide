@@ -84,50 +84,104 @@
     arrow(svg, 0, 150, 11, 'l-inkf'); num(svg, -7, 111, 'MPH', 'l-tag');
     arrow(svg, where(10), 150, 11, 'l-redf');
     [[NAUT, 'NAUT', 0], [STAT, 'STAT', 0], [KM, 'KM', 6]].forEach(([v, t, nudge]) => { arrow(svg, where(v), 150, 9, 'l-redf'); num(svg, where(v) + nudge, 111, t, 'l-tag l-redt'); });
-    const line = S('line', { x1: 0, y1: -104, x2: 0, y2: -206, class: 'l-cursor' }, svg);
-    S('text', { x: 0, y: -22, class: 'l-n l-small' }, svg, 'outer ÷ inner');
+    // Two lines across the rings: dashed blue where a sum's known pair was set, and red where the answer is read. Each
+    // has a gap at both rows of numbers, so it frames the pair it is on and doesn't cross them out.
+    const across = 'M0-104V-114M0-134V-166M0-186V-206';
+    const setLine = S('path', { d: across, fill: 'none', class: 'l-cursor l-set', visibility: 'hidden' }, svg);
+    const line = S('path', { d: across, fill: 'none', class: 'l-cursor' }, svg);
+    const capEl = S('text', { x: 0, y: -22, class: 'l-n l-small' }, svg);
     const ratioEl = S('text', { x: 0, y: 14, class: 'l-n l-big' }, svg);
 
     H('h3', '', side, 'Slide rule');
-    para('Two rings carry the same scale. The outer ring turns and the inner one stays put. Line up any two numbers and every other pair around the dial is in the same proportion, which is how it multiplies and divides. Pilots used it for speed, fuel and distance.');
-    const rotIn = slider(side, 'Turn the outer ring', 360, 0.1, v => { rot = v; story = ''; me.frame = null; draw(); });
-    const curIn = slider(side, 'Move the red line', 360, 0.1, v => { cur = v; story = ''; me.frame = null; draw(); });
-    const out = H('div', 'lab-out', side); out.setAttribute('aria-live', 'polite');
-    const pair = H('p', 'lab-read', out), tale = H('p', '', out);
-    H('h4', '', side, 'Try a sum');
+    para('It\'s a times table you set yourself. The two rings carry the same numbers, and the outer one turns. Put a number on one ring beside a number on the other and you have told the dial one fact, such as "10 euros is 11 dollars". Every other pair around the dial then follows that fact, so each answer is already printed beside its question.');
+    H('h4', '', side, 'Watch it work a sum');
     const sums = H('div', 'lab-btns', side);
-    const HINT = 'Drag the outer ring or use the sliders. You place the decimal point yourself: 12 can stand for 1.2, 12 or 120.';
-    // Each sum puts one number on the outer ring against one on the inner ring, then moves the red line to the answer.
-    [['45 minutes at 120 km/h', 12, 60, where(45), 'Driving at 120 km/h. The 12 on the outer ring is at the MPH arrow, which is the 60 on the inner ring, because a speed is a distance every 60 minutes. The red line is on 45 minutes on the inner ring, and the outer ring reads 90 there: 90 km.'],
-     ['How long for 200 km?', 12, 60, where(10), 'Still 120 km/h. Find 20 on the outer ring, standing for 200 km. The inner ring reads 10 there, standing for 100 minutes: 1 hour 40.'],
-     ['50 euros in dollars', 11, 10, where(50), 'One euro is 1.10 dollars, so 11 on the outer ring is at the red 10. Euros are now on the inner ring and dollars on the outer: 50 euros is next to 55 dollars.'],
-     ['100 miles in km', 10, STAT, where(KM), 'The 10 on the outer ring, standing for 100 miles, is at the STAT mark. At the KM mark the outer ring reads about 16.1: 161 km.'],
-     ['7 × 8', 70, 10, where(80), 'The 7 on the outer ring (marked 70) is at the red 10. Against 8 on the inner ring (marked 80), the outer ring reads 56.']
-    ].forEach(([name, a, b, c, text]) => button(sums, name, () => glide(where(b) - where(a), c, text)));
+    const out = H('div', 'lab-out', side); out.setAttribute('aria-live', 'polite');
+    const pair = H('p', 'lab-read', out), tale = H('div', '', out);
+    H('h4', '', side, 'Now turn it yourself');
+    const rotIn = slider(side, 'Turn the outer ring', 360, 0.1, v => { rot = v; loose(); });
+    const curIn = slider(side, 'Move the red line', 360, 0.1, v => { cur = v; roam(); });
+    const note = (title, text) => { const d = H('details', 'lab-note', side); H('summary', '', d, title); H('p', '', d, text); };
+    note('Why does this work?', 'On an ordinary ruler, equal steps add the same amount: 1 to 2 is as far as 2 to 3. On these rings, equal steps multiply by the same amount: 10 to 20 is as far as 20 to 40, and as 40 to 80. That is why the numbers bunch up as they climb. So turning the ring by some distance multiplies every number on it by the same amount, and one setting gives you the whole table.');
+    note('Where does the decimal point go?', 'The rings only run from 10 up to 100 and then start again, so each number also stands for itself with the decimal point moved: 12 is 1.2, 12, 120 or 1,200. The dial gives you the digits and you supply the size, which is nearly always obvious: 45 minutes on a motorway is 90 km, not 9 or 900.');
+    note('What are the marks for?', 'The small ticks fill in between the printed numbers, as on a ruler: the tick between 12 and 13 is 12.5, and the four ticks between 25 and 30 are 26 to 29. The red 10 on the inner ring is the "one": put 11 beside it and you have said 11 for every 10, or 1.1 for every 1. A percentage goes there too: with 15 beside the red 10, the outer ring is 15% of the inner ring, so 80 is beside 12. The arrow marked MPH is the inner ring\'s 60: put a speed beside it, because a speed is a distance every 60 minutes, and the inner ring becomes minutes. NAUT, STAT and KM are nautical miles, ordinary miles and kilometres: put a distance at one of them and read the same distance in the other units at the other two.');
 
-    let rot = 0, cur = where(45), story = '';
+    const HINT = 'Drag the outer ring, or use the sliders, to set a pair of your own. Tap the dial to move the red line.';
+    // Each sum puts a number on the outer ring (a) beside one on the inner ring (b), then moves the red line (to c). Its
+    // three steps are what you know, how to set it and where to read the answer. A sum the "times" reading says nothing
+    // useful about has its own words for the middle of the dial, and names the mark its answer is read at.
+    const SUMS = [
+      { name: 'Double it', a: 20, b: 10, c: where(25), steps: [
+        'Double 10 is 20.',
+        'The 20 on the outer ring goes beside the red 10 on the inner ring, at the dashed blue line. That one move has doubled every number on the dial.',
+        'Find any number on the inner ring and its double is beside it on the outer ring. The red line is on 25, and the outer ring reads 50 there. Move the red line to try others.'] },
+      { name: '50 euros in dollars', a: 11, b: 10, c: where(50), steps: [
+        '10 euros is 11 dollars, because the rate is 1.10 dollars to the euro.',
+        'The 11 on the outer ring goes beside the red 10 on the inner ring. The inner ring is now euros and the outer ring is dollars, all the way round.',
+        'Find 50 euros on the inner ring. The outer ring reads 55 beside it: 55 dollars.'] },
+      { name: '7 × 8', a: 70, b: 10, c: where(80), steps: [
+        'One 7 is 7. The rings start at 10, so the red 10 stands for 1, 70 stands for 7 and 80 stands for 8.',
+        'The 70 on the outer ring goes beside the red 10 on the inner ring. The dial is now a seven times table.',
+        'Find 8 on the inner ring, printed as 80. The outer ring reads 56 beside it: seven eights are 56.'] },
+      { name: '45 minutes at 120 km/h', a: 12, b: 60, c: where(45), steps: [
+        '120 km/h means 120 km every 60 minutes.',
+        'The rings have no 120, so 12 stands for it. The 12 on the outer ring goes beside the 60 on the inner ring, which is marked with the MPH arrow because 60 minutes is an hour. The inner ring is now minutes and the outer ring is distance.',
+        'Find 45 minutes on the inner ring. The outer ring reads 90 beside it: 90 km.'] },
+      { name: 'How long for 200 km?', a: 12, b: 60, c: where(10), steps: [
+        'Still 120 km every 60 minutes.',
+        'The same setting as before: the 12 on the outer ring beside the 60 on the inner ring.',
+        'This time start from the outer ring, which is distance. Find 20, standing for 200 km. The inner ring reads 10 beside it, standing for 100 minutes: 1 hour 40. Going from the inner ring to the outer one multiplied, so coming back the other way divides.'] },
+      { name: '100 miles in km', a: 10, b: STAT, c: where(KM), centre: ['100 miles is', '161 km'], mark: 'KM', steps: [
+        'This one is a different trick. The red STAT and KM marks on the inner ring are printed the right distance apart to turn miles into kilometres.',
+        'The 10 on the outer ring, standing for 100 miles, goes at the STAT mark.',
+        'Look at the KM mark. The outer ring reads about 16.1 there: 161 km. The NAUT mark shows the same distance in nautical miles.'] }
+    ];
+    SUMS.forEach(s => button(sums, s.name, () => glide(s)));
+
+    // sum: the sum on show, until the ring is turned by hand. asked: the red line is still where the sum put it.
+    const me = { frame: null };
+    let rot = 0, cur = where(25), sum = null, asked = false, told, endRot = 0;
     function draw() {
       turn(outer, rot); turn(line, cur);
       rotIn.value = f(mod(rot, 360)); curIn.value = f(mod(cur, 360));
-      const o = show(reading(cur - rot)), i = show(reading(cur));
-      ratioEl.textContent = String(+Math.pow(10, mod(-rot / 360, 1)).toPrecision(3)).replace(/^10$/, '1');
-      if (me.frame) return;                                                 // mid-glide: the words wait for the last frame
-      put(pair, `At the red line: outer ${o}, inner ${i}`); put(tale, story || HINT);
+      let m = +Math.pow(10, mod(-rot / 360, 1)).toPrecision(3); if (m >= 10) m = 1;   // every outer number is this many times the inner one beside it
+      const own = sum && !me.frame && sum.centre;
+      capEl.textContent = own ? own[0] : 'outer = inner'; ratioEl.textContent = own ? own[1] : '× ' + m;
+      setLine.setAttribute('visibility', sum ? 'visible' : 'hidden'); if (sum) turn(setLine, where(sum.b));
+      if (told !== sum) {                                                   // the steps change only with the sum, so they are announced once
+        told = sum; tale.textContent = '';
+        if (sum) { const ol = H('ol', 'lab-steps', tale); sum.steps.forEach((t, n) => { const li = H('li', '', ol); H('b', '', li, ['You know: ', 'Set it: ', 'Read it: '][n]); li.appendChild(document.createTextNode(t)); }); }
+        else H('p', '', tale, HINT);
+      }
+      if (me.frame) return;                                                 // mid-glide: the reading waits for the last frame
+      const i = +show(reading(cur)), o = +show(reading(cur - rot));
+      if (sum && asked) return put(pair, sum.mark ? `At the red line, on the ${sum.mark} mark: outer ${o}` : `At the red line: inner ${i}, outer ${o}`);
+      // Away from a sum's own answer, the reading says the sum it is doing. Part of the outer ring has always started
+      // again from 10, and there its number stands for ten times what is printed. The answer given is the ring's own.
+      const p = +(i * m).toPrecision(3), again = Math.abs(Math.log10(p / o)) > .5, full = again ? +(o * 10).toPrecision(3) : o;
+      put(pair, `At the red line: inner ${i} is beside outer ${o}. ${i} × ${m} ${Math.abs(p - full) < 1e-6 ? '=' : 'is about'} ${full}${again ? `, which the ring shows as ${o}` : ''}.`);
     }
-    // Turn the ring to a setting by the shorter way round, then tell the story of the sum.
-    function glide(toRot, toCur, text) {
-      const r0 = rot, c0 = cur, dr = mod(toRot - r0 + 180, 360) - 180, dc = mod(toCur - c0 + 180, 360) - 180;
-      story = text;
-      if (still) { rot = r0 + dr; cur = c0 + dc; me.frame = null; draw(); return; }
+    const loose = () => { sum = null; me.frame = null; draw(); };           // the ring was turned by hand, so the sum's setting is gone
+    const roam = () => { if (me.frame && sum) rot = endRot; asked = false; me.frame = null; draw(); };   // the red line was moved by hand: the setting still holds
+    // Work a sum: turn the ring to its setting by the shorter way round, then move the red line to the answer.
+    function glide(s) {
+      const r0 = rot, c0 = cur, dr = mod(where(s.b) - where(s.a) - r0 + 180, 360) - 180, dc = mod(s.c - c0 + 180, 360) - 180;
+      sum = s; asked = true; endRot = r0 + dr;
+      if (still) { rot = endRot; cur = c0 + dc; me.frame = null; draw(); return; }
+      const T1 = Math.abs(dr) < .05 ? 0 : 700, T2 = Math.abs(dc) < .05 ? 0 : 600, ease = k => k * k * (3 - 2 * k);
       let t0 = 0;
-      me.frame = now => { t0 = t0 || now; const k = Math.min(1, (now - t0) / 700), e = k * k * (3 - 2 * k); rot = r0 + dr * e; cur = c0 + dc * e; if (k === 1) me.frame = null; draw(); };
+      me.frame = now => {
+        t0 = t0 || now; const t = now - t0;
+        rot = r0 + dr * (T1 ? ease(Math.min(1, t / T1)) : 1); cur = c0 + dc * (T2 ? ease(Math.min(1, Math.max(0, (t - T1) / T2))) : 1);
+        if (t >= T1 + T2) me.frame = null;
+        draw();
+      };
       kick();
     }
-    draggable(outer, svg, d => { rot += d; story = ''; me.frame = null; draw(); });
+    draggable(outer, svg, d => { rot += d; loose(); });
     // A tap on the face moves the red line there.
-    svg.addEventListener('click', e => { if (outer.contains(e.target)) return; const b = svg.getBoundingClientRect(); cur = Math.atan2(e.clientY - (b.top + b.height / 2), e.clientX - (b.left + b.width / 2)) * 180 / Math.PI + 90; story = ''; me.frame = null; draw(); });
-    const me = { frame: null };
-    glide(where(60) - where(12), where(45), 'Driving at 120 km/h. The 12 on the outer ring is at the MPH arrow, which is the 60 on the inner ring, because a speed is a distance every 60 minutes. The red line is on 45 minutes on the inner ring, and the outer ring reads 90 there: 90 km.');
+    svg.addEventListener('click', e => { if (outer.contains(e.target)) return; const b = svg.getBoundingClientRect(); cur = Math.atan2(e.clientY - (b.top + b.height / 2), e.clientX - (b.left + b.width / 2)) * 180 / Math.PI + 90; roam(); });
+    glide(SUMS[0]);
     return me;
   }
 
