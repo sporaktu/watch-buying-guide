@@ -80,6 +80,8 @@ section{margin-top:88px}
 /* Picks: catalogue plates on a ruled grid */
 .picks{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,350px),1fr));gap:1px;padding:1px}
 .card{background:var(--paper);box-shadow:0 0 0 1px var(--ink);display:flex;flex-direction:column;min-width:0}
+.pnote{max-width:78ch;margin:-8px 0 24px;padding-left:12px;box-shadow:inset 4px 0 0 var(--yellow);font-size:16px;line-height:1.5}
+.pnote b{font-weight:600}
 .photo{background:#fff;aspect-ratio:4/3;display:grid;place-items:center;border-bottom:1px solid var(--ink);overflow:hidden}
 .photo img{width:100%;height:100%;object-fit:contain;display:block}
 .nophoto{color:#6b6b6b;padding:16px;text-align:center;font-size:15px}
