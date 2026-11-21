@@ -1,0 +1,271 @@
+{
+ "n": 31,
+ "designName": "Slide-rule chronograph",
+ "isRealWatch": true,
+ "reference": "Breitling Navitimer B01 Chronograph 41, ref. AB0139241C1P1 (steel, blue dial, black alligator strap with folding clasp; the same watch on a 7-row steel bracelet is AB0139241C1A1; current generation launched March 2022, 41 mm x 13.6 mm, 22 mm between lugs, Breitling calibre B01). Chosen because Breitling's own page lists it as a plain blue dial. The 43 mm is AB0138241C1P1 (13.69 mm thick, 48 mm lug to lug); WYDAI's caption gives that reference an 'ice-blue dial', and the 43 that A Blog to Watch handled is 'the ice blue version with black sub-dials', so the 43 is not used. AB0139241C2P1 is a different, pale ice-blue 41. Breitling's page gives specs only (the text said nothing about the dial colour), so the dial reading rests on Breitling's own rendered product photos (front, three-quarter, night) plus A Blog to Watch's hands-on of the sibling ice-blue 43 for finishes, Jura, Fratello and SJX. I could not read Monochrome, Hodinkee, Time+Tide or Worn & Wound pages for this watch, so there are no macro photographs of a real blue 41: every colour here is from a render.",
+ "surfaces": [
+  {
+   "part": "bezel edge (coin-edge teeth)",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The outside of the rotating bezel is cut into a ring of rounded scallops ('coin edge'), bright polished steel and wider than the slide-rule ring inside it. Fratello: the teeth are 'more rounded and less severe' than before; A Blog to Watch calls it a 'grooved rotating bezel'. Breitling's render shows the teeth as separate rounded bumps with dark gaps, evenly spaced right round. No source gives the number of teeth. Counted on Breitling's front-on product picture of the black-dial 41, which has the same case (the pick's photo, site/img/breitling-navitimer-b01-41.jpg, unwrapped round its centre), half the bezel has 28 teeth, so the ring has 56.",
+   "confidence": "medium",
+   "source": "https://www.fratellowatches.com/this-is-it-the-new-breitling-navitimer-live-photos/"
+  },
+  {
+   "part": "bezel top (rotating slide-rule ring)",
+   "material": "black-finished metal (material not stated)",
+   "finish": "matte",
+   "direction": "n/a",
+   "detail": "The outer, rotating ring under the crystal is matte black (A Blog to Watch, on the sibling ice-blue 43: 'The trio of recessed sub-dials and the internal rotating slide rule bezel are all finished matte black for added contrast'; WYDAI's caption for that watch has 'contrasting black counters and black circular slide rule'; Breitling's picture of the blue 41 shows the same black ring). The bezel is the part you turn, and the ring turns with it. It is flat and sits level with the dial edge, with no raised flange: Breitling says 'A flattened slide rule and a domed crystal create the illusion of a sleeker profile'. It has no glossy shine in the render, only a soft grey sheen at the rim.",
+   "confidence": "high",
+   "source": "https://www.ablogtowatch.com/hands-on-breitling-navitimer-b01-chronograph-43-watch/"
+  },
+  {
+   "part": "slide-rule outer scale print",
+   "material": "white print on black, red marks",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Outer (rotating) scale printed white on the black ring: 'it appears in white against the black sections'. Key marks are 'bright red'. In Breitling's render the numerals read, clockwise from the 12 o'clock red 60: 60 (red), 65, 70, 75, 80, 85, 90, 95, then a red 10 near 3 o'clock, 11, 12, 13 ... 25 along the bottom (printed upside down at 6 o'clock), then 30, 35, 40, 45, 50, 55 up the left side back to 60. Long white ticks at every whole step, finer ticks between. A small red triangle sits beside the 60 and another beside the 10.",
+   "confidence": "high",
+   "source": "https://www-breitling.eu.saleor.cloud/media/thumbnails/products/ab0139241c1p1-soldier_f1b06e29_thumbnail_2048.webp"
+  },
+  {
+   "part": "slide-rule inner scale (fixed)",
+   "material": "printed on the dial, white print on blue",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "The fixed inner scale is printed straight onto the blue dial in a band just inside the black ring, in white, and is closed on its inside edge by a thin white circle. It sits flat on the dial (no sloped flange; the sunray carries on under it). Numerals in the render: 55, 50, 45, 40, 35, 30 up the left, then 25, 24 ... 16 at the bottom (upside down), 14, 13, 12 on the right, and 7, 8, 9 at 1 to 2 o'clock, with a red 10 (also printed upside down) at about 2:45, a red 'KM' under 12 o'clock and 'MPH' in white at 12. 'NAUT.' and 'STAT.' are written in white along the left between 30 and 40. Photographs show the printing on the blue ground, so the fixed scale is blue, not black.",
+   "confidence": "high",
+   "source": "https://www-breitling.eu.saleor.cloud/media/thumbnails/products/ab0139241c1p1-soldier_f1b06e29_thumbnail_2048.webp"
+  },
+  {
+   "part": "slide-rule red marks",
+   "material": "red print",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Red items in the render: the numeral 60 and its small triangle at 12 o'clock on the black ring, a small red triangle and 'KM' on the blue just below it, the red 10 on the black ring and the red 10 on the blue ring at about 2:45 (their triangles sit next to each other, the two 10s facing each other across the boundary), and three or four tiny red triangles on the left beside NAUT. and STAT. (conversion marks). The central chronograph seconds hand is also red. Jura: 'Matching red elements can be seen in the slide rule bezel scale'. At full size the marks on the left read: one triangle on the black ring at 36 (the seconds in an hour), and three on the blue, at 33 beside NAUT., at 36, and at 38 beside STAT.",
+   "confidence": "medium",
+   "source": "https://www-breitling.eu.saleor.cloud/media/thumbnails/products/ab0139241c1p1-soldier_f1b06e29_thumbnail_2048.webp"
+  },
+  {
+   "part": "dial base",
+   "material": "brass dial with blue finish (alloy not stated)",
+   "finish": "brushed",
+   "direction": "radial sunray from the dial centre",
+   "detail": "Blue, with a satin sunburst: A Blog to Watch's sibling 'metallic pale blue color with a prominent sunburst' is the ice-blue; this one is 'deep blue' (Jura) and a 'dark blue dial' (SJX). Breitling's render goes from a lighter steel-blue (about #426072) where the sunray catches, to a mid navy (about #2f5470) and a darker blue at the edges (about #254860). Not a flat matte and not a glossy lacquer. A real watch shifts between petrol-blue and navy. The photographs are Breitling's own computer-rendered product pictures, so colours are estimates read from a render, not a lit watch. ",
+   "confidence": "high",
+   "source": "https://www.jurawatches.co.uk/blogs/watch-news/hands-on-with-the-breitling-navitimer-b01-chronograph-41-watches"
+  },
+  {
+   "part": "dial texture (sub-dial rings)",
+   "material": "black sub-dials, recessed",
+   "finish": "textured",
+   "direction": "circular around the sub-dial's own centre",
+   "detail": "The three sub-dials are black and sunk below the blue dial with a visible bevelled step (ABTW: 'The trio of recessed sub-dials and the internal rotating slide rule bezel are all finished matte black for added contrast'). In Breitling's render the black floors show fine concentric circles (a close graining, like azurage). The outer track of each is plain black with a white minute track. Whether Breitling calls the pattern 'azurage' was not confirmed.",
+   "confidence": "medium",
+   "source": "https://www-breitling.eu.saleor.cloud/media/thumbnails/products/ab0139241c1p1-soldier_f1b06e29_thumbnail_2048.webp"
+  },
+  {
+   "part": "sub-dial layout and numerals",
+   "material": "white print on black",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Three registers, a 3-6-9 layout (WYDAI: 'the 12,6,9 counter configuration substituted for the more uniform 3,6,9 configuration'). 9 o'clock: running seconds, numerals 60 (top), 40 (lower left), 20 (lower right). 3 o'clock: 30-minute counter, numerals 30 (top), 20 (lower left), 10 (lower right). 6 o'clock: 12-hour counter, numerals 12 (top), 9 (left), 3 (right), with the 6 position taken up by the date window. All are white sans numerals with white tick marks. Breitling lists the chronograph as '1/4th second, 30 minutes, 12 hours'.",
+   "confidence": "high",
+   "source": "https://www-breitling.eu.saleor.cloud/media/thumbnails/products/ab0139241c1p1-soldier_f1b06e29_thumbnail_2048.webp"
+  },
+  {
+   "part": "date window",
+   "material": "none, a cut-out in the 6 o'clock sub-dial",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "A small upright rectangle at the bottom of the 6 o'clock 12-hour sub-dial, cut into its black floor, with no applied frame. Fratello: 'Breitling has moved the date window to 6 o'clock within the 12-hour counter'. The window opening is roughly as wide as a numeral pair and runs from the sub-dial's centre-bottom to its rim.",
+   "confidence": "high",
+   "source": "https://www.fratellowatches.com/this-is-it-the-new-breitling-navitimer-live-photos/"
+  },
+  {
+   "part": "date disc",
+   "material": "printed disc",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "Black disc with a single white numeral (the render shows an '8', bold and square). Fratello: 'the date wheel matches the sub-register colors'.",
+   "confidence": "high",
+   "source": "https://www.fratellowatches.com/this-is-it-the-new-breitling-navitimer-live-photos/"
+  },
+  {
+   "part": "printed markings",
+   "material": "white print",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "White flat print: minute and seconds track round the dial between the hour markers and the fixed scale, NAVITIMER under the hub, SWISS MADE in two halves either side of the 6 o'clock marker, and BREITLING 1884 under the wings (the render shows the name as small white lettering with no shadow).",
+   "confidence": "high",
+   "source": "https://www-breitling.eu.saleor.cloud/media/thumbnails/products/ab0139241c1p1-soldier_f1b06e29_thumbnail_2048.webp"
+  },
+  {
+   "part": "applied markers",
+   "material": "rhodium-plated metal",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Applied polished batons at 1, 2, 4, 5, 7, 8, 10 and 11 o'clock, each with a lume strip; square lume dots at 3, 6 and 9; a double baton at 12 (two parallel bars, both polished with lume, the red hand passes between them). SJX: standard steel models 'uniformly have rhodium-plated markers and hands'. ABTW (ice-blue 43): 'applied polished batons for the hour markers'. The batons have bevelled outer ends and a pale lume inlay.",
+   "confidence": "high",
+   "source": "https://watchesbysjx.com/2022/08/breitling-navitimer-singapore-airlines.html"
+  },
+  {
+   "part": "other (applied signature, AOPA wings)",
+   "material": "applied metal wings, plating not stated",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The AOPA winged emblem sits just under 12 o'clock, above BREITLING 1884 ('the fan-favorite AOPA wings emblem sitting just below the 12 o'clock location'; Fratello: it replaces the old 'B' anchor). In Breitling's render it is white-silver, so it reads as steel or rhodium rather than gold. The gold-plated version is the Singapore Airlines edition only (SJX: 'gold-plated hands and indices'). The drawing may leave it out.",
+   "confidence": "medium",
+   "source": "https://www.ablogtowatch.com/hands-on-breitling-navitimer-b01-chronograph-43-watch/"
+  },
+  {
+   "part": "lume",
+   "material": "Super-LumiNova (colour not stated; green glow in Breitling's night photo)",
+   "finish": "lume",
+   "direction": "n/a",
+   "detail": "Pale lume strips in the baton and dot markers and in the hour and minute hands, glowing green; the central seconds hand and sub-dial hands carry no lume in the night render. Breitling's day render shows the lume as off-white.",
+   "confidence": "medium",
+   "source": "https://www-breitling.eu.saleor.cloud/media/thumbnails/products/ab0139241c1p1-lumes_5c75174f_thumbnail_1024.webp"
+  },
+  {
+   "part": "hour and minute hands",
+   "material": "rhodium-plated metal",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Broad straight swords with sharply bevelled sides and a pointed tip, polished, with a thin lume inlay ('All of the hands receive polished surfaces to match the hour markers' with 'thin luminous inlays', ABTW). In the render the minute hand reaches the fixed scale and the hour hand ends at the ring of markers.",
+   "confidence": "high",
+   "source": "https://www.ablogtowatch.com/hands-on-breitling-navitimer-b01-chronograph-43-watch/"
+  },
+  {
+   "part": "seconds hand",
+   "material": "red-painted metal",
+   "finish": "matte paint",
+   "direction": "n/a",
+   "detail": "The central chronograph hand is a long thin red needle running out to the fixed scale (Jura: 'A red-coated central chronograph 1/4th of a second hand'; ABTW: 'painted bright red'). The old 'B' anchor counterweight is gone (Fratello); at full size Breitling's front-on picture shows a short steel-coloured counterweight below the hub: a tapered point about a fifth as long as the red arm, which covers the T of NAVITIMER and ends where the 12-hour counter's hand begins. Only the long arm is red. The tip is a plain point, no lozenge.",
+   "confidence": "medium",
+   "source": "https://www.jurawatches.co.uk/blogs/watch-news/hands-on-with-the-breitling-navitimer-b01-chronograph-41-watches"
+  },
+  {
+   "part": "other hands",
+   "material": "rhodium-plated metal",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "One thin straight stick in each register, bright polished silver, with a small round boss at the pivot (in the render the 30-minute and seconds hands are pale silver; the 12-hour hand in the date register is silver too). No lume.",
+   "confidence": "medium",
+   "source": "https://www-breitling.eu.saleor.cloud/media/thumbnails/products/ab0139241c1p1-soldier_f1b06e29_thumbnail_2048.webp"
+  },
+  {
+   "part": "centre cap and pinion",
+   "material": "polished steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A small round polished steel hub with a darker centre dot over the stack of hands (render).",
+   "confidence": "medium",
+   "source": "https://www-breitling.eu.saleor.cloud/media/thumbnails/products/ab0139241c1p1-soldier_f1b06e29_thumbnail_2048.webp"
+  },
+  {
+   "part": "case top",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "The top faces of the lugs are polished. A Blog to Watch (43 ice-blue): 'linear brushing that contrasts against the polished top surfaces of the lugs'; WYDAI: 'brushed case-band but polished lugs'. Breitling: 'Alternating polished and brushed metal elements'. In the render the lug tops are one bright polished surface with no visible grain.",
+   "confidence": "high",
+   "source": "https://www.ablogtowatch.com/hands-on-breitling-navitimer-b01-chronograph-43-watch/"
+  },
+  {
+   "part": "lug top",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "Wide polished top faces from case to lug tip, with a polished chamfer; the outside flanks of the lugs, seen at an angle, are brushed. Four lugs, 22 mm apart, short (46 mm lug to lug per WYDAI; Breitling's listing for the strap gives 22 mm between the lugs).",
+   "confidence": "high",
+   "source": "https://watchyagonnadoaboutit.com/2022/03/30/new-breitling-navitimer-b01-hands-on-review-and-comparison-a-variety-tale-of-70-years-28-references-14-models-10-dial-variations-3-sizes-2-materials-1-legendary-icon/"
+  },
+  {
+   "part": "lug chamfer",
+   "material": "stainless steel",
+   "finish": "mirror polished",
+   "direction": "n/a",
+   "detail": "A narrow polished bevel runs along the lug edge; it is hard to separate from the polished lug top in the render and no source describes it separately.",
+   "confidence": "low",
+   "source": "https://www-breitling.eu.saleor.cloud/media/thumbnails/products/ab0139241c1p1-three-quarter_fe4a57cf_thumbnail_1024.webp"
+  },
+  {
+   "part": "case flank",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "along the length of the part (around the case band)",
+   "detail": "The case band is brushed (A Blog to Watch: 'linear brushing'; WYDAI: 'brushed case-band'); it is seen only at the sides, between the lugs and by the pushers. The render shows horizontal brushing along the band.",
+   "confidence": "high",
+   "source": "https://watchyagonnadoaboutit.com/2022/03/30/new-breitling-navitimer-b01-hands-on-review-and-comparison-a-variety-tale-of-70-years-28-references-14-models-10-dial-variations-3-sizes-2-materials-1-legendary-icon/"
+  },
+  {
+   "part": "crown",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "flutes parallel to the stem (9 to 3)",
+   "detail": "Large steel crown at 3 o'clock with deep vertical grooves on the sides and a flat end; in the three-quarter render the end carries an emblem. The ridges look bright and the valleys dark. Not screw-down (Breitling: 'Non screw-locked, two gaskets').",
+   "confidence": "medium",
+   "source": "https://www-breitling.eu.saleor.cloud/media/thumbnails/products/ab0139241c1p1-three-quarter_fe4a57cf_thumbnail_1024.webp"
+  },
+  {
+   "part": "pusher",
+   "material": "stainless steel",
+   "finish": "brushed",
+   "direction": "n/a",
+   "detail": "Two round cylindrical pushers at 2 and 4, 'brushed sides with high-polished ends' (A Blog to Watch). They are plain cylinders with a small flat or slightly domed end, set apart from the crown on a swell in the case.",
+   "confidence": "high",
+   "source": "https://www.ablogtowatch.com/hands-on-breitling-navitimer-b01-chronograph-43-watch/"
+  },
+  {
+   "part": "crystal",
+   "material": "sapphire",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Domed ('cambered') sapphire glareproofed on both sides (Breitling), with a blue anti-reflective coating that A Blog to Watch observed on the 43 ('domed sapphire crystal with blue anti-reflective coating'). Reflections are soft, with a faint blue tint at angles. The slide-rule ring is under the dome's edge, with no flange or bezel between the dial and the glass.",
+   "confidence": "high",
+   "source": "https://www.breitling.com/us-en/watches/navitimer/navitimer-b01-chronograph-41-my22/AB0139241C1P1/"
+  },
+  {
+   "part": "bracelet or strap at the lugs",
+   "material": "black alligator leather, white contrast stitching",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "Strap: black alligator leather, straight-cut, 22 mm at the lugs, with white contrast stitching (Breitling: 'Black alligator leather'; Jura: 'mirroring contrast stitching'). A bracelet version, AB0139241C1A1, is a 7-row steel bracelet.",
+   "confidence": "high",
+   "source": "https://www.breitling.com/us-en/watches/navitimer/navitimer-b01-chronograph-41-my22/AB0139241C1P1/"
+  },
+  {
+   "part": "other (parts this watch does not have)",
+   "material": "n/a",
+   "finish": "other",
+   "direction": "n/a",
+   "detail": "No tachymeter scale. No B-anchor logo on the dial and no B-anchor on the seconds hand (its counterweight is a plain steel point). No sloped flange or separate inner bezel. No sub-dial at 12 o'clock. No hour-minute (1:10 ... 10:00) conversion scale was visible on the front in any picture I could read; I did not find a source that confirms one on this version.",
+   "confidence": "medium",
+   "source": "https://watchyagonnadoaboutit.com/2022/03/30/new-breitling-navitimer-b01-hands-on-review-and-comparison-a-variety-tale-of-70-years-28-references-14-models-10-dial-variations-3-sizes-2-materials-1-legendary-icon/"
+  }
+ ],
+ "lightBehaviour": [
+  "The blue dial is sunray: a lighter band of steel-blue sweeps across it and swings round as the lamp moves, from petrol-blue through navy to a darker blue at the rim. The register floors and the bezel ring stay black and flat, so the blue reads as one bright plate between two dark parts.",
+  "The polished lug tops, the polished markers and the polished sword hands flash brightly and go dark with a small change of angle; the marker batons give thin bright edges round a pale lume strip.",
+  "The coin-edge teeth catch the light one at a time round the bezel, giving a bright and dark ripple. The brushed case band and the pushers' sides stay a soft grey.",
+  "The domed sapphire gives soft, curved highlights that bend the dial edge, with a faint blue tint from the coating.",
+  "The red hand and the red scale marks stay flat red; the white print stays crisp white."
+ ],
+ "geometry": "41 mm round case, 13.6 mm thick, 22 mm between short straight lugs (about 46 mm lug to lug). A coin-edge bezel (rounded scalloped teeth) rotates both ways over a flat black slide-rule ring; inside it the blue dial carries the fixed scale printed on its own surface, a thin white circle, then the minute track. Three black recessed sub-dials at 9, 3 and 6 (running seconds, 30 minutes, 12 hours); the date shows in a small window at the bottom of the 6 o'clock register. A large fluted crown at 3 and two round pushers at 2 and 4. The AOPA wings are under 12, BREITLING 1884 under them, NAVITIMER above the 6 register. Domed sapphire; the chronograph hand is red.",
+ "avoid": [
+  "Do not make the dial black, silver or ice-blue: this is a deep, satin sunray blue. Do not make the sub-dials blue or silver: they are black. ",
+  "The rotating outer ring is black with white print; do not draw it white (the old Navitimer had a white ring).",
+  "The fixed inner scale sits flat on the blue dial in white print, not on a black or white ring and not on a sloped flange.",
+  "Red only on: the 60 and 10 numerals and triangles, the KM and the small NAUT/STAT triangles, and the central seconds hand. Everything else on the scales is white. Do not colour the 'MPH' red.",
+  "The date disc is black with a white numeral, not white with a black numeral; the window is in the 6 o'clock register, not at 3.",
+  "Do not draw the old B-anchor counterweight on the seconds hand or an anchor logo; the wings are under 12 o'clock.",
+  "No tachymeter. No sub-dial at 12. No applied gold: markers, hands and wings are silver-white (gold is the Singapore Airlines edition only).",
+  "Lug tops are polished, not brushed; the case band and pusher sides are brushed.",
+  "Do not give the slide-rule scales a printed third 'hours:minutes' ring or a 1:10 to 10:00 scale; none was confirmed on this model.",
+  "Do not give the bezel a flat smooth edge: it is a coin-edge ring of rounded teeth. It has 56 teeth, counted on Breitling's picture."
+ ]
+}

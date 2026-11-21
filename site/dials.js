@@ -1,4 +1,4 @@
-// Masthead dial. Thirty dials drawn after well-known watch and clock designs; each shows the
+// Masthead dial. Thirty-one dials drawn after well-known watch and clock designs; each shows the
 // reader's local time. Each page load shows a random dial the visitor has not seen yet, unless they
 // have chosen one for the session or pinned one. Randomize picks another unseen one and removes the pin.
 //
@@ -87,6 +87,11 @@
     if (sh === 'oct') { const pts = []; for (let i = 0; i < 8; i++) pts.push(f1(R * Math.sin(rad(22.5 + i * 45))), f1(-R * Math.cos(rad(22.5 + i * 45)))); return { k: 'poly', pts }; }
     if (sh === 'cushion') return { k: 'rect', x: -R, y: -R, w: 2 * R, h: 2 * R, rx: R * .46 };
     if (sh === 'softoct') return { k: 'rect', x: -R, y: -R * .92, w: 2 * R, h: 2 * R * .92, rx: R * .5 };
+    if (sh === 'beaded') {   // a round case with a toothed edge: 56 rounded teeth with sharp valleys between them
+      const pts = [], n = 56;
+      for (let i = 0; i < n * 8; i++) { const a = i * 45 / n, r = R - 4.5 * (1 - Math.pow(Math.abs(Math.cos(rad(a * n / 2))), .7)); pts.push(f1(r * Math.sin(rad(a))), f1(-r * Math.cos(rad(a)))); }
+      return { k: 'poly', pts };
+    }
     if (sh === 'rect') return { k: 'rect', x: -138 + inset, y: -194 + inset, w: 276 - 2 * inset, h: 388 - 2 * inset, rx: Math.max(4, 22 - inset) };
     return { k: 'circle', cx: 0, cy: 0, r: R };
   }
@@ -115,7 +120,7 @@
     const ring = (r, f, w) => put('print', { k: 'circle', cx: 0, cy: 0, r, stroke: f, sw: w });
     if (m.minutes) return each((h, d) => N(h ? h * 5 : 60, m.r, d, m.s, { col, wt: 500 }));   // regulator: minute numerals instead of hours
     switch (m.t) {
-      case 'baton': each((h, d) => { if (m.dbl && !h) [-.75, .75].forEach(k => within(mv(m.w * k, 0), () => B(m.r || 166, 0, m.len || 34, m.w * .8, col, st))); else if (c.date !== h) B(m.r || 166, d, m.len || 34, m.w, col, st); }); break;
+      case 'baton': each((h, d) => { if (m.dbl && !h) [-.75, .75].forEach(k => within(mv(m.w * k, 0), () => B(m.r || 166, 0, m.len || 34, m.w * .8, col, st))); else if (m.stub && m.stub.includes(h)) B(m.sr, d, m.w * .8, m.w * .8, col, st); else if (c.date !== h) B(m.r || 166, d, m.len || 34, m.w, col, st); }); break;
       case 'block': each((h, d) => L(140, 187, d, 12)); for (let i = 0; i < 60; i++) if (i % 5) L(174, 187, i * 6, 4); break;
       case 'line': each((h, d) => L(146, 187, d, 2.2)); for (let i = 0; i < 60; i++) if (i % 5) L(170, 187, i * 6, 1); break;
       case 'dots': each((h, d) => { if (!h) T(158, 15, lu, st); else if (h % 3) O(158, d, 11.5, lu, st); else if (c.date !== h) B(158, d, 30, 13, lu, st); }); break;
@@ -166,7 +171,7 @@
     o = o || {};
     const stem = (y1, y2, sw) => put('handBody', { k: 'line', x1: 0, y1, x2: 0, y2, stroke: f, sw }), disc = (cy, r) => put('handBody', { k: 'circle', cx: 0, cy, r, fill: f });
     if (st === 'disc') { stem(46, -L * .76, 3.4); return disc(-L * .76, 13.5); }
-    if (st === 'needle') { stem(L * .22, -L, o.w || 2); return disc(0, o.pin || 3); }
+    if (st === 'needle') { if (o.tail) put('handBody', { k: 'line', x1: 0, y1: L * .22, x2: 0, y2: 0, stroke: o.tail, sw: o.w || 2 }); stem(o.tail ? 0 : L * .22, -L, o.w || 2); return disc(0, o.pin || 3); }   // tail: a counterweight in another colour
     stem(42, -L, 1.8);
     if (st === 'lolli') both({ k: 'circle', cx: 0, cy: -L * .68, r: 7.5 }, o.lume || f, o.lume ? 'handLume' : 'handBody', f, 2, 'handBody');
     if (st === 'counter') disc(30, 7);
@@ -178,15 +183,21 @@
     within(mv(x, y), () => {
       both({ k: 'circle', cx: 0, cy: 0, r }, o.f, 'sub', o.st, 1.3, 'subPrint');
       const n = o.n || 12, c = {};
-      for (let i = 0; i < n; i++) ln(r * (i % (o.maj || 3) ? .84 : .72), r * .96, i * 360 / n, i % (o.maj || 3) ? 1 : 1.8, o.tc, c, 'subPrint');
-      (o.nums || []).forEach(([t, d]) => num(t, r * .52, d, r * (o.ns || .3), c, { col: o.tc, wt: 500, serif: o.serif }, 'subPrint'));
+      for (let i = 0; i < n; i++) ln(r * (i % (o.maj || 3) ? .84 : o.tl || .72), r * .96, i * 360 / n, i % (o.maj || 3) ? 1 : 1.8, o.tc, c, 'subPrint');
+      (o.nums || []).forEach(([t, d]) => num(t, r * (o.nr || .52), d, r * (o.ns || .3), c, { col: o.tc, wt: 500, serif: o.serif }, 'subPrint'));
       if (o.hand != null) hand(null, () => S('needle', r * .8, o.hc || o.tc), o.hand);
     });
   }
   function extras(c, now) {
     (c.x || []).forEach(e => {
       const k = e[0];
-      if (k === 'date') { const [x, y] = pos(e[2] || 132, e[1] * 30, c); both({ k: 'rect', x: x - 19, y: y - 14, w: 38, h: 28 }, e[3] || WHITE, 'window', e[5], 1.5, 'frame'); put('windowText', { k: 'text', t: '' + now.getDate(), x, y, size: 22, wt: 600, serif: 0, fill: e[4] || INK }); }
+      if (k === 'date') { const [x, y] = pos(e[2] || 132, e[1] * 30, c), [w, h, size] = e[6] || [38, 28, 22]; both({ k: 'rect', x: x - w / 2, y: y - h / 2, w, h }, e[3] || WHITE, 'window', e[5], 1.5, 'frame'); put('windowText', { k: 'text', t: '' + now.getDate(), x, y, size, wt: 600, serif: 0, fill: e[4] || INK }); }
+      if (k === 'rule') {   // the fixed scale of a slide rule round the edge of the dial, and inside it the minute track: colour, red
+        logScale(189.5, -1, [3, 4.5, 6.5], 172, 13, [2.6, 6.5], e[1], e[2], 'print', v => v === 60 ? null : v <= 25 || (v < 60 && v % 5 === 0) ? v : v % 10 ? null : v / 10, [10, 33, 36, 33 * 1.15078, 33 * 1.852]);   // 10, nautical miles, the seconds in an hour, miles and kilometres
+        put('print', { k: 'poly', pts: [-5.5, -159.5, -1.7, -168, 0, -189.5, 1.7, -168, 5.5, -159.5], fill: e[1] });   // the speed arrow at 60
+        put('print', { k: 'circle', cx: 0, cy: 0, r: 159, stroke: e[1], sw: 1 });
+        for (let i = 0; i < 60; i++) ln(i % 5 ? 154 : 152, 159, i * 6, i % 5 ? 1 : 1.8, e[1], c, 'print');
+      }
       if (k === 'sub') sub(e[1], e[2], e[3], e[4]);
       if (k === 'bigdate') { const d = String(now.getDate()).padStart(2, '0'); [0, 1].forEach(i => { both({ k: 'rect', x: e[1] + i * 32, y: e[2], w: 30, h: 40 }, WHITE, 'window', e[3], 2.2, 'frame'); put('windowText', { k: 'text', t: d[i], x: e[1] + i * 32 + 15, y: e[2] + 21, size: 30, wt: 400, serif: 1, fill: INK }); }); }
       if (k === 'pr') { // power-reserve arc: x, y, r, from, to, colour, hand angle
@@ -197,20 +208,40 @@
           hand(null, () => S('needle', e[3] - 4, e[8] || e[6], { w: 2.4 }), e[7]);
         });
       }
-      if (k === 'needle') hand(null, () => S('needle', e[2] || 176, e[1], { w: 1.8, pin: 5 }), 0, over);   // a stopped chronograph hand: above the other hands
+      if (k === 'needle') hand(null, () => S('needle', e[2] || 176, e[1], { w: 1.8, pin: 5, tail: e[3] }), 0, over);   // a stopped chronograph hand: above the other hands
       if (k === 'ring') put('print', { k: 'circle', cx: 0, cy: 0, r: e[1], stroke: e[2], sw: e[3] || 1.3 });
       if (k === 'guilloche') put('dialTex', { k: 'tex', tex: 'rings', from: 8, to: e[1], pitch: 6, stroke: e[2], sw: 1, alpha: .5, clip: { k: 'circle', cx: 0, cy: 0, r: e[1] } });
     });
   }
+  // A slide rule's scale: one turn for each factor of ten, with 60 at 12 o'clock, as lab.js draws it. Half units up to 20
+  // and whole units after that. Ticks run from r, outward if out is 1 and inward if it is -1; len is the length of a
+  // half-unit tick, a whole one and a numbered one. label(v) gives the numeral at v, if it has one. The numbers in
+  // reds are red, with an arrow in place of the tick; one with no numeral is an arrow alone. tri is an arrow's half
+  // width and length.
+  const logAt = v => 360 * (Math.log10(v) - Math.log10(60));
+  function logScale(r, out, len, numR, size, tri, fg, red, part, label, reds) {
+    const arrow = (v, col) => within(turn(logAt(v)), () => put(part, { k: 'poly', pts: [-tri[0], -(r + out * tri[1]), tri[0], -(r + out * tri[1]), 0, -r], fill: col }));
+    for (let i = 20; i < 200; i++) {
+      const v = i / 2; if (v >= 20 && i % 2) continue;
+      const whole = !(i % 2), t = whole ? label(v) : null, d = logAt(v), hot = reds.includes(v);
+      if (!hot) ln(r, r + out * len[t != null || (whole && v % 5 === 0) ? 2 : whole ? 1 : 0], d, t != null ? 1.3 : 1, fg, {}, part);
+      if (t != null) num(t, numR, d, size, {}, { col: hot ? red : fg, radial: 1, wt: 600 }, part);
+    }
+    reds.forEach(v => arrow(v, red));
+  }
   function bezel(c) {
     const b = c.bz; if (!b) return;
-    const Ro = 195, Ri = c.Rd + 1, R = (Ro + Ri) / 2, w = Ro - Ri, cc = {}, M = 'bezelMark';
+    const Ro = b.ro || 195, Ri = c.Rd + 1, R = (Ro + Ri) / 2, w = Ro - Ri, cc = {}, M = 'bezelMark';
     if (b.t === 'gmt') {
       put('bezel', { k: 'path', d: `M${-R},0 A${R},${R} 0 0 1 ${R},0`, stroke: b.a, sw: w }); put('bezel', { k: 'path', d: `M${R},0 A${R},${R} 0 0 1 ${-R},0`, stroke: b.b, sw: w });
       for (let i = 0; i < 24; i++) { if (!i) tri(R, 9, b.fg, M); else if (i % 2) dot(R, i * 15, 2.6, b.fg, cc, M); else num(i, R, i * 15, 19, cc, { col: b.fg, radial: 1, wt: 600 }, M); }
       return;
     }
     put('bezel', { k: 'circle', cx: 0, cy: 0, r: R, stroke: b.f, sw: w });
+    if (b.t === 'rule') {   // the turning ring of a slide rule, set with its 10 against the 10 of the fixed scale on the dial
+      put('outline', { k: 'circle', cx: 0, cy: 0, r: Ro, stroke: INK, sw: 1.2 });
+      logScale(Ri, 1, [2.5, 3.5, 5], R + 2.5, 13, [2.2, 5], b.fg, b.red, M, v => v <= 25 || v % 5 === 0 ? v : null, [10, 60, 36]);   // 36: the seconds in an hour
+    }
     if (b.t === 'dive') {
       for (let i = 0; i < 60; i++) { if (!i) { tri(R, 11, b.fg, M); dot(R + 2, 0, 3.5, b.lume || b.fg, cc, 'bezelPip'); } else if (i % 10 === 0) num(i, R, i * 6, 21, cc, { col: b.fg, radial: 1, wt: 600 }, M); else if (i % 5 === 0) ln(R - 9, R + 9, i * 6, 4, b.fg, cc, M); else if (i < 15) ln(R - 5, R + 5, i * 6, 1.6, b.fg, cc, M); }
     }
@@ -231,8 +262,9 @@
     put('dialTex', t);
   }
 
-  // ---- the thirty dials ----
+  // ---- the thirty-one dials ----
   // case: cs shape, cf fill. Rd dial radius. face, mc marker colour, lume. tk track. mk markers.
+  // bz bezel: t 'dive', 'gmt', 'tachy' or 'rule' (a slide rule's turning ring; the fixed scale is the 'rule' entry in x).
   // hd hands [style, fill, hourLen, minLen, hourW, minW, opts]. sc seconds [style, colour, len] or sub-seconds {at,r,..}.
   // mk.ap: the markers are applied metal. mk.lu: they are luminous (with ap, lume set in a metal surround). Neither: printed.
   // fin: how the parts are finished and shaped when lit, { part: finish } or { part: { mat, edge, ew, prof, h, w, z, on, col, c } }.
@@ -276,7 +308,10 @@
     { n: 'Art Deco rectangle', fin: { case: { mat: 'blast', edge: 'polish', ew: 2 }, dial: 'matte' }, a: 'after the Jaeger-LeCoultre Reverso', cs: 'rect', cf: '#cfd2d6', sq: 1, mx: .62, my: .8, face: '#16171a', mc: '#eeeee8', tk: 'rail', tc: '#eeeee8', ra: 92, rb: 106, mk: { t: 'arabic', r: 150, s: 30, only: [0, 2, 4, 6, 8, 10], w: 4, len: 24, wt: 400 }, hd: ['dauphine', '#e4e6e8', 58, 86, 13, 11, { tail: 8 }], sc: null, pin: '#e4e6e8' },
     { n: 'German functionalism', fin: { case: 'matte', dial: 'matte', handBody: 'matte', cap: 'matte' }, a: 'after Dietrich Lubs’s Braun AW 10', cf: '#2a2b2e', face: '#18191b', mc: '#f2f2ee', tk: 'ticks', tc: '#f2f2ee', tkAll: 1, mk: { t: 'arabic', s: 26, r: 150, wt: 500 }, hd: ['baton', '#f2f2ee', 92, 150, 9, 6, { tail: 14 }], sc: ['thin', '#f2c21a', 170], x: [['date', 3, 110, '#f2f2ee', INK]], pin: '#f2c21a' },
     { n: 'Off-centre dial', fin: { dial: 'grained' }, a: 'after the A. Lange & Söhne Lange 1', cf: ROSE, face: '#e7e5df', mc: '#2a2a2c', hm: [-52, 6, .62], x: [['bigdate', 44, -122, ROSE], ['pr', 150, 0, 60, 215, 325, '#2a2a2c', 250, ROSE]], tk: 'rail', tc: '#2a2a2c', ra: 172, rb: 187, mk: { t: 'roman', r: 138, s: 40, only: [0, 3, 6, 9], len: 34, w: 7 }, hd: ['sword', ROSE, 104, 160, 22, 18, { st: '#8a5d42' }], sc: { at: [96, 92], r: 46, col: ROSE, tc: '#2a2a2c', n: 12, nums: [['60', 0], ['30', 180]] }, pin: ROSE },
-    { n: 'Regulator', fin: { case: 'brush circular', dial: 'grained' }, a: 'after watchmakers’ master clocks', cf: '#d3d5d8', face: '#f2f0e8', mc: INK, tk: 'rail', tc: INK, mk: { t: 'arabic', s: 20, r: 152, wt: 500, minutes: 1 }, hAt: [0, -84, 44], hd: ['pencil', BLUED, 92, 162, 12, 8], sc: { at: [0, 84], r: 44, col: BLUED, tc: INK, n: 12, nums: [['60', 0], ['30', 180]] }, x: [['sub', 0, -84, 44, { st: INK, tc: INK, n: 12, maj: 1, nums: [['XII', 0], ['III', 90], ['VI', 180], ['IX', 270]], ns: .26, serif: 1 }]], pin: BLUED }
+    { n: 'Regulator', fin: { case: 'brush circular', dial: 'grained' }, a: 'after watchmakers’ master clocks', cf: '#d3d5d8', face: '#f2f0e8', mc: INK, tk: 'rail', tc: INK, mk: { t: 'arabic', s: 20, r: 152, wt: 500, minutes: 1 }, hAt: [0, -84, 44], hd: ['pencil', BLUED, 92, 162, 12, 8], sc: { at: [0, 84], r: 44, col: BLUED, tc: INK, n: 12, nums: [['60', 0], ['30', 180]] }, x: [['sub', 0, -84, 44, { st: INK, tc: INK, n: 12, maj: 1, nums: [['XII', 0], ['III', 90], ['VI', 180], ['IX', 270]], ns: .26, serif: 1 }]], pin: BLUED },
+    { n: 'Slide-rule chronograph', a: 'after the Breitling Navitimer', cs: 'beaded', Rd: 154, bz: { t: 'rule', ro: 181, f: '#141517', fg: '#f1f1ec', red: RED }, face: '#234a68', pat: ['sun', '#3f6d8f', '#234a68'], mc: '#f0f0ec', mst: '#d3d6da', mk: { t: 'baton', w: 9.5, len: 30, r: 137, dbl: 1, ap: 1, lu: 1, stub: [3, 6, 9], sr: 158 }, hd: ['pencil', '#e4e6e8', 105, 150, 13, 11, { lume: '#f0f0ec', tail: 19 }], sc: { at: [-95, 0], r: 56, col: '#dfe0e2', tc: '#f1f1ec', f: '#141517', n: 12, maj: 4, nums: [['60', 0], ['20', 120], ['40', 240]], ns: .26, nr: .58, tl: .8 },
+      x: [['rule', '#f1f1ec', RED], ['sub', 95, 0, 56, { f: '#141517', tc: '#f1f1ec', hc: '#dfe0e2', n: 30, maj: 5, nums: [['30', 0], ['10', 120], ['20', 240]], ns: .26, nr: .58, tl: .8, hand: 0 }], ['sub', 0, 95, 56, { f: '#141517', tc: '#f1f1ec', hc: '#dfe0e2', n: 12, nums: [['12', 0], ['3', 90], ['9', 270]], ns: .26, nr: .58, tl: .8, hand: 0 }], ['date', 6, 131, '#1f2022', '#f1f1ec', null, [28, 30, 18]], ['needle', RED, 176, '#dfe0e2']], pin: '#d9dbde', capR: 9,
+      fin: { case: { mat: 'polish', h: 3, w: 8 }, bezel: { mat: 'matte', z: 1.2, prof: 'flat', glass: 1 }, bezelMark: { z: 0 }, dial: 'sunray', sub: { mat: 'matte' }, applied: 'polish', handBody: 'polish', cap: 'polish' } }
   ];
 
   // ---- building a scene ----
@@ -301,7 +336,7 @@
       within(HM, () => { track(c); marks(c); });
       if (q && !centre) within(mv(q.at[0], q.at[1]), () => {   // a small seconds dial
         if (q.rail) { put('sub', { k: 'circle', cx: 0, cy: 0, r: q.r }); [1, .8].forEach(k => put('subPrint', { k: 'circle', cx: 0, cy: 0, r: q.r * k, stroke: q.tc, sw: 1.2 })); for (let j = 0; j < 12; j++) ln(q.r * .8, q.r, j * 30, 1.4, q.tc, {}, 'subPrint'); }
-        else sub(0, 0, q.r, { f: q.f, tc: q.tc, n: q.n, maj: q.maj, nums: q.nums });
+        else sub(0, 0, q.r, { f: q.f, tc: q.tc, n: q.n, maj: q.maj, nums: q.nums, ns: q.ns, nr: q.nr, tl: q.tl });
         hand('s', () => S('needle', q.r * .82, q.col, { w: 2 }), 0, null, 1);   // flat: painted last, over the centre cap
       });
       within(HM, () => {
@@ -311,7 +346,7 @@
         hand('m', () => H(/mercedes|snow|arrow/.test(hd[0]) ? 'pencil' : hd[0], hd[3], hd[5], hd[1], ho));
         if (centre) hand('s', () => S(q[0], q[2], q[1], q[3]));
         hands.push(...over);
-        hand(null, () => put('cap', { k: 'circle', cx: 0, cy: 0, r: centre ? 3 : 6, fill: c.pin || (q && q[1]) || hd[1] }));
+        hand(null, () => put('cap', { k: 'circle', cx: 0, cy: 0, r: c.capR || (centre ? 3 : 6), fill: c.pin || (q && q[1]) || hd[1] }));
       });
     });
     const fonts = [...new Set(ops.filter(o => o.k === 'text' && !o.serif).map(o => o.wt + ' 30px Jost'))];
