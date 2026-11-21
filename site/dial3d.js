@@ -4,7 +4,7 @@
 // operations are painted part by part into masks. Each mask becomes height (through the distance to the part's edge
 // and a profile) and material (a finish, or two finishes split by that same distance). One fragment shader lights
 // the maps from a lamp that follows the pointer, or on a phone its tilt. Hands are rasterised pointing up into an
-// atlas and turned in the shader. This file knows nothing about the thirty designs: it works from part tags and each design's finish data.
+// atlas and turned in the shader. This file knows nothing about the thirty-one designs: it works from part tags and each design's finish data.
 (function () {
   'use strict';
 
