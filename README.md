@@ -1,6 +1,6 @@
 # Watch Brand Map
 
-A plain-English watch buying guide: how to buy a mechanical watch without getting burned, 52 standout picks (25 of them 41mm and up, for larger wrists, 11 chronographs, 7 extra tough ones with hardened cases, 18 whose clasp adjusts by hand and 10 sold with a folding clasp on a strap) with where to buy each one and how to use what it does, working models of the trickier functions (a slide rule, a tachymeter and others) to try on the page, and more than 400 brands rated for fame, value, credibility and character, shown on a map and in a list, with sorting and filters to find the good ones.
+A plain-English watch buying guide: how to buy a mechanical watch without getting burned, 53 standout picks (26 of them 41mm and up, for larger wrists, 11 chronographs, 7 extra tough ones with hardened cases, 18 whose clasp adjusts by hand and 10 sold with a folding clasp on a strap) with where to buy each one and how to use what it does, working models of the trickier functions (a slide rule, a tachymeter and others) to try on the page, and more than 400 brands rated for fame, value, credibility and character, shown on a map and in a list, with sorting and filters to find the good ones.
 
 It's a single static page with no build step, no tracking and no third-party requests. Fonts and photos are served from this repo. Outbound links to brand and shop sites are plain links.
 
