@@ -560,6 +560,15 @@ all.forEach(x => { x.desirable = x.cred + x.cool >= 8; });
 all.forEach(x => { x.micro = MICRO.has(x.r[0]) && x.cred + x.cool >= 7; });
 // Why a recommended brand is recommended, in a sentence or two (reasons.js). Shown on its row and under the map.
 all.forEach(x => { x.why = WHY[x.r[0]] || ''; });
+// A brand's main model lines (models.js), shown under its row and in the panel under the map.
+all.forEach(x => { x.models = (typeof MODELS !== 'undefined' && MODELS[x.r[0]]) || []; });
+function modelsHtml(x){
+  if (!x.models.length) return '';
+  const li = m => `<li><span class="mn">${m.url ? `<a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.name)}</a>` : esc(m.name)}</span>`+
+    `<span class="mf">${[m.type && m.type[0].toUpperCase() + m.type.slice(1), m.sizes, m.movement, m.price].filter(Boolean).map(esc).join(' · ')}</span>`+
+    (m.desc ? `<span class="md">${esc(m.desc)}</span>` : '') + `</li>`;
+  return `<details class="models"><summary>Main models<span>${x.models.length}</span></summary><ul>${x.models.map(li).join('')}</ul></details>`;
+}
 const countries = [...new Set(all.map(x=>x.r[1]))].sort();
 const sel = document.getElementById('country');
 sel.innerHTML = `<option value="">All countries</option>` + countries.map(c=>`<option>${esc(c)}</option>`).join('');
@@ -608,7 +617,7 @@ function meters(x){
 }
 function rowHtml(x){
   const r = x.r;
-  return `<div class="row${x.worth?' worth':''}${x.skip?' skip':''}" data-b="${x.i}"><span class="t">${r[8]?`<img src="${esc(r[8])}" alt="" loading="lazy" width="176" height="176">`:''}</span><span class="n">${r[6]?`<a href="${esc(r[6])}" target="_blank" rel="noopener">${esc(r[0])}</a>`:esc(r[0])}${x.worth?`<span class="tag w">Worth a look</span>`:''}${pickBrands.has(r[0])?`<span class="tag pk">Pick</span>`:''}${x.unusual?`<span class="tag u">Unusual</span>`:''}${r[5]?`<span class="note">${esc(r[5])}</span>`:''}</span><span class="c">${esc(r[1])}</span><span class="k">${esc(r[2])}</span>${meters(x)}<span class="p">${esc(r[3])}${x.lines?`<small>about ${x.lines} model line${x.lines===1?'':'s'}</small>`:''}</span><span class="s">${r[7]?`<a href="${esc(r[7])}" target="_blank" rel="noopener">${esc(r[4])}</a>`:esc(r[4])}</span>${x.why?`<span class="y"><b>${x.worth?'Why it’s worth a look':'Why it’s here'}</b>${esc(x.why)}</span>`:''}</div>`;
+  return `<div class="row${x.worth?' worth':''}${x.skip?' skip':''}" data-b="${x.i}"><span class="t">${r[8]?`<img src="${esc(r[8])}" alt="" loading="lazy" width="176" height="176">`:''}</span><span class="n">${r[6]?`<a href="${esc(r[6])}" target="_blank" rel="noopener">${esc(r[0])}</a>`:esc(r[0])}${x.worth?`<span class="tag w">Worth a look</span>`:''}${pickBrands.has(r[0])?`<span class="tag pk">Pick</span>`:''}${x.unusual?`<span class="tag u">Unusual</span>`:''}${r[5]?`<span class="note">${esc(r[5])}</span>`:''}</span><span class="c">${esc(r[1])}</span><span class="k">${esc(r[2])}</span>${meters(x)}<span class="p">${esc(r[3])}${x.lines?`<small>about ${x.lines} model line${x.lines===1?'':'s'}</small>`:''}</span><span class="s">${r[7]?`<a href="${esc(r[7])}" target="_blank" rel="noopener">${esc(r[4])}</a>`:esc(r[4])}</span>${x.why?`<span class="y"><b>${x.worth?'Why it’s worth a look':'Why it’s here'}</b>${esc(x.why)}</span>`:''}${modelsHtml(x)}</div>`;
 }
 function render(){
   const q = document.getElementById('q').value.trim().toLowerCase();
@@ -625,7 +634,7 @@ function render(){
   const wide = all.filter(x =>
     (tier === 'all' || x.tier.id === tier) &&
     (!c || x.r[1] === c) &&
-    (!q || x.r.slice(0,6).join(' ').toLowerCase().includes(q)) &&
+    (!q || (x.r.slice(0,6).join(' ') + ' ' + x.models.map(m => m.name).join(' ')).toLowerCase().includes(q)) &&
     (!(hasMin || hasMax) || (x.rng && x.rng[0] <= mx && x.rng[1] >= mn)));
   const list = shown === 'all' ? wide : wide.filter(x => x[shown]);
   const more = wide.length - list.length;   // brands the other filters keep but the Show choice hides
@@ -655,6 +664,7 @@ const BRAND_INDEX = {
   shown: new Set(),  // the brands the current filters keep; render() replaces it
   band: null,        // the active tier or budget in dollars, [low, high], or null
   meters,            // the four rating bars for a brand, as the list draws them
+  modelsHtml,        // a brand's main model lines, as the list draws them
   // Show one brand's row: clear the filters if they hide it (the sort stays), then scroll to it, focus it and mark it for a moment.
   reveal(x){
     if (!this.shown.has(x)) {
