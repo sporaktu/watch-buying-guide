@@ -129,6 +129,7 @@ const RATINGS = {
 "Yema":[2,4,3,4,8,0],
 "Serica":[2,5,5,5,3,0],
 "Furlan Marri":[2,5,4,5,5,0],
+"Trafford":[1,4,3,4,4,0],
 "Maen":[2,4,3,4,5,0],
 "Unimatic":[2,3,4,5,4,0],
 "Out of Order":[1,3,2,3,6,0],
