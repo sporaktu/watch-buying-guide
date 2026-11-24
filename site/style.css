@@ -340,6 +340,9 @@ section{margin-top:88px}
 .models summary span{font-weight:400;color:var(--muted);font-size:13px}
 .models ul{list-style:none;margin:6px 0 4px;padding:0;display:grid;gap:8px}
 .models li{display:grid;gap:1px;padding-left:12px;box-shadow:inset 2px 0 0 var(--rule)}
+.models li.pic{grid-template-columns:72px minmax(0,1fr);column-gap:14px;align-items:start}
+.models li.pic img{grid-row:1 / span 3;width:72px;height:72px;object-fit:contain;background:#fff;border:1px solid var(--rule)}
+.models li.pic > span{grid-column:2}
 .models .mn{font-weight:600}
 .models .mf{color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
 .models .md{line-height:1.45}
