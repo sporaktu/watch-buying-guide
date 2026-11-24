@@ -1,0 +1,628 @@
+{
+ "Airain": [
+  {
+   "name": "Type 20",
+   "type": "chronograph",
+   "sizes": "39mm",
+   "movement": "Hand-wound flyback chronograph, AM2",
+   "handWound": true,
+   "price": "$3,200–3,500",
+   "desc": "A faithful remake of the 1950s French air force pilot's chronograph, with a flyback button that resets and restarts the timer in one press.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Type 21",
+   "type": "chronograph",
+   "sizes": "39mm",
+   "movement": "Hand-wound flyback chronograph",
+   "handWound": true,
+   "price": "$3,200–3,500",
+   "desc": "The Type 20's sibling with a glossy black dial, based on a vintage piece sold at Sotheby's.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Sous-Marine Re-Edition",
+   "type": "dive",
+   "sizes": "37.5mm",
+   "movement": "Automatic",
+   "handWound": false,
+   "price": "$1,650–1,800",
+   "desc": "A compact 200m dive watch revived from Airain's 1960s archive, with details chosen by community vote.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Space One": [
+  {
+   "name": "Jumping Hour",
+   "type": "other",
+   "sizes": "42mm",
+   "movement": "Automatic, Soprod base with in-house jumping-hour module",
+   "handWound": false,
+   "price": "$2,000–2,400",
+   "desc": "A futuristic watch that shows the hour as a big number that jumps forward, with a sweeping arc for minutes.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Tellurium",
+   "type": "other",
+   "sizes": "42mm",
+   "movement": "Automatic, Soprod P024 with in-house Earth and moon module",
+   "handWound": false,
+   "price": "$3,200–3,500",
+   "desc": "Shows a tiny Earth and moon turning in real time, a rare astronomical display at this price.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Worldtimer",
+   "type": "GMT",
+   "sizes": "42mm",
+   "movement": "Automatic, Soprod P024 with in-house world-time module",
+   "handWound": false,
+   "price": "$2,900–3,200",
+   "desc": "A space-age world-time watch that shows the time in every major city at a glance.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Vulcain": [
+  {
+   "name": "Cricket",
+   "type": "dress",
+   "sizes": "36, 39mm",
+   "movement": "Hand-wound alarm, in-house V-10",
+   "handWound": true,
+   "price": "$4,600–6,000",
+   "desc": "The famous mechanical alarm watch worn by US presidents, which buzzes loudly at the time you set.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Skindiver",
+   "type": "dive",
+   "sizes": "39mm",
+   "movement": "Automatic, Soprod M300, COSC",
+   "handWound": false,
+   "price": "$2,340–2,650",
+   "desc": "A slim 1960s-style dive watch, now in Mark II form with 300m water resistance and a ceramic bezel.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Skindiver Chronograph",
+   "type": "chronograph",
+   "sizes": "39.7mm",
+   "movement": "Automatic, Valjoux 7753",
+   "handWound": false,
+   "price": "$3,100–3,300",
+   "desc": "A retro diving chronograph revived from the archives, rated to 200m.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Monopusher",
+   "type": "chronograph",
+   "sizes": "39mm",
+   "movement": "Hand-wound, Sellita SW510 M",
+   "handWound": true,
+   "price": "$3,300–3,700",
+   "desc": "A vintage-style chronograph that starts, stops and resets with a single button in the crown.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Nautical",
+   "type": "dive",
+   "sizes": "42mm",
+   "movement": "Hand-wound alarm, in-house V-10",
+   "handWound": true,
+   "price": "$5,500–6,500",
+   "desc": "A dive watch with a built-in alarm, originally meant to remind divers when to surface.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Aquastar": [
+  {
+   "name": "Deepstar",
+   "type": "chronograph",
+   "sizes": "39mm",
+   "movement": "Mechanical chronograph",
+   "handWound": false,
+   "price": "$2,500–2,800",
+   "desc": "A revived 1960s diving chronograph with a regatta-style countdown, made in small yearly batches.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Deepstar II",
+   "type": "dive",
+   "sizes": "37mm",
+   "movement": "Automatic, Sellita SW290",
+   "handWound": false,
+   "price": "$1,890–2,090",
+   "desc": "A compact, colourful 200m dive watch based on Aquastar's 1960s designs.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Benthos",
+   "type": "dive",
+   "sizes": "40, 42mm",
+   "movement": "Automatic, Sellita SW200-1 / ETA 2824-2",
+   "handWound": false,
+   "price": "$1,390–3,790",
+   "desc": "Remakes of Aquastar's 1970s professional dive watch, from the affordable Heritage to the 500m Benthos 500 II.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Airstar",
+   "type": "pilot",
+   "sizes": "40mm",
+   "movement": "Mechanical chronograph",
+   "handWound": false,
+   "price": "$1,990–2,590",
+   "desc": "A pilot's chronograph from 1965, linked to free-diver Jacques Mayol and Philippe Cousteau.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Amida": [
+  {
+   "name": "Digitrend",
+   "type": "other",
+   "sizes": "40mm",
+   "movement": "Automatic, Soprod Newton P092 with jumping-hour module",
+   "handWound": false,
+   "price": "$3,600–4,400",
+   "desc": "A 1970s driver's watch revived, reading the time from numbers on the side so you can check it while holding a wheel.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Digitrend Open Sapphire",
+   "type": "other",
+   "sizes": "40mm",
+   "movement": "Automatic, Soprod Newton P092 with jumping-hour module",
+   "handWound": false,
+   "price": "$5,600–6,100",
+   "desc": "A limited Digitrend with a see-through sapphire case that shows the moving parts inside.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Kollokium": [
+  {
+   "name": "Projekt 02",
+   "type": "other",
+   "sizes": "39.5mm",
+   "movement": "Automatic, La Joux-Perret G101",
+   "handWound": false,
+   "price": "$4,200–4,600",
+   "desc": "A sculptural, bezel-less steel watch with a tall domed crystal, designed by a group of well-known watch designers.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Projekt 01",
+   "type": "sports",
+   "sizes": "39.5mm",
+   "movement": "Automatic",
+   "handWound": false,
+   "price": "$3,300–4,800",
+   "desc": "The brand's first, cushion-shaped sports watch; the series has now ended, so buy from dealers or resale.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Straum": [
+  {
+   "name": "Jan Mayen",
+   "type": "sports",
+   "sizes": "38.7mm",
+   "movement": "Automatic, La Joux-Perret G101",
+   "handWound": false,
+   "price": "$2,200–2,600",
+   "desc": "A Norwegian integrated-bracelet sports watch with dials inspired by Arctic ice and northern lights.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Expedition",
+   "type": "field",
+   "sizes": "38.2mm",
+   "movement": "Automatic, La Joux-Perret G100",
+   "handWound": false,
+   "price": "$2,600–3,000",
+   "desc": "A tougher outdoor tool watch spun off the Jan Mayen, with crown guards and a date.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Behrens": [
+  {
+   "name": "Rotary",
+   "type": "other",
+   "sizes": "",
+   "movement": "Automatic",
+   "handWound": false,
+   "price": "$4,890–6,555",
+   "desc": "An avant-garde watch whose time display rotates like a turntable, an early award-nominated design from this Chinese independent.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "The Dark Knight",
+   "type": "other",
+   "sizes": "38mm",
+   "movement": "Hand-wound tourbillon",
+   "handWound": true,
+   "price": "$7,500–8,000",
+   "desc": "A steel tourbillon, a spinning cage that evens out timekeeping, at a fraction of the usual Swiss price.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Navigraph",
+   "type": "other",
+   "sizes": "",
+   "movement": "Automatic",
+   "handWound": false,
+   "price": "$2,600–2,800",
+   "desc": "One of Behrens' more affordable designs, with its trademark unconventional dial layout.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Starship II",
+   "type": "other",
+   "sizes": "",
+   "movement": "Automatic",
+   "handWound": false,
+   "price": "$1,900–2,000",
+   "desc": "Behrens' entry-level model, offering its sci-fi styling at an accessible price.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Ultralight",
+   "type": "other",
+   "sizes": "38mm",
+   "movement": "Automatic",
+   "handWound": false,
+   "price": "",
+   "desc": "A titanium watch weighing about 20 grams, made to disappear on the wrist.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Celadon": [
+  {
+   "name": "Century",
+   "type": "dress",
+   "sizes": "",
+   "movement": "Hand-wound, in-house CH1 / CH5",
+   "handWound": true,
+   "price": "$8,900–29,900",
+   "desc": "Celadon's high-end line with Chinese artisan dials in lacquer and cloisonne enamel, made to order.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "CL Imperial",
+   "type": "dress",
+   "sizes": "",
+   "movement": "Automatic, Seagull ST18",
+   "handWound": false,
+   "price": "$2,900–3,950",
+   "desc": "A dressy Chinese-made watch with patterned dials inspired by imperial art.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Imperial",
+   "type": "dress",
+   "sizes": "",
+   "movement": "Hand-wound, Celadon-grade CG18",
+   "handWound": true,
+   "price": "$1,800–1,900",
+   "desc": "The brand's original line with guilloche Plum Blossom and Peacock dials; reportedly being wound down.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "anOrdain": [
+  {
+   "name": "Model 2",
+   "type": "dress",
+   "sizes": "36, 39.5mm",
+   "movement": "Hand-wound, Sellita SW210 (automatic G101 option)",
+   "handWound": true,
+   "price": "$2,450–3,000",
+   "desc": "A Scottish watch with a handmade vitreous enamel dial, made to order with a long waiting list.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Model 1",
+   "type": "dress",
+   "sizes": "38mm",
+   "movement": "Automatic, La Joux-Perret G101 / decorated A1",
+   "handWound": false,
+   "price": "$2,950–3,400",
+   "desc": "A simple everyday watch, now offered with a porcelain dial that skips the enamel waiting list.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Model 3",
+   "type": "sports",
+   "sizes": "",
+   "movement": "Automatic, Sellita SW300",
+   "handWound": false,
+   "price": "$3,500–4,400",
+   "desc": "A slimmer sports-style model with enamel dials, including the wood-grain 'Method' edition.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Atelier Wen": [
+  {
+   "name": "Perception",
+   "type": "sports",
+   "sizes": "",
+   "movement": "Automatic",
+   "handWound": false,
+   "price": "$4,850–5,150",
+   "desc": "An integrated-bracelet steel sports watch with a hand-cut guilloche dial made in China; the V3 arrived in 2026.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Ancestra",
+   "type": "dress",
+   "sizes": "",
+   "movement": "Automatic",
+   "handWound": false,
+   "price": "$5,850",
+   "desc": "A new dress watch that brings Atelier Wen's handcrafted dials to a classic round case.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Perception Millesime",
+   "type": "sports",
+   "sizes": "",
+   "movement": "Automatic",
+   "handWound": false,
+   "price": "$3,600–5,000",
+   "desc": "Yearly limited Perception editions with special dials such as wood or pietersite stone.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Kurono Tokyo": [
+  {
+   "name": "Grand Jubilee Calendar",
+   "type": "dress",
+   "sizes": "38mm",
+   "movement": "Automatic, Miyota 9022",
+   "handWound": false,
+   "price": "$2,380",
+   "desc": "A dressy triple-calendar watch showing day, date and month, designed by Japanese master Hajime Asaoka.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Jubilee Sensu",
+   "type": "dress",
+   "sizes": "38mm",
+   "movement": "Automatic, Miyota 9133",
+   "handWound": false,
+   "price": "$2,230",
+   "desc": "A dress watch with a power-reserve gauge shaped like a Japanese folding fan.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Anniversary",
+   "type": "dress",
+   "sizes": "38mm",
+   "movement": "Automatic, Miyota",
+   "handWound": false,
+   "price": "$1,700–1,850",
+   "desc": "Hajime Asaoka's elegant, affordable dress watch, sold in short online windows; Mori and Toki are its colourways.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Chronograph",
+   "type": "chronograph",
+   "sizes": "",
+   "movement": "Automatic chronograph",
+   "handWound": false,
+   "price": "$3,900–4,200",
+   "desc": "A vintage-style chronograph with richly coloured dials, made in small batches.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Selten": [
+  {
+   "name": "Grand Feu Enamel Flare",
+   "type": "dress",
+   "sizes": "39mm",
+   "movement": "Automatic, Soprod M100",
+   "handWound": false,
+   "price": "$1,900–2,600",
+   "desc": "A Hong Kong-designed watch with a kiln-fired enamel dial over an engraved flare pattern, rare at this price.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Grand Feu Enamel Spiral",
+   "type": "dress",
+   "sizes": "39mm",
+   "movement": "Automatic, Soprod M100",
+   "handWound": false,
+   "price": "$2,200–2,900",
+   "desc": "The same glossy fired-enamel dial, this time over a spiral engraving.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Ophion": [
+  {
+   "name": "OPH 786",
+   "type": "dress",
+   "sizes": "39mm",
+   "movement": "Hand-wound",
+   "handWound": true,
+   "price": "$2,000–2,400",
+   "desc": "A Spanish dress watch inspired by Breguet, with hand-guilloche-style dials and a finely decorated movement.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "OPH 786 Velos",
+   "type": "dress",
+   "sizes": "39mm",
+   "movement": "Hand-wound",
+   "handWound": true,
+   "price": "$2,800–3,150",
+   "desc": "A teardrop-lug version designed with input from Kari Voutilainen's workshop.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Omega": [
+  {
+   "name": "Seamaster Diver 300M",
+   "type": "dive",
+   "sizes": "42mm",
+   "movement": "Automatic, Co-Axial Master Chronometer 8800",
+   "handWound": false,
+   "price": "$5,900–6,500",
+   "desc": "Omega's signature dive watch with a wave-pattern dial, famous as James Bond's watch.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Speedmaster Moonwatch Professional",
+   "type": "chronograph",
+   "sizes": "42mm",
+   "movement": "Hand-wound, Co-Axial Master Chronometer 3861",
+   "handWound": true,
+   "price": "$6,800–7,800",
+   "desc": "The chronograph NASA approved for spaceflight and worn on the Moon in 1969.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Seamaster Aqua Terra",
+   "type": "sports",
+   "sizes": "38, 41mm",
+   "movement": "Automatic, Co-Axial Master Chronometer 8900/8800",
+   "handWound": false,
+   "price": "$6,700–7,100",
+   "desc": "A smart, versatile everyday watch with a teak-pattern dial that works with a suit or jeans.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Constellation",
+   "type": "dress",
+   "sizes": "29, 36, 39, 41mm",
+   "movement": "Automatic Master Chronometer or quartz",
+   "handWound": false,
+   "price": "$3,000–7,300",
+   "desc": "Omega's dressy line, known for the 'claws' that hold its bezel in place.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Seamaster Planet Ocean",
+   "type": "dive",
+   "sizes": "39.5, 43.5mm",
+   "movement": "Automatic, Co-Axial Master Chronometer 8900",
+   "handWound": false,
+   "price": "$7,000–8,500",
+   "desc": "A heavier-duty 600m dive watch with a ceramic bezel.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Breitling": [
+  {
+   "name": "Navitimer",
+   "type": "pilot",
+   "sizes": "36, 41, 43, 46mm",
+   "movement": "Automatic, in-house B01 chronograph / automatic",
+   "handWound": false,
+   "price": "$4,850–11,000",
+   "desc": "The classic pilot's chronograph with a slide-rule bezel for flight calculations.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Superocean",
+   "type": "dive",
+   "sizes": "36, 42, 44, 46mm",
+   "movement": "Automatic",
+   "handWound": false,
+   "price": "$4,850–5,700",
+   "desc": "A colourful 1950s-style dive watch, Breitling's most affordable mechanical line.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Chronomat",
+   "type": "sports",
+   "sizes": "36, 40, 42mm",
+   "movement": "Automatic, B01 chronograph / B31",
+   "handWound": false,
+   "price": "$4,850–10,000",
+   "desc": "Breitling's everyday sport watch with a rouleaux bracelet, relaunched with a cleaner design in 2026.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Avenger",
+   "type": "pilot",
+   "sizes": "42, 44mm",
+   "movement": "Automatic",
+   "handWound": false,
+   "price": "$4,900–10,100",
+   "desc": "A rugged, oversized aviation tool watch, offered as three-hand, GMT and chronograph.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Top Time",
+   "type": "chronograph",
+   "sizes": "38, 41mm",
+   "movement": "Automatic, B01 / B31",
+   "handWound": false,
+   "price": "$4,350–8,050",
+   "desc": "A colourful 1960s-inspired chronograph line with bright dials and limited editions.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Premier",
+   "type": "chronograph",
+   "sizes": "40, 42mm",
+   "movement": "Automatic, B01 / B15 Duograph",
+   "handWound": false,
+   "price": "$9,750–12,450",
+   "desc": "Breitling's dressier chronographs, inspired by its 1940s designs.",
+   "url": "",
+   "img": ""
+  }
+ ]
+}

@@ -1,0 +1,661 @@
+{
+ "Baume & Mercier": [
+  {
+   "name": "Riviera",
+   "type": "sports",
+   "sizes": "33, 36, 39, 42mm",
+   "movement": "Automatic, Baumatic BM13 (quartz in 33mm)",
+   "handWound": false,
+   "price": "$3,000–4,750",
+   "desc": "A 1970s-style sports watch with a twelve-sided bezel and integrated bracelet, now with the long-running Baumatic movement.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Clifton",
+   "type": "dress",
+   "sizes": "39, 40, 42mm",
+   "movement": "Automatic, Baumatic BM12/BM13",
+   "handWound": false,
+   "price": "$3,300–4,500",
+   "desc": "A classic round dress watch with vintage lines, offered with Baume's five-day Baumatic movement at a fair price.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Classima",
+   "type": "dress",
+   "sizes": "36, 40, 42mm",
+   "movement": "Automatic, Sellita (quartz versions too)",
+   "handWound": false,
+   "price": "$1,900–3,400",
+   "desc": "The brand's entry-level dress watch, a simple and slim round design for everyday office wear.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Hampton",
+   "type": "dress",
+   "sizes": "Rectangular, small and large",
+   "movement": "Automatic Baumatic or quartz",
+   "handWound": false,
+   "price": "$2,500–4,500",
+   "desc": "A rectangular Art Deco style watch, the brand's main shaped case for people who want something other than round.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Fortis": [
+  {
+   "name": "Marinemaster",
+   "type": "sports",
+   "sizes": "40, 44mm",
+   "movement": "Automatic, Fortis Werk 17",
+   "handWound": false,
+   "price": "$2,900–3,600",
+   "desc": "A tough everyday sports watch with a 60-minute bezel, bold colours and 200m water resistance.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Flieger",
+   "type": "pilot",
+   "sizes": "39, 41, 43mm",
+   "movement": "Automatic, Swiss Fortis Werk calibre",
+   "handWound": false,
+   "price": "$2,400–3,100",
+   "desc": "A clean, highly legible pilot watch from a brand with decades of real aviation and space history.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Stratoliner",
+   "type": "chronograph",
+   "sizes": "41mm",
+   "movement": "Automatic chronograph, Fortis Werk 17",
+   "handWound": false,
+   "price": "$5,500–6,500",
+   "desc": "A sporty chronograph with colourful textured dials inspired by space flights, Fortis's flagship stopwatch.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Formex": [
+  {
+   "name": "Essence",
+   "type": "sports",
+   "sizes": "39, 41, 43mm",
+   "movement": "Automatic, Sellita SW200-1 (chronometer)",
+   "handWound": false,
+   "price": "$1,725–2,500",
+   "desc": "An everyday sports watch with a shock-absorbing case and a clever adjustable bracelet, sold in ThirtyNine, FortyOne and FortyThree sizes.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Reef",
+   "type": "dive",
+   "sizes": "39, 42mm",
+   "movement": "Automatic, Sellita SW300-1 (chronometer)",
+   "handWound": false,
+   "price": "$1,900–2,300",
+   "desc": "A 300m dive watch with a certified accurate movement and quick-change bracelet, strong value for a Swiss diver.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Field Automatic",
+   "type": "field",
+   "sizes": "40mm",
+   "movement": "Automatic, Sellita SW200-1",
+   "handWound": false,
+   "price": "$870–995",
+   "desc": "A light titanium field watch under $1,000, simple to read and built for outdoor use.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Nomos": [
+  {
+   "name": "Tangente",
+   "type": "dress",
+   "sizes": "33, 35, 38, 39, 41, 42mm",
+   "movement": "Hand-wound, in-house Alpha (automatic neomatik versions)",
+   "handWound": true,
+   "price": "$1,700–5,300",
+   "desc": "The Bauhaus-style watch that made Nomos famous, very thin with a clean dial and in-house German movement.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Club Campus",
+   "type": "field",
+   "sizes": "36, 38.5, 39mm",
+   "movement": "Hand-wound, in-house Alpha",
+   "handWound": true,
+   "price": "$1,500–2,100",
+   "desc": "A casual, sporty-looking watch with a playful dial, the cheapest way into a German in-house movement.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Club Sport neomatik",
+   "type": "sports",
+   "sizes": "39, 42mm",
+   "movement": "Automatic, in-house DUW 3001",
+   "handWound": false,
+   "price": "$3,700–4,400",
+   "desc": "A thin steel sports watch on a bracelet, a lighter and more modern alternative to bigger sports watches.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Orion",
+   "type": "dress",
+   "sizes": "33, 35, 38, 41mm",
+   "movement": "Hand-wound, in-house Alpha",
+   "handWound": true,
+   "price": "$2,000–2,800",
+   "desc": "An elegant dress watch with a domed dial and fine stick markers, more formal than the Tangente.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Metro",
+   "type": "dress",
+   "sizes": "33, 37, 38, 41mm",
+   "movement": "Hand-wound, in-house DUW 4301 (neomatik automatic too)",
+   "handWound": true,
+   "price": "$2,500–5,300",
+   "desc": "A modern design with a distinctive seconds dial and coloured accents, using Nomos's own escapement.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Sinn": [
+  {
+   "name": "556",
+   "type": "sports",
+   "sizes": "38.5mm",
+   "movement": "Automatic, Sellita SW200-1",
+   "handWound": false,
+   "price": "$1,490–1,900",
+   "desc": "A simple, tough everyday watch from a German tool-watch maker, one of the best values in Sinn's range.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "104",
+   "type": "pilot",
+   "sizes": "41mm",
+   "movement": "Automatic, Sellita SW220-1",
+   "handWound": false,
+   "price": "$2,000–2,300",
+   "desc": "A pilot-style watch with a rotating bezel and day-date, rugged and easy to read.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "103",
+   "type": "chronograph",
+   "sizes": "41mm",
+   "movement": "Automatic chronograph, Sellita SW500 / Valjoux 7750",
+   "handWound": false,
+   "price": "$3,380–3,460",
+   "desc": "Sinn's classic pilot chronograph with a rotating bezel, a design little changed in decades.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "856",
+   "type": "pilot",
+   "sizes": "40mm",
+   "movement": "Automatic, Sellita SW200-1 (SW330 in UTC)",
+   "handWound": false,
+   "price": "$2,490–3,480",
+   "desc": "A pilot watch with a scratch-hardened steel case and magnetic shielding, also offered with a second time zone.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "U1",
+   "type": "dive",
+   "sizes": "44mm",
+   "movement": "Automatic, Sellita SW200-1",
+   "handWound": false,
+   "price": "$2,500–2,900",
+   "desc": "A big dive watch made from German submarine steel, built to survive extreme depth and pressure.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "EZM",
+   "type": "sports",
+   "sizes": "41mm",
+   "movement": "Automatic, Sellita",
+   "handWound": false,
+   "price": "$2,400–2,900",
+   "desc": "Sinn's mission-timer tool watches made for police and rescue units, the toughest pieces in the range.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Damasko": [
+  {
+   "name": "DK",
+   "type": "sports",
+   "sizes": "39, 40, 42mm",
+   "movement": "Automatic, Sellita or in-house A26",
+   "handWound": false,
+   "price": "$1,900–2,600",
+   "desc": "Everyday sports watches with Damasko's very hard, scratch-resistant steel, including the popular DK47.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "DA",
+   "type": "pilot",
+   "sizes": "40, 42mm",
+   "movement": "Automatic, Sellita/ETA",
+   "handWound": false,
+   "price": "$1,100–1,600",
+   "desc": "Damasko's classic pilot watches with hardened cases and simple, legible dials.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "DS",
+   "type": "field",
+   "sizes": "39mm",
+   "movement": "Automatic, Sellita",
+   "handWound": false,
+   "price": "$995–1,200",
+   "desc": "The brand's affordable three-hand watch, a no-fuss field design in hardened steel.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "DC",
+   "type": "chronograph",
+   "sizes": "40, 42mm",
+   "movement": "Automatic chronograph, Valjoux 7750 or in-house C51",
+   "handWound": false,
+   "price": "$3,700–4,700",
+   "desc": "Tough pilot-style chronographs, some with Damasko's own movement, built for heavy daily wear.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Tutima": [
+  {
+   "name": "M2 Seven Seas",
+   "type": "dive",
+   "sizes": "40, 44mm",
+   "movement": "Automatic, Tutima T330",
+   "handWound": false,
+   "price": "$1,980–2,710",
+   "desc": "A light titanium dive watch with 500m water resistance, Tutima's best value model.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "M2",
+   "type": "chronograph",
+   "sizes": "46.5mm",
+   "movement": "Automatic chronograph, Tutima T521",
+   "handWound": false,
+   "price": "$5,000–6,500",
+   "desc": "A large titanium pilot chronograph derived from a watch made for German air force pilots.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Flieger",
+   "type": "pilot",
+   "sizes": "41, 43mm",
+   "movement": "Automatic, Tutima T330",
+   "handWound": false,
+   "price": "$2,000–2,900",
+   "desc": "A classic military-style pilot watch with a big crown and bold numerals.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Grand Flieger",
+   "type": "chronograph",
+   "sizes": "43mm",
+   "movement": "Automatic chronograph, Tutima T310",
+   "handWound": false,
+   "price": "$4,400–5,000",
+   "desc": "A vintage-inspired pilot chronograph echoing Tutima's 1940s military watches.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Patria",
+   "type": "dress",
+   "sizes": "41, 43mm",
+   "movement": "Hand-wound, in-house Tutima 617",
+   "handWound": true,
+   "price": "$10,000–11,000",
+   "desc": "A fine dress watch with a movement made and decorated in Glashutte, Tutima's high-end showpiece.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Hanhart": [
+  {
+   "name": "417 ES",
+   "type": "chronograph",
+   "sizes": "39, 42mm",
+   "movement": "Hand-wound flyback chronograph, Sellita-based",
+   "handWound": true,
+   "price": "$2,700–3,800",
+   "desc": "A faithful remake of a 1950s German military pilot chronograph with a two-register dial and red-marked bezel.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Primus Pilot",
+   "type": "pilot",
+   "sizes": "44mm",
+   "movement": "Automatic, Sellita",
+   "handWound": false,
+   "price": "$2,900–3,300",
+   "desc": "A modern pilot watch with Hanhart's signature red pusher look and a bold, easy-to-read dial.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Primus Diver",
+   "type": "dive",
+   "sizes": "44mm",
+   "movement": "Automatic, Sellita",
+   "handWound": false,
+   "price": "$2,800–3,200",
+   "desc": "A sturdy modern dive watch from the Primus family with a sporty, technical design.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Primus Racer",
+   "type": "chronograph",
+   "sizes": "44mm",
+   "movement": "Automatic chronograph, Valjoux 7750",
+   "handWound": false,
+   "price": "$3,000–3,700",
+   "desc": "A motorsport-themed chronograph with bright accents, the sportiest of the Primus line.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "King Seiko": [
+  {
+   "name": "KSK",
+   "type": "dress",
+   "sizes": "37, 38.6mm",
+   "movement": "Automatic, Seiko 6R31 / 6L35",
+   "handWound": false,
+   "price": "$1,700–3,300",
+   "desc": "A crisp, sharply faceted remake of the 1965 King Seiko, with a mirror-polished case and dressy feel.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "KS1969",
+   "type": "dress",
+   "sizes": "39.4mm",
+   "movement": "Automatic, Seiko 6L35",
+   "handWound": false,
+   "price": "$3,100",
+   "desc": "A cushion-shaped revival of the 1969 King Seiko with a slim movement and finely finished case.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "VANAC",
+   "type": "sports",
+   "sizes": "41mm",
+   "movement": "Automatic, Seiko 8L45",
+   "handWound": false,
+   "price": "$3,300–3,850",
+   "desc": "An angular, colourful 1970s-style sports watch with a Grand Seiko-derived high-beat movement, offered in steel and titanium.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Grand Seiko quartz": [
+  {
+   "name": "Heritage 9F",
+   "type": "dress",
+   "sizes": "37, 40mm",
+   "movement": "Quartz, Grand Seiko 9F62 / 9F82",
+   "handWound": false,
+   "price": "$2,300–3,500",
+   "desc": "Grand Seiko's classic dress design with a high-accuracy quartz movement accurate to about ten seconds a year.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Sport 9F GMT",
+   "type": "GMT",
+   "sizes": "39, 40mm",
+   "movement": "Quartz GMT, Grand Seiko 9F86",
+   "handWound": false,
+   "price": "$3,600–3,700",
+   "desc": "A travel watch with a second time zone hand, combining Grand Seiko finishing with near-zero maintenance quartz.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "The Citizen quartz": [
+  {
+   "name": "The Citizen Eco-Drive A060",
+   "type": "dress",
+   "sizes": "38mm",
+   "movement": "Solar quartz, Citizen A060",
+   "handWound": false,
+   "price": "$2,900–4,000",
+   "desc": "A titanium dress watch powered by light and accurate to about five seconds a year, Citizen's top quartz watch.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "The Citizen Caliber 0200",
+   "type": "dress",
+   "sizes": "40mm",
+   "movement": "Automatic, in-house Citizen 0200",
+   "handWound": false,
+   "price": "$7,000–8,500",
+   "desc": "The Citizen's high-end mechanical watch, finished by hand in Switzerland and Japan; not quartz but sold alongside the A060.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Minase": [
+  {
+   "name": "Divido",
+   "type": "sports",
+   "sizes": "40.5mm",
+   "movement": "Automatic, ETA 2824 / 2892",
+   "handWound": false,
+   "price": "$4,600–9,100",
+   "desc": "Minase's only round watch, with a sculpted case that frames the dial and very high hand finishing.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "7 Windows",
+   "type": "other",
+   "sizes": "approx. 42mm",
+   "movement": "Automatic, ETA",
+   "handWound": false,
+   "price": "$4,600–9,100",
+   "desc": "A shaped case with seven sapphire windows that show off the movement, the brand's signature design.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "5 Windows",
+   "type": "other",
+   "sizes": "Midsize and standard",
+   "movement": "Automatic, ETA",
+   "handWound": false,
+   "price": "$4,300–8,200",
+   "desc": "A tonneau-style case with sapphire side windows, including a smaller Midsize version.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Horizon",
+   "type": "sports",
+   "sizes": "approx. 37mm",
+   "movement": "Automatic, ETA",
+   "handWound": false,
+   "price": "$3,900–5,400",
+   "desc": "Minase's most accessible model, a compact sports watch with a rubber strap or bracelet option.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Ming": [
+  {
+   "name": "37 series",
+   "type": "sports",
+   "sizes": "38mm",
+   "movement": "Automatic, Swiss Sellita-based",
+   "handWound": false,
+   "price": "$5,600–7,000",
+   "desc": "Ming's core design with layered sapphire dials and floating markers, including the 37.09 and 37.06.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "17 series",
+   "type": "sports",
+   "sizes": "38mm",
+   "movement": "Automatic, Swiss Sellita",
+   "handWound": false,
+   "price": "$1,500–1,900",
+   "desc": "Ming's affordable steel line, the easiest way into the brand's modern dial style.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "57 series",
+   "type": "chronograph",
+   "sizes": "approx. 40mm",
+   "movement": "Automatic, Swiss",
+   "handWound": false,
+   "price": "$7,000–9,000",
+   "desc": "Ming's complicated line, including the 57.04 Phoenix monopusher chronograph and 57.05 Comet worldtimer.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "20.01",
+   "type": "other",
+   "sizes": "38mm",
+   "movement": "Hand-wound, custom Swiss movement",
+   "handWound": true,
+   "price": "$44,500",
+   "desc": "Ming's high-end flagship with a bespoke hand-finished movement, made in small series.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Oak & Oscar": [
+  {
+   "name": "Humboldt",
+   "type": "field",
+   "sizes": "40mm",
+   "movement": "Automatic, Sellita SW200-1",
+   "handWound": false,
+   "price": "$1,550–2,500",
+   "desc": "A Chicago-designed field watch with a sandwich dial and dense lume, the brand's permanent core model.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Humboldt GMT",
+   "type": "GMT",
+   "sizes": "40mm",
+   "movement": "Automatic GMT, Sellita SW330",
+   "handWound": false,
+   "price": "$2,175",
+   "desc": "The Humboldt with a second time zone hand, a rugged travel watch from a small American brand.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Olmsted",
+   "type": "field",
+   "sizes": "38mm",
+   "movement": "Automatic, Sellita SW200-1",
+   "handWound": false,
+   "price": "$1,575–1,775",
+   "desc": "A smaller, simpler field watch that is one of the best-value American-designed Swiss watches.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Atwood",
+   "type": "chronograph",
+   "sizes": "40mm",
+   "movement": "Hand-wound flyback chronograph, Sellita AMT5100M",
+   "handWound": true,
+   "price": "$2,900–3,500",
+   "desc": "A vintage racing-style chronograph with a hand-wound flyback movement, Oak & Oscar's newest stopwatch.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Lorca": [
+  {
+   "name": "Model No.1 GMT",
+   "type": "GMT",
+   "sizes": "39mm",
+   "movement": "Automatic GMT, Soprod C125",
+   "handWound": false,
+   "price": "$1,750",
+   "desc": "A compact retro-styled travel watch with a true GMT movement, praised as strong value from a US brand.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Model No.2 Chronograph",
+   "type": "chronograph",
+   "sizes": "39mm",
+   "movement": "Hand-wound chronograph, Sellita SW510M",
+   "handWound": true,
+   "price": "$2,650–2,750",
+   "desc": "A vintage-inspired hand-wound chronograph with Swiss movement, Lorca's second model.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Anoma": [
+  {
+   "name": "A1",
+   "type": "other",
+   "sizes": "approx. 38mm",
+   "movement": "Automatic, Sellita SW100",
+   "handWound": false,
+   "price": "$2,800–3,000",
+   "desc": "A rounded-triangle watch inspired by 1950s asymmetric designs, now in a permanent core collection.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "A1 limited editions",
+   "type": "other",
+   "sizes": "approx. 38mm",
+   "movement": "Automatic, Sellita SW100",
+   "handWound": false,
+   "price": "$2,300–3,800",
+   "desc": "Small runs of the A1 with special dials or cases, such as Slate stone, Optical op-art and hand-chiselled Prehistoric.",
+   "url": "",
+   "img": ""
+  }
+ ]
+}

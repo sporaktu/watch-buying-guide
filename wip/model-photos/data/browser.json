@@ -1,0 +1,1672 @@
+{
+"Zelos|0": {
+"brand": "Zelos",
+"model": "Swordfish",
+"status": "nolink"
+},
+"Zelos|1": {
+"brand": "Zelos",
+"model": "Mako",
+"status": "nolink"
+},
+"Helm|0": {
+"brand": "Helm",
+"model": "Vanuatu",
+"status": "nolink"
+},
+"Helm|1": {
+"brand": "Helm",
+"model": "Khuraburi",
+"status": "nolink"
+},
+"Helm|2": {
+"brand": "Helm",
+"model": "Komodo",
+"status": "nolink"
+},
+"Helm|3": {
+"brand": "Helm",
+"model": "Miyako",
+"status": "nolink"
+},
+"Mr Jones Watches|0": {
+"brand": "Mr Jones Watches",
+"model": "A Perfectly Useless Afternoon",
+"status": "nolink"
+},
+"Mr Jones Watches|1": {
+"brand": "Mr Jones Watches",
+"model": "A Perfectly Useless Morning",
+"status": "nolink"
+},
+"Mr Jones Watches|2": {
+"brand": "Mr Jones Watches",
+"model": "The Accurate",
+"status": "nolink"
+},
+"Seiko|0": {
+"brand": "Seiko",
+"model": "Seiko 5 Sports",
+"status": "nolink"
+},
+"Seiko|1": {
+"brand": "Seiko",
+"model": "Presage Cocktail Time",
+"status": "nolink"
+},
+"Seiko|2": {
+"brand": "Seiko",
+"model": "Prospex Turtle",
+"status": "nolink"
+},
+"Seiko|3": {
+"brand": "Seiko",
+"model": "Prospex Alpinist",
+"status": "nolink"
+},
+"Seiko|4": {
+"brand": "Seiko",
+"model": "Prospex 1965 Heritage Diver",
+"status": "nolink"
+},
+"Orient|2": {
+"brand": "Orient",
+"model": "Mako 40",
+"status": "nolink"
+},
+"Vostok|0": {
+"brand": "Vostok",
+"model": "Amphibia",
+"status": "nosite"
+},
+"Vostok|1": {
+"brand": "Vostok",
+"model": "Komandirskie",
+"status": "nosite"
+},
+"Brew|2": {
+"brand": "Brew",
+"model": "Retromatic",
+"status": "nolink"
+},
+"Casio and G-Shock|0": {
+"brand": "Casio and G-Shock",
+"model": "G-Shock 5600",
+"status": "nolink"
+},
+"Casio and G-Shock|1": {
+"brand": "Casio and G-Shock",
+"model": "G-Shock GA-2100",
+"status": "nolink"
+},
+"Casio and G-Shock|2": {
+"brand": "Casio and G-Shock",
+"model": "Duro MDV-106",
+"status": "nolink"
+},
+"Casio and G-Shock|3": {
+"brand": "Casio and G-Shock",
+"model": "F-91W and A168",
+"status": "nolink"
+},
+"Smiths|0": {
+"brand": "Smiths",
+"model": "Everest PRS-25",
+"status": "nolink"
+},
+"Smiths|1": {
+"brand": "Smiths",
+"model": "Baby Willard PRS-68",
+"status": "ok",
+"page": "https://www.timefactors.com/products/baby-dreadnought",
+"raw": "br-Smiths-1.jpg",
+"title": "TIMEFACTORS | BABY DREADNOUGHT PRS-52 – Time Factors International Limited"
+},
+"Laco|0": {
+"brand": "Laco",
+"model": "Pilot Watch Basic (Aachen, Augsburg)",
+"status": "ok",
+"page": "https://www.laco.de/en/watches/pilot-watches-basic",
+"raw": "br-Laco-0.jpg",
+"title": "Pilot Watches Basic"
+},
+"Laco|1": {
+"brand": "Laco",
+"model": "Pilot Watch Original (Erbstück)",
+"status": "ok",
+"page": "https://www.laco.de/en/watches/pilot-watch-original",
+"raw": "br-Laco-1.jpg",
+"title": "Original German Pilot Watches from Laco Watch Manufactory"
+},
+"Laco|2": {
+"brand": "Laco",
+"model": "Squad (Atlantik, Himalaya, Mojave)",
+"status": "nolink"
+},
+"Scurfa|0": {
+"brand": "Scurfa",
+"model": "Diver One",
+"status": "nolink"
+},
+"Scurfa|1": {
+"brand": "Scurfa",
+"model": "Bell Diver 1",
+"status": "nolink"
+},
+"Scurfa|2": {
+"brand": "Scurfa",
+"model": "Treasure Seeker",
+"status": "nolink"
+},
+"Studio Underd0g|0": {
+"brand": "Studio Underd0g",
+"model": "01SERIES",
+"status": "nolink"
+},
+"Studio Underd0g|1": {
+"brand": "Studio Underd0g",
+"model": "02SERIES",
+"status": "nolink"
+},
+"Studio Underd0g|2": {
+"brand": "Studio Underd0g",
+"model": "03SERIES",
+"status": "nolink"
+},
+"Studio Underd0g|3": {
+"brand": "Studio Underd0g",
+"model": "04SERIES Calendar",
+"status": "nolink"
+},
+"Tissot|1": {
+"brand": "Tissot",
+"model": "Seastar 1000",
+"status": "ok",
+"page": "https://www.tissotwatches.com/en-en/T1204101104100.html",
+"raw": "br-Tissot-1.jpg",
+"title": "Tissot Seastar 1000 40mm | Model T1204101104100 | Tissot® Official Website"
+},
+"Tissot|2": {
+"brand": "Tissot",
+"model": "Gentleman",
+"status": "ok",
+"page": "https://www.tissotwatches.com/en-us/men/main-collections/tissot-gentleman.html",
+"raw": "br-Tissot-2.jpg",
+"title": "Tissot Gentleman Watch Collection for Men | Tissot® United States"
+},
+"Tissot|3": {
+"brand": "Tissot",
+"model": "PRC 200",
+"status": "ok",
+"page": "https://www.tissotwatches.com/en-us/men/main-collections/tissot-prc-100-solar.html",
+"raw": "br-Tissot-3.jpg",
+"title": "Tissot PRC 100 Solar Watch Collection for Men | Tissot® United States"
+},
+"Tissot|4": {
+"brand": "Tissot",
+"model": "Le Locle",
+"status": "ok",
+"page": "https://www.tissotwatches.com/en-us/men/main-collections/tissot-le-locle.html",
+"raw": "br-Tissot-4.jpg",
+"title": "Tissot Le Locle Watch Collection for Men | Tissot® United States"
+},
+"Junghans|0": {
+"brand": "Junghans",
+"model": "Max Bill Automatic",
+"status": "nolink"
+},
+"Junghans|1": {
+"brand": "Junghans",
+"model": "Max Bill Hand-wound",
+"status": "nolink"
+},
+"Junghans|2": {
+"brand": "Junghans",
+"model": "Max Bill Chronoscope",
+"status": "nolink"
+},
+"Junghans|3": {
+"brand": "Junghans",
+"model": "Meister",
+"status": "nolink"
+},
+"Junghans|4": {
+"brand": "Junghans",
+"model": "Form",
+"status": "nolink"
+},
+"Squale|0": {
+"brand": "Squale",
+"model": "1521",
+"status": "ok",
+"page": "https://www.squale.ch/en/squale-1521",
+"raw": "br-Squale-0.jpg",
+"title": "Squale 1521 || Squale Official Website"
+},
+"Squale|1": {
+"brand": "Squale",
+"model": "Super-Squale",
+"status": "ok",
+"page": "https://www.squale.ch/en/supersquale",
+"raw": "br-Squale-1.jpg",
+"title": "Supersquale || Squale Official Website"
+},
+"Stowa|3": {
+"brand": "Stowa",
+"model": "Partitio",
+"status": "ok",
+"page": "https://www.stowa.de/partitio_1",
+"raw": "br-Stowa-3.jpg",
+"title": "Partitio"
+},
+"Stowa|4": {
+"brand": "Stowa",
+"model": "Seatime",
+"status": "nolink"
+},
+"Squale|2": {
+"brand": "Squale",
+"model": "Sub-39",
+"status": "noimg",
+"page": "https://www.squale.ch/en/squale-sub-39"
+},
+"Squale|3": {
+"brand": "Squale",
+"model": "Matic",
+"status": "ok",
+"page": "https://www.squale.ch/en/squale-matic",
+"raw": "br-Squale-3.jpg",
+"title": "Squale Matic || Squale Official Website"
+},
+"Archimede|0": {
+"brand": "Archimede",
+"model": "OutDoor 39 Protect",
+"status": "nolink"
+},
+"Archimede|1": {
+"brand": "Archimede",
+"model": "Pilot",
+"status": "nolink"
+},
+"Archimede|2": {
+"brand": "Archimede",
+"model": "SportTaucher",
+"status": "nolink"
+},
+"Baltic|0": {
+"brand": "Baltic",
+"model": "Aquascaphe",
+"status": "ok",
+"page": "https://baltic-watches.com/en/collections/aquascaphe",
+"raw": "br-Baltic-0.jpg",
+"title": "Aquascaphe Classic Collection - Baltic Watches"
+},
+"Baltic|1": {
+"brand": "Baltic",
+"model": "Bicompax",
+"status": "nolink"
+},
+"Furlan Marri|0": {
+"brand": "Furlan Marri",
+"model": "Mechaquartz Chronograph",
+"status": "ok",
+"page": "https://www.furlanmarri.com/collections/mechaquartz-collection",
+"raw": "br-Furlan_Marri-0.jpg",
+"title": "Mechaquartz Chronograph Watches | Furlan Marri"
+},
+"Baltic|2": {
+"brand": "Baltic",
+"model": "HMS",
+"status": "ok",
+"page": "https://baltic-watches.com/en/collections/hms",
+"raw": "br-Baltic-2.jpg",
+"title": "HMS collection - Baltic Watches"
+},
+"Baltic|3": {
+"brand": "Baltic",
+"model": "MR01",
+"status": "nolink"
+},
+"Baltic|4": {
+"brand": "Baltic",
+"model": "Hermétique Tourer",
+"status": "ok",
+"page": "https://baltic-watches.com/en/products/hermetique-tourer-beige",
+"raw": "br-Baltic-4.jpg",
+"title": "Hermétique Tourer Beige - Baltic Watches"
+},
+"Furlan Marri|1": {
+"brand": "Furlan Marri",
+"model": "Sector",
+"status": "noimg",
+"page": "https://www.furlanmarri.com/products/blue-sector"
+},
+"Furlan Marri|2": {
+"brand": "Furlan Marri",
+"model": "Disco Volante",
+"status": "ok",
+"page": "https://www.furlanmarri.com/collections/disco-volante",
+"raw": "br-Furlan_Marri-2.jpg",
+"title": "Disco Volante - Furlan Marri Watches - Vintage Inspired Watches for Collectors"
+},
+"Halios|2": {
+"brand": "Halios",
+"model": "Fairwind",
+"status": "ERR TimeoutError: elementHandle.screenshot: Timeout 10000ms exce",
+"page": "https://halioswatches.com/products/fairwindii"
+},
+"Traska|0": {
+"brand": "Traska",
+"model": "Freediver",
+"status": "ok",
+"page": "https://www.traskawatch.com/collections/freediver",
+"raw": "br-Traska-0.jpg",
+"title": "Freediver | TRASKA Watches"
+},
+"Traska|2": {
+"brand": "Traska",
+"model": "Commuter",
+"status": "ok",
+"page": "https://www.traskawatch.com/collections/commuter-collection",
+"raw": "br-Traska-2.jpg",
+"title": "Commuter | TRASKA Watches"
+},
+"Traska|3": {
+"brand": "Traska",
+"model": "Summiteer",
+"status": "ok",
+"page": "https://www.traskawatch.com/collections/summiteer-collection",
+"raw": "br-Traska-3.jpg",
+"title": "Summiteer | TRASKA Watches"
+},
+"Autodromo|0": {
+"brand": "Autodromo",
+"model": "Group B",
+"status": "ok",
+"page": "https://autodromo.com/products/group-b-crewneck",
+"raw": "br-Autodromo-0.jpg",
+"title": "group b logo crewneck – Autodromo - Instruments for Motoring"
+},
+"Autodromo|1": {
+"brand": "Autodromo",
+"model": "Intereuropa",
+"status": "nolink"
+},
+"Autodromo|2": {
+"brand": "Autodromo",
+"model": "Prototipo",
+"status": "ok",
+"page": "https://autodromo.com/products/battery-change-kit-for-prototipo-chronograph",
+"raw": "br-Autodromo-2.jpg",
+"title": "battery change kit for prototipo chronograph – Autodromo - Instruments for Motor"
+},
+"Jack Mason|0": {
+"brand": "Jack Mason",
+"model": "Strat-o-timer GMT",
+"status": "nosite"
+},
+"Jack Mason|1": {
+"brand": "Jack Mason",
+"model": "Strat-o-timer Titanium Diver GMT",
+"status": "nosite"
+},
+"Jack Mason|2": {
+"brand": "Jack Mason",
+"model": "Aviator Chronograph",
+"status": "nosite"
+},
+"Jack Mason|3": {
+"brand": "Jack Mason",
+"model": "Nautical Chronograph",
+"status": "nosite"
+},
+"Seiko Prospex and Presage|0": {
+"brand": "Seiko Prospex and Presage",
+"model": "Prospex Turtle",
+"status": "ok",
+"page": "https://www.seikowatches.com/us-en/products/prospex",
+"raw": "br-Seiko_Prospex_and_Presage-0.jpg",
+"title": "Prospex | Seiko Watch Corporation"
+},
+"Seiko Prospex and Presage|1": {
+"brand": "Seiko Prospex and Presage",
+"model": "Prospex 1965 Heritage Diver",
+"status": "nolink"
+},
+"Seiko Prospex and Presage|2": {
+"brand": "Seiko Prospex and Presage",
+"model": "Prospex Alpinist",
+"status": "ok",
+"page": "https://www.seikowatches.com/us-en/products/prospex",
+"raw": "br-Seiko_Prospex_and_Presage-2.jpg",
+"title": "Prospex | Seiko Watch Corporation"
+},
+"Seiko Prospex and Presage|3": {
+"brand": "Seiko Prospex and Presage",
+"model": "Prospex Speedtimer",
+"status": "ok",
+"page": "https://www.seikowatches.com/us-en/products/prospex",
+"raw": "br-Seiko_Prospex_and_Presage-3.jpg",
+"title": "Prospex | Seiko Watch Corporation"
+},
+"Seiko Prospex and Presage|4": {
+"brand": "Seiko Prospex and Presage",
+"model": "Presage Cocktail Time",
+"status": "nolink"
+},
+"Seiko Prospex and Presage|5": {
+"brand": "Seiko Prospex and Presage",
+"model": "Presage Craftsmanship (Enamel, Urushi)",
+"status": "ok",
+"page": "https://www.seikowatches.com/us-en/products/presage/special/story_urushi_enamel_2026",
+"raw": "br-Seiko_Prospex_and_Presage-5.jpg",
+"title": "Models Inspired by the Celebrated Laurel Become Regular Members of the Seiko Pre"
+},
+"Orient Star|0": {
+"brand": "Orient Star",
+"model": "Classic Semi-Skeleton",
+"status": "nolink"
+},
+"Orient Star|1": {
+"brand": "Orient Star",
+"model": "Contemporary M34 Semi Skeleton",
+"status": "nolink"
+},
+"Orient Star|2": {
+"brand": "Orient Star",
+"model": "Layered Skeleton",
+"status": "nolink"
+},
+"Isotope|0": {
+"brand": "Isotope",
+"model": "Hydrium",
+"status": "nolink"
+},
+"Isotope|1": {
+"brand": "Isotope",
+"model": "GMT 0º",
+"status": "nolink"
+},
+"Isotope|2": {
+"brand": "Isotope",
+"model": "Flyway",
+"status": "nolink"
+},
+"Isotope|3": {
+"brand": "Isotope",
+"model": "Mercury",
+"status": "nolink"
+},
+"Isotope|4": {
+"brand": "Isotope",
+"model": "Moonshot",
+"status": "nolink"
+},
+"Marathon|4": {
+"brand": "Marathon",
+"model": "Navigator",
+"status": "ok",
+"page": "https://www.marathonwatch.com/collections/cerashell-navigator-series",
+"raw": "br-Marathon-4.jpg",
+"title": "CeraShell® Navigator Series – Marathon Watch"
+},
+"Dekla|0": {
+"brand": "Dekla",
+"model": "Pilot Type B",
+"status": "nosite"
+},
+"Dekla|1": {
+"brand": "Dekla",
+"model": "Pilot Type A",
+"status": "nosite"
+},
+"Dekla|2": {
+"brand": "Dekla",
+"model": "Deckwatch",
+"status": "nosite"
+},
+"Dekla|3": {
+"brand": "Dekla",
+"model": "Seaborn",
+"status": "nosite"
+},
+"Nivada Grenchen|4": {
+"brand": "Nivada Grenchen",
+"model": "Broad Arrow",
+"status": "nolink"
+},
+"Hamilton|0": {
+"brand": "Hamilton",
+"model": "Khaki Field Mechanical",
+"status": "ok",
+"page": "https://www.hamiltonwatch.com/en-us/khaki-field-murph",
+"raw": "br-Hamilton-0.jpg",
+"title": "Khaki Field Murph | Hamilton Watch"
+},
+"Ollech & Wajs|0": {
+"brand": "Ollech & Wajs",
+"model": "C-1000",
+"status": "nolink"
+},
+"Ollech & Wajs|1": {
+"brand": "Ollech & Wajs",
+"model": "M-Series (M-110, MK-102, MV-82)",
+"status": "nolink"
+},
+"Ollech & Wajs|2": {
+"brand": "Ollech & Wajs",
+"model": "P-101",
+"status": "nolink"
+},
+"Ollech & Wajs|3": {
+"brand": "Ollech & Wajs",
+"model": "Early Bird EB-24",
+"status": "nolink"
+},
+"Ollech & Wajs|4": {
+"brand": "Ollech & Wajs",
+"model": "Astrochron",
+"status": "nolink"
+},
+"Mido|0": {
+"brand": "Mido",
+"model": "Ocean Star 39",
+"status": "ERR TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:",
+"page": "https://www.midowatches.com/en/ocean-star-39-m0269071104101.html"
+},
+"Hamilton|1": {
+"brand": "Hamilton",
+"model": "Khaki Field Murph",
+"status": "ok",
+"page": "https://www.hamiltonwatch.com/en-us/khaki-field-murph",
+"raw": "br-Hamilton-1.jpg",
+"title": "Khaki Field Murph | Hamilton Watch"
+},
+"Mido|1": {
+"brand": "Mido",
+"model": "Multifort TV Big Date",
+"status": "noimg",
+"page": "https://www.midowatches.com/en/news-multifort-tv-big-date-s01e02.html"
+},
+"Christopher Ward|0": {
+"brand": "Christopher Ward",
+"model": "The Twelve",
+"status": "ok",
+"page": "https://www.christopherward.com/the-twelve-watches",
+"raw": "br-Christopher_Ward-0.jpg",
+"title": "The Twelve | Christopher Ward"
+},
+"Certina|0": {
+"brand": "Certina",
+"model": "DS Action Diver",
+"status": "ERR TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:",
+"page": "https://www.certina.com/en/watch/ds-action-diver-38mm-titanium/c0488074405101"
+},
+"Circula|2": {
+"brand": "Circula",
+"model": "SuperSport",
+"status": "nolink"
+},
+"Circula|3": {
+"brand": "Circula",
+"model": "DiveSport Titanium",
+"status": "nolink"
+},
+"Christopher Ward|1": {
+"brand": "Christopher Ward",
+"model": "C60 Trident Pro 300",
+"status": "noimg",
+"page": "https://www.christopherward.com/loupe-magazine/article"
+},
+"Hamilton|2": {
+"brand": "Hamilton",
+"model": "Khaki Navy Scuba",
+"status": "ok",
+"page": "https://www.hamiltonwatch.com/en-us/collection/khaki-navy.html",
+"raw": "br-Hamilton-2.jpg",
+"title": "Hamilton Khaki Navy Collection | Navy & Dive Watches | Hamilton Watch"
+},
+"Hamilton|3": {
+"brand": "Hamilton",
+"model": "Khaki Aviation Pilot Day Date",
+"status": "nolink"
+},
+"Lorier|4": {
+"brand": "Lorier",
+"model": "Olympia",
+"status": "nolink"
+},
+"Circula|4": {
+"brand": "Circula",
+"model": "AquaSport GMT",
+"status": "ok",
+"page": "https://circulawatches.com/en/watches/dive-watches/aquasport-ii/ae-st-bb-sb-a",
+"raw": "br-Circula-4.jpg",
+"title": "Diver`s watches by CiRCULA | model AquaSport II"
+},
+"Christopher Ward|2": {
+"brand": "Christopher Ward",
+"model": "C63 Sealander",
+"status": "ok",
+"page": "https://www.christopherward.com/watches",
+"raw": "br-Christopher_Ward-2.jpg",
+"title": "All Watches | Christopher Ward | Christopher Ward"
+},
+"Christopher Ward|3": {
+"brand": "Christopher Ward",
+"model": "C65 Trident",
+"status": "ok",
+"page": "https://www.christopherward.com/trident-watches",
+"raw": "br-Christopher_Ward-3.jpg",
+"title": "Trident watches | Christopher Ward"
+},
+"Christopher Ward|4": {
+"brand": "Christopher Ward",
+"model": "C1 Bel Canto",
+"status": "ok",
+"page": "https://www.christopherward.com/c1-bel-canto-lucia/C01-41APT5-T00O0-MC.html",
+"raw": "br-Christopher_Ward-4.jpg",
+"title": "C1 Bel Canto Lucia | Christopher Ward"
+},
+"Hamilton|4": {
+"brand": "Hamilton",
+"model": "Jazzmaster",
+"status": "ok",
+"page": "https://www.hamiltonwatch.com/en-us/collection/jazzmaster.html",
+"raw": "br-Hamilton-4.jpg",
+"title": "Hamilton Jazzmaster | Hamilton Watch"
+},
+"Mido|2": {
+"brand": "Mido",
+"model": "Ocean Star 200C",
+"status": "ERR TimeoutError: elementHandle.screenshot: Timeout 10000ms exce",
+"page": "https://www.midowatches.com/en/ocean-star-39-m0269071104101.html"
+},
+"Certina|1": {
+"brand": "Certina",
+"model": "DS PH200M",
+"status": "ERR TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:",
+"page": "https://www.certina.com/en/ds-x"
+},
+"Nodus|0": {
+"brand": "Nodus",
+"model": "Contrail",
+"status": "nolink"
+},
+"Hamilton|5": {
+"brand": "Hamilton",
+"model": "Ventura",
+"status": "ok",
+"page": "https://www.hamiltonwatch.com/en-us/collection/ventura.html",
+"raw": "br-Hamilton-5.jpg",
+"title": "Hamilton Ventura Collection | Iconic watches | Hamilton Watch"
+},
+"Nodus|1": {
+"brand": "Nodus",
+"model": "Sector II",
+"status": "noimg",
+"page": "https://www.noduswatches.com/design-lab-shop/p/sector-ii-sport-men-wear-pink"
+},
+"Mido|3": {
+"brand": "Mido",
+"model": "Baroncelli",
+"status": "noimg",
+"page": "https://www.midowatches.com/en/watches/collections/baroncelli.html"
+},
+"Nodus|2": {
+"brand": "Nodus",
+"model": "Duality II",
+"status": "noimg",
+"page": "https://www.noduswatches.com/design-lab-shop/p/sector-ii-sport-men-wear-pink"
+},
+"Nodus|3": {
+"brand": "Nodus",
+"model": "Retrospect III",
+"status": "nolink"
+},
+"Nodus|4": {
+"brand": "Nodus",
+"model": "Avalon",
+"status": "nolink"
+},
+"Oris|0": {
+"brand": "Oris",
+"model": "Big Crown Pointer Date",
+"status": "noimg",
+"page": "https://www.oris.ch/en-US/product/watch/big-crown/big-crown-pointer-date/01-754-7779-4065-Set"
+},
+"Oris|1": {
+"brand": "Oris",
+"model": "Aquis",
+"status": "noimg",
+"page": "https://www.oris.ch/en-US/product/watch/aquis"
+},
+"Oris|2": {
+"brand": "Oris",
+"model": "Divers Sixty-Five",
+"status": "noimg",
+"page": "https://www.oris.ch/en-US/product/watch/divers/divers-sixty-five/01-733-7772-4034-Set"
+},
+"Certina|2": {
+"brand": "Certina",
+"model": "DS Super PH500M",
+"status": "ERR TimeoutError: page.goto: Timeout 30000ms exceeded.\nCall log:",
+"page": "https://www.certina.com/en/watch/ds-super-ph2000m/c0506074405102"
+},
+"Mido|4": {
+"brand": "Mido",
+"model": "Commander",
+"status": "noimg",
+"page": "https://www.midowatches.com/en/commander-1959-m84294n711.html"
+},
+"Oris|3": {
+"brand": "Oris",
+"model": "ProPilot",
+"status": "noimg",
+"page": "https://www.oris.ch/en-US/product/watch/propilot"
+},
+"Nomos|0": {
+"brand": "Nomos",
+"model": "Tangente",
+"status": "nolink"
+},
+"Nomos|1": {
+"brand": "Nomos",
+"model": "Club Campus",
+"status": "nolink"
+},
+"Nomos|2": {
+"brand": "Nomos",
+"model": "Club Sport neomatik",
+"status": "nolink"
+},
+"Nomos|3": {
+"brand": "Nomos",
+"model": "Orion",
+"status": "nolink"
+},
+"Nomos|4": {
+"brand": "Nomos",
+"model": "Metro",
+"status": "nolink"
+},
+"Tudor|0": {
+"brand": "Tudor",
+"model": "Black Bay 58",
+"status": "nolink"
+},
+"Tudor|1": {
+"brand": "Tudor",
+"model": "Black Bay GMT / 58 GMT",
+"status": "nolink"
+},
+"Tudor|2": {
+"brand": "Tudor",
+"model": "Black Bay Pro",
+"status": "nolink"
+},
+"Tudor|3": {
+"brand": "Tudor",
+"model": "Pelagos",
+"status": "nolink"
+},
+"Tudor|4": {
+"brand": "Tudor",
+"model": "Ranger",
+"status": "nolink"
+},
+"Tudor|5": {
+"brand": "Tudor",
+"model": "Black Bay 54",
+"status": "nolink"
+},
+"Baume & Mercier|0": {
+"brand": "Baume & Mercier",
+"model": "Riviera",
+"status": "ok",
+"page": "https://www.baume-et-mercier.com/en/watches/riviera-watches.html",
+"raw": "br-Baume_Mercier-0.jpg",
+"title": "Baume et Mercier Riviera - Find Your Watch Online"
+},
+"Sinn|0": {
+"brand": "Sinn",
+"model": "556",
+"status": "nolink"
+},
+"Sinn|1": {
+"brand": "Sinn",
+"model": "104",
+"status": "nolink"
+},
+"Sinn|2": {
+"brand": "Sinn",
+"model": "103",
+"status": "nolink"
+},
+"Sinn|3": {
+"brand": "Sinn",
+"model": "856",
+"status": "nolink"
+},
+"Sinn|4": {
+"brand": "Sinn",
+"model": "U1",
+"status": "nolink"
+},
+"Sinn|5": {
+"brand": "Sinn",
+"model": "EZM",
+"status": "nolink"
+},
+"Tutima|0": {
+"brand": "Tutima",
+"model": "M2 Seven Seas",
+"status": "nolink"
+},
+"Tutima|1": {
+"brand": "Tutima",
+"model": "M2",
+"status": "nolink"
+},
+"Tutima|2": {
+"brand": "Tutima",
+"model": "Flieger",
+"status": "nolink"
+},
+"Tutima|3": {
+"brand": "Tutima",
+"model": "Grand Flieger",
+"status": "nolink"
+},
+"Tutima|4": {
+"brand": "Tutima",
+"model": "Patria",
+"status": "nolink"
+},
+"Certina|3": {
+"brand": "Certina",
+"model": "DS-7",
+"status": "ok",
+"page": "https://www.certina.com/en/ds-x",
+"raw": "br-Certina-3.jpg",
+"title": "DS-X | Certina"
+},
+"Baume & Mercier|1": {
+"brand": "Baume & Mercier",
+"model": "Clifton",
+"status": "ok",
+"page": "https://www.baume-et-mercier.com/en/watches/clifton.html",
+"raw": "br-Baume_Mercier-1.jpg",
+"title": "Baume et Mercier Clifton - Find Your Watch Online"
+},
+"Baume & Mercier|2": {
+"brand": "Baume & Mercier",
+"model": "Classima",
+"status": "ok",
+"page": "https://www.baume-et-mercier.com/en/watches/classima.html",
+"raw": "br-Baume_Mercier-2.jpg",
+"title": "Baume et Mercier Classima - Find Your Watch Online"
+},
+"Damasko|0": {
+"brand": "Damasko",
+"model": "DK",
+"status": "nolink"
+},
+"Damasko|1": {
+"brand": "Damasko",
+"model": "DA",
+"status": "nolink"
+},
+"Damasko|2": {
+"brand": "Damasko",
+"model": "DS",
+"status": "nolink"
+},
+"Damasko|3": {
+"brand": "Damasko",
+"model": "DC",
+"status": "nolink"
+},
+"Baume & Mercier|3": {
+"brand": "Baume & Mercier",
+"model": "Hampton",
+"status": "ok",
+"page": "https://www.baume-et-mercier.com/en/watches/hampton.html",
+"raw": "br-Baume_Mercier-3.jpg",
+"title": "Baume et Mercier Hampton - Find Your Watch Online"
+},
+"Formex|0": {
+"brand": "Formex",
+"model": "Essence",
+"status": "noimg",
+"page": "https://formexwatch.com/collections/essence/"
+},
+"Formex|1": {
+"brand": "Formex",
+"model": "Reef",
+"status": "noimg",
+"page": "https://formexwatch.com/collections/reef"
+},
+"Formex|2": {
+"brand": "Formex",
+"model": "Field Automatic",
+"status": "noimg",
+"page": "https://formexwatch.com/collections/field-automatic/"
+},
+"Minase|0": {
+"brand": "Minase",
+"model": "Divido",
+"status": "nolink"
+},
+"Minase|1": {
+"brand": "Minase",
+"model": "7 Windows",
+"status": "nolink"
+},
+"Minase|2": {
+"brand": "Minase",
+"model": "5 Windows",
+"status": "nolink"
+},
+"Minase|3": {
+"brand": "Minase",
+"model": "Horizon",
+"status": "nolink"
+},
+"King Seiko|0": {
+"brand": "King Seiko",
+"model": "KSK",
+"status": "nolink"
+},
+"King Seiko|1": {
+"brand": "King Seiko",
+"model": "KS1969",
+"status": "nolink"
+},
+"King Seiko|2": {
+"brand": "King Seiko",
+"model": "VANAC",
+"status": "ok",
+"page": "https://www.seikowatches.com/us-en/products/kingseiko/special/vanac/",
+"raw": "br-King_Seiko-2.jpg",
+"title": "King Seiko VANAC | Seiko Watch Corporation"
+},
+"Oak & Oscar|0": {
+"brand": "Oak & Oscar",
+"model": "Humboldt",
+"status": "nolink"
+},
+"The Citizen quartz|0": {
+"brand": "The Citizen quartz",
+"model": "The Citizen Eco-Drive A060",
+"status": "ok",
+"page": "https://www.citizenwatch-global.com/notice/20190523/index.html",
+"raw": "br-The_Citizen_quartz-0.jpg",
+"title": "Important notice of software update notification for customers who purchased SAT"
+},
+"The Citizen quartz|1": {
+"brand": "The Citizen quartz",
+"model": "The Citizen Caliber 0200",
+"status": "nolink"
+},
+"Grand Seiko quartz|0": {
+"brand": "Grand Seiko quartz",
+"model": "Heritage 9F",
+"status": "ok",
+"page": "https://www.grand-seiko.com/us-en/collections/heritage",
+"raw": "br-Grand_Seiko_quartz-0.jpg",
+"title": "Heritage Collection | Grand Seiko"
+},
+"Grand Seiko quartz|1": {
+"brand": "Grand Seiko quartz",
+"model": "Sport 9F GMT",
+"status": "nolink"
+},
+"Vulcain|1": {
+"brand": "Vulcain",
+"model": "Skindiver",
+"status": "nolink"
+},
+"Straum|0": {
+"brand": "Straum",
+"model": "Jan Mayen",
+"status": "nosite"
+},
+"Straum|1": {
+"brand": "Straum",
+"model": "Expedition",
+"status": "nosite"
+},
+"Ming|0": {
+"brand": "Ming",
+"model": "37 series",
+"status": "ok",
+"page": "https://www.ming.watch/featured-product/ming-37-09-uni",
+"raw": "br-Ming-0.jpg",
+"title": "MING 37.09 Uni"
+},
+"Ming|1": {
+"brand": "Ming",
+"model": "17 series",
+"status": "nolink"
+},
+"Ming|2": {
+"brand": "Ming",
+"model": "57 series",
+"status": "ok",
+"page": "https://www.ming.watch/featured-product/ming-57-09-secret-honey",
+"raw": "br-Ming-2.jpg",
+"title": "MING × Massena LAB 57.09 Secret Honey"
+},
+"Anoma|1": {
+"brand": "Anoma",
+"model": "A1 limited editions",
+"status": "nolink"
+},
+"Ming|3": {
+"brand": "Ming",
+"model": "20.01",
+"status": "ok",
+"page": "https://www.ming.watch/featured-product/ming-51-01-halo",
+"raw": "br-Ming-3.jpg",
+"title": "MING 51.01 Halo"
+},
+"Kurono Tokyo|0": {
+"brand": "Kurono Tokyo",
+"model": "Grand Jubilee Calendar",
+"status": "nolink"
+},
+"Kurono Tokyo|1": {
+"brand": "Kurono Tokyo",
+"model": "Jubilee Sensu",
+"status": "nolink"
+},
+"Kurono Tokyo|2": {
+"brand": "Kurono Tokyo",
+"model": "Anniversary",
+"status": "nolink"
+},
+"Kurono Tokyo|3": {
+"brand": "Kurono Tokyo",
+"model": "Chronograph",
+"status": "nolink"
+},
+"Selten|0": {
+"brand": "Selten",
+"model": "Grand Feu Enamel Flare",
+"status": "nosite"
+},
+"Selten|1": {
+"brand": "Selten",
+"model": "Grand Feu Enamel Spiral",
+"status": "nosite"
+},
+"Hanhart|1": {
+"brand": "Hanhart",
+"model": "Primus Pilot",
+"status": "ok",
+"page": "https://www.hanhart.com/produkt-kategorie/uhren/primus/?v=15fc885b9ab6",
+"raw": "br-Hanhart-1.jpg",
+"title": "PRIMUS Kollektion - Hanhart Chronographen"
+},
+"Airain|0": {
+"brand": "Airain",
+"model": "Type 20",
+"status": "ok",
+"page": "https://www.airain.com/product/type-20-ace/",
+"raw": "br-Airain-0.jpg",
+"title": "TYPE 20 ACE – Airain® Watches"
+},
+"Behrens|0": {
+"brand": "Behrens",
+"model": "Rotary",
+"status": "ok",
+"page": "https://www.behrenswatches.com/en/inventor/Rotary.html",
+"raw": "br-Behrens-0.jpg",
+"title": "Rotary-Inventor Series-BEHRENS Official Website - Creativity and imagination hav"
+},
+"Airain|1": {
+"brand": "Airain",
+"model": "Type 21",
+"status": "noimg",
+"page": "https://www.airain.com/type-20-21-collection/"
+},
+"anOrdain|0": {
+"brand": "anOrdain",
+"model": "Model 2",
+"status": "nolink"
+},
+"anOrdain|1": {
+"brand": "anOrdain",
+"model": "Model 1",
+"status": "nolink"
+},
+"anOrdain|2": {
+"brand": "anOrdain",
+"model": "Model 3",
+"status": "nolink"
+},
+"Hanhart|2": {
+"brand": "Hanhart",
+"model": "Primus Diver",
+"status": "ok",
+"page": "https://www.hanhart.com/produkt-kategorie/uhren/primus/?v=15fc885b9ab6",
+"raw": "br-Hanhart-2.jpg",
+"title": "PRIMUS Kollektion - Hanhart Chronographen"
+},
+"Ophion|0": {
+"brand": "Ophion",
+"model": "OPH 786",
+"status": "nolink"
+},
+"Ophion|1": {
+"brand": "Ophion",
+"model": "OPH 786 Velos",
+"status": "nolink"
+},
+"Airain|2": {
+"brand": "Airain",
+"model": "Sous-Marine Re-Edition",
+"status": "ok",
+"page": "https://www.airain.com/sous-marine-collection/",
+"raw": "br-Airain-2.jpg",
+"title": "Airain Sous-Marine Collection – Airain® Watches"
+},
+"Behrens|1": {
+"brand": "Behrens",
+"model": "The Dark Knight",
+"status": "ok",
+"page": "https://www.behrenswatches.com/en/inventor/the-dark-night.html",
+"raw": "br-Behrens-1.jpg",
+"title": "The Dark Knight-Inventor Series-BEHRENS Official Website - Creativity and imagin"
+},
+"Hanhart|3": {
+"brand": "Hanhart",
+"model": "Primus Racer",
+"status": "ok",
+"page": "https://www.hanhart.com/produkt-kategorie/uhren/primus/?v=15fc885b9ab6",
+"raw": "br-Hanhart-3.jpg",
+"title": "PRIMUS Kollektion - Hanhart Chronographen"
+},
+"Behrens|2": {
+"brand": "Behrens",
+"model": "Navigraph",
+"status": "ok",
+"page": "https://www.behrenswatches.com/en/original/Navigraph.html",
+"raw": "br-Behrens-2.jpg",
+"title": "Navigraph-Original Series-BEHRENS Official Website - Creativity and imagination "
+},
+"Behrens|3": {
+"brand": "Behrens",
+"model": "Starship II",
+"status": "ok",
+"page": "https://www.behrenswatches.com/en/original/StarshipII.html",
+"raw": "br-Behrens-3.jpg",
+"title": "Starship II-Original Series-BEHRENS Official Website - Creativity and imaginatio"
+},
+"Behrens|4": {
+"brand": "Behrens",
+"model": "Ultralight",
+"status": "ok",
+"page": "https://www.behrenswatches.com/en/inventor/341.html",
+"raw": "br-Behrens-4.jpg",
+"title": "Pupil Ultralight 8G-Inventor Series-BEHRENS Official Website - Creativity and im"
+},
+"Cartier|0": {
+"brand": "Cartier",
+"model": "Santos de Cartier",
+"status": "nolink"
+},
+"Cartier|1": {
+"brand": "Cartier",
+"model": "Tank Must",
+"status": "nolink"
+},
+"Cartier|2": {
+"brand": "Cartier",
+"model": "Tank Louis Cartier",
+"status": "nolink"
+},
+"Cartier|3": {
+"brand": "Cartier",
+"model": "Ballon Bleu de Cartier",
+"status": "nolink"
+},
+"Cartier|4": {
+"brand": "Cartier",
+"model": "Panthère de Cartier",
+"status": "nolink"
+},
+"Cartier|5": {
+"brand": "Cartier",
+"model": "Pasha de Cartier",
+"status": "nolink"
+},
+"Zenith|0": {
+"brand": "Zenith",
+"model": "Chronomaster Sport",
+"status": "nolink"
+},
+"Zenith|1": {
+"brand": "Zenith",
+"model": "Defy Skyline",
+"status": "nolink"
+},
+"Zenith|2": {
+"brand": "Zenith",
+"model": "Chronomaster Original",
+"status": "nolink"
+},
+"Zenith|3": {
+"brand": "Zenith",
+"model": "Pilot",
+"status": "nolink"
+},
+"Zenith|4": {
+"brand": "Zenith",
+"model": "Chronomaster Solo Sport",
+"status": "nolink"
+},
+"Zenith|5": {
+"brand": "Zenith",
+"model": "Defy Extreme",
+"status": "nolink"
+},
+"Breitling|0": {
+"brand": "Breitling",
+"model": "Navitimer",
+"status": "ok",
+"page": "https://www.breitling.com/us-en/collections/navitimer/",
+"raw": "br-Breitling-0.jpg",
+"title": "Navitimer Watch Collection | Breitling"
+},
+"Longines|0": {
+"brand": "Longines",
+"model": "Spirit",
+"status": "nolink"
+},
+"Longines|1": {
+"brand": "Longines",
+"model": "Conquest",
+"status": "nolink"
+},
+"Longines|2": {
+"brand": "Longines",
+"model": "HydroConquest",
+"status": "nolink"
+},
+"Longines|3": {
+"brand": "Longines",
+"model": "Legend Diver",
+"status": "nolink"
+},
+"Longines|4": {
+"brand": "Longines",
+"model": "Spirit Zulu Time",
+"status": "nolink"
+},
+"Longines|5": {
+"brand": "Longines",
+"model": "Master Collection",
+"status": "nolink"
+},
+"Breitling|1": {
+"brand": "Breitling",
+"model": "Superocean",
+"status": "ok",
+"page": "https://www.breitling.com/us-en/collections/superocean/",
+"raw": "br-Breitling-1.jpg",
+"title": "Superocean Watch Collection | Breitling"
+},
+"Breitling|2": {
+"brand": "Breitling",
+"model": "Chronomat",
+"status": "ok",
+"page": "https://www.breitling.com/us-en/about-chronomat/",
+"raw": "br-Breitling-2.jpg",
+"title": "Chronomat: The All-Purpose Breitling Icon | Breitling"
+},
+"Breitling|3": {
+"brand": "Breitling",
+"model": "Avenger",
+"status": "ok",
+"page": "https://www.breitling.com/us-en/collections/avenger/",
+"raw": "br-Breitling-3.jpg",
+"title": "Avenger Watch Collection | Breitling"
+},
+"Grand Seiko mechanical|0": {
+"brand": "Grand Seiko mechanical",
+"model": "Heritage Collection Hi-Beat",
+"status": "ok",
+"page": "https://www.grand-seiko.com/us-en/collections/slgh031g",
+"raw": "br-Grand_Seiko_mechanical-0.jpg",
+"title": "SLGH031 | Grand Seiko"
+},
+"Breitling|4": {
+"brand": "Breitling",
+"model": "Top Time",
+"status": "ok",
+"page": "https://www.breitling.com/us-en/collections/top-time/",
+"raw": "br-Breitling-4.jpg",
+"title": "Top Time Watch Collection | Breitling"
+},
+"The Citizen mechanical|0": {
+"brand": "The Citizen mechanical",
+"model": "Caliber 0200",
+"status": "nolink"
+},
+"The Citizen mechanical|1": {
+"brand": "The Citizen mechanical",
+"model": "Caliber 0210 (Caliber 0200 open-heart)",
+"status": "nolink"
+},
+"The Citizen mechanical|2": {
+"brand": "The Citizen mechanical",
+"model": "Caliber 0270",
+"status": "nolink"
+},
+"Grand Seiko mechanical|1": {
+"brand": "Grand Seiko mechanical",
+"model": "Evolution 9",
+"status": "ok",
+"page": "https://www.grand-seiko.com/us-en/collections/evolution9",
+"raw": "br-Grand_Seiko_mechanical-1.jpg",
+"title": "Evolution 9 Collection | Grand Seiko"
+},
+"Breitling|5": {
+"brand": "Breitling",
+"model": "Premier",
+"status": "ok",
+"page": "https://www.breitling.com/us-en/collections/premier/",
+"raw": "br-Breitling-5.jpg",
+"title": "Premier Watch Collection | Breitling"
+},
+"Sartory Billard|2": {
+"brand": "Sartory Billard",
+"model": "SB01",
+"status": "nolink"
+},
+"Grand Seiko mechanical|2": {
+"brand": "Grand Seiko mechanical",
+"model": "Elegance",
+"status": "ok",
+"page": "https://www.grand-seiko.com/us-en/collections/elegance",
+"raw": "br-Grand_Seiko_mechanical-2.jpg",
+"title": "Elegance Collection | Grand Seiko"
+},
+"Horage|0": {
+"brand": "Horage",
+"model": "Supersede",
+"status": "ERR Error: page.goto: Navigation to \"https://www.horage.com/supe",
+"page": "https://www.horage.com/supersede"
+},
+"Horage|2": {
+"brand": "Horage",
+"model": "Lensman",
+"status": "ERR Error: page.goto: Navigation to \"https://www.horage.com/lens",
+"page": "https://www.horage.com/lensman-2"
+},
+"Horage|3": {
+"brand": "Horage",
+"model": "Tourbillon",
+"status": "ERR Error: page.goto: Navigation to \"https://www.horage.com/ktou",
+"page": "https://www.horage.com/ktou"
+},
+"Grand Seiko mechanical|3": {
+"brand": "Grand Seiko mechanical",
+"model": "Sport Collection",
+"status": "ok",
+"page": "https://www.grand-seiko.com/us-en/collections/sport",
+"raw": "br-Grand_Seiko_mechanical-3.jpg",
+"title": "Sport Collection | Grand Seiko"
+},
+"Lundis Bleus|0": {
+"brand": "Lundis Bleus",
+"model": "Ref. 1100",
+"status": "nolink"
+},
+"Lundis Bleus|1": {
+"brand": "Lundis Bleus",
+"model": "Ref. 1120 Contemporaines",
+"status": "nolink"
+},
+"Lundis Bleus|2": {
+"brand": "Lundis Bleus",
+"model": "Ref. 1120 Métiers d'Art",
+"status": "nolink"
+},
+"Lundis Bleus|3": {
+"brand": "Lundis Bleus",
+"model": "Ref. 1110",
+"status": "nolink"
+},
+"Jaeger-LeCoultre|0": {
+"brand": "Jaeger-LeCoultre",
+"model": "Reverso",
+"status": "noimg",
+"page": "https://www.jaeger-lecoultre.com/us-en/watches/reverso"
+},
+"Jaeger-LeCoultre|1": {
+"brand": "Jaeger-LeCoultre",
+"model": "Master Control",
+"status": "noimg",
+"page": "https://www.jaeger-lecoultre.com/us-en/watches/master-control"
+},
+"Jaeger-LeCoultre|2": {
+"brand": "Jaeger-LeCoultre",
+"model": "Polaris",
+"status": "noimg",
+"page": "https://www.jaeger-lecoultre.com/us-en/watches/polaris"
+},
+"Jaeger-LeCoultre|3": {
+"brand": "Jaeger-LeCoultre",
+"model": "Master Ultra Thin",
+"status": "noimg",
+"page": "https://www.jaeger-lecoultre.com/us-en/watches/master-ultra-thin"
+},
+"Jaeger-LeCoultre|4": {
+"brand": "Jaeger-LeCoultre",
+"model": "Rendez-Vous",
+"status": "noimg",
+"page": "https://www.jaeger-lecoultre.com/us-en/watches/rendez-vous"
+},
+"Laine|0": {
+"brand": "Laine",
+"model": "V38",
+"status": "noimg",
+"page": "https://www.lainewatches.com/v38"
+},
+"Laine|1": {
+"brand": "Laine",
+"model": "P37",
+"status": "noimg",
+"page": "https://www.lainewatches.com/p37"
+},
+"Laine|2": {
+"brand": "Laine",
+"model": "P33",
+"status": "nolink"
+},
+"Kudoke|0": {
+"brand": "Kudoke",
+"model": "Kudoke 2",
+"status": "ok",
+"page": "https://www.kudoke.eu/en/startpage/",
+"raw": "br-Kudoke-0.jpg",
+"title": "KUDOKE – Independent Watchmaking – Handmade in Germany"
+},
+"Habring²|0": {
+"brand": "Habring²",
+"model": "Felix",
+"status": "ok",
+"page": "https://www.habring2.com/index.php/en/collection/felix",
+"raw": "br-Habring_-0.jpg",
+"title": "Felix"
+},
+"Kudoke|1": {
+"brand": "Kudoke",
+"model": "Kudoke 3",
+"status": "ok",
+"page": "https://www.kudoke.eu/en/startpage/",
+"raw": "br-Kudoke-1.jpg",
+"title": "KUDOKE – Independent Watchmaking – Handmade in Germany"
+},
+"Habring²|1": {
+"brand": "Habring²",
+"model": "Erwin",
+"status": "ok",
+"page": "https://www.habring2.com/index.php/en/collection/erwin-en",
+"raw": "br-Habring_-1.jpg",
+"title": "Erwin"
+},
+"Kudoke|2": {
+"brand": "Kudoke",
+"model": "Kudoke 1",
+"status": "ok",
+"page": "https://www.kudoke.eu/en/startpage/",
+"raw": "br-Kudoke-2.jpg",
+"title": "KUDOKE – Independent Watchmaking – Handmade in Germany"
+},
+"Habring²|2": {
+"brand": "Habring²",
+"model": "Foudroyante-Felix",
+"status": "ok",
+"page": "https://www.habring2.com/index.php/en/collection/foudroyante-2010",
+"raw": "br-Habring_-2.jpg",
+"title": "Foudroyante-Felix"
+},
+"Kudoke|3": {
+"brand": "Kudoke",
+"model": "Kudoke ∞",
+"status": "ok",
+"page": "https://www.kudoke.eu/en/startpage/",
+"raw": "br-Kudoke-3.jpg",
+"title": "KUDOKE – Independent Watchmaking – Handmade in Germany"
+},
+"Habring²|3": {
+"brand": "Habring²",
+"model": "Doppel-Felix",
+"status": "ok",
+"page": "https://www.habring2.com/index.php/en/archive/doppel-felix",
+"raw": "br-Habring_-3.jpg",
+"title": "Doppel-Felix"
+},
+"Otsuka Lotec|0": {
+"brand": "Otsuka Lotec",
+"model": "No.6",
+"status": "nolink"
+},
+"Otsuka Lotec|1": {
+"brand": "Otsuka Lotec",
+"model": "No.7.5",
+"status": "nolink"
+},
+"Otsuka Lotec|2": {
+"brand": "Otsuka Lotec",
+"model": "No.8",
+"status": "nolink"
+},
+"Dornblüth & Sohn|0": {
+"brand": "Dornblüth & Sohn",
+"model": "99.1",
+"status": "ok",
+"page": "https://www.dornblueth.com/ref.kal.99.4",
+"raw": "br-Dornbl_th_Sohn-0.jpg",
+"title": "Kollektion: Kaliber 99.4"
+},
+"Habring²|4": {
+"brand": "Habring²",
+"model": "Chrono-Felix",
+"status": "ok",
+"page": "https://www.habring2.com/index.php/en/collection/chrono-felix",
+"raw": "br-Habring_-4.jpg",
+"title": "Chrono-Felix"
+},
+"Dornblüth & Sohn|1": {
+"brand": "Dornblüth & Sohn",
+"model": "99.0",
+"status": "ok",
+"page": "https://www.dornblueth.com/ref.kal.99.4",
+"raw": "br-Dornbl_th_Sohn-1.jpg",
+"title": "Kollektion: Kaliber 99.4"
+},
+"Dornblüth & Sohn|2": {
+"brand": "Dornblüth & Sohn",
+"model": "Quintus",
+"status": "nolink"
+},
+"Felipe Pikullik|0": {
+"brand": "Felipe Pikullik",
+"model": "Mondphase 1",
+"status": "nolink"
+},
+"Felipe Pikullik|1": {
+"brand": "Felipe Pikullik",
+"model": "Mondphase II",
+"status": "nolink"
+},
+"Dornblüth & Sohn|3": {
+"brand": "Dornblüth & Sohn",
+"model": "99.5",
+"status": "ok",
+"page": "https://www.dornblueth.com/ref.kal.99.4",
+"raw": "br-Dornbl_th_Sohn-3.jpg",
+"title": "Kollektion: Kaliber 99.4"
+},
+"Omega|0": {
+"brand": "Omega",
+"model": "Seamaster Diver 300M",
+"status": "nolink"
+},
+"Omega|1": {
+"brand": "Omega",
+"model": "Speedmaster Moonwatch Professional",
+"status": "nolink"
+},
+"Omega|2": {
+"brand": "Omega",
+"model": "Seamaster Aqua Terra",
+"status": "nolink"
+},
+"Omega|3": {
+"brand": "Omega",
+"model": "Constellation",
+"status": "nolink"
+},
+"Omega|4": {
+"brand": "Omega",
+"model": "Seamaster Planet Ocean",
+"status": "nolink"
+},
+"Glashütte Original|0": {
+"brand": "Glashütte Original",
+"model": "Seventies Chronograph Panorama Date",
+"status": "ok",
+"page": "https://www.glashuette-original.com/en/watches/vintage/seventies-chronograph-panorama-date-1-37-02-09-02-62/",
+"raw": "br-Glash_tte_Original-0.jpg",
+"title": "Seventies Chronograph Panorama Date 1-37-02-09-02-62 - Glashütte Original"
+},
+"Glashütte Original|1": {
+"brand": "Glashütte Original",
+"model": "SeaQ",
+"status": "noimg",
+"page": "https://www.glashuette-original.com/en/watches/spezialist/seaq-panorama-date-1-36-13-03-90-33/"
+},
+"Glashütte Original|2": {
+"brand": "Glashütte Original",
+"model": "Senator Excellence",
+"status": "noimg",
+"page": "https://www.glashuette-original.com/en/watches/senator/senator-excellence-perpetual-calendar-1-36-12-02-05-62/"
+},
+"Glashütte Original|3": {
+"brand": "Glashütte Original",
+"model": "PanoMaticLunar",
+"status": "noimg",
+"page": "https://www.glashuette-original.com/en/watches/pano/panomaticlunar-1-92-14-01-03-61/"
+},
+"Glashütte Original|4": {
+"brand": "Glashütte Original",
+"model": "Sixties",
+"status": "nolink"
+}
+}

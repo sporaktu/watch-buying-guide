@@ -1,0 +1,760 @@
+{
+ "Cartier": [
+  {
+   "name": "Santos de Cartier",
+   "type": "sports",
+   "sizes": "35, 40mm",
+   "movement": "Automatic, Cartier 1847 MC",
+   "handWound": false,
+   "price": "$7,050–8,500",
+   "desc": "A square watch with exposed screws on the bezel, first made for a pilot in 1904, with a quick-swap bracelet.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Tank Must",
+   "type": "dress",
+   "sizes": "22, 25.5, 29.5mm",
+   "movement": "Quartz or SolarBeat solar quartz",
+   "handWound": false,
+   "price": "$3,750–4,400",
+   "desc": "The cheapest way into Cartier's classic rectangular Tank, with a light-powered version that needs no battery changes.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Tank Louis Cartier",
+   "type": "dress",
+   "sizes": "25.5, 29.5mm",
+   "movement": "Hand-wound or quartz",
+   "handWound": true,
+   "price": "$11,000–15,000",
+   "desc": "The original gold Tank shape from 1922, thin and elegant, often called the most classic dress watch there is.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Ballon Bleu de Cartier",
+   "type": "dress",
+   "sizes": "33, 36, 40, 42mm",
+   "movement": "Automatic, Cartier 1847 MC",
+   "handWound": false,
+   "price": "$7,050–8,200",
+   "desc": "A round, pebble-like case with the crown tucked under a blue stone guard, popular as an everyday luxury watch.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Panthère de Cartier",
+   "type": "dress",
+   "sizes": "Small, medium, large (about 22–37mm)",
+   "movement": "Quartz",
+   "handWound": false,
+   "price": "$5,900–7,500",
+   "desc": "A small square watch on a supple brick-style bracelet that feels like jewellery and is worn mostly by women.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Pasha de Cartier",
+   "type": "sports",
+   "sizes": "35, 41mm",
+   "movement": "Automatic, Cartier 1847 MC",
+   "handWound": false,
+   "price": "$6,500–8,000",
+   "desc": "A round watch with a chained crown cover and square minute track, with quick-change straps and bracelets.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Zenith": [
+  {
+   "name": "Chronomaster Sport",
+   "type": "chronograph",
+   "sizes": "41mm",
+   "movement": "Automatic, in-house El Primero 3600",
+   "handWound": false,
+   "price": "$11,000–16,700",
+   "desc": "A steel sports chronograph whose fast movement can time events to a tenth of a second, at a fair price for its class.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Defy Skyline",
+   "type": "sports",
+   "sizes": "36, 41mm",
+   "movement": "Automatic, in-house El Primero 3620",
+   "handWound": false,
+   "price": "$8,500–10,000",
+   "desc": "A sporty steel watch with a built-in bracelet, an angular bezel and a star-patterned dial.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Chronomaster Original",
+   "type": "chronograph",
+   "sizes": "38mm",
+   "movement": "Automatic, in-house El Primero 3600",
+   "handWound": false,
+   "price": "$10,000–11,500",
+   "desc": "A faithful remake of the 1969 El Primero chronograph with its famous three different coloured sub-dials.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Pilot",
+   "type": "pilot",
+   "sizes": "40mm",
+   "movement": "Automatic, in-house El Primero 3620",
+   "handWound": false,
+   "price": "$8,400–10,700",
+   "desc": "A modern pilot's watch with big numerals and a date, offered in steel or black ceramic.",
+   "url": "https://www.zenith-watches.com/en_us/product/pilot-automatic-49-4000-3620-21-i001",
+   "img": ""
+  },
+  {
+   "name": "Chronomaster Solo Sport",
+   "type": "sports",
+   "sizes": "41mm",
+   "movement": "Automatic, in-house El Primero",
+   "handWound": false,
+   "price": "$9,800–10,900",
+   "desc": "A new 2026 three-hand version of the Chronomaster Sport, keeping the look without the stopwatch.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Defy Extreme",
+   "type": "sports",
+   "sizes": "45mm",
+   "movement": "Automatic, in-house El Primero 9004",
+   "handWound": false,
+   "price": "$19,000–22,000",
+   "desc": "A big, bold titanium chronograph with swappable straps, aimed at buyers who want a statement watch.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Jaeger-LeCoultre": [
+  {
+   "name": "Reverso",
+   "type": "dress",
+   "sizes": "40 x 24mm and other rectangular sizes",
+   "movement": "Hand-wound, in-house JLC 822",
+   "handWound": true,
+   "price": "$6,850–15,000",
+   "desc": "An Art Deco rectangular watch whose case flips over to protect the glass, first made for polo players in 1931.",
+   "url": "https://www.jaeger-lecoultre.com/nz-en/watches/reverso/reverso-tribute/reverso-tribute-monoface-stainless-steel-q7168420",
+   "img": ""
+  },
+  {
+   "name": "Master Control",
+   "type": "dress",
+   "sizes": "39, 40mm",
+   "movement": "Automatic, in-house JLC 899",
+   "handWound": false,
+   "price": "$10,400–14,200",
+   "desc": "A simple, well-made round dress watch with a date, tested for 1,000 hours before it leaves the factory.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Polaris",
+   "type": "sports",
+   "sizes": "40, 42mm",
+   "movement": "Automatic, in-house JLC 899",
+   "handWound": false,
+   "price": "$10,400–13,100",
+   "desc": "A sporty steel watch inspired by a 1968 alarm diver, with a rotating inner ring and a matching bracelet.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Master Ultra Thin",
+   "type": "dress",
+   "sizes": "39, 40mm",
+   "movement": "Automatic, in-house JLC 925 or 899",
+   "handWound": false,
+   "price": "$10,200–15,000",
+   "desc": "A very thin, classic round watch, including a well-known moon phase model, meant to slide under a shirt cuff.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Rendez-Vous",
+   "type": "dress",
+   "sizes": "29, 34, 36mm",
+   "movement": "Automatic, in-house JLC",
+   "handWound": false,
+   "price": "$9,000–14,000",
+   "desc": "A feminine round watch with ornate numerals and a floral feel, the brand's main women's line.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Glashütte Original": [
+  {
+   "name": "Seventies Chronograph Panorama Date",
+   "type": "chronograph",
+   "sizes": "40mm",
+   "movement": "Automatic, in-house 37-02 flyback",
+   "handWound": false,
+   "price": "$16,300–17,900",
+   "desc": "A cushion-shaped 1970s-style chronograph with a big date display, made in Germany's watch town of Glashütte.",
+   "url": "https://www.glashuette-original.com/en/watches/vintage/seventies-chronograph-panorama-date-1-37-02-09-02-70",
+   "img": ""
+  },
+  {
+   "name": "SeaQ",
+   "type": "dive",
+   "sizes": "39.5, 43.2mm",
+   "movement": "Automatic, in-house 39-11",
+   "handWound": false,
+   "price": "$10,000–17,600",
+   "desc": "A vintage-style dive watch based on the brand's 1969 Spezimatic diver, rated to 200 metres.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Senator Excellence",
+   "type": "dress",
+   "sizes": "40mm",
+   "movement": "Automatic, in-house 36",
+   "handWound": false,
+   "price": "$12,600–27,200",
+   "desc": "A classic round dress watch with a long 100-hour power reserve and finely finished German movement.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "PanoMaticLunar",
+   "type": "dress",
+   "sizes": "40mm",
+   "movement": "Automatic, in-house 90-02",
+   "handWound": false,
+   "price": "$12,400–13,400",
+   "desc": "The brand's signature off-centre dial with a big date and moon phase, unlike any Swiss design.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Sixties",
+   "type": "dress",
+   "sizes": "39mm",
+   "movement": "Automatic, in-house 39",
+   "handWound": false,
+   "price": "$7,000–9,300",
+   "desc": "The cheapest Glashütte Original, a 1960s-style round watch with domed, often gradient coloured dials.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Grand Seiko mechanical": [
+  {
+   "name": "Heritage Collection Hi-Beat",
+   "type": "dress",
+   "sizes": "37, 40mm",
+   "movement": "Automatic, in-house Hi-Beat 9S85 or 9SA5",
+   "handWound": false,
+   "price": "$6,900–10,000",
+   "desc": "Crisp, angular steel watches based on 1960s Grand Seiko designs, known for flawless polishing and detailed textured dials.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Evolution 9",
+   "type": "sports",
+   "sizes": "40mm",
+   "movement": "Automatic, in-house Hi-Beat 9SA5",
+   "handWound": false,
+   "price": "$10,200–14,500",
+   "desc": "A modern take on the house style with wider hands, an 80-hour power reserve and birch bark textured dials.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Elegance",
+   "type": "dress",
+   "sizes": "37.3, 38, 39mm",
+   "movement": "Hand-wound, in-house 9S64 / automatic 9S",
+   "handWound": true,
+   "price": "$2,700–6,000",
+   "desc": "Gentle, classic dress watches including a hand-wound model, generally the quietest designs in the range.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Sport Collection",
+   "type": "dive",
+   "sizes": "43.2, 44.2mm",
+   "movement": "Automatic, in-house 9S",
+   "handWound": false,
+   "price": "$6,000–9,000",
+   "desc": "Tough, larger dive and GMT watches with the same fine finishing, built for daily hard use.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "The Citizen mechanical": [
+  {
+   "name": "Caliber 0200",
+   "type": "dress",
+   "sizes": "40mm",
+   "movement": "Automatic, in-house Caliber 0200",
+   "handWound": false,
+   "price": "$6,995–8,425",
+   "desc": "Citizen's top mechanical watch, with a finely finished in-house movement and a crisp dial, a value rival to Grand Seiko.",
+   "url": "https://www.citizenwatch.com/us/en/product/NC0201-54A.html",
+   "img": ""
+  },
+  {
+   "name": "Caliber 0210 (Caliber 0200 open-heart)",
+   "type": "dress",
+   "sizes": "40mm",
+   "movement": "Automatic, in-house Caliber 0210",
+   "handWound": false,
+   "price": "$8,400–10,000",
+   "desc": "The same watch with a cut-out on the dial so you can see the movement's beating balance wheel.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Caliber 0270",
+   "type": "dress",
+   "sizes": "40mm",
+   "movement": "Automatic, in-house Caliber 0270 (Japan focused)",
+   "handWound": false,
+   "price": "$7,000–9,000",
+   "desc": "A high-precision mechanical model sold mainly in Japan, aimed at accuracy collectors.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Horage": [
+  {
+   "name": "Supersede",
+   "type": "sports",
+   "sizes": "39, 41mm",
+   "movement": "Automatic, in-house K2 micro-rotor",
+   "handWound": false,
+   "price": "$6,050–7,170",
+   "desc": "An integrated-bracelet sports watch with Horage's own slim micro-rotor movement, sold in date and GMT versions.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Autark",
+   "type": "sports",
+   "sizes": "38, 40mm",
+   "movement": "Automatic, in-house K1/K2",
+   "handWound": false,
+   "price": "$3,500–4,965",
+   "desc": "The brand's original everyday steel watch, offering an in-house Swiss movement at a modest price.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Lensman",
+   "type": "other",
+   "sizes": "40, 42mm",
+   "movement": "Automatic, in-house K1/K2",
+   "handWound": false,
+   "price": "$6,015–11,020",
+   "desc": "Titanium watches styled after vintage camera lenses, from simple models to a tourbillon.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Tourbillon",
+   "type": "other",
+   "sizes": "41mm",
+   "movement": "Automatic, in-house K-TOU tourbillon",
+   "handWound": false,
+   "price": "$9,000–12,125",
+   "desc": "One of the cheapest Swiss tourbillons, a spinning cage movement normally reserved for luxury brands.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Louis Erard": [
+  {
+   "name": "Excellence Régulateur",
+   "type": "dress",
+   "sizes": "42mm",
+   "movement": "Automatic, Sellita SW266-1 based",
+   "handWound": false,
+   "price": "$2,750–3,400",
+   "desc": "A watch that shows hours, minutes and seconds on separate dials, a classic old clockmaker layout.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Le Régulateur",
+   "type": "dress",
+   "sizes": "39, 40mm",
+   "movement": "Automatic, Sellita SW266-1 based",
+   "handWound": false,
+   "price": "$4,000–5,500",
+   "desc": "Regulator-dial watches made with famous designers like Alain Silberstein and Konstantin Chaykin, often in limited runs.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Excellence Petite Seconde",
+   "type": "dress",
+   "sizes": "40, 42mm",
+   "movement": "Hand-wound or automatic, Sellita",
+   "handWound": false,
+   "price": "$1,500–2,800",
+   "desc": "An affordable Swiss dress watch with a small seconds dial and enamel or guilloché options.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Excellence Guilloché Main",
+   "type": "dress",
+   "sizes": "39, 40mm",
+   "movement": "Automatic, Sellita",
+   "handWound": false,
+   "price": "$2,500–3,500",
+   "desc": "Classic dress watches with patterned dials hand-cut on old engine-turning machines.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "La Semaine",
+   "type": "other",
+   "sizes": "40mm",
+   "movement": "Automatic, Sellita",
+   "handWound": false,
+   "price": "$4,000–5,950",
+   "desc": "A playful collaboration piece that shows the day of the week with a big hand.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Sartory Billard": [
+  {
+   "name": "SB04",
+   "type": "sports",
+   "sizes": "38, 39mm",
+   "movement": "Automatic, La Joux-Perret",
+   "handWound": false,
+   "price": "$3,600–4,950",
+   "desc": "A simple, sporty French-designed watch built with independent-brand finishing at a modest price.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "SB05",
+   "type": "dress",
+   "sizes": "38.5, 39mm",
+   "movement": "Hand-wound, La Joux-Perret custom",
+   "handWound": true,
+   "price": "$11,000–15,000",
+   "desc": "A refined made-to-order dress watch with many dial and finishing choices, from hammered to lacquer.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "SB01",
+   "type": "dress",
+   "sizes": "40mm",
+   "movement": "Hand-wound, La Joux-Perret",
+   "handWound": true,
+   "price": "$6,000–8,000",
+   "desc": "The brand's first watch, a three-hand design made to customer order.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Habring²": [
+  {
+   "name": "Felix",
+   "type": "dress",
+   "sizes": "38.5mm",
+   "movement": "Hand-wound, in-house A11",
+   "handWound": true,
+   "price": "$5,500–6,500",
+   "desc": "A plain, honest Austrian dress watch with the brand's own movement, made by a husband and wife team.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Erwin",
+   "type": "dress",
+   "sizes": "38.5mm",
+   "movement": "Hand-wound, in-house A11 jumping seconds",
+   "handWound": true,
+   "price": "$6,200–7,000",
+   "desc": "The Felix with a seconds hand that jumps once a second like a quartz clock, but done mechanically.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Foudroyante-Felix",
+   "type": "dress",
+   "sizes": "38.5mm",
+   "movement": "Hand-wound, in-house A11",
+   "handWound": true,
+   "price": "$7,900–8,800",
+   "desc": "Adds a tiny dial that spins through eighths of a second, a rare old complication at an approachable price.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Doppel-Felix",
+   "type": "chronograph",
+   "sizes": "42mm",
+   "movement": "Hand-wound, in-house split seconds",
+   "handWound": true,
+   "price": "$10,400–12,000",
+   "desc": "A split-seconds chronograph that can time two events at once, made by the man who designed IWC's famous one.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Chrono-Felix",
+   "type": "chronograph",
+   "sizes": "38.5, 42mm",
+   "movement": "Hand-wound, in-house monopusher",
+   "handWound": true,
+   "price": "$9,000–25,000",
+   "desc": "A one-button chronograph with the brand's own movement, including a perpetual calendar version.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Kudoke": [
+  {
+   "name": "Kudoke 2",
+   "type": "dress",
+   "sizes": "39mm",
+   "movement": "Hand-wound, modified base with hand-engraved bridges",
+   "handWound": true,
+   "price": "$13,000–16,000",
+   "desc": "A hand-engraved German watch with a day and night indicator that shows a sun and moon, a cult favourite.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Kudoke 3",
+   "type": "dress",
+   "sizes": "39mm",
+   "movement": "Hand-wound, modified base",
+   "handWound": true,
+   "price": "$10,000–20,400",
+   "desc": "A simpler, cleaner three-hand Kudoke with hand-engraved details and colourful dial options.",
+   "url": "",
+   "img": "https://cdn.shopify.com/s/files/1/0716/2783/3515/files/kudoke-3-raspberry.jpg?v=1787924331"
+  },
+  {
+   "name": "Kudoke 1",
+   "type": "dress",
+   "sizes": "39mm",
+   "movement": "Hand-wound, modified base",
+   "handWound": true,
+   "price": "$10,730–12,000",
+   "desc": "The entry Kudoke, a small-seconds watch with hand-engraved movement and a clean dial.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Kudoke ∞",
+   "type": "dress",
+   "sizes": "39mm",
+   "movement": "Hand-wound, modified base",
+   "handWound": true,
+   "price": "$15,000–17,000",
+   "desc": "A higher-end piece with a sculpted engraved movement visible from the front.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Lundis Bleus": [
+  {
+   "name": "Ref. 1100",
+   "type": "dress",
+   "sizes": "38mm",
+   "movement": "Automatic, Swiss",
+   "handWound": false,
+   "price": "$1,350–3,000",
+   "desc": "The founding model of a small Swiss workshop, a clean three-hand dress watch with an in-house case.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Ref. 1120 Contemporaines",
+   "type": "dress",
+   "sizes": "38mm",
+   "movement": "Automatic, Swiss",
+   "handWound": false,
+   "price": "$4,050–5,100",
+   "desc": "Dress watches with stone, enamel or mother-of-pearl dials, made by hand in the brand's own workshop.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Ref. 1120 Métiers d'Art",
+   "type": "dress",
+   "sizes": "38mm",
+   "movement": "Automatic, Swiss",
+   "handWound": false,
+   "price": "$4,790–11,600",
+   "desc": "Hand-made artistic dials using enamel, mosaic or engraving, rare at this price.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Ref. 1110",
+   "type": "dress",
+   "sizes": "38mm",
+   "movement": "Automatic, Swiss",
+   "handWound": false,
+   "price": "$5,000–7,000",
+   "desc": "A kiln-fired enamel dial watch in deep colours, shortlisted at the Geneva watch awards.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Laine": [
+  {
+   "name": "V38",
+   "type": "dress",
+   "sizes": "38mm",
+   "movement": "Automatic, Vaucher 5401 micro-rotor",
+   "handWound": false,
+   "price": "$10,900–12,500",
+   "desc": "A slim, refined dress watch with hand-made guilloché dial options, from a Finnish maker working in Switzerland.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "P37",
+   "type": "dress",
+   "sizes": "37mm",
+   "movement": "Hand-wound",
+   "handWound": true,
+   "price": "$11,000–13,500",
+   "desc": "A smaller hand-wound dress watch with bold dial colours, sold in numbered editions.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "P33",
+   "type": "dress",
+   "sizes": "33mm",
+   "movement": "Hand-wound",
+   "handWound": true,
+   "price": "$11,000–15,000",
+   "desc": "A new 2026 compact model for smaller wrists, made in the same craft-focused way.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Dornblüth & Sohn": [
+  {
+   "name": "99.1",
+   "type": "dress",
+   "sizes": "38.5, 42mm",
+   "movement": "Hand-wound, in-house modified Caliber 99",
+   "handWound": true,
+   "price": "$7,170–9,500",
+   "desc": "A clean German hand-wound watch with a large small-seconds dial and a broad, traditional movement.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "99.0",
+   "type": "dress",
+   "sizes": "38.5, 42mm",
+   "movement": "Hand-wound, in-house Caliber 99",
+   "handWound": true,
+   "price": "$7,170–8,000",
+   "desc": "The simplest Dornblüth, a plain time-only watch built with old-school German craftsmanship.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Quintus",
+   "type": "other",
+   "sizes": "38.5mm",
+   "movement": "Hand-wound, mostly in-house",
+   "handWound": true,
+   "price": "$12,000–15,500",
+   "desc": "A regulator-style watch with separate hours and minutes, and movement parts made almost entirely in-house.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "99.5",
+   "type": "dress",
+   "sizes": "38.5, 42mm",
+   "movement": "Hand-wound, in-house Caliber 99",
+   "handWound": true,
+   "price": "$8,990–11,000",
+   "desc": "Adds a power reserve indicator so you can see when the watch needs winding.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Felipe Pikullik": [
+  {
+   "name": "Mondphase 1",
+   "type": "dress",
+   "sizes": "39mm",
+   "movement": "Hand-wound, modified base with moon phase",
+   "handWound": true,
+   "price": "$27,000–47,000",
+   "desc": "A small-batch Berlin-made watch with a precise moon phase, now in its final meteorite dial run.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Mondphase II",
+   "type": "dress",
+   "sizes": "39mm",
+   "movement": "Hand-wound, in-house",
+   "handWound": true,
+   "price": "$50,000–75,000",
+   "desc": "The brand's first fully in-house movement, a moon phase watch made in 20 pieces per metal.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Otsuka Lotec": [
+  {
+   "name": "No.6",
+   "type": "other",
+   "sizes": "42mm",
+   "movement": "Automatic, Miyota base with in-house retrograde module",
+   "handWound": false,
+   "price": "$5,500–6,500",
+   "desc": "A retrograde-display watch inspired by an old air pressure gauge, built by a one-man Tokyo workshop.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "No.7.5",
+   "type": "other",
+   "sizes": "40mm",
+   "movement": "Automatic, Miyota 82S5 with in-house jumping hour",
+   "handWound": false,
+   "price": "$5,500–6,500",
+   "desc": "A jumping-hour watch styled like a vintage 8mm movie camera lens, rarely sold outside Japan.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "No.8",
+   "type": "other",
+   "sizes": "40mm",
+   "movement": "Automatic, Miyota base with in-house module",
+   "handWound": false,
+   "price": "$6,000–8,000",
+   "desc": "Shows jumping hours and backward-jumping minutes, inspired by studio mixing consoles, sold by lottery.",
+   "url": "",
+   "img": ""
+  }
+ ]
+}

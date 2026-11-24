@@ -1,0 +1,793 @@
+{
+ "Squale": [
+  {
+   "name": "1521",
+   "type": "dive",
+   "sizes": "42mm",
+   "movement": "Automatic, Sellita SW200-1",
+   "handWound": false,
+   "price": "$1,100–1,500",
+   "desc": "The brand's signature 1960s-style dive watch with a chunky cushion case, once supplied to Italian navy divers.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Super-Squale",
+   "type": "dive",
+   "sizes": "38mm",
+   "movement": "Automatic, Sellita SW200-1",
+   "handWound": false,
+   "price": "$1,110–1,240",
+   "desc": "A slim, vintage-style skin diver with a sunburst dial, good for smaller wrists and dressier days.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Sub-39",
+   "type": "dive",
+   "sizes": "39mm",
+   "movement": "Automatic, Sellita SW200-1 (GMT version available)",
+   "handWound": false,
+   "price": "$1,350–1,880",
+   "desc": "A modern, mid-size diver that is the smallest in the range, also offered as a travel GMT.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Matic",
+   "type": "dive",
+   "sizes": "44mm",
+   "movement": "Automatic, Sellita SW200-1",
+   "handWound": false,
+   "price": "$1,000–1,300",
+   "desc": "The brand's big professional dive watch with very high water resistance and bold bezel colors.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "DOXA": [
+  {
+   "name": "Sub 300",
+   "type": "dive",
+   "sizes": "42.5mm",
+   "movement": "Automatic, Swiss COSC chronometer",
+   "handWound": false,
+   "price": "$2,850–3,390",
+   "desc": "The famous orange-dial diver from 1967 with a tonneau case and a bezel that doubles as a dive table.",
+   "url": "https://www.doxawatches.com/collections",
+   "img": ""
+  },
+  {
+   "name": "Sub 200",
+   "type": "dive",
+   "sizes": "42mm",
+   "movement": "Automatic, Sellita SW200-1",
+   "handWound": false,
+   "price": "$1,250–1,290",
+   "desc": "The brand's entry-level diver, a sportier and cheaper way into DOXA's colorful dial lineup.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Sub 600T",
+   "type": "dive",
+   "sizes": "40mm",
+   "movement": "Automatic, Sellita SW200-1",
+   "handWound": false,
+   "price": "$1,450–1,790",
+   "desc": "A compact angular diver with a built-in bracelet look, based on a 1980s DOXA model.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Sub 200T",
+   "type": "dive",
+   "sizes": "39mm",
+   "movement": "Automatic, Swiss",
+   "handWound": false,
+   "price": "$1,750–2,190",
+   "desc": "A smaller, more refined diver that wears well on most wrists and comes in many dial colors.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Sub 250T GMT",
+   "type": "GMT",
+   "sizes": "43mm",
+   "movement": "Automatic GMT, Swiss",
+   "handWound": false,
+   "price": "$2,790",
+   "desc": "DOXA's travel diver that shows a second time zone, styled after a 1960s model.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "DOXA Army",
+   "type": "dive",
+   "sizes": "42.5mm",
+   "movement": "Automatic, Swiss",
+   "handWound": false,
+   "price": "$2,250–2,290",
+   "desc": "A military-styled diver with a beige dial, reissued from a rare watch made for the Swiss army.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Farer": [
+  {
+   "name": "Field Series II (Pembroke, Lomond, Exmoor)",
+   "type": "field",
+   "sizes": "",
+   "movement": "Swiss mechanical",
+   "handWound": false,
+   "price": "$1,350–1,500",
+   "desc": "Three colorful, easy-to-read field watches with British design flair, sold with a strap and bracelet.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "GMT Bezel",
+   "type": "GMT",
+   "sizes": "38, 40mm",
+   "movement": "Automatic GMT, Swiss",
+   "handWound": false,
+   "price": "$1,650–2,000",
+   "desc": "Travel watches with a 24-hour bezel and bright, playful dial colors that set Farer apart.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Lander GMT",
+   "type": "GMT",
+   "sizes": "39.5mm",
+   "movement": "Automatic GMT, Swiss",
+   "handWound": false,
+   "price": "$1,600–1,900",
+   "desc": "A clean everyday travel watch with an extra hand for a second time zone.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Aqua Compressor",
+   "type": "dive",
+   "sizes": "41mm",
+   "movement": "Automatic, La Joux-Perret G101 (titanium case)",
+   "handWound": false,
+   "price": "$1,350–1,615",
+   "desc": "A light titanium diver with an inner rotating bezel worked by a second crown.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Monopusher GMT",
+   "type": "chronograph",
+   "sizes": "",
+   "movement": "Swiss mechanical monopusher chronograph with GMT",
+   "handWound": false,
+   "price": "$2,195",
+   "desc": "A stopwatch run from a single button that also tracks a second time zone, unusual at this price.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Studio Underd0g": [
+  {
+   "name": "01SERIES",
+   "type": "chronograph",
+   "sizes": "38.5mm",
+   "movement": "Hand-wound, Seagull ST1901",
+   "handWound": true,
+   "price": "$650–700",
+   "desc": "The playful fruit-and-food themed dial chronograph that made the brand famous, built around a mechanical stopwatch.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "02SERIES",
+   "type": "sports",
+   "sizes": "",
+   "movement": "Automatic",
+   "handWound": false,
+   "price": "$500–700",
+   "desc": "A simpler, cheaper time-only watch carrying the brand's fun colors and dial art.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "03SERIES",
+   "type": "chronograph",
+   "sizes": "",
+   "movement": "Hand-wound, Sellita SW510 M",
+   "handWound": true,
+   "price": "$2,100–2,300",
+   "desc": "A step-up single-button chronograph with a Swiss movement and the brand's signature colorful dials.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "04SERIES Calendar",
+   "type": "other",
+   "sizes": "37, 38.5mm",
+   "movement": "Automatic, Seagull ST-2115B",
+   "handWound": false,
+   "price": "$1,100",
+   "desc": "A calendar watch with a sweeping date hand, weekend indicator and moon phase at a low price.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Stowa": [
+  {
+   "name": "Flieger",
+   "type": "pilot",
+   "sizes": "36, 40, 43mm",
+   "movement": "Automatic or hand-wound, Swiss (Sellita/ETA)",
+   "handWound": false,
+   "price": "$700–1,200",
+   "desc": "A faithful version of the WWII-era German pilot watch from a brand that actually made them.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Antea",
+   "type": "dress",
+   "sizes": "35.5, 39mm",
+   "movement": "Hand-wound or automatic, Swiss",
+   "handWound": false,
+   "price": "$700–1,150",
+   "desc": "A clean Bauhaus-style dress watch based on Stowa's own 1930s design.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Marine",
+   "type": "dress",
+   "sizes": "36, 40mm",
+   "movement": "Hand-wound or automatic, Swiss",
+   "handWound": false,
+   "price": "$800–1,200",
+   "desc": "A classic ship's-clock style watch with Roman numerals and blued hands.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Partitio",
+   "type": "dress",
+   "sizes": "37mm",
+   "movement": "Hand-wound, Swiss",
+   "handWound": true,
+   "price": "$650–900",
+   "desc": "A slim Bauhaus-inspired dress watch with a clear dial layout and a manual-wind movement.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Seatime",
+   "type": "dive",
+   "sizes": "42mm",
+   "movement": "Automatic, Swiss",
+   "handWound": false,
+   "price": "$900–1,300",
+   "desc": "The brand's sporty 300-meter dive watch with a rotating bezel and bright lume.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Junghans": [
+  {
+   "name": "Max Bill Automatic",
+   "type": "dress",
+   "sizes": "34, 38mm",
+   "movement": "Automatic, Junghans J800.1 (Swiss base)",
+   "handWound": false,
+   "price": "$1,100–1,750",
+   "desc": "The famous minimalist Bauhaus watch designed by Max Bill, with a thin case and domed crystal.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Max Bill Hand-wound",
+   "type": "dress",
+   "sizes": "34mm",
+   "movement": "Hand-wound, Junghans J805.1 (ETA 2801 base)",
+   "handWound": true,
+   "price": "$900–1,300",
+   "desc": "The thinnest, purest version of the Max Bill design, wound by hand each day.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Max Bill Chronoscope",
+   "type": "chronograph",
+   "sizes": "40mm",
+   "movement": "Automatic chronograph, Junghans J880",
+   "handWound": false,
+   "price": "$2,000–2,800",
+   "desc": "The same clean Bauhaus look in a stopwatch version with a date window.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Meister",
+   "type": "dress",
+   "sizes": "37.7, 40.7mm",
+   "movement": "Hand-wound or automatic, Swiss base",
+   "handWound": false,
+   "price": "$1,300–1,900",
+   "desc": "A more traditional, elegant dress watch line with a domed crystal and mid-century styling.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Form",
+   "type": "dress",
+   "sizes": "39.3mm",
+   "movement": "Automatic, Junghans J800.2",
+   "handWound": false,
+   "price": "$1,200–1,900",
+   "desc": "A modern minimalist watch with a sportier dial, a simpler alternative to the Max Bill.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Archimede": [
+  {
+   "name": "OutDoor 39 Protect",
+   "type": "field",
+   "sizes": "39mm",
+   "movement": "Automatic, Sellita SW200-1",
+   "handWound": false,
+   "price": "$850–1,000",
+   "desc": "A tough field watch with a scratch-hardened steel case, a sharp bezel and very readable dial.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Pilot",
+   "type": "pilot",
+   "sizes": "36, 39, 42, 45mm",
+   "movement": "Automatic, Swiss",
+   "handWound": false,
+   "price": "$600–1,300",
+   "desc": "A classic German-made flieger with a big crown and clear numbers, from a firm that builds cases for others.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "SportTaucher",
+   "type": "dive",
+   "sizes": "39, 42mm",
+   "movement": "Automatic, Swiss",
+   "handWound": false,
+   "price": "$900–1,200",
+   "desc": "A sturdy, chunky German diver with simple, legible styling.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Baltic": [
+  {
+   "name": "Aquascaphe",
+   "type": "dive",
+   "sizes": "39mm",
+   "movement": "Automatic, Miyota (GMT version available)",
+   "handWound": false,
+   "price": "$700–950",
+   "desc": "The vintage-style diver that made Baltic famous, with a slim case and a choice of dial colors.",
+   "url": "https://baltic-watches.com/collections/aquascaphe-mk2",
+   "img": ""
+  },
+  {
+   "name": "Bicompax",
+   "type": "chronograph",
+   "sizes": "38mm",
+   "movement": "Hand-wound, Seagull ST1901",
+   "handWound": true,
+   "price": "$550–650",
+   "desc": "A two-dial vintage chronograph look at a price far below Swiss equivalents.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "HMS",
+   "type": "dress",
+   "sizes": "36.5, 38mm",
+   "movement": "Automatic, Miyota",
+   "handWound": false,
+   "price": "$400–450",
+   "desc": "Baltic's cheapest watch, a clean 1940s-style everyday piece with a sector dial.",
+   "url": "https://baltic-watches.com/collections/hms",
+   "img": ""
+  },
+  {
+   "name": "MR01",
+   "type": "dress",
+   "sizes": "36mm",
+   "movement": "Automatic, micro-rotor",
+   "handWound": false,
+   "price": "$550–650",
+   "desc": "A slim dress watch with a small winding rotor, a feature usually found on far pricier watches.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Hermétique Tourer",
+   "type": "field",
+   "sizes": "37mm",
+   "movement": "Automatic",
+   "handWound": false,
+   "price": "$550",
+   "desc": "A compact, rugged everyday watch inspired by 1930s sealed-case explorer watches.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Serica": [
+  {
+   "name": "6190 Field Chronometer",
+   "type": "field",
+   "sizes": "38.5mm",
+   "movement": "Automatic, chronometer certified",
+   "handWound": false,
+   "price": "$1,150–1,400",
+   "desc": "A clean military-style field watch with certified accuracy at a fair price.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "5303 Diving Chronometer",
+   "type": "dive",
+   "sizes": "39mm",
+   "movement": "Automatic, chronometer certified",
+   "handWound": false,
+   "price": "$1,500–1,600",
+   "desc": "A compact, accurate dive watch with vintage French military styling.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "8315 Travel Chronometer",
+   "type": "GMT",
+   "sizes": "39mm",
+   "movement": "Automatic GMT, chronometer certified",
+   "handWound": false,
+   "price": "$2,200–2,450",
+   "desc": "A travel watch with a second time zone and certified accuracy, in rich vintage colors.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Parade 1174",
+   "type": "dress",
+   "sizes": "",
+   "movement": "Automatic",
+   "handWound": false,
+   "price": "$1,790",
+   "desc": "A dressier, simple three-hand watch with the brand's quiet French design.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Furlan Marri": [
+  {
+   "name": "Mechaquartz Chronograph",
+   "type": "chronograph",
+   "sizes": "38mm",
+   "movement": "Mecha-quartz, Seiko VK64",
+   "handWound": false,
+   "price": "$450–650",
+   "desc": "Swiss-designed vintage chronographs with a hybrid battery movement and a crisp mechanical stopwatch feel.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Sector",
+   "type": "dress",
+   "sizes": "38mm",
+   "movement": "Automatic",
+   "handWound": false,
+   "price": "$1,450–1,550",
+   "desc": "A 1940s-style dress watch with a sector dial and cow-horn style lugs.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Disco Volante",
+   "type": "dress",
+   "sizes": "37mm",
+   "movement": "Hand-wound, Peseux 7001",
+   "handWound": true,
+   "price": "$2,700–2,800",
+   "desc": "A round, flying-saucer shaped case with a slim manual-wind Swiss movement.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Halios": [
+  {
+   "name": "Seaforth",
+   "type": "dive",
+   "sizes": "40, 41mm",
+   "movement": "Automatic",
+   "handWound": false,
+   "price": "$750–900",
+   "desc": "The cult microbrand diver with a clean dial and bright color options, released in small batches.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Universa",
+   "type": "dress",
+   "sizes": "38mm",
+   "movement": "Hand-wound, Sellita SW210",
+   "handWound": true,
+   "price": "$800–1,000",
+   "desc": "A slim everyday watch with a manual-wind Swiss movement and an integrated bracelet.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Fairwind",
+   "type": "dive",
+   "sizes": "39mm",
+   "movement": "Automatic",
+   "handWound": false,
+   "price": "$775–850",
+   "desc": "A bold dive watch with an unusual case shape, popular with collectors.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Traska": [
+  {
+   "name": "Freediver",
+   "type": "dive",
+   "sizes": "38.5mm",
+   "movement": "Automatic, Miyota 9039",
+   "handWound": false,
+   "price": "$695",
+   "desc": "A compact, hard-wearing diver with a scratch-resistant coating on the case and bracelet.",
+   "url": "https://traskawatch.com/",
+   "img": ""
+  },
+  {
+   "name": "Venturer GMT",
+   "type": "GMT",
+   "sizes": "39mm",
+   "movement": "Automatic GMT, Miyota 9075",
+   "handWound": false,
+   "price": "$735–965",
+   "desc": "An affordable travel watch whose local hour hand jumps independently, a feature rare at this price.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Commuter",
+   "type": "dress",
+   "sizes": "34, 36, 38mm",
+   "movement": "Automatic, Miyota 9039/9019",
+   "handWound": false,
+   "price": "$600–650",
+   "desc": "A simple, sporty everyday watch in three sizes and soft pastel dial colors.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Summiteer",
+   "type": "field",
+   "sizes": "36, 38mm",
+   "movement": "Automatic, Miyota 9039",
+   "handWound": false,
+   "price": "$640–650",
+   "desc": "An explorer-style everyday watch with big numerals and a tough coated case.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Autodromo": [
+  {
+   "name": "Group B",
+   "type": "sports",
+   "sizes": "39.5mm",
+   "movement": "Automatic, Miyota",
+   "handWound": false,
+   "price": "$975–1,000",
+   "desc": "A rally-inspired sports watch on a bracelet, with a mix of steel and titanium.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Intereuropa",
+   "type": "dress",
+   "sizes": "",
+   "movement": "Hand-wound, ETA 7001",
+   "handWound": true,
+   "price": "$1,250",
+   "desc": "A slim manual-wind watch styled after 1950s and 60s racing car dashboard gauges.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Prototipo",
+   "type": "chronograph",
+   "sizes": "",
+   "movement": "Mecha-quartz chronograph",
+   "handWound": false,
+   "price": "$750–800",
+   "desc": "A racing-style chronograph with a dashboard-like dial and a battery-powered stopwatch.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Monoposto",
+   "type": "sports",
+   "sizes": "",
+   "movement": "Automatic, Miyota 9039",
+   "handWound": false,
+   "price": "$895",
+   "desc": "A racing-inspired watch with a vintage dash look; availability is now limited.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Seiko Prospex and Presage": [
+  {
+   "name": "Prospex Turtle",
+   "type": "dive",
+   "sizes": "45mm",
+   "movement": "Automatic, Seiko 4R36",
+   "handWound": false,
+   "price": "$525–575",
+   "desc": "A big, comfortable cushion-case diver that is one of the best-value mechanical dive watches.",
+   "url": "https://www.seikowatches.com/us-en/products/prospex/lineup",
+   "img": ""
+  },
+  {
+   "name": "Prospex 1965 Heritage Diver",
+   "type": "dive",
+   "sizes": "40mm",
+   "movement": "Automatic, Seiko 6R35",
+   "handWound": false,
+   "price": "$1,100–1,350",
+   "desc": "A modern take on Seiko's first dive watch from 1965, with a long power reserve.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Prospex Alpinist",
+   "type": "field",
+   "sizes": "39.5mm",
+   "movement": "Automatic, Seiko 6R35",
+   "handWound": false,
+   "price": "$725–995",
+   "desc": "A mountaineering watch with an inner compass ring and colorful dials, a long-running Seiko classic.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Prospex Speedtimer",
+   "type": "chronograph",
+   "sizes": "39mm",
+   "movement": "Solar quartz chronograph (time-and-date version also offered)",
+   "handWound": false,
+   "price": "$700–995",
+   "desc": "A racing-style chronograph that charges from light, styled after Seiko's 1969 chronograph.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Presage Cocktail Time",
+   "type": "dress",
+   "sizes": "34, 38.5, 40.5mm",
+   "movement": "Automatic, Seiko 4R35",
+   "handWound": false,
+   "price": "$450–610",
+   "desc": "Dress watches with shimmering textured dials inspired by cocktails, a great first mechanical watch.",
+   "url": "https://www.seikowatches.com/us-en/products/presage",
+   "img": ""
+  },
+  {
+   "name": "Presage Craftsmanship (Enamel, Urushi)",
+   "type": "dress",
+   "sizes": "40mm",
+   "movement": "Automatic, Seiko 6R",
+   "handWound": false,
+   "price": "$1,350–1,900",
+   "desc": "Dress watches with hand-made enamel or lacquer dials, traditional Japanese crafts at a modest price.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Orient Star": [
+  {
+   "name": "Classic Semi-Skeleton",
+   "type": "dress",
+   "sizes": "38.5mm",
+   "movement": "Automatic, Orient F7 caliber",
+   "handWound": false,
+   "price": "$450–715",
+   "desc": "A dress watch with an open dial window that shows the movement at work.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Contemporary M34 Semi Skeleton",
+   "type": "sports",
+   "sizes": "39.3mm",
+   "movement": "Automatic, Orient F7 caliber",
+   "handWound": false,
+   "price": "$1,330–1,455",
+   "desc": "A modern sports-style watch with a partly open dial and a power reserve indicator.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Layered Skeleton",
+   "type": "other",
+   "sizes": "39mm",
+   "movement": "Automatic, Orient F8 caliber",
+   "handWound": false,
+   "price": "$800–1,000",
+   "desc": "A fully see-through dial that shows the whole movement in layers.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Sports Diver",
+   "type": "dive",
+   "sizes": "43.6mm",
+   "movement": "Automatic, Orient F6 caliber",
+   "handWound": false,
+   "price": "$700–1,170",
+   "desc": "A professional-grade 200-meter dive watch with a sapphire crystal and steel bracelet.",
+   "url": "",
+   "img": ""
+  }
+ ],
+ "Jack Mason": [
+  {
+   "name": "Strat-o-timer GMT",
+   "type": "GMT",
+   "sizes": "40, 42mm",
+   "movement": "Automatic GMT, Swiss",
+   "handWound": false,
+   "price": "$1,099–1,449",
+   "desc": "An affordable true travel watch with a jumping local hour hand and a two-tone bezel.",
+   "url": "https://jackmasonbrand.com",
+   "img": ""
+  },
+  {
+   "name": "Strat-o-timer Titanium Diver GMT",
+   "type": "dive",
+   "sizes": "40mm",
+   "movement": "Automatic GMT, Swiss",
+   "handWound": false,
+   "price": "$1,399",
+   "desc": "A light titanium dive watch that also shows a second time zone.",
+   "url": "",
+   "img": ""
+  },
+  {
+   "name": "Aviator Chronograph",
+   "type": "chronograph",
+   "sizes": "42mm",
+   "movement": "Quartz chronograph",
+   "handWound": false,
+   "price": "$350–440",
+   "desc": "An aviation-inspired stopwatch watch styled after cockpit gauges, at a low price.",
+   "url": "https://jackmasonbrand.com/collections/aviation",
+   "img": ""
+  },
+  {
+   "name": "Nautical Chronograph",
+   "type": "chronograph",
+   "sizes": "42mm",
+   "movement": "Quartz, Miyota OS25",
+   "handWound": false,
+   "price": "$275–400",
+   "desc": "A sailing-inspired chronograph with bright regatta colors and 100-meter water resistance.",
+   "url": "",
+   "img": ""
+  }
+ ]
+}
