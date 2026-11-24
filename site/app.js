@@ -566,7 +566,7 @@ function modelsHtml(x){
   if (!x.models.length) return '';
   const li = m => `<li${m.pic ? ' class="pic"' : ''}>${m.pic ? `<img src="${esc(m.pic)}" alt="${esc(x.r[0] + ' ' + m.name)}" loading="lazy" width="240" height="240">` : ''}<span class="mn">${m.url ? `<a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.name)}</a>` : esc(m.name)}</span>`+
     `<span class="mf">${[m.type && m.type[0].toUpperCase() + m.type.slice(1), m.sizes, m.movement, m.price].filter(Boolean).map(esc).join(' · ')}</span>`+
-    (m.desc ? `<span class="md">${esc(m.desc)}</span>` : '') + `</li>`;
+    (m.desc ? `<span class="mdesc">${esc(m.desc)}</span>` : '') + `</li>`;
   return `<details class="models"><summary>Main models<span>${x.models.length}</span></summary><ul>${x.models.map(li).join('')}</ul></details>`;
 }
 const countries = [...new Set(all.map(x=>x.r[1]))].sort();

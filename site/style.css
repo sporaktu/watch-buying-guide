@@ -345,7 +345,7 @@ section{margin-top:88px}
 .models li.pic > span{grid-column:2}
 .models .mn{font-weight:600}
 .models .mf{color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
-.models .md{line-height:1.45}
+.models .mdesc{line-height:1.45}
 .md-why{grid-column:2 / -1;font-size:15px;line-height:1.45;max-width:96ch}
 @media (max-width:980px){
   .md{grid-template-columns:76px minmax(0,1fr) auto}
