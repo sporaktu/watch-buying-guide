@@ -3,6 +3,9 @@
 // PICK_WHY is keyed by the pick's key in PICKS (app.js) and is shown on the pick's card.
 // Facts were checked against makers' sites, the watch press and owner reviews in November 2026.
 const WHY = {
+"Seagull":"Tianjin Sea-Gull is one of the world's biggest movement makers, and it sells watches under its own name too. Its best-known watch is the 1963 Chronograph, a reissue of a watch made for the Chinese air force, with a hand-wound column-wheel chronograph movement on show for a few hundred dollars. Buy from a known importer, as copies are common.",
+"Laco":"A Pforzheim maker best known for German pilot's watches; it was one of the original makers of the big wartime Flieger watches. It now makes pilot, navy and everyday watches at fair prices, including hand-wound models with decorated Unitas-based movements on show. Prices from US dealers are higher than Laco's own euro prices.",
+"Tutima":"A Glashütte maker with roots in the 1920s, known for military pilot's chronographs and, more recently, its own movements built the traditional Glashütte way. The Patria shows its in-house hand-wound Calibre 617 through the back. Dealer prices vary a lot, so shop around.",
 "Casio and G-Shock":"The square G-Shock has been made since 1983, and the GW-M5610U ($165) adds a solar cell and radio time-setting: about 10 months on a full charge, 200 m water resistance, and it sets itself to the second. Owners report it surviving falls of two storeys. The complaints are a mineral-glass crystal and confusing model names in the US.",
 "Orient":"The Bambino gives you an automatic movement made by Orient itself, which you can also wind by hand, behind a see-through back, for $295–460. Orient belongs to Seiko Epson, the company behind Epson printers. Reviewers call it the best-value mechanical dress watch. Owners complain that the domed mineral crystal and shiny dial are hard to read, and that it is only rated to 30 m.",
 "Seiko":"Japan's first wristwatch (1913) and first dive watch (1965) were Seikos, and Seiko still makes its own movements and even the alloy for its springs. The Presage Cocktail Time ($450–475) has a dial reviewers rate as good enough for a $2,000 watch. The complaints: quality control lets through the odd misaligned part, and the crystal is mineral glass, not sapphire.",
@@ -120,6 +123,13 @@ const WHY = {
 "Jack Mason":"A small Texas brand that assembles and regulates its watches in the USA and sells them direct with a five-year warranty. Its Strat-o-timer GMT has a true travel movement, whose local hour hand jumps on its own, plus a clasp you can adjust on the wrist, for about $1,100. Reviewers say the finishing is only fair and the clasp is long.",
 };
 const PICK_WHY = {
+"seagull-1963-42":"The cheapest way to get a full column-wheel chronograph movement on show, in a 42mm case that suits a big wrist.",
+"stowa-marine-original-41":"At about 50mm lug to lug it fills a big wrist, and the decorated Unitas is a lot of movement for the money.",
+"laco-bremerhaven-42-5":"A 42.5mm case with real presence, a properly decorated movement and the best water resistance of the hand-wound picks.",
+"hanhart-417-es-heritage-flyback-42":"Built and sized much like a Black Bay Chrono, but hand-wound with the column wheel on show; the short lugs make it wear a little smaller.",
+"christopher-ward-c12-loco":"Six days of running and moving parts on show front and back, in a 41mm case with real height.",
+"oris-propilot-x-calibre-115":"Big and light, with the most open movement in the guide and ten days of running.",
+"tutima-patria-admiral-blue":"The most traditionally decorated movement among the picks, in a 43mm case wide enough for a big wrist.",
 "jack-mason-frontier-gmt-alpine":"The cheapest true travel watch here, with a white dial, a turning 24-hour bezel and a clasp that adjusts by hand: most of what the Black Bay GMT does for a fifth of the price.",
 "mido-ocean-star-gmt-black":"A Swiss true GMT with an 80-hour reserve for under $1,500, and a proper dive bezel as well, if you have the wrist for 44 mm.",
 "christopher-ward-c63-sealander-gmt-white":"The thinnest travel watch here at 11.3 mm, with a white dial; chosen for keeping an eye on one other place, since only its 24-hour hand sets on its own.",
