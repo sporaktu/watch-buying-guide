@@ -1,9 +1,10 @@
 // What's new. One entry per merge to main, newest first.
 // To publish a release, add an entry at the top with the next id (the pull request number works well),
-// the merge date, a short title, and optional notes. The bell at the top of the page shows a dot
+// the merge date, a short title, and optional notes. The bell beside the dial shows a dot
 // until the reader has opened the newest entry.
 const RELEASES = [
-  {id: 18, date: "2026-11-24", title: "What's new: release notes behind the bell", notes: ["The bell at the top of the page opens these notes. It shows a red dot when there is something you haven't read."]},
+  {id: 19, date: "2026-11-24", title: "The bell moved beside the watch face", notes: ["The bell now floats at the top left of the watch face, and the notes open in a window over the page."]},
+  {id: 18, date: "2026-11-24", title: "What's new: release notes behind the bell", notes: ["The bell beside the watch face opens these notes. It shows a red dot when there is something you haven't read."]},
   {id: 15, date: "2026-11-24", title: "Microbrands, hand-wound picks, and photos of the main models", notes: ["23 microbrands join the brand index, with their main models.", "Seven hand-wound picks, each with its photo.", "Two new filters above the picks: microbrands and hand-wound.", "Main models now shows a photo for 316 of its 384 model lines."]},
   {id: 16, date: "2026-11-24", title: "New pick: the Trafford Crossroads S 40 Fern", notes: ["A Texas-made watch joins the picks, with its photo, movement and where to buy it."]},
   {id: 14, date: "2026-11-24", title: "Brand index: Maen added"},
@@ -57,14 +58,17 @@ const RELEASES = [
   try { seen = Number(localStorage.getItem(KEY)); } catch { seen = null; }
   dot.hidden = seen === latest;
   const set = open => {
-    box.hidden = !open;
-    btn.setAttribute('aria-expanded', String(open));
-    if (!open) return;
+    if (open === box.open) return;
+    if (!open) { box.close(); return; }
+    box.showModal();
+    btn.setAttribute('aria-expanded', 'true');
     dot.hidden = true;
     try { localStorage.setItem(KEY, String(latest)); } catch { /* private mode: the dot simply returns next visit */ }
   };
-  btn.addEventListener('click', () => set(box.hidden));
-  close.addEventListener('click', () => { set(false); btn.focus(); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !box.hidden) { set(false); btn.focus(); } });
-  document.addEventListener('click', e => { if (!box.hidden && !e.target.closest('.news-bar')) set(false); });
+  btn.addEventListener('click', () => set(true));
+  close.addEventListener('click', () => set(false));
+  // A click on the dimmed backdrop lands on the dialog element itself; clicks on its content land on children.
+  box.addEventListener('click', e => { if (e.target === box) set(false); });
+  // Fires for the close button, the backdrop and Escape alike; the browser returns focus to the bell.
+  box.addEventListener('close', () => btn.setAttribute('aria-expanded', 'false'));
 })();

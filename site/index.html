@@ -14,13 +14,7 @@
 </head>
 <body>
 <div class="wrap">
-<div class="news-bar">
-  <button type="button" class="news-btn" id="newsBtn" aria-expanded="false" aria-controls="news" aria-label="What's new" title="What's new">
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M6 17V11a6 6 0 0 1 12 0v6l1.5 1.5h-15z"/><path d="M10 21h4"/><path d="M12 3v2"/></svg>
-    <span class="news-dot" id="newsDot" hidden></span>
-  </button>
-  <section class="news" id="news" aria-label="What's new" hidden></section>
-</div>
+<dialog class="news" id="news" aria-label="What's new"></dialog>
 <header class="mast">
   <div>
     <h1>Watch brand map</h1>
@@ -28,6 +22,10 @@
     <p class="asof">Prices checked 14–15 November 2026. Index prices are approximate.</p>
   </div>
   <div class="dial-wrap">
+    <button type="button" class="news-btn" id="newsBtn" aria-expanded="false" aria-haspopup="dialog" aria-controls="news" aria-label="What's new" title="What's new">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M6 17V11a6 6 0 0 1 12 0v6l1.5 1.5h-15z"/><path d="M10 21h4"/><path d="M12 3v2"/></svg>
+      <span class="news-dot" id="newsDot" hidden></span>
+    </button>
     <button type="button" class="dial" id="dial" aria-label="Show the next dial design"></button>
     <div class="dial-ctl">
       <select id="dialPick" aria-label="Choose a dial for this visit"></select>
