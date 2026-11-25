@@ -11,16 +11,18 @@
   // ---- the look: every number worth tuning is in these tables ----
   const LOOK = {
     lampZ: 1.8, rest: [-.55, -.75],               // the lamp's height in half widths of the dial, and where it rests
+    far: 8,                                       // the lamp really hangs this many times further off along the same line, like a ceiling light: its rays reach the
+                                                  // whole watch at nearly one angle, so the face brightens and dims as one and no pool of light forms on it
     free: 1.5, minElev: 20,                       // it follows the pointer exactly this far out, then slows so it never sinks below this angle
     ease: 100,                                    // how fast it glides to the pointer, ms
     tilt: -1 / 28, tiltMax: 60,                   // on a phone: half widths the lamp moves per degree of tilt (negative: it stays put in the room), largest tilt used
     tiltRest: [.4, 0],                            // on a phone the lamp rests this much further right, clear of a right thumb
     tiltDrift: 4000,                              // how slowly the level the phone is held at becomes the new resting tilt, ms
-    keyColour: [1, .965, .9], key: .95,           // the lamp on matte surfaces (warm)
+    keyColour: [1, .965, .9], key: .8,           // the lamp on matte surfaces (warm)
     fillColour: [.82, .9, 1], fill: .18,          // a soft cool light from the far side
-    ambColour: [.92, .95, 1], amb: .36,           // light from the room
+    ambColour: [.92, .95, 1], amb: .3,           // light from the room
     fall: .4,                                     // how fast the lamp fades with distance across the watch
-    lamp: 1.7, lampSize: .3,                     // the lamp as metal and gloss mirror it: brightness, and half width as a slope
+    lamp: .55, lampSize: .5,                     // the lamp as metal and gloss mirror it: brightness, and half width as a slope
     strip: .9,                                    // a dimmer strip light opposite the lamp, seen only in reflections
     envTop: .2, envSide: .7, envMean: .34,        // the room as metal mirrors it: overhead, the wall behind the lamp, blurred
     envDark: .12, envBack: .3,                    // the walls beside the lamp and opposite it, as fractions of that wall
@@ -84,13 +86,14 @@
     subPrint: { on: 1, mat: 'matte' },
     windowText: { on: 1, mat: 'matte' },
     lume: { on: 1, prof: 'pillow', h: .5, w: 2, mat: 'lume' },
+    overPrint: { on: 1, mat: 'matte' },             // print laid over lume
     applied: { z: 2.2, prof: 'chamfer', h: 1, w: 1.4, mat: 'polish', add: ['appliedLume'] },
     appliedLume: { on: 1, z: -.3, mat: 'lume' },
     handBody: { prof: 'chamfer', h: .8, w: 1.2, mat: 'polish' },
     handLume: { on: 1, z: -.25, mat: 'lume' },
     cap: { prof: 'pillow', h: 1.2, mat: 'polish' }
   };
-  const ORDER = ['case', 'bezel', 'bezelMark', 'bezelPip', 'screw', 'screwSlot', 'dial', 'dialTex', 'sub', 'window', 'frame', 'print', 'subPrint', 'windowText', 'lume', 'applied', 'appliedLume'];
+  const ORDER = ['case', 'bezel', 'bezelMark', 'bezelPip', 'screw', 'screwSlot', 'dial', 'dialTex', 'sub', 'window', 'frame', 'print', 'subPrint', 'windowText', 'lume', 'overPrint', 'applied', 'appliedLume'];
   const HAND_ORDER = ['handBody', 'handLume', 'cap'];
   const SHAPED = { roof: { prof: 'roof', h: 1.3, w: 0 }, pillow: { prof: 'pillow', h: 1.1, w: 0 } };   // hand shapes dials.js names
   // Dial textures, in relief: h is the height of the pattern in dial units.
@@ -350,7 +353,7 @@ void main() {
   float glow = mix(G.b, hG.b, best), grain = mix(G.a, hG.a, best) - .502, ao = mix(Nt.a, 1., best);
   float hb0 = hgt(Nt.z), zs = mix(hb0, bz, best);
 
-  vec3 Lv = uL - vec3(vP, zs / 200.); float Ld = length(Lv); vec3 L = Lv / Ld, V = vec3(0., 0., 1.);
+  vec3 Lv = uL * ${f(LOOK.far)} - vec3(vP, zs / 200.); float Ld = length(Lv); vec3 L = Lv / Ld, V = vec3(0., 0., 1.);
   // Shadows on the watch itself: walk from the surface toward the lamp and see what stands in the way.
   float flat2 = max(length(L.xy), .0001), rise = L.z / flat2, reach = clamp((${f(LOOK.hTop)} - hb0) / rise, 0., ${f(LOOK.shadowReach)}), sh = 0.;
   vec2 dir = L.xy / flat2 / 400.;
@@ -378,7 +381,7 @@ void main() {
   vec3 N = normalize(vec3(nb, sqrt(max(1. - dot(nb, nb), .02))));
   vec3 T3 = normalize(vec3(Tn, 0.) - N * dot(N.xy, Tn)), B3 = cross(N, T3);
   vec3 alb = pow(col, vec3(2.2));
-  float gain = 1. / (.4 + .6 * uL.z / length(uL)) * pow(length(uL) / Ld, ${f(LOOK.fall)});
+  float gain = 1. / (.4 + .6 * uL.z / length(uL)) * pow(length(uL) * ${f(LOOK.far)} / Ld, ${f(LOOK.fall)});
   vec3 Lf = normalize(vec3(-uL.xy * 1.3, 1.)), Hk = normalize(L + V), Hf = normalize(Lf + V);
   float NL = max(dot(N, L), 0.), facing = clamp(NL * 6., 0., 1.);
   vec3 key = ${v3(LOOK.keyColour)}, fill = ${v3(LOOK.fillColour)};
