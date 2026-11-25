@@ -28,6 +28,23 @@ p{margin:0}
 .wrap{max-width:1320px;margin:0 auto;padding:0 var(--gutter) 72px}
 
 /* Masthead: lowercase display type beside a working dial */
+/* What's new: a bell in the top corner, and a bubble that stays hidden until the bell is clicked. */
+.news-bar{position:relative;display:flex;justify-content:flex-end;padding-top:14px;margin-bottom:-28px;z-index:30}
+.news-btn{position:relative;display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--ink);border-radius:0;background:transparent;color:var(--ink);cursor:pointer}
+.news-btn:hover{background:var(--paper)}
+.news-btn[aria-expanded="true"]{background:var(--ink);color:var(--ground)}
+.news-dot{position:absolute;top:-5px;right:-5px;width:12px;height:12px;border-radius:50%;background:var(--red);border:2px solid var(--ground)}
+.news{position:absolute;top:68px;right:0;margin:0;width:min(440px,100%);max-height:min(70vh,560px);overflow:auto;background:var(--paper);color:var(--ink);border:1px solid var(--ink);padding:20px 22px 18px;box-shadow:6px 6px 0 var(--ink)}
+.news[hidden],.news-dot[hidden]{display:none}
+.news h2{font-size:22px;font-weight:500;line-height:1.1;margin:0 0 4px}
+.news h3{font-size:16px;font-weight:500;line-height:1.3;margin:0}
+.news time{display:block;font-size:13px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;margin:12px 0 2px}
+.news ul{margin:6px 0 0;padding-left:18px;font-size:15px;line-height:1.45}
+.news details{margin-top:16px;border-top:1px solid var(--rule);padding-top:10px}
+.news summary{cursor:pointer;font-size:15px;font-weight:500}
+.news-close{position:absolute;top:8px;right:8px;width:36px;height:36px;border:0;background:transparent;color:var(--ink);font:400 22px/1 var(--font);cursor:pointer}
+.news-close:hover{background:var(--ground)}
+@media print{.news-bar{display:none}}
 .mast{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(220px,.75fr);gap:32px 48px;align-items:end;padding:56px 0 40px}
 .mast h1{font-size:clamp(58px,11.5vw,168px);font-weight:300;line-height:.86;letter-spacing:-.045em;text-transform:lowercase;margin-left:-.05em}
 .lead{max-width:54ch;font-size:clamp(18px,1.6vw,21px);line-height:1.45;margin-top:32px}
