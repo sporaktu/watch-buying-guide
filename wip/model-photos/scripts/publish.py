@@ -35,6 +35,7 @@ for d in D:
     src=d[2];mode=d[3] if len(d)>3 else 'auto'
     if src=='raw': f=W+'raw/'+S[k]['raw']
     elif src=='drop': plan.pop(k,None);continue
+    elif src.startswith('/'): f=src
     else: f=srcs.get(k,{}).get(src)
     if not f or not os.path.exists(f): print('NO FILE',d);continue
     plan[k]=(f,mode);new[k]=1
