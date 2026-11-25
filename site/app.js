@@ -465,14 +465,13 @@ const link = (l) => l.url ? `<a href="${esc(l.url)}" target="_blank" rel="noopen
 // "lug", "band", "adjust" and "strap" describe what holds the watch on: the width between the lugs, the bracelet, whether its length changes by hand, and the strap's buckle.
 // "adjust" starts with "Yes" exactly when the pick has the "easy" tag, and "strap" starts with "Folding clasp" exactly when it has the "fold" tag.
 const SPEC=[["case","Case"],["hard","Hardening"],["water","Water resistance"],["crystal","Crystal"],["lug","Strap width"],["band","Bracelet"],["adjust","Sizing by hand"],["strap","Strap and buckle"]];
-function card(p){
+// Everything a card says about a pick. The window a photo opens (below) shows the same thing beside a larger photo.
+function cardBody(p){
   const pct = Math.min(100, p.reserveH / 120 * 100), sp = p.specs || {};
   // The how-to text lives in reasons.js. A browser can hold an older copy of that file for a few minutes after an update, so its absence must not break the card.
   const lab = document.documentElement.classList.contains('has-lab');      // lab.js sets this once its working models are on the page
   const how = (typeof HOW !== 'undefined' && typeof PICK_HOW !== 'undefined' && PICK_HOW[p.key] || []).filter(([k]) => HOW[k]);
-  return `<article class="card">
-    <div class="photo">${p.img ? `<img src="${esc(p.img)}" alt="${esc(p.brand + ' ' + p.model)}" loading="lazy" width="800" height="600">` : `<span class="nophoto">Photo on the brand's website</span>`}</div>
-    <div class="body">
+  return `<div class="body">
       <p class="maker">${esc(p.brand)}<span>${esc(p.origin)}</span></p>
       <h3>${esc(p.model)}</h3>
       <p class="price">${esc(p.price)}<small>${esc((p.priceNote || '').trim())}</small></p>
@@ -498,7 +497,13 @@ function card(p){
           <div><dt>Brand's website</dt><dd>${link(p.site)}</dd></div>
         </dl>
       </details>
-    </div>
+    </div>`;
+}
+function card(p){
+  const alt = esc(p.brand + ' ' + p.model);
+  return `<article class="card">
+    <div class="photo">${p.img ? `<button type="button" class="zoom" data-pick="${esc(p.key)}" aria-label="${alt}: larger photo and full details"><img src="${esc(p.img)}" alt="${alt}" loading="lazy" width="800" height="600"></button>` : `<span class="nophoto">Photo on the brand's website</span>`}</div>
+    ${cardBody(p)}
   </article>`;
 }
 // Case width in mm, from the case spec ("41 mm steel" is 41). 41mm and up is for larger wrists. A pick with a Chronograph chip is a chronograph, and one with a GMT chip shows a second time zone.
@@ -564,10 +569,42 @@ all.forEach(x => { x.why = WHY[x.r[0]] || ''; });
 all.forEach(x => { x.models = (typeof MODELS !== 'undefined' && MODELS[x.r[0]]) || []; });
 function modelsHtml(x){
   if (!x.models.length) return '';
-  const li = m => `<li${m.pic ? ' class="pic"' : ''}>${m.pic ? `<img src="${esc(m.pic)}" alt="${esc(x.r[0] + ' ' + m.name)}" loading="lazy" width="240" height="240">` : ''}<span class="mn">${m.url ? `<a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.name)}</a>` : esc(m.name)}</span>`+
+  const li = (m, i) => `<li${m.pic ? ' class="pic"' : ''}>${m.pic ? `<button type="button" class="zoom" data-mb="${esc(x.r[0])}" data-mi="${i}" aria-label="${esc(x.r[0] + ' ' + m.name)}: larger photo and details"><img src="${esc(m.pic)}" alt="${esc(x.r[0] + ' ' + m.name)}" loading="lazy" width="240" height="240"></button>` : ''}<span class="mn">${m.url ? `<a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.name)}</a>` : esc(m.name)}</span>`+
     `<span class="mf">${[m.type && m.type[0].toUpperCase() + m.type.slice(1), m.sizes, m.movement, m.price].filter(Boolean).map(esc).join(' · ')}</span>`+
     (m.desc ? `<span class="mdesc">${esc(m.desc)}</span>` : '') + `</li>`;
   return `<details class="models"><summary>Main models<span>${x.models.length}</span></summary><ul>${x.models.map(li).join('')}</ul></details>`;
+}
+// A photo opens a window over the page: the photo larger, with everything the page knows about that watch. For a pick
+// that is the whole card; for a line in Main models it is the line's type, sizes, movement, price and description.
+const shot = document.getElementById('shot');
+function openShot(html, label, narrow){
+  shot.innerHTML = `<button type="button" class="news-close" aria-label="Close">×</button>` + html;
+  shot.setAttribute('aria-label', label); shot.classList.toggle('one', !!narrow);
+  shot.showModal(); shot.scrollTop = 0;
+}
+if (shot && shot.showModal) {
+  document.addEventListener('click', e => {
+    const z = e.target.closest('.zoom'); if (!z) return;
+    if (z.dataset.pick) {
+      const p = PICKS.find(q => q.key === z.dataset.pick); if (!p) return;
+      const alt = esc(p.brand + ' ' + p.model);
+      openShot(`<div class="shot-grid"><div class="photo"><img src="${esc(p.img)}" alt="${alt}" width="800" height="600"></div>${cardBody(p)}</div>`, p.brand + ' ' + p.model);
+      shot.querySelectorAll('details.buy:not(.how)').forEach(d => { d.open = true; });
+    } else if (z.dataset.mb) {
+      const x = all.find(q => q.r[0] === z.dataset.mb), m = x && x.models[+z.dataset.mi]; if (!m) return;
+      const rows = [['Type', m.type && m.type[0].toUpperCase() + m.type.slice(1)], ['Sizes', m.sizes], ['Movement', m.movement]].filter(([, v]) => v);
+      openShot(`<div class="shot-grid"><div class="photo"><img src="${esc(m.pic)}" alt="${esc(x.r[0] + ' ' + m.name)}" width="240" height="240"></div><div class="body">
+        <p class="maker">${esc(x.r[0])}<span>${esc(x.r[1])}</span></p>
+        <h3>${esc(m.name)}</h3>
+        ${m.price ? `<p class="price">${esc(m.price)}</p>` : ''}
+        ${rows.length ? `<dl class="specs">${rows.map(([l, v]) => `<div><dt>${l}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl>` : ''}
+        ${m.desc ? `<p class="why">${esc(m.desc)}</p>` : ''}
+        ${m.url ? `<p class="shot-more"><a href="${esc(m.url)}" target="_blank" rel="noopener">More about this model</a></p>` : ''}
+      </div></div>`, x.r[0] + ' ' + m.name, true);
+    }
+  });
+  // Closes on its button, on a click outside it, and on a link to somewhere else on this page. Escape closes it too.
+  shot.addEventListener('click', e => { if (e.target === shot || e.target.closest('.news-close') || e.target.closest('a[href^="#"]')) shot.close(); });
 }
 const countries = [...new Set(all.map(x=>x.r[1]))].sort();
 const sel = document.getElementById('country');
