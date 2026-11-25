@@ -594,10 +594,97 @@ const shot = document.getElementById('shot');
 function openShot(html, label, narrow){
   shot.innerHTML = `<button type="button" class="news-close" aria-label="Close">×</button>` + html;
   shot.setAttribute('aria-label', label); shot.classList.toggle('one', !!narrow);
+  // The photo in the window opens the inspector, where it can be enlarged and moved about.
+  const im = shot.querySelector('.photo img');
+  if (im && lens && lens.showModal) { const b = document.createElement('button'); b.type = 'button'; b.className = 'look'; b.title = 'Inspect this photo'; b.dataset.src = im.getAttribute('src'); b.dataset.name = label; im.replaceWith(b); b.append(im); b.insertAdjacentHTML('beforeend', '<span>Inspect</span>'); }
   shot.showModal(); shot.scrollTop = 0;
+}
+// The inspector: one photo filling the screen. Drag the slider, scroll, pinch or press + to enlarge it, then drag the photo
+// to move around it. Where a larger file exists (full.js) it loads in place of the page's copy, and a link opens that file
+// on its own. Works on brand photos, pick photos and model photos.
+const lens = document.getElementById('lens');
+const LENS = { s: 1, x: 0, y: 0, max: 4, fit: 1, pts: new Map() };
+function lensDraw(){
+  const im = lens.querySelector('.lens-stage img'), st = lens.querySelector('.lens-stage'); if (!im) return;
+  const W = st.clientWidth, H = st.clientHeight, w = im.dataset.w * LENS.fit * LENS.s, h = im.dataset.h * LENS.fit * LENS.s;
+  // Keep the photo over the stage: centred while it is smaller than the stage, never dragged off it when larger.
+  const lim = (v, size, box) => size <= box ? 0 : Math.max((box - size) / 2, Math.min((size - box) / 2, v));
+  LENS.x = lim(LENS.x, w, W); LENS.y = lim(LENS.y, h, H);
+  im.style.width = w + 'px'; im.style.height = h + 'px';
+  im.style.transform = `translate(${W / 2 - w / 2 + LENS.x}px,${H / 2 - h / 2 + LENS.y}px)`;
+  const r = lens.querySelector('.lens-range'); r.value = Math.round(Math.log(LENS.s) / Math.log(LENS.max) * 100);
+  lens.querySelector('.lens-pct').textContent = Math.round(LENS.s * 100) + '%';
+  st.classList.toggle('can-pan', w > W || h > H);
+}
+// Zoom to scale s, keeping the point at cx, cy (measured from the middle of the stage) under the cursor or fingers.
+function lensZoom(s, cx, cy){
+  s = Math.max(1, Math.min(LENS.max, s)); const k = s / LENS.s;
+  LENS.x = (cx || 0) - ((cx || 0) - LENS.x) * k; LENS.y = (cy || 0) - ((cy || 0) - LENS.y) * k; LENS.s = s; lensDraw();
+}
+function lensFit(){
+  const im = lens.querySelector('.lens-stage img'), st = lens.querySelector('.lens-stage'); if (!im) return;
+  LENS.fit = Math.min(st.clientWidth / im.dataset.w, st.clientHeight / im.dataset.h);
+  // Far enough in to see every pixel of the file at twice its size, and at least four times the fitted size.
+  LENS.max = Math.max(4, 2 * (im.dataset.fw || im.dataset.w) / (im.dataset.w * LENS.fit));
+  lensDraw();
+}
+function openLens(src, name){
+  const file = src.split('/').pop(), fw = typeof FULL === 'object' && FULL[file], big = fw ? 'img/full/' + file : src;
+  lens.innerHTML = `<div class="lens-bar"><p class="lens-name">${esc(name || '')}</p>
+    <div class="lens-zoom"><button type="button" data-z="out" aria-label="Smaller">−</button><input class="lens-range" type="range" min="0" max="100" value="0" aria-label="Size"><button type="button" data-z="in" aria-label="Larger">+</button><span class="lens-pct">100%</span><button type="button" data-z="fit">Fit</button></div>
+    <a class="lens-file" href="${esc(big)}" target="_blank" rel="noopener">Open the file<span></span></a>
+    <button type="button" class="news-close" aria-label="Close">×</button></div>
+    <div class="lens-stage"><img src="${esc(src)}" alt="${esc(name || '')}" draggable="false"></div>
+    <p class="lens-hint">Drag the slider, scroll or pinch to enlarge. Drag the photo to move it.</p>`;
+  const im = lens.querySelector('.lens-stage img'), note = lens.querySelector('.lens-file span');
+  LENS.s = 1; LENS.x = LENS.y = 0; LENS.pts.clear(); im.dataset.w = im.dataset.h = 1;
+  const ready = () => { im.dataset.w = im.naturalWidth || 1; im.dataset.h = im.naturalHeight || 1; note.textContent = `${im.naturalWidth} × ${im.naturalHeight} pixels`; lensFit(); };
+  if (im.complete && im.naturalWidth) ready(); else im.addEventListener('load', ready, { once: true });
+  lens.showModal(); lensFit();
+  if (fw) {
+    // The larger file has the same shape, so it takes the page copy's place without the photo moving.
+    const hi = new Image();
+    hi.onload = () => { if (!lens.open || lens.querySelector('.lens-stage img') !== im) return; im.dataset.fw = hi.naturalWidth; im.src = big; note.textContent = `${hi.naturalWidth} × ${hi.naturalHeight} pixels`; lensFit(); };
+    hi.src = big;
+  }
+}
+if (lens && lens.showModal) {
+  const mid = (st, e) => { const b = st.getBoundingClientRect(); return [e.clientX - b.left - b.width / 2, e.clientY - b.top - b.height / 2]; };
+  lens.addEventListener('click', e => {
+    const z = e.target.closest('[data-z]');
+    if (z) lensZoom(z.dataset.z === 'fit' ? 1 : LENS.s * (z.dataset.z === 'in' ? 1.5 : 1 / 1.5));
+    else if (e.target.closest('.news-close')) lens.close();
+  });
+  lens.addEventListener('input', e => { if (e.target.classList.contains('lens-range')) lensZoom(Math.pow(LENS.max, e.target.value / 100)); });
+  lens.addEventListener('wheel', e => { const st = e.target.closest('.lens-stage'); if (!st) return; e.preventDefault(); const [cx, cy] = mid(st, e); lensZoom(LENS.s * Math.exp(-e.deltaY * (e.deltaMode ? .05 : .0018)), cx, cy); }, { passive: false });
+  lens.addEventListener('dblclick', e => { const st = e.target.closest('.lens-stage'); if (!st) return; const [cx, cy] = mid(st, e); lensZoom(LENS.s > 1.05 ? 1 : Math.min(LENS.max, 3), cx, cy); });
+  // One pointer drags the photo; two pinch it.
+  lens.addEventListener('pointerdown', e => { const st = e.target.closest('.lens-stage'); if (!st) return; st.setPointerCapture(e.pointerId); LENS.pts.set(e.pointerId, [e.clientX, e.clientY]); st.classList.add('held'); });
+  lens.addEventListener('pointermove', e => {
+    const was = LENS.pts.get(e.pointerId); if (!was) return; const st = lens.querySelector('.lens-stage');
+    if (LENS.pts.size === 1) { LENS.x += e.clientX - was[0]; LENS.y += e.clientY - was[1]; LENS.pts.set(e.pointerId, [e.clientX, e.clientY]); lensDraw(); return; }
+    const other = [...LENS.pts].find(([id]) => id !== e.pointerId)[1], d0 = Math.hypot(was[0] - other[0], was[1] - other[1]), d1 = Math.hypot(e.clientX - other[0], e.clientY - other[1]);
+    LENS.pts.set(e.pointerId, [e.clientX, e.clientY]);
+    if (d0 > 0) { const [cx, cy] = mid(st, { clientX: (e.clientX + other[0]) / 2, clientY: (e.clientY + other[1]) / 2 }); lensZoom(LENS.s * d1 / d0, cx, cy); }
+  });
+  const lift = e => { LENS.pts.delete(e.pointerId); const st = lens.querySelector('.lens-stage'); if (st && !LENS.pts.size) st.classList.remove('held'); };
+  lens.addEventListener('pointerup', lift); lens.addEventListener('pointercancel', lift);
+  lens.addEventListener('keydown', e => {
+    const k = e.key, step = 60;
+    if (k === '+' || k === '=') lensZoom(LENS.s * 1.5); else if (k === '-' || k === '_') lensZoom(LENS.s / 1.5); else if (k === '0') lensZoom(1);
+    else if (e.target.classList.contains('lens-range')) return;
+    else if (k === 'ArrowLeft') { LENS.x += step; lensDraw(); } else if (k === 'ArrowRight') { LENS.x -= step; lensDraw(); }
+    else if (k === 'ArrowUp') { LENS.y += step; lensDraw(); } else if (k === 'ArrowDown') { LENS.y -= step; lensDraw(); }
+    else return;
+    e.preventDefault();
+  });
+  addEventListener('resize', () => { if (lens.open) lensFit(); });
 }
 if (shot && shot.showModal) {
   document.addEventListener('click', e => {
+    const look = e.target.closest('.look'), bt = !look && e.target.closest('.row .t img, .md .t img');
+    if (look) { openLens(look.dataset.src, look.dataset.name); return; }
+    if (bt) { const row = bt.closest('.row'), x = row ? all[+row.dataset.b] : null, h = bt.closest('.md') && bt.closest('.md').querySelector('h4 a, h4'); openLens(bt.getAttribute('src'), x ? x.r[0] + ', ' + x.r[4] : h ? h.textContent : 'Brand photo'); return; }
     const z = e.target.closest('.zoom'); if (!z) return;
     if (z.dataset.pick) {
       const p = PICKS.find(q => q.key === z.dataset.pick); if (!p) return;
