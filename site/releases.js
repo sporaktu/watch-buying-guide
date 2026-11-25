@@ -3,6 +3,7 @@
 // the merge date, a short title, and optional notes. The bell beside the dial shows a dot
 // until the reader has opened the newest entry.
 const RELEASES = [
+  {id: 27, date: "2026-11-25", title: "A floating bar to move around the page", notes: ["A bar down the left edge lists the sections and stays on screen. The section you are reading lists what is inside it, down to each pick and each brand, and that list scrolls on its own.", "Once you scroll past the first screen, the bar also has search and filters for the brand list.", "On a phone it is a bar along the bottom: tap Sections or Search and filter to open it."]},
   {id: 26, date: "2026-11-25", title: "Inspect a photo up close", notes: ["Click the photo in a watch's window, or a brand's photo, to open it over the whole screen.", "Drag the slider, scroll or pinch to enlarge it, then drag the photo to move around it. A link opens the file on its own.", "209 of the 316 model photos now have a full-size copy, up to 2,000 pixels across."]},
   {id: 25, date: "2026-11-25", title: "Three combined scores on every brand", notes: ["Each brand's row, and its panel under the map, now shows a score out of ten for cost and desirability, cost and value, and value and desirability.", "The list can be sorted by any of the three."]},
   {id: 24, date: "2026-11-25", title: "Sharper brand photos", notes: ["180 of the 340 brand photos in the index were remade at higher resolution, so they stay sharp at the new larger size.", "The rest are still the small originals and look soft on big screens."]},
