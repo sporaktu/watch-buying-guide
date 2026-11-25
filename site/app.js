@@ -569,7 +569,7 @@ all.forEach(x => { x.why = WHY[x.r[0]] || ''; });
 all.forEach(x => { x.models = (typeof MODELS !== 'undefined' && MODELS[x.r[0]]) || []; });
 function modelsHtml(x){
   if (!x.models.length) return '';
-  const li = (m, i) => `<li${m.pic ? ' class="pic"' : ''}>${m.pic ? `<button type="button" class="zoom" data-mb="${esc(x.r[0])}" data-mi="${i}" aria-label="${esc(x.r[0] + ' ' + m.name)}: larger photo and details"><img src="${esc(m.pic)}" alt="${esc(x.r[0] + ' ' + m.name)}" loading="lazy" width="240" height="240"></button>` : ''}<span class="mn">${m.url ? `<a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.name)}</a>` : esc(m.name)}</span>`+
+  const li = (m, i) => `<li${m.pic ? ' class="pic"' : ''}>${m.pic ? `<button type="button" class="zoom" data-mb="${esc(x.r[0])}" data-mi="${i}" aria-label="${esc(x.r[0] + ' ' + m.name)}: larger photo and details"><img src="${esc(m.pic)}" alt="${esc(x.r[0] + ' ' + m.name)}" loading="lazy" width="600" height="600"></button>` : ''}<span class="mn">${m.url ? `<a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.name)}</a>` : esc(m.name)}</span>`+
     `<span class="mf">${[m.type && m.type[0].toUpperCase() + m.type.slice(1), m.sizes, m.movement, m.price].filter(Boolean).map(esc).join(' · ')}</span>`+
     (m.desc ? `<span class="mdesc">${esc(m.desc)}</span>` : '') + `</li>`;
   return `<details class="models"><summary>Main models<span>${x.models.length}</span></summary><ul>${x.models.map(li).join('')}</ul></details>`;
