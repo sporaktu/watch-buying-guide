@@ -3,6 +3,7 @@
 // the merge date, a short title, and optional notes. The bell beside the dial shows a dot
 // until the reader has opened the newest entry.
 const RELEASES = [
+  {id: 23, date: "2026-11-25", title: "Bigger watch photos in the brand index", notes: ["The photo on each brand's row and the photos under Main models are much larger on every screen, so you can see what a watch looks like without opening it.", "On a large 4K monitor they are at least three inches across.", "290 of the 316 model photos were remade at higher resolution so they stay sharp at the new size."]},
   {id: 21, date: "2026-11-24", title: "Click a photo for the full details", notes: ["Click the photo on a pick and a window opens with the photo larger, the price, every spec, why we picked it and where to buy.", "Click a thumbnail under Main models for that model's type, sizes, movement, price and description."]},
   {id: 20, date: "2026-11-24", title: "Softer light on the watch face", notes: ["The light that follows your pointer across the watch face is now broad and diffuse, not a bright spot."]},
   {id: 19, date: "2026-11-24", title: "The bell moved beside the watch face", notes: ["The bell now floats at the top left of the watch face, and the notes open in a window over the page."]},

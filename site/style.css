@@ -25,7 +25,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,su
 h1,h2,h3{margin:0;font-weight:400;text-wrap:balance}
 p{margin:0}
 
-.wrap{max-width:1320px;margin:0 auto;padding:0 var(--gutter) 72px}
+/* Photo sizes in the brand index. A 27 inch 4K monitor shows about 163 pixels to the inch, so three inches is about 490 of
+   its pixels: 327 CSS pixels at the usual 150% scaling (a 2560 wide page), 392 at 125% (3072 wide), 490 at 100% (3840 wide).
+   On screens that wide the brand photo and the Main models photos are at least that big, and the page is wider to hold them.
+   Everywhere else they are still large enough to see what the watch looks like without opening it: on a phone the brand
+   photo is 96 pixels and a model's photo sits above its text at 240. */
+:root{--ph:120px;--mph:200px;--page:1320px}
+@media (max-width:820px){:root{--ph:96px}}
+@media (max-width:560px){:root{--mph:240px}.models ul li.pic{grid-template-columns:minmax(0,1fr);row-gap:6px}.models ul li.pic .zoom,.models ul li.pic img{grid-row:auto}.models ul li.pic > span{grid-column:1}}
+.models li.pic{grid-template-rows:auto auto 1fr}
+@media (min-width:1800px){:root{--ph:330px;--mph:330px;--page:1640px}.row{align-items:start}.models{max-width:none}.models .mdesc,.models .mf{max-width:70ch}}
+@media (min-width:2900px){:root{--ph:400px;--mph:400px;--page:2000px}}
+@media (min-width:3400px){:root{--ph:490px;--mph:490px;--page:2400px}}
+.wrap{max-width:var(--page);margin:0 auto;padding:0 var(--gutter) 72px}
 
 /* Masthead: lowercase display type beside a working dial */
 /* What's new: a bell floating at the top left of the dial, which opens the release notes in a modal. */
@@ -41,7 +53,7 @@ html:has(.news[open]),html:has(.shot[open]){overflow:hidden}
 .zoom{display:block;padding:0;border:0;border-radius:0;background:none;color:inherit;font:inherit;cursor:zoom-in}
 .zoom:focus-visible{outline:2px solid var(--ink);outline-offset:-2px}
 .photo .zoom{width:100%;height:100%}
-.models li.pic .zoom{grid-row:1 / span 3;width:72px;height:72px}
+.models li.pic .zoom{grid-row:1 / span 3;width:var(--mph);height:var(--mph)}
 .shot{position:fixed;inset:0;margin:auto;width:min(1000px,calc(100vw - 32px));max-height:min(90vh,920px);overflow:auto;background:var(--paper);color:var(--ink);border:1px solid var(--ink);padding:0;box-shadow:6px 6px 0 rgba(22,22,24,.12)}
 .shot.one{width:min(520px,calc(100vw - 32px))}
 .shot::backdrop{background:rgba(22,22,24,.6)}
@@ -182,8 +194,8 @@ section{margin-top:88px}
 .search input{flex:1 1 auto}
 .search select{margin-left:-1px}
 .rows{border-top:1px solid var(--ink)}
-.row{display:grid;grid-template-columns:60px minmax(150px,1.2fr) 104px minmax(0,1.7fr) 118px 128px minmax(0,1.1fr);gap:6px 18px;padding:10px 0;border-bottom:1px solid var(--rule);align-items:center;font-size:16px}
-.row .t{width:60px;height:60px;background:#fff;border:1px solid var(--rule);display:block;overflow:hidden}
+.row{display:grid;grid-template-columns:var(--ph) minmax(150px,1.2fr) 104px minmax(0,1.7fr) 118px 128px minmax(0,1.1fr);gap:6px 18px;padding:10px 0;border-bottom:1px solid var(--rule);align-items:center;font-size:16px}
+.row .t{width:var(--ph);height:var(--ph);background:#fff;border:1px solid var(--rule);display:block;overflow:hidden}
 .row .t img{width:100%;height:100%;object-fit:contain;display:block}
 .row .n{font-weight:600}
 .row .n a{color:var(--ink)}
@@ -240,7 +252,7 @@ section{margin-top:88px}
   .dial-name{text-align:center}
   .sec-head,.sub-head{grid-template-columns:1fr}
   section{margin-top:64px}
-  .row{grid-template-columns:60px minmax(0,1fr) auto;gap:2px 14px;align-items:start;padding:14px 0}
+  .row{grid-template-columns:var(--ph) minmax(0,1fr) auto;gap:2px 14px;align-items:start;padding:14px 0}
   .row.head{display:none}
   .row .t{grid-row:1 / span 5}
   .row .y,.row .models{grid-column:1 / -1;margin-top:6px}
@@ -379,8 +391,8 @@ section{margin-top:88px}
 .models summary span{font-weight:400;color:var(--muted);font-size:13px}
 .models ul{list-style:none;margin:6px 0 4px;padding:0;display:grid;gap:8px}
 .models li{display:grid;gap:1px;padding-left:12px;box-shadow:inset 2px 0 0 var(--rule)}
-.models li.pic{grid-template-columns:72px minmax(0,1fr);column-gap:14px;align-items:start}
-.models li.pic img{grid-row:1 / span 3;width:72px;height:72px;object-fit:contain;background:#fff;border:1px solid var(--rule)}
+.models li.pic{grid-template-columns:var(--mph) minmax(0,1fr);column-gap:14px;align-items:start}
+.models li.pic img{grid-row:1 / span 3;width:var(--mph);height:var(--mph);object-fit:contain;background:#fff;border:1px solid var(--rule)}
 .models li.pic > span{grid-column:2}
 .models .mn{font-weight:600}
 .models .mf{color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
