@@ -3,6 +3,7 @@
 // the merge date, a short title, and optional notes. The bell beside the dial shows a dot
 // until the reader has opened the newest entry.
 const RELEASES = [
+  {id: 22, date: "2026-11-25", title: "Twelve new watch faces, under a light from overhead", notes: ["Twelve new faces after watches in the picks, among them the Farer Resolute with ice-blue lume under its black numerals, the Tudor Black Bay GMT and Chrono, and the Trafford Crossroads.", "The newest faces now come first in the menu under the dial.", "The light on the face now comes from far overhead and is wider than the watch, so the whole face brightens and dims as you move."]},
   {id: 20, date: "2026-11-24", title: "Softer light on the watch face", notes: ["The light that follows your pointer across the watch face is now broad and diffuse, not a bright spot."]},
   {id: 19, date: "2026-11-24", title: "The bell moved beside the watch face", notes: ["The bell now floats at the top left of the watch face, and the notes open in a window over the page."]},
   {id: 18, date: "2026-11-24", title: "What's new: release notes behind the bell", notes: ["The bell beside the watch face opens these notes. It shows a red dot when there is something you haven't read."]},
