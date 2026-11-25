@@ -561,6 +561,20 @@ const all = TIERS.flatMap(t => t.rows.map(r => {
 all.forEach((x, i) => { x.i = i; x.rec = x.worth || x.picks.length > 0; });
 // Desirable is about wanting one, never about price or fame: cred plus cool of 8 or more out of ten, the map's top two steps.
 all.forEach(x => { x.desirable = x.cred + x.cool >= 8; });
+// Three combined scores out of ten, one for each view of the map (map.js), each the sum of two marks out of five.
+//   cost          5 for a typical price in the lowest price tier, 1 for the highest; none for a brand with no list price.
+//                 The typical price is the middle of the range on a log scale, or the start of an open-ended one, as on the map.
+//   desirability  cred and cool averaged.
+//   value         the value rating.
+const COST_CUTS = TIERS.filter(t => t.band).map(t => t.band[0]).filter(c => c > 0);
+all.forEach(x => {
+  const cost = !x.rng ? null : x.rng[1] === Infinity ? x.rng[0] : Math.sqrt(x.rng[0] * x.rng[1]);
+  x.afford = cost == null ? 0 : 5 - COST_CUTS.filter(c => cost >= c).length;
+  const des = (x.cred + x.cool) / 2, rated = x.sum > 0;
+  x.cd = rated && x.afford ? x.afford + des : -1;
+  x.cv = rated && x.afford ? x.afford + x.value : -1;
+  x.vd = rated ? x.value + des : -1;
+});
 // Microbrands: notable and interesting small brands, the ones in MICRO (ratings.js) with Cred plus Cool of 7 or more.
 all.forEach(x => { x.micro = MICRO.has(x.r[0]) && x.cred + x.cool >= 7; });
 // Why a recommended brand is recommended, in a sentence or two (reasons.js). Shown on its row and under the map.
@@ -617,6 +631,9 @@ const SORTS = [
   ["value","Best value first",by('value')],
   ["cred","Most respected first",by('cred')],
   ["cool","Coolest first",by('cool')],
+  ["cd","Cost and desirability score",by('cd')],
+  ["cv","Cost and value score",by('cv')],
+  ["vd","Value and desirability score",by('vd')],
   ["known","Best known first",by('known')],
   ["hidden","Least known first",(a,b)=>a.known-b.known || b.sum-a.sum || a.r[0].localeCompare(b.r[0])],
   ["lines","Most models first",(a,b)=>b.lines-a.lines || a.r[0].localeCompare(b.r[0])],
@@ -652,9 +669,14 @@ const METERS = [['known','Known'],['value','Value'],['cred','Cred'],['cool','Coo
 function meters(x){
   return `<span class="m" role="img" aria-label="${METERS.map(([k,l])=>`${l} ${x[k]} of 5`).join(', ')}">${METERS.map(([k,l])=>`<span class="mr"><i>${l}</i><b class="pips v${x[k]}"></b></span>`).join('')}</span>`;
 }
+const SCORES = [['cd','Cost and desirability'],['cv','Cost and value'],['vd','Value and desirability']];
+function scores(x){
+  if (x.vd < 0) return '';
+  return `<span class="cs">${SCORES.map(([k,l]) => `<span>${l}<b>${x[k] < 0 ? '–' : x[k]}</b>${x[k] < 0 ? ' <small>no list price</small>' : ' <small>of 10</small>'}</span>`).join('')}</span>`;
+}
 function rowHtml(x){
   const r = x.r;
-  return `<div class="row${x.worth?' worth':''}${x.skip?' skip':''}" data-b="${x.i}"><span class="t">${r[8]?`<img src="${esc(r[8])}" alt="" loading="lazy" width="176" height="176">`:''}</span><span class="n">${r[6]?`<a href="${esc(r[6])}" target="_blank" rel="noopener">${esc(r[0])}</a>`:esc(r[0])}${x.worth?`<span class="tag w">Worth a look</span>`:''}${pickBrands.has(r[0])?`<span class="tag pk">Pick</span>`:''}${x.unusual?`<span class="tag u">Unusual</span>`:''}${r[5]?`<span class="note">${esc(r[5])}</span>`:''}</span><span class="c">${esc(r[1])}</span><span class="k">${esc(r[2])}</span>${meters(x)}<span class="p">${esc(r[3])}${x.lines?`<small>about ${x.lines} model line${x.lines===1?'':'s'}</small>`:''}</span><span class="s">${r[7]?`<a href="${esc(r[7])}" target="_blank" rel="noopener">${esc(r[4])}</a>`:esc(r[4])}</span>${x.why?`<span class="y"><b>${x.worth?'Why it’s worth a look':'Why it’s here'}</b>${esc(x.why)}</span>`:''}${modelsHtml(x)}</div>`;
+  return `<div class="row${x.worth?' worth':''}${x.skip?' skip':''}" data-b="${x.i}"><span class="t">${r[8]?`<img src="${esc(r[8])}" alt="" loading="lazy" width="176" height="176">`:''}</span><span class="n">${r[6]?`<a href="${esc(r[6])}" target="_blank" rel="noopener">${esc(r[0])}</a>`:esc(r[0])}${x.worth?`<span class="tag w">Worth a look</span>`:''}${pickBrands.has(r[0])?`<span class="tag pk">Pick</span>`:''}${x.unusual?`<span class="tag u">Unusual</span>`:''}${r[5]?`<span class="note">${esc(r[5])}</span>`:''}</span><span class="c">${esc(r[1])}</span><span class="k">${esc(r[2])}</span>${meters(x)}<span class="p">${esc(r[3])}${x.lines?`<small>about ${x.lines} model line${x.lines===1?'':'s'}</small>`:''}</span><span class="s">${r[7]?`<a href="${esc(r[7])}" target="_blank" rel="noopener">${esc(r[4])}</a>`:esc(r[4])}</span>${scores(x)}${x.why?`<span class="y"><b>${x.worth?'Why it’s worth a look':'Why it’s here'}</b>${esc(x.why)}</span>`:''}${modelsHtml(x)}</div>`;
 }
 function render(){
   const q = document.getElementById('q').value.trim().toLowerCase();
@@ -701,6 +723,7 @@ const BRAND_INDEX = {
   shown: new Set(),  // the brands the current filters keep; render() replaces it
   band: null,        // the active tier or budget in dollars, [low, high], or null
   meters,            // the four rating bars for a brand, as the list draws them
+  scores,            // the three combined scores for a brand, as the list draws them
   modelsHtml,        // a brand's main model lines, as the list draws them
   // Show one brand's row: clear the filters if they hide it (the sort stays), then scroll to it, focus it and mark it for a moment.
   reveal(x){
