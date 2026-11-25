@@ -10,24 +10,24 @@
 
   // ---- the look: every number worth tuning is in these tables ----
   const LOOK = {
-    lampZ: 1.1, rest: [-.55, -.75],               // the lamp's height in half widths of the dial, and where it rests
+    lampZ: 1.8, rest: [-.55, -.75],               // the lamp's height in half widths of the dial, and where it rests
     free: 1.5, minElev: 20,                       // it follows the pointer exactly this far out, then slows so it never sinks below this angle
     ease: 100,                                    // how fast it glides to the pointer, ms
     tilt: -1 / 28, tiltMax: 60,                   // on a phone: half widths the lamp moves per degree of tilt (negative: it stays put in the room), largest tilt used
     tiltRest: [.4, 0],                            // on a phone the lamp rests this much further right, clear of a right thumb
     tiltDrift: 4000,                              // how slowly the level the phone is held at becomes the new resting tilt, ms
     keyColour: [1, .965, .9], key: .95,           // the lamp on matte surfaces (warm)
-    fillColour: [.82, .9, 1], fill: .16,          // a soft cool light from the far side
-    ambColour: [.92, .95, 1], amb: .34,           // light from the room
-    fall: .7,                                     // how fast the lamp fades with distance across the watch
-    lamp: 5.5, lampSize: .17,                     // the lamp as metal and gloss mirror it: brightness, and half width as a slope
+    fillColour: [.82, .9, 1], fill: .18,          // a soft cool light from the far side
+    ambColour: [.92, .95, 1], amb: .36,           // light from the room
+    fall: .4,                                     // how fast the lamp fades with distance across the watch
+    lamp: 1.7, lampSize: .3,                     // the lamp as metal and gloss mirror it: brightness, and half width as a slope
     strip: .9,                                    // a dimmer strip light opposite the lamp, seen only in reflections
     envTop: .2, envSide: .7, envMean: .34,        // the room as metal mirrors it: overhead, the wall behind the lamp, blurred
     envDark: .12, envBack: .3,                    // the walls beside the lamp and opposite it, as fractions of that wall
     shadow: .8, shadowSoft: .1, shadowReach: 40,  // cast shadows: darkness, blur per unit of distance, longest reach in dial units
     handShadow: .7, handBlur: .35,                // shadows of hands: darkness, blur per unit of height
     grainTilt: .5,                                // how far brushing grain tilts the surface
-    crystal: .012, dome: .1, crystalColour: [.75, .85, 1],
+    crystal: .006, dome: .1, crystalColour: [.75, .85, 1],
     glow: .5, exposure: 1,
     handZ: 4.4, handStep: .9,                     // height of the lowest hand above the dial and the gap between hands, dial units
     hMin: -4, hMax: 12, hTop: 9,                  // range of heights the maps hold, and the highest thing that casts a shadow
