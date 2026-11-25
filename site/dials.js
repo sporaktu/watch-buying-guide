@@ -633,6 +633,8 @@
   if (pick) pick.innerHTML = D.map((d, i) => `<option value="${i}">${i + 1}. ${d.n}</option>`).join('');
   function show(i) {
     idx = i; render(i); mark(i);
+    // The case, for band.js, which draws the bracelet or strap to suit it.
+    el.dataset.cs = D[i].cs || 'round'; el.dataset.cf = D[i].cf || STEEL; document.dispatchEvent(new Event('wbm-dial'));
     if (pick) pick.value = i;
     if (pinBtn) { const on = pinned === i; pinBtn.setAttribute('aria-pressed', on); pinBtn.textContent = on ? 'Pinned' : 'Pin'; pinBtn.title = on ? 'Unpin this dial' : 'Keep this dial on every visit'; }
   }
