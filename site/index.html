@@ -28,11 +28,24 @@
       <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="square" aria-hidden="true"><path d="M6 17V11a6 6 0 0 1 12 0v6l1.5 1.5h-15z"/><path d="M10 21h4"/><path d="M12 3v2"/></svg>
       <span class="news-dot" id="newsDot" hidden></span>
     </button>
-    <button type="button" class="dial" id="dial" aria-label="Show the next dial design"></button>
+    <div class="dial-stage" id="dialStage">
+      <canvas class="band" id="band" aria-hidden="true" hidden></canvas>
+      <button type="button" class="dial" id="dial" aria-label="Show the next dial design"></button>
+    </div>
     <div class="dial-ctl">
       <select id="dialPick" aria-label="Choose a dial for this visit"></select>
       <button type="button" id="dialPin" aria-pressed="false">Pin</button>
       <button type="button" id="dialRandom" title="Show a random dial and remove the pin">Randomize</button>
+    </div>
+    <div class="dial-ctl dial-wear">
+      <select id="dialBand" aria-label="Bracelet or strap">
+        <option value="none">Watch head only</option>
+        <option value="steel">Metal bracelet</option>
+        <option value="brown">Brown leather strap</option>
+        <option value="black">Black leather strap</option>
+        <option value="rubber">Rubber strap</option>
+      </select>
+      <button type="button" id="dialWrist" aria-pressed="false" title="Show the watch on a wrist">On a wrist</button>
     </div>
     <p class="dial-name" id="dialName"></p>
   </div>
@@ -178,5 +191,6 @@
 <script src="nav.js" defer></script>
 <script src="dial3d.js" defer></script>
 <script src="dials.js" defer></script>
+<script src="band.js" defer></script>
 </body>
 </html>
