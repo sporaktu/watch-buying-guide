@@ -3,6 +3,7 @@
 // the merge date, a short title, and optional notes. The bell beside the dial shows a dot
 // until the reader has opened the newest entry.
 const RELEASES = [
+  {id: 19, date: "2026-11-24", title: "The bell moved beside the watch face", notes: ["The bell now floats at the top left of the watch face, and the notes open in a window over the page."]},
   {id: 18, date: "2026-11-24", title: "What's new: release notes behind the bell", notes: ["The bell beside the watch face opens these notes. It shows a red dot when there is something you haven't read."]},
   {id: 15, date: "2026-11-24", title: "Microbrands, hand-wound picks, and photos of the main models", notes: ["23 microbrands join the brand index, with their main models.", "Seven hand-wound picks, each with its photo.", "Two new filters above the picks: microbrands and hand-wound.", "Main models now shows a photo for 316 of its 384 model lines."]},
   {id: 16, date: "2026-11-24", title: "New pick: the Trafford Crossroads S 40 Fern", notes: ["A Texas-made watch joins the picks, with its photo, movement and where to buy it."]},
