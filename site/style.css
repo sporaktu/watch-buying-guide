@@ -221,7 +221,7 @@ section{margin-top:88px}
   .row{grid-template-columns:60px minmax(0,1fr) auto;gap:2px 14px;align-items:start;padding:14px 0}
   .row.head{display:none}
   .row .t{grid-row:1 / span 5}
-  .row .y{grid-column:1 / -1;margin-top:6px}
+  .row .y,.row .models{grid-column:1 / -1;margin-top:6px}
   .row .n{grid-column:2}
   .row .c{grid-column:3;grid-row:1;text-align:right}
   .row .k,.row .p,.row .s,.row .m{grid-column:2 / -1}
@@ -352,13 +352,24 @@ section{margin-top:88px}
 .md-pick{display:block}
 .md-acts{display:grid}
 .md-acts button + button{margin-top:-1px}
+.models{grid-column:2 / -1;font-size:15px;max-width:96ch}
+.models summary{cursor:pointer;font-weight:600;display:inline-flex;gap:8px;align-items:baseline;padding:4px 0}
+.models summary span{font-weight:400;color:var(--muted);font-size:13px}
+.models ul{list-style:none;margin:6px 0 4px;padding:0;display:grid;gap:8px}
+.models li{display:grid;gap:1px;padding-left:12px;box-shadow:inset 2px 0 0 var(--rule)}
+.models li.pic{grid-template-columns:72px minmax(0,1fr);column-gap:14px;align-items:start}
+.models li.pic img{grid-row:1 / span 3;width:72px;height:72px;object-fit:contain;background:#fff;border:1px solid var(--rule)}
+.models li.pic > span{grid-column:2}
+.models .mn{font-weight:600}
+.models .mf{color:var(--muted);font-size:14px;font-variant-numeric:tabular-nums}
+.models .mdesc{line-height:1.45}
 .md-why{grid-column:2 / -1;font-size:15px;line-height:1.45;max-width:96ch}
 @media (max-width:980px){
   .md{grid-template-columns:76px minmax(0,1fr) auto}
   .md-facts{grid-column:1 / -1}
   .md-acts{grid-column:1 / -1;grid-auto-flow:column;justify-content:start}
   .md-acts button + button{margin:0 0 0 -1px}
-  .md-why{grid-column:1 / -1}
+  .md-why,.models{grid-column:1 / -1}
 }
 @media (max-width:480px){
   /* Four section links wrap on a phone; this starts every row on the same line as the page's left edge. */

@@ -433,6 +433,7 @@
     const acts = H('div', 'md-acts', box), go = H('button', '', acts, 'Show in the list'), clr = H('button', '', acts, 'Clear');
     go.type = clr.type = 'button';
     if (x.why) { const y = H('p', 'md-why', box); H('b', '', y, x.worth ? 'Why it’s worth a look' : 'Why it’s here'); y.append(x.why); }   // the same reason as on its row in the list
+    if (IX.modelsHtml) box.insertAdjacentHTML('beforeend', IX.modelsHtml(x));   // the same main models as on its row
     go.addEventListener('click', () => IX.reveal(x));
     clr.addEventListener('click', () => { select(null); plot.focus(); });
   }
