@@ -54,7 +54,10 @@
   // In the Sections sheet the open filters take the room of the places list.
   fBtn.addEventListener('click', () => { fBox.hidden = !fBox.hidden; fBtn.setAttribute('aria-expanded', String(!fBox.hidden)); rail.classList.toggle('filtering', !fBox.hidden); if (fBox.hidden) showHere(); });
   const pressed = box => { const b = box.querySelector('[aria-pressed="true"]'); return b ? b.dataset.k || b.dataset.t : ''; };
+  // The filters copy the brand list's own controls. If app.js stopped before drawing those, there is nothing to filter and the block stays away.
+  let listed = false;
   function syncTools(){
+    listed = !!$('show').querySelector('button');
     showSel.value = pressed($('show')); tierSel.value = pressed($('tabs'));
     landSel.value = $('country').value; sortSel.value = $('sort').value;
     if (document.activeElement !== lo) lo.value = $('pmin').value;
@@ -148,7 +151,8 @@
       // On a wide window the filters join the bar once the first screen has scrolled away, and stay while one of them is in use.
       // On a narrow one they are always in the Sections sheet.
       const past = scrollY > innerHeight * .85, was = tools.hidden;
-      if (!wide.matches) tools.hidden = false;
+      if (!listed) tools.hidden = true;
+      else if (!wide.matches) tools.hidden = false;
       else if (past || !tools.contains(document.activeElement)) tools.hidden = !past;
       if (tools.hidden !== was) point();      // the results under them moved
     });
