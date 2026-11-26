@@ -6,12 +6,17 @@ const FIND = (() => {
   const ODD = {'ø': 'o', 'ß': 'ss', 'æ': 'ae', 'œ': 'oe', 'ł': 'l', 'đ': 'd'};
   const plain = c => { c = c.toLowerCase(); return c.length === 1 && c < '\u0080' ? c : ODD[c] || c.normalize('NFD').replace(/[\u0300-\u036f]/g, ''); };
 
+  const NUM = /[0-9]/;
   // A piece of text made ready: its words, where each letter came from in the original (for marking), and the words
   // run together with no gaps, so "blackbay" can find "Black Bay".
   function prep(text){
     text = String(text == null ? '' : text);
     let flat = ''; const at = [];
-    for (let i = 0; i < text.length; i++) for (const c of plain(text[i])) { flat += c; at.push(i); }
+    const digit = c => c >= '0' && c <= '9';
+    for (let i = 0; i < text.length; i++) {
+      if (text[i] === ',' && digit(text[i - 1] || '') && digit(text[i + 1] || '')) continue;      // "1,500" is one number
+      for (const c of plain(text[i])) { flat += c; at.push(i); }
+    }
     const words = [], run = []; let tight = '';
     for (const m of flat.matchAll(/[\p{L}\p{N}]+/gu)) {
       words.push({w: m[0], a: m.index, o: tight.length}); tight += m[0];
@@ -57,10 +62,13 @@ const FIND = (() => {
     const fit = q.length / w.length;
     if (q === w) { fill(0, w.length); return 100; }
     if (w.startsWith(q)) { fill(0, q.length); return 80 + 10 * fit; }
-    const inside = q.length > 1 ? w.indexOf(q) : -1;
+    // Inside a word, but never from the middle of a number: "500" is not in "1500".
+    let inside = q.length > 1 ? w.indexOf(q, 1) : -1;
+    while (inside > 0 && NUM.test(q[0]) && NUM.test(w[inside - 1])) inside = w.indexOf(q, inside + 1);
     if (inside > 0) { fill(inside, inside + q.length); return 55 + 10 * fit; }
     // The looser kinds need the first letter right and at least three letters to go on, or everything would match.
-    if (q.length < 3 || q[0] !== w[0]) return 0;
+    // Numbers get none of them: "44mm" must not find a 42mm watch, or "1963" a 1965.
+    if (q.length < 3 || q[0] !== w[0] || NUM.test(q) || NUM.test(w)) return 0;
     let best = 0, how = null;
     // Letters in order: the typed letters must be at least half of the word.
     const gaps = q.length < w.length && q.length * 2 >= w.length ? inOrder(q, w) : null;
