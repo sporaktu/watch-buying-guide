@@ -431,13 +431,13 @@ export async function mount(container, options = {}) {
       held = hit(ev);
       if (!held) return;
       controls.enabled = false;
-      held.down();
+      try { held.down(); } catch (err) { broken(err); }   // as an error in tick: the watch is stopped and freed
     }, { capture: true });
     const release = () => {
       if (!held) return;
       const was = held;
       held = null; controls.enabled = true;
-      if (typeof was.up === 'function') was.up();
+      if (typeof was.up === 'function') { try { was.up(); } catch (err) { broken(err); } }
     };
     listen(window, 'pointerup', release);
     listen(window, 'pointercancel', release);
@@ -610,11 +610,22 @@ export async function mount(container, options = {}) {
         discard();
         throw new Error(`watches/${id}/index.js: build() must return a group (an Object3D) and a tick function`);
       }
+      // Each part the reader can press is an Object3D in the group, with down() and, if given, up() functions.
+      const inGroup = (o) => { for (let p = o; p; p = p.parent) if (p === group) return true; return false; };
+      const press = built.press == null ? [] : built.press;
+      const badPress = !Array.isArray(press) ? 'press must be a list'
+        : press.map((p, k) => (!p || !p.object || !p.object.isObject3D || !inGroup(p.object) ? `press[${k}].object must be an Object3D in group`
+          : typeof p.down !== 'function' ? `press[${k}].down must be a function`
+            : p.up != null && typeof p.up !== 'function' ? `press[${k}].up must be a function if given` : '')).find(Boolean);
+      if (badPress) {
+        discard();
+        throw new Error(`watches/${id}/index.js: ${badPress}`);
+      }
       scene.add(built.group);
       light(mod.about.light);
       current = {
         about: mod.about, group: built.group, tick: built.tick,
-        press: Array.isArray(built.press) ? built.press : [], idle: built.idle, dispose: own, report: null,
+        press, idle: built.idle, dispose: own, report: null,
         copies: copies.made,
       };
       releaseWatch = own;
