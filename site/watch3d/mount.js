@@ -30,8 +30,9 @@ function makeClock(time) {
 
 /**
  * @param {HTMLElement} container  the watch fills this element and follows its size
- * @param {{ shadowSize?: 4096|2048, reducedMotion?: boolean, onLost?: () => void, time?: string }} [options]
+ * @param {{ shadowSize?: 4096|2048, reducedMotion?: boolean, onLost?: () => void, onInteract?: () => void, time?: string }} [options]
  *        time: 'HH:MM:SS' freezes the hands, for comparable screenshots
+ *        onInteract: called when the reader starts to turn or zoom the watch by hand, so a named view no longer applies
  * @returns {Promise<Handle>} resolves when the first frame has been drawn; rejects if WebGL is missing or the build throws
  *
  * Handle:
@@ -168,7 +169,7 @@ export async function mount(container, options = {}) {
       }
       return true;
     }
-    controls.addEventListener('start', () => { flight = null; });
+    controls.addEventListener('start', () => { flight = null; if (typeof options.onInteract === 'function') options.onInteract(); });
 
     // The pushers work: the upper one starts and stops the chronograph, the lower one resets it.
     const pushers = built.parts.case ? built.parts.case.pushers : null;

@@ -78,19 +78,21 @@
     const options = {
       shadowSize: matchMedia('(max-width: 720px)').matches ? 2048 : 4096,
       reducedMotion: matchMedia('(prefers-reduced-motion: reduce)').matches,
-      onLost: () => fail(new Error('The WebGL context was lost.'))
+      onLost: () => fail(new Error('The WebGL context was lost.')),
+      onInteract: () => { view.value = ''; }   // the list reads Turned by hand, so any named view can be chosen again
     };
     // catch() after then(), so an error in showing the built watch is handled like one in building it.
     building = import('./watch3d/mount.js').then(m => m.mount(stage, options)).then(h => {
       building = null; handle = h;
       h.canvas.classList.add('watch3d'); h.canvas.hidden = true;
+      if (!view.value) view.value = 'hero';   // a new model starts on the three-quarter view, not where an old one was turned to
       h.setView(view.value, true);
       if (on) show();   // otherwise the reader left while it was loading: keep it for the next press
     }).catch(err => { building = null; fail(err); });
   }
 
   btn.addEventListener('click', () => { if (on) leave(false); else enter(); });
-  view.addEventListener('change', () => { if (handle) handle.setView(view.value); });
+  view.addEventListener('change', () => { if (handle && view.value) handle.setView(view.value); });
   document.addEventListener('wbm-dial', () => {
     if (!on) return;
     if (dials.current() !== NAME) leave(true);
