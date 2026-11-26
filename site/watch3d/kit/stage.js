@@ -30,9 +30,12 @@ function makeClock(time) {
 
 /**
  * @param {HTMLElement} container  the watch fills this element and follows its size
- * @param {{ watch: string, shadowSize?: 4096|2048, reducedMotion?: boolean, onLost?: () => void, onInteract?: () => void, time?: string }} options
+ * @param {{ watch: string, shadowSize?: 4096|2048, reducedMotion?: boolean, onLost?: () => void, onError?: (err: Error) => void, onInteract?: () => void, time?: string }} options
  *        watch: the id of the watch to show first, the name of its folder under watches/ (required)
  *        time: 'HH:MM:SS' freezes the hands, for comparable screenshots
+ *        onError: called once if the watch showing throws after show() has resolved (its tick or idle, while the loop
+ *                 runs or a frame is drawn on request). The loop is stopped and the watch freed first, so no watch is
+ *                 showing; without onError the error goes to the console, once.
  *        onInteract: called when the reader starts to turn or zoom the watch by hand, so a named view no longer applies
  * @returns {Promise<Handle>} resolves when the first frame has been drawn; rejects if WebGL is missing or the build throws
  *
@@ -47,14 +50,16 @@ function makeClock(time) {
  *   show(id: string): Promise<void>    stop the loop, free the watch showing (but not the kit's shared materials and
  *                                      studio), import and build watches/<id>/index.js, put it in the three-quarter
  *                                      view and draw one frame. Calls run in turn and the last one wins: one overtaken
- *                                      by a later call resolves without showing its watch. If the build throws, the
- *                                      promise rejects and no watch is showing. The loop is left stopped.
+ *                                      by a later call resolves without showing its watch. If the build throws,
+ *                                      returns something that is not a group and a tick, or the first frame throws,
+ *                                      the promise rejects and no watch is showing. The loop is left stopped.
  *   dispose(): void                    stop, free GL resources, remove the canvas and every listener
  *
  * A watch module (watches/<id>/index.js) exports
  *   about: { id, label, hint, caption?, views? }   label is the canvas's aria-label; views overrides any of the six
  *   build({ M, renderer, frozen }): Promise<{ group, tick(date, dt, camera), press: [{ object, down(), up?() }],
  *                                             idle?(seconds), report }>
+ *   group must be a THREE.Object3D and tick a function, or show() rejects.
  */
 export async function mount(container, options = {}) {
   if (typeof options.watch !== 'string' || !/^[a-z0-9-]+$/.test(options.watch)) throw new Error('mount needs a watch id');
@@ -195,7 +200,7 @@ export async function mount(container, options = {}) {
     }
     function setView(name, instant = false) {
       if (!place(name, instant)) return false;
-      if ((instant || reducedMotion) && ready && !raf) renderOnce();   // the loop is stopped, so show the new view now
+      if ((instant || reducedMotion) && ready && !raf) redraw();   // the loop is stopped, so show the new view now
       return true;
     }
     controls.addEventListener('start', () => { flight = null; if (typeof options.onInteract === 'function') options.onInteract(); });
@@ -241,6 +246,17 @@ export async function mount(container, options = {}) {
       if (current) current.tick(clock(), 0, camera);
       renderer.render(scene, camera);
     }
+    // A watch that throws once it is showing is stopped and freed, and the error reported once, not every frame.
+    function broken(err) {
+      stop();
+      unload();
+      if (typeof options.onError === 'function') options.onError(err);
+      else console.error('The 3D watch stopped: its code threw.', err);
+    }
+    // A frame asked for outside the loop (a new view, a resize): the same, guarded.
+    function redraw() {
+      try { renderOnce(); } catch (err) { broken(err); }
+    }
 
     let width = 0, height = 0;
     function resize() {
@@ -263,7 +279,7 @@ export async function mount(container, options = {}) {
     // is stopped and not displayed is left alone; start() fits it before its first frame.
     const ro = new ResizeObserver(() => {
       if (disposed || (!raf && !canvas.getClientRects().length)) return;
-      if (resize()) renderOnce();
+      if (resize()) redraw();
     });
     ro.observe(container);
     undo.push(() => ro.disconnect());
@@ -273,6 +289,9 @@ export async function mount(container, options = {}) {
     let last = 0, stoppedAt = performance.now();
     function frame(now) {
       raf = requestAnimationFrame(frame);
+      try { step(now); } catch (err) { broken(err); }
+    }
+    function step(now) {
       const dt = Math.max(0, Math.min(0.1, (now - last) / 1000)); last = now;
       if (flight) {
         flight.t = Math.min(1, flight.t + dt / 1.1);
@@ -296,7 +315,9 @@ export async function mount(container, options = {}) {
       if (raf || disposed || !current) return;
       const now = performance.now();
       // A watch whose works count frame by frame is told how long the loop was stopped.
-      if (typeof current.idle === 'function' && stoppedAt !== null) current.idle(Math.max(0, now - stoppedAt) / 1000);
+      if (typeof current.idle === 'function' && stoppedAt !== null) {
+        try { current.idle(Math.max(0, now - stoppedAt) / 1000); } catch (err) { broken(err); return; }
+      }
       stoppedAt = null;
       last = now;
       resize();
@@ -347,7 +368,12 @@ export async function mount(container, options = {}) {
       if (disposed || ticket !== latest) return;
       if (!mod.about || mod.about.id !== id || typeof mod.build !== 'function') throw new Error(`watches/${id}/index.js does not export about and build`);
       const built = await mod.build({ M, renderer, frozen });
-      if (disposed || ticket !== latest) { if (!disposed) free(built.group); return; }
+      const group = built && built.group && built.group.isObject3D ? built.group : null;
+      if (disposed || ticket !== latest) { if (!disposed && group) free(group); return; }
+      if (!group || typeof built.tick !== 'function') {
+        if (group) free(group);
+        throw new Error(`watches/${id}/index.js: build() must return a group (an Object3D) and a tick function`);
+      }
       scene.add(built.group);
       current = {
         about: mod.about, group: built.group, tick: built.tick,
@@ -356,7 +382,12 @@ export async function mount(container, options = {}) {
       views = { ...VIEWS, ...(mod.about.views || {}) };
       canvas.setAttribute('aria-label', mod.about.label);
       place('hero', true);
-      renderOnce();   // the first frame, which also compiles the shaders
+      try {
+        renderOnce();   // the first frame, which also compiles the shaders
+      } catch (err) {
+        unload();
+        throw err;
+      }
       if (renderer.getContext().isContextLost()) {
         unload();
         throw new Error('The WebGL context was lost while the watch was being built');

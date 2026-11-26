@@ -116,6 +116,7 @@
       shadowSize: matchMedia('(max-width: 720px)').matches ? 2048 : 4096,
       reducedMotion: matchMedia('(prefers-reduced-motion: reduce)').matches,
       onLost: () => fail(new Error('The WebGL context was lost.')),
+      onError: err => fail(err),   // the watch's own code threw while it was showing
       onInteract: () => { view.value = ''; if (on) mark(); }   // the list reads Turned by hand, so any named view can be chosen again
     };
     // The page's ?time= freezes the flat dial's clock; the 3D watch's hands follow it, so screenshots can be compared.
