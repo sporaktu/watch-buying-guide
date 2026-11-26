@@ -313,7 +313,7 @@
       return;
     }
     const by = new Map();
-    for (const e of index) { const s = FIND.score(qs, e.name, e.sub); if (s) { if (!by.has(e.kind)) by.set(e.kind, []); by.get(e.kind).push({e, s}); } }
+    for (const m of FIND.all(qs, index)) { if (!by.has(m.e.kind)) by.set(m.e.kind, []); by.get(m.e.kind).push(m); }
     // Entries are in page order and the sort keeps ties as they were, so equal scores stay in page order.
     const groups = KINDS.filter(k => by.has(k[0])).map(k => ({k, list: by.get(k[0]).sort((a, b) => b.s - a.s)})).sort((a, b) => b.list[0].s - a.list[0].s);
     let total = 0;

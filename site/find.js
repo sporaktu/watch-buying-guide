@@ -102,26 +102,40 @@ const FIND = (() => {
 
   // Score an entry for what was typed. Every typed word must match the name or the secondary text, and the name
   // counts for more. A name the typed words cover completely beats a longer name that merely contains them.
-  // 0 means no match. hits, when given, is filled with [field, word, joined, typed word] for each typed word.
-  const SUB = .6;
-  function score(qs, name, sub, hits){
-    if (!qs.length) return 0;
-    let total = 0, inName = 0;
+  // Returns null for no match, else {s, sure, loose}: the score; whether some typed word matched a whole word, the
+  // start of one or words run together; and whether every typed word matched only by its letters in order or as a
+  // typo. hits, when given, is filled with [field, word, joined, typed word] for each typed word.
+  // A word's score, with its few points for coming early, is under LOOSE for the two loosest kinds and SURE or more
+  // for the three surest (see word and best).
+  const SUB = .6, LOOSE = 55, SURE = 72;
+  function match(qs, name, sub, hits){
+    if (!qs.length) return null;
+    let total = 0, inName = 0, sure = false, loose = true;
     for (const q of qs) {
       const a = best(q, name), b = sub ? best(q, sub) : null;
-      const viaName = !b || a[0] >= b[0] * SUB, s = viaName ? a[0] : b[0] * SUB;
-      if (!s) return 0;
+      const viaName = !b || a[0] >= b[0] * SUB, raw = viaName ? a[0] : b[0];
+      if (!raw) return null;
       if (viaName) inName++;
-      total += s;
+      if (raw >= SURE) sure = true;
+      if (raw >= LOOSE) loose = false;
+      total += viaName ? raw : raw * SUB;
       if (hits) hits.push(viaName ? [name, a[1], a[2], q] : [sub, b[1], b[2], q]);
     }
-    return total / qs.length + 12 * Math.min(1, inName / Math.max(1, name.words.length));
+    return {s: total / qs.length + 12 * Math.min(1, inName / Math.max(1, name.words.length)), sure, loose};
+  }
+  // Every match for what was typed, from a list of entries that each have a name and a sub (see prep), as
+  // [{e, s}] in the order given. When something matches surely, the entries that only match loosely are noise
+  // ("try" would find Tourby) and are left out. When nothing does ("navitmer"), the loose matches are the answer.
+  function all(qs, entries){
+    const out = []; let sure = false;
+    for (const e of entries) { const m = match(qs, e.name, e.sub); if (m) { m.e = e; out.push(m); sure = sure || m.sure; } }
+    return sure ? out.filter(m => !m.loose) : out;
   }
 
   // Which characters of an entry's name and secondary text matched, as positions in the original text: [name, sub].
   function marks(qs, name, sub){
     const hits = [], out = [new Set(), new Set()];
-    if (!score(qs, name, sub, hits)) return out;
+    if (!match(qs, name, sub, hits)) return out;
     for (const [f, i, joined, q] of hits) {
       const set = out[f === name ? 0 : 1], x = f.words[i];
       if (joined) for (let j = 0; j < q.length; j++) set.add(f.run[x.o + j]);
@@ -130,5 +144,5 @@ const FIND = (() => {
     return out;
   }
 
-  return {prep, words, score, marks};
+  return {prep, words, match, all, marks};
 })();
