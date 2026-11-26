@@ -409,7 +409,7 @@
     if (w) { rail.removeAttribute('role'); rail.removeAttribute('aria-modal'); rail.setAttribute('aria-label', 'Search, filters and page sections'); rail.inert = false; }
     else { rail.setAttribute('role', 'dialog'); rail.setAttribute('aria-modal', 'true'); if (!rail.classList.contains('open')) rail.inert = true; }
     const before = w ? res : null;
-    if (tools.nextElementSibling !== before) rail.insertBefore(tools, before);
+    if (tools.parentNode !== rail || tools.nextElementSibling !== before) rail.insertBefore(tools, before);
     track();
   }
   dockSecs.setAttribute('aria-expanded', 'false'); dockFind.setAttribute('aria-expanded', 'false');
