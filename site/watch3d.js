@@ -34,6 +34,7 @@
   let inView = true;      // the stage is on screen
   let base = '';          // the dial's own caption, to put back
   let wristWas = false;   // whether On a wrist was disabled before the mode
+  let camAsked = null;    // the address's ?cam= on arrival, for the first watch built; used once
 
   const full = () => stage.classList.contains('full');
   // The loop runs only while the watch is showing, the stage is on screen and the tab is visible.
@@ -49,7 +50,8 @@
   };
   // The address says the 3D watch is showing and which view, so the link can be copied. The three-quarter view is the
   // default and is left out, and so is a watch turned by hand (the list's empty value): no view names where it is.
-  const mark = () => dials.address({ full: '1', view: view.value && view.value !== 'hero' ? view.value : null });
+  // ?cam= is read on arrival only and is never written: any change this file makes to the address drops it.
+  const mark = () => dials.address({ full: '1', view: view.value && view.value !== 'hero' ? view.value : null, cam: null });
 
   function show() {
     wait.textContent = '';
@@ -74,7 +76,7 @@
     stage.classList.remove('loading', 'full');
     if (handle) { handle.stop(); handle.canvas.hidden = true; }
     dials.pause(false);
-    dials.address({ full: null, view: null });
+    dials.address({ full: null, view: null, cam: null });
     if (!was) return;
     view.hidden = true; band.hidden = false;
     wrist.disabled = wristWas;
@@ -135,14 +137,17 @@
       building = null; handle = h;
       h.canvas.classList.add('watch3d'); h.canvas.hidden = true;
       if (!view.value) view.value = 'hero';   // a new model starts on the three-quarter view, not where an old one was turned to
-      h.setView(view.value, true);
+      // A camera from the address, if it is well formed, takes the place of the view; the list then reads Turned by hand.
+      if (camAsked && h.setCamera(camAsked, true)) view.value = ''; else h.setView(view.value, true);
+      camAsked = null;
+      if (on) mark();
       open();   // otherwise the reader left while it was loading: keep it for the next press
     }).catch(err => { building = null; fail(err); });
   }
 
   function enter() {
     const face = WATCHES[dials.current()] ? dials.current() : DEFAULT;
-    if (!dials.choose(face)) { dials.address({ full: null, view: null }); return; }
+    if (!dials.choose(face)) { dials.address({ full: null, view: null, cam: null }); return; }
     on = true; want = WATCHES[face]; btn.setAttribute('aria-pressed', 'true');
     mark();
     open();
@@ -160,11 +165,14 @@
   document.addEventListener('visibilitychange', run);
   if (window.IntersectionObserver) new IntersectionObserver(es => { inView = es[es.length - 1].isIntersecting; run(); }).observe(stage);
   btn.hidden = false;
-  // ?full=1 opens the 3D watch on arrival, as a press of the button would; ?view= picks its view.
+  // ?full=1 opens the 3D watch on arrival, as a press of the button would; ?view= picks its view, and ?cam= (for
+  // close-ups; its form is in parseCam in kit/stage.js: az,el,dist or az,el,dist,x,y,z) places the camera anywhere
+  // instead. A malformed cam is ignored and the view stands.
   let asked = null; try { asked = new URLSearchParams(location.search); } catch (e) {}
   if (asked && asked.get('full') === '1') {
     const v = asked.get('view');
     if (v && [...view.options].some(o => o.value === v)) view.value = v;
+    camAsked = asked.get('cam');
     enter();
   }
 })();

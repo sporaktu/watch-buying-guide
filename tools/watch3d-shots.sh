@@ -2,12 +2,22 @@
 # Shoot the six views of a 3D watch at a frozen time, for comparing before and after a change, and report for each
 # what a browser's console would have shown.
 #
-#   tools/watch3d-shots.sh [--allow-warnings] <base-url> <dial-slug> <out-dir>
+#   tools/watch3d-shots.sh [--allow-warnings] [--scale N] <base-url> <dial-slug> <out-dir> [name=cam ...]
 #   e.g. tools/watch3d-shots.sh http://127.0.0.1:8773/site/ slide-rule-chronograph /tmp/watch3d-now/navitimer
+#        tools/watch3d-shots.sh --scale 2 http://127.0.0.1:8773/site/ slide-rule-chronograph /tmp/close \
+#          crown=80,5,60,20,0,6 clasp-under=0,-60,120,0,-30,-20
 #
 # Writes hero.png front.png side.png back.png clasp.png bracelet.png into <out-dir>: the window at 1440 by 900, with
 # the watch showing in the masthead (?full=1) and its hands at 10:08:30. Each shot gets a fresh profile, so nothing a
 # visit stores changes the next one.
+#
+# Close-ups: each extra argument name=cam shoots one more picture, <name>.png, from the camera the page's ?cam= places
+# (az,el,dist or az,el,dist,x,y,z: degrees round from the front towards 3 o'clock, degrees up towards 12 o'clock,
+# millimetres away, and the point looked at in millimetres; see parseCam in site/watch3d/kit/stage.js). A name is
+# lower-case letters, digits and hyphens, and not one of the six views. A cam the page ignores fails the run.
+# --scale N gives the page N device pixels to each CSS pixel (Chromium's --force-device-scale-factor), so the picture
+# is N times as wide and tall: at 2 the masthead watch is about 865 pixels wide. The stage draws at most 2 device
+# pixels a CSS pixel, so more than 2 adds nothing. Compare only sets shot at the same scale.
 #
 # Beside each picture, <view>.json holds what tools/watch3d-shot.mjs recorded for it (it drives Chromium over the
 # DevTools protocol, from plain node with no packages): the WebGL renderer string, the watch's report (the stage's
@@ -32,18 +42,26 @@
 # Compare two sets with tools/watch3d-compare.py.
 set -euo pipefail
 
-usage() { echo "usage: $0 [--allow-warnings] <base-url> <dial-slug> <out-dir>" >&2; exit 2; }
-allow=0
+usage() { echo "usage: $0 [--allow-warnings] [--scale N] <base-url> <dial-slug> <out-dir> [name=cam ...]" >&2; exit 2; }
+allow=0 scale=1
 while [ $# -gt 0 ]; do
   case "$1" in
     --allow-warnings) allow=1; shift ;;
+    --scale) [ $# -ge 2 ] && [[ "$2" =~ ^[0-9]+(\.[0-9]+)?$ ]] || usage; scale=$2; shift 2 ;;
     --) shift; break ;;
     -*) usage ;;
     *) break ;;
   esac
 done
-[ $# -eq 3 ] || usage
+[ $# -ge 3 ] || usage
 base=$1 slug=$2 out=$3
+shift 3
+extra=("$@")
+for e in "${extra[@]}"; do
+  name=${e%%=*}
+  if [ "$name" = "$e" ] || ! [[ "$name" =~ ^[a-z0-9-]+$ ]]; then echo "not name=cam: $e" >&2; usage; fi
+  case " hero front side back clasp bracelet " in *" $name "*) echo "$name is one of the six views" >&2; exit 2 ;; esac
+done
 here=$(cd "$(dirname "$0")" && pwd)
 
 chrome=""
@@ -69,14 +87,14 @@ shoot() {   # shoot <name> <url>
   local v=$1 url=$2 code=0
   rm -f "$out/$v.png" "$out/$v.json"   # a picture left from an earlier run must not pass for this one
   timeout -k 5 $((limit + 10)) node "$here/watch3d-shot.mjs" "$out/$v.png" "$out/$v.json" "$base" "$limit" "$url" \
-    "$chrome" "${render[@]}" --window-size=1440,900 >"$out/$v.txt" || code=$?
+    "$chrome" "${render[@]}" --window-size=1440,900 --force-device-scale-factor="$scale" >"$out/$v.txt" || code=$?
   local label
   label=$(python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); print(d.get("label") or d.get("problem") or "")' "$out/$v.json" 2>/dev/null || true)
   case "$code" in
     0|3|4) echo "$v: $out/$v.png ($label)"; cat "$out/$v.txt" ;;
     *) rm -f "$out/$v.png"; cat "$out/$v.txt"
        if [ "$code" = 124 ] || [ "$code" = 137 ]; then echo "$v: Chromium did not finish within $limit seconds and was stopped" >&2
-       else echo "$v: the 3D watch was not on screen: $label" >&2; fi
+       else echo "$v: no picture: $label" >&2; fi
        rm -f "$out/$v.txt"; exit 1 ;;
   esac
   rm -f "$out/$v.txt"
@@ -90,5 +108,8 @@ for v in hero front side back clasp bracelet; do
   url="${base}?dial=${slug}&full=1&time=10:08:30"
   [ "$v" != hero ] && url="${base}?dial=${slug}&full=1&view=${v}&time=10:08:30"
   shoot "$v" "$url"
+done
+for e in "${extra[@]}"; do
+  shoot "${e%%=*}" "${base}?dial=${slug}&full=1&cam=${e#*=}&time=10:08:30"
 done
 exit "$bad"

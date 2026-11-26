@@ -31,6 +31,26 @@ function texturesOf(m) {
   return found;
 }
 
+/**
+ * A camera position written as text, for close-ups from a page address (the page's ?cam=):
+ *   'az,el,dist' or 'az,el,dist,x,y,z'
+ * az: degrees round the watch from the front, positive towards 3 o'clock (0 front, 90 the 3 o'clock side, 180 behind);
+ * el: degrees up towards 12 o'clock (negative towards 6), more than -90 and less than 90; dist: millimetres from the
+ * camera to the point looked at, from 30 to 520 (the reader's zoom limits); x,y,z: that point in millimetres (the
+ * watch's axes: dial +Z, 12 o'clock +Y, 3 o'clock +X, z = 0 the underside of the mid-case), 0,0,0 if left out.
+ * As with a view, a window narrower than the views are composed for stands back by the same factor.
+ * Returns a view ({ dir, dist, target }), or null when the text is not of that form or out of range.
+ */
+export function parseCam(text) {
+  if (typeof text !== 'string' || !/^-?[\d.]+(,-?[\d.]+){2}((,-?[\d.]+){3})?$/.test(text)) return null;
+  const n = text.split(',').map(Number);
+  if (!n.every(Number.isFinite)) return null;
+  const [az, el, dist, x = 0, y = 0, z = 0] = n;
+  if (!(el > -90 && el < 90) || !(dist >= 30 && dist <= 520)) return null;
+  const a = az * Math.PI / 180, e = el * Math.PI / 180;
+  return { dir: [Math.cos(e) * Math.sin(a), Math.sin(e), Math.cos(e) * Math.cos(a)], dist, target: [x, y, z] };
+}
+
 /** Wall-clock source. A time of 'HH:MM:SS' pins it, so screenshots are comparable. */
 function makeClock(time) {
   if (!time) return () => new Date();
@@ -57,6 +77,9 @@ function makeClock(time) {
  *   about: object                      the about of the watch showing (null while show() is replacing it)
  *   report: object                     the report of the watch showing (null while none is), as below
  *   setView(name: string, instant?: boolean): boolean
+ *   setCamera(cam: string, instant?: boolean): boolean
+ *                                      put the camera where cam says (the form is parseCam's, above), as setView does
+ *                                      for a named view; false, and nothing moves, when cam is malformed
  *   start(): void                      begin the frame loop (idempotent; does nothing while no watch is showing)
  *   stop(): void                       cancel it (idempotent)
  *   running: boolean
@@ -220,7 +243,9 @@ export async function mount(container, options = {}) {
     // Views are composed for a wide window; a narrow one stands further back by this factor.
     let fit = 1;
     function place(name, instant) {
-      const v = Object.prototype.hasOwnProperty.call(views, name) ? views[name] : null;
+      return placeAt(Object.prototype.hasOwnProperty.call(views, name) ? views[name] : null, instant);
+    }
+    function placeAt(v, instant) {
       if (!v || disposed) return false;
       const dir = new THREE.Vector3(...v.dir).normalize();
       const target = new THREE.Vector3(...v.target);
@@ -235,6 +260,11 @@ export async function mount(container, options = {}) {
     function setView(name, instant = false) {
       if (!place(name, instant)) return false;
       if ((instant || reducedMotion) && ready && !raf) redraw();   // the loop is stopped, so show the new view now
+      return true;
+    }
+    function setCamera(cam, instant = false) {
+      if (!placeAt(parseCam(cam), instant)) return false;
+      if ((instant || reducedMotion) && ready && !raf) redraw();
       return true;
     }
     controls.addEventListener('start', () => { flight = null; if (typeof options.onInteract === 'function') options.onInteract(); });
@@ -468,6 +498,7 @@ export async function mount(container, options = {}) {
       get about() { return current ? current.about : null; },
       get report() { return current ? current.report : null; },
       setView,
+      setCamera,
       start,
       stop,
       get running() { return raf !== 0; },

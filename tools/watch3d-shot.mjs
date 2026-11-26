@@ -14,7 +14,8 @@
 // Meanwhile it records what a console would show: console errors and warnings (the page's own and the browser's, such
 // as a failed load), uncaught page errors, and failed requests (no response, or a status of 400 or more). It also reads
 // the WebGL renderer string from the watch's own context (no second context is made), the time zone, the window's
-// size and pixel ratio.
+// size and pixel ratio. A page address with cam= must leave the view chooser on Turned by hand (the camera was placed),
+// or the run fails.
 //
 // Writes <png> only when the watch was on screen, and <json> always:
 //   { url, ok, problem, renderer, timeZone, clock, viewport, report, console: [{ level, text }], pageErrors: [],
@@ -138,11 +139,14 @@ try {
     const gl = c.getContext('webgl2') || c.getContext('webgl');   // the context the stage made: no second one is created
     let renderer = null;
     if (gl) { const e = gl.getExtension('WEBGL_debug_renderer_info'); renderer = gl.getParameter(e ? e.UNMASKED_RENDERER_WEBGL : gl.RENDERER); }
-    return { renderer, report: s.dataset.watch3dReport, label: c.getAttribute('aria-label'),
+    const chooser = document.getElementById('dialView');
+    return { renderer, report: s.dataset.watch3dReport, label: c.getAttribute('aria-label'), view: chooser ? chooser.value : null,
       timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone, clock: new Date().toString(),
       viewport: [innerWidth, innerHeight, devicePixelRatio] };
   })()`);
-  Object.assign(out, { renderer: facts.renderer, timeZone: facts.timeZone, clock: facts.clock, viewport: facts.viewport, label: facts.label });
+  // A camera asked for by cam= that the page ignored (malformed, or out of range) would leave a named view on screen.
+  if (new URL(url).searchParams.has('cam') && facts.view !== '') throw new Error(`the page ignored cam= (the view chooser reads ${JSON.stringify(facts.view)})`);
+  Object.assign(out, { view: facts.view, renderer: facts.renderer, timeZone: facts.timeZone, clock: facts.clock, viewport: facts.viewport, label: facts.label });
   try { out.report = facts.report ? JSON.parse(facts.report) : null; } catch (e) { out.report = facts.report; }
   const shot = await send('Page.captureScreenshot', { format: 'png' });
   writeFileSync(png, Buffer.from(shot.data, 'base64'));
