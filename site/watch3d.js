@@ -10,8 +10,11 @@
   const FAILED = 'The 3D watch could not be shown on this device.';
   const $ = id => document.getElementById(id);
   const stage = $('dialStage'), btn = $('dialFull'), view = $('dialView'), band = $('dialBand'), wrist = $('dialWrist');
-  const cap = $('dialName'), wait = $('dialWait'), dials = window.WBMDials;
-  if (!stage || !btn || !view || !band || !wrist || !cap || !wait || !dials) return;   // the button stays hidden
+  const cap = $('dialName'), wait = $('dialWait'), sayEl = $('dialSay'), dials = window.WBMDials;
+  if (!stage || !btn || !view || !band || !wrist || !cap || !wait || !sayEl || !dials) return;   // the button stays hidden
+  // What a screen reader is told. #dialWait is only the visible label: it is not in the accessibility tree while it is
+  // empty, so it cannot be the live region; #dialSay is, always, and is not shown.
+  const say = text => { sayEl.textContent = text; };
 
   let on = false;         // what the reader last asked for
   let handle = null;      // the built watch, kept once it has been made
@@ -35,13 +38,15 @@
     band.hidden = true; view.hidden = false;
     wristWas = wrist.disabled; wrist.disabled = true;
     caption();
+    say('3D watch shown. Drag to turn it, or choose a view.');
     run();
   }
 
   // byDial: the masthead has just changed to another dial, so its caption is already the new dial's.
   function leave(byDial) {
-    const was = full();
+    const was = full(), asked = on;
     on = false; btn.setAttribute('aria-pressed', 'false');
+    if (asked) say('Flat watch face shown.');
     wait.textContent = '';
     stage.classList.remove('loading', 'full');
     if (handle) { handle.stop(); handle.canvas.hidden = true; }
@@ -58,7 +63,7 @@
     const was = on;
     if (handle) { handle.dispose(); handle = null; }   // a lost context: the next press builds afresh
     leave(false);
-    if (was) cap.textContent = FAILED;   // stays until the dial next changes
+    if (was) { cap.textContent = FAILED; say(FAILED); }   // the caption stays until the dial next changes
   }
 
   function enter() {
@@ -66,6 +71,7 @@
     on = true; btn.setAttribute('aria-pressed', 'true');
     if (handle) { show(); return; }
     stage.classList.add('loading'); wait.textContent = 'Building the watch';
+    say('Building the 3D watch');
     if (building) return;
     const options = {
       shadowSize: matchMedia('(max-width: 720px)').matches ? 2048 : 4096,
