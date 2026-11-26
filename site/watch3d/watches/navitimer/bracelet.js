@@ -278,7 +278,10 @@ export function buildBracelet({ M, report }) {
       widthAtLug: B.widthLug, widthAtClasp: +widthAt(L.s[B.segments], B).toFixed(2),
     };
   }
-  if (bad.length) console.warn('bracelet checks failed:\n' + bad.join('\n'));
+  if (bad.length) {
+    console.warn('bracelet checks failed:\n' + bad.join('\n'));
+    if (report && Array.isArray(report.warnings)) report.warnings.push(...bad.map(b => 'bracelet: ' + b));
+  }
 
   const group = new THREE.Group();
   group.name = 'bracelet';

@@ -7,6 +7,10 @@
 // one is kept, so a second press on the same face is instant, and another watch replaces it. The mode is in the page
 // address (?full=1, and ?view= for any view but the three-quarter one), kept up to date as the reader goes in and out
 // and changes view; that is the only way it carries between visits, so a link can open the 3D watch.
+// Each time a watch is shown, its report (see the stage's comment: triangles, draw calls, warnings and the watch's own
+// entries) is written as JSON into the stage's data-watch3d-report attribute, for tools/watch3d-shots.sh and anyone
+// checking a watch without a console. Always, not only under ?debug, so a check loads exactly the address a reader
+// would; it is a few hundred bytes. It is removed when the stage is thrown away after a failure.
 (() => {
   'use strict';
   // Face name (as dials.js has it) to watch id (its folder under site/watch3d/watches/).
@@ -56,6 +60,7 @@
     band.hidden = true; view.hidden = false;
     if (!was) { wristWas = wrist.disabled; wrist.disabled = true; }
     caption();
+    try { stage.dataset.watch3dReport = JSON.stringify(handle.report); } catch (e) { delete stage.dataset.watch3dReport; }
     say('3D watch shown. Drag to turn it, or choose a view.');
     run();
   }
@@ -84,6 +89,7 @@
     const was = on;
     ticket++; pending = null;   // a switch still building is forgotten
     if (handle) { handle.dispose(); handle = null; }   // a lost context: the next press builds afresh
+    delete stage.dataset.watch3dReport;
     leave(false);
     if (was) { cap.textContent = FAILED; say(FAILED); }   // the caption stays until the dial next changes
   }

@@ -55,6 +55,7 @@ function makeClock(time) {
  *   canvas: HTMLCanvasElement          appended to container by mount
  *   views: string[]                    ['hero', 'front', 'side', 'back', 'clasp', 'bracelet']
  *   about: object                      the about of the watch showing (null while show() is replacing it)
+ *   report: object                     the report of the watch showing (null while none is), as below
  *   setView(name: string, instant?: boolean): boolean
  *   start(): void                      begin the frame loop (idempotent; does nothing while no watch is showing)
  *   stop(): void                       cancel it (idempotent)
@@ -74,8 +75,15 @@ function makeClock(time) {
  *                                                  replaces any of the six views by name; other names are ignored, so
  *                                                  a watch cannot add a view
  *   build({ M, renderer, frozen }): Promise<{ group, tick(date, dt, camera), press: [{ object, down(), up?() }],
- *                                             idle?(seconds), dispose?(), report }>
+ *                                             idle?(seconds), dispose?(), report? }>
  *   group must be a THREE.Object3D and tick a function, or show() rejects.
+ *   report is the watch's own account of its build: any entries it likes (plain data, so it can be written as JSON),
+ *   and warnings: string[], one line for each check of its own that failed (a bracelet loop that does not close, say).
+ *   A warning is for the builder, not the reader: the watch is still shown. The stage's handle gives out a copy with
+ *   the stage's own figures for the first frame (the three-quarter view, the shadow pass included) put over the top:
+ *     { watch: id, triangles, drawCalls, geometries, textures, warnings: string[], ...the watch's own entries }
+ *   triangles and drawCalls are renderer.info.render, geometries and textures renderer.info.memory (all the renderer
+ *   holds, the studio and shared materials included). warnings is [] when the watch gives none.
  *   When the watch is freed (another is shown, or the stage is disposed) the stage disposes every geometry, material
  *   and texture it finds on the meshes in group: material properties, and textures in a ShaderMaterial's uniforms.
  *   It does not dispose the kit's shared materials (M) and studio. Anything else the watch made on the graphics card is
@@ -413,7 +421,7 @@ export async function mount(container, options = {}) {
       scene.add(built.group);
       current = {
         about: mod.about, group: built.group, tick: built.tick,
-        press: Array.isArray(built.press) ? built.press : [], idle: built.idle, dispose: own,
+        press: Array.isArray(built.press) ? built.press : [], idle: built.idle, dispose: own, report: null,
       };
       releaseWatch = own;
       // A watch's views replace the kit's by name. Only the kit's six names are taken: the page offers only those.
@@ -428,6 +436,14 @@ export async function mount(container, options = {}) {
         unload();
         throw err;
       }
+      const given = built.report && typeof built.report === 'object' ? built.report : {};
+      const info = renderer.info;
+      current.report = {
+        ...given, watch: id,
+        triangles: info.render.triangles, drawCalls: info.render.calls,
+        geometries: info.memory.geometries, textures: info.memory.textures,
+        warnings: Array.isArray(given.warnings) ? given.warnings.map(String) : [],
+      };
       if (renderer.getContext().isContextLost()) {
         unload();
         throw new Error('The WebGL context was lost while the watch was being built');
@@ -450,6 +466,7 @@ export async function mount(container, options = {}) {
       canvas,
       get views() { return Object.keys(views); },
       get about() { return current ? current.about : null; },
+      get report() { return current ? current.report : null; },
       setView,
       start,
       stop,

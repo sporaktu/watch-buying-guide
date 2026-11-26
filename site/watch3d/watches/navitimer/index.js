@@ -16,7 +16,7 @@ export const about = {
 export async function build({ M, renderer, frozen = false }) {
   const group = new THREE.Group();
   group.name = 'watch';
-  const report = {};
+  const report = { warnings: [] };   // the parts add their own entries, and a line to warnings for a check that fails
   const parts = {};
 
   const head = buildCase(M);
