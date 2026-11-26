@@ -83,6 +83,8 @@ Each `watches/<id>/index.js` exports two things. The exact names and shapes are 
 - **About the watch:** its id, the sentence a screen reader is given for the canvas, the caption and hint shown under it in Full watch mode, and any camera views that differ from the kit's six (three-quarter, front, side, case back, clasp, bracelet).
 - **A build function:** given the shared materials and the renderer, it returns the watch as one group, a `tick(date, dt, camera)` that moves its hands, and a list of parts the reader can press, each with what pressing does. The Navitimer's two pushers become two entries in that list; the stage's pusher code becomes code for "pressable parts" and stops knowing what a pusher is.
 
+- **Its light, if it needs its own:** the studio (the code-built environment the steel reflects), the three lamps, the exposure and the shadow settings are the kit's and are the default for every watch, so the watches look like one family. They were tuned on a blue sunray dial, though, and a gloss black dial and a ceramic bezel live on their reflections. So a watch may change the lamps' strength and direction, the exposure and the environment's strength for itself, with the Navitimer's present values as the defaults. It may not replace the studio. Each change a watch makes is listed in its notes with the reason. (My call.)
+
 The stage must contain no watch's name, dimensions or behaviour. Its handle keeps what `site/watch3d.js` uses today (canvas, views, setView, start, stop, running, dispose) and gains a way to show a different watch on the same renderer.
 
 ### Three steps, three pull requests
@@ -101,7 +103,7 @@ The stage must contain no watch's name, dimensions or behaviour. Its handle keep
 
 **Step 3: the GMT-Master II.** A Fable agent started through Orca in its own workspace, as the Navitimer's was, on a branch cut from `main` after step 2 is merged.
 
-- **Research first.** The repo has no part-by-part file for this reference (`research/dial-finishes/design-26.json` is the 1954 ref. 6542). The agent writes `research/watch3d/gmt-master-ii-126710blro.md`: each dimension and finish with its source and how sure it is, in the manner of the dial-finish files, before modelling. This file is also the pattern for later watches.
+- **Research first, from the web.** The agent has web access, as the Navitimer's had. Sources are cited by address; no photographs are saved into the repo. (My call: they are other people's pictures.) The repo has no part-by-part file for this reference (`research/dial-finishes/design-26.json` is the 1954 ref. 6542). The agent writes `research/watch3d/gmt-master-ii-126710blro.md`: each dimension and finish with its source and how sure it is, in the manner of the dial-finish files, before modelling. This file is also the pattern for later watches.
 - **Build** in `watches/gmt-master-ii/`, calling the kit.
 - **Grow the kit** as described under "What goes in the kit".
 - **Protect the Navitimer:** after any change to a kit file, the step 1 screenshot comparison is run again and must still pass.
@@ -126,6 +128,12 @@ The reference is the Rolex GMT-Master II ref. 126710BLRO on the Jubilee bracelet
 - **Hands:** Mercedes hour hand, minute hand, lollipop seconds hand, and a red 24-hour hand with a triangular tip.
 - **Case back:** solid, screwed, with a fluted edge.
 - **Bracelet:** five rows (brushed outer links, three narrow polished centre links), tapering, with fitted end links and a folding clasp with a cover, draped in a closed loop by the kit's solver.
+
+How fine the print must be, and what it may cost. (My calls.)
+
+- **The test for lettering:** in the front view at full screen on a 1440 by 900 window, the large wording (the maker's name, the model name, the bezel numerals) reads cleanly. The small lines of dial wording, about 1 mm tall on the real watch, read once the reader zooms in. In the 400-pixel masthead only the bezel numerals and the markers need to read; the Navitimer's scale numerals do not read there either.
+- **Graphics memory:** no more than the Navitimer uses. In practice the GMT's textures stay within the Navitimer's (one colour texture up to 4096 square and one surface texture up to 2048 square for the dial, and smaller ones elsewhere). If the GMT cannot meet the lettering test inside that, the agent says so instead of going over.
+- **Views:** the kit's six, for every watch. No extra close-up view; zooming is how a reader gets close.
 
 Behaviour:
 
@@ -206,5 +214,8 @@ These were not asked of the owner; each can be changed.
 5. Only one watch is held on the graphics card at a time, so going back to a watch rebuilds it.
 6. The GMT's 24-hour hand shows UTC.
 7. The GMT keeps Rolex's wording on the dial, as the Navitimer keeps Breitling's.
-8. Full screen: where a browser will not give real full screen, the watch fills the window instead; it is not in the address; it adds nothing to the back button; only the 3D watch gets it.
-9. The guide lives at `docs/watch3d-kit.md` and each watch's research at `research/watch3d/`.
+8. A watch may adjust the shared lighting for itself but not replace the studio.
+9. The lettering test, the memory limit (no more than the Navitimer) and no extra views, as set out under "The GMT model".
+10. Research cites web sources; no photographs are saved in the repo.
+11. Full screen: where a browser will not give real full screen, the watch fills the window instead; it is not in the address; it adds nothing to the back button; only the 3D watch gets it.
+12. The guide lives at `docs/watch3d-kit.md` and each watch's research at `research/watch3d/`.
