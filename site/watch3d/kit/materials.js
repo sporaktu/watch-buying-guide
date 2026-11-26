@@ -2,19 +2,16 @@
 //   polished - a near-mirror that shows the studio lamps with hard edges
 //   brushed  - a satin with a visible grain, whose highlight smears across the grain
 // Brushed parts carry UVs in mm / BRUSH_TILE with U running along the grain.
-import * as THREE from './vendor/three.module.js';
+import * as THREE from '../vendor/three.module.js';
 import { rng } from './geo.js';
 
+// Only the colours of the shared materials below; a watch's own colours (its dial, its print) live in its folder.
 export const COLORS = {
   steel: 0xc9cbce,
   rhodium: 0xdfe1e4,
-  blue: 0x1c3f66,
-  cream: 0xeee3c6,
-  creamDeep: 0xe6d9b6,
   ink: 0x15171b,
   red: 0xc8201c,
   lume: 0xf1f0df,
-  print: 0xf4efe2,
 };
 
 /** Tileable maps of fine scratches running along U: a normal map and a grey "sheen" map. */

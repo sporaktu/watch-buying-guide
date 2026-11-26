@@ -1,6 +1,6 @@
 // The head without its dial: mid-case, lugs, beaded bezel, crystal, crown and pushers.
-import * as THREE from './vendor/three.module.js';
-import { TAU, DEG, lathe, extrude, roundPoly, planarUV, merge, xform } from './geo.js';
+import * as THREE from '../../vendor/three.module.js';
+import { TAU, DEG, lathe, extrude, roundPoly, planarUV, merge, xform } from '../../kit/geo.js';
 import { D, lugTop, lugUnder } from './dims.js';
 
 function part(geo, mat, name, { cast = true, receive = true } = {}) {

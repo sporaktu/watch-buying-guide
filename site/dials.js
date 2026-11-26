@@ -18,16 +18,19 @@
   // Page parameters. ?dial= names the face to show for this load: a slug of its name (?dial=panda-chronograph), or N for
   // the Nth in the list as it stands. The address is kept up to date as the reader changes face (with replaceState, so
   // the history does not grow); a bare address is left bare until they do. ?time=HH:MM or HH:MM:SS freezes the clock
-  // at that local time.
+  // at that local time, on today's date unless ?date=YYYY-MM-DD names another (a real date; it counts only with a
+  // good time=). Both are local to the machine's time zone, as the reader's clock is.
   // ?light=x,y or x,y,z fixes the lamp and ?gl=0 keeps the dial flat (both are for the lit renderer).
   // ?debug exposes a few counters as window.__wbmDial for the test tools.
   let query = location.search; try { query = decodeURIComponent(query); } catch (e) {}
   const tm = /[?&]time=(\d\d?):(\d\d)(?::(\d\d))?(?:&|$)/.exec(query), lt = /[?&]light=(-?[\d.]+),(-?[\d.]+)(?:,(-?[\d.]+))?(?:&|$)/.exec(query);
   const frozen = tm && +tm[1] < 24 && +tm[2] < 60 && +(tm[3] || 0) < 60 ? [+tm[1], +tm[2], +(tm[3] || 0)] : null;
+  const dm = frozen && /[?&]date=(\d{4})-(\d\d)-(\d\d)(?:&|$)/.exec(query), dd = dm && new Date(+dm[1], dm[2] - 1, +dm[3]);
+  const day = dd && dd.getFullYear() === +dm[1] && dd.getMonth() === dm[2] - 1 && dd.getDate() === +dm[3] ? [+dm[1], dm[2] - 1, +dm[3]] : null;
   const lamp = lt && lt.slice(1).filter(v => v != null).map(Number), light = lamp && lamp.every(isFinite) ? lamp : null;
   const flatOnly = /[?&]gl=0(?:&|$)/.test(query);
   const dbg = /[?&]debug(?:[=&]|$)/.test(query) ? (window.__wbmDial = { mode: null, frames: 0, light: null, texSize: 0, buildMs: 0 }) : null;
-  const clock = () => { const d = new Date(); if (frozen) d.setHours(frozen[0], frozen[1], frozen[2], 0); return d; };
+  const clock = () => { const d = new Date(); if (day) d.setFullYear(day[0], day[1], day[2]); if (frozen) d.setHours(frozen[0], frozen[1], frozen[2], 0); return d; };
 
   // Colours
   const STEEL = '#c9ccd1', GOLD = '#c8a04a', ROSE = '#cf9a78', INK = '#17181b', LUME = '#ece8d0', WHITE = '#f7f6f1',

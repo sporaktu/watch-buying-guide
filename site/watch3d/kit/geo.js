@@ -3,8 +3,8 @@
 //   lathe    - a body of revolution, optionally modulated round the axis (bezel beads, crown flutes)
 //   extrude  - a side profile pushed across a width, with softened edges and optional crowning
 // Units are millimetres throughout.
-import * as THREE from './vendor/three.module.js';
-import { mergeGeometries } from './vendor/BufferGeometryUtils.js';
+import * as THREE from '../vendor/three.module.js';
+import { mergeGeometries } from '../vendor/BufferGeometryUtils.js';
 
 export const TAU = Math.PI * 2;
 export const DEG = Math.PI / 180;

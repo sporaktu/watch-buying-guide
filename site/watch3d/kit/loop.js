@@ -1,26 +1,12 @@
 // The bracelet as a chain: pins at a fixed pitch, each link rigid between two neighbouring pins.
 // One half is solved in the (y, z) plane, from the end link's pin down to the middle of the clasp;
 // the other half is the same shape turned half a turn about the watch's axis.
-// Pure maths, no three.js, so it can be checked on its own.
+// Pure maths, no three.js, so it can be checked on its own. The bracelet's own numbers are the caller's: `spec` is an
+// object with at least pitch, segments (articulated links per half), head (rigid half of the clasp, from the last pin
+// to the seam), pin0 ((y, z) of the end link's pin), heading0, widthLug, widthClasp and taperLength, all in mm and radians.
+// It may also give taperOffset, taperLinear and maxTurn (see widthAt and checkLoop), and the wrist shape (see solveLoop).
 
 export const DEG = Math.PI / 180;
-
-/** Fixed bracelet dimensions, mm. */
-export const BRACELET = {
-  pitch: 3.0,          // pin to pin
-  segments: 20,        // articulated links per half, pin 0 to pin 20
-  head: 7.6,           // rigid half of the clasp cover, from pin 20 to the seam
-  pin0: [22.75, 0.85], // (y, z) of the end link's pin
-  heading0: -40 * DEG, // the first link leaves the end link pointing down by this much
-  widthLug: 22,
-  widthClasp: 18,
-  taperLength: 44,     // the taper is spent over this length from the lugs, then the band runs parallel
-  thicknessUp: 1.42,   // top surface above the pin line
-  rowsWide: 3.7,       // rows 1, 3, 5, 7 (brushed)
-  rowsNarrow: 2.4,     // rows 2, 4, 6 (polished); 4 * 3.7 + 3 * 2.4 = 22
-  rowGap: 0.07,        // clearance between neighbouring rows
-  endGap: 0.13,        // clearance between consecutive links in a row
-};
 
 /**
  * Solve the drape of one half.
@@ -28,8 +14,8 @@ export const BRACELET = {
  * How the turn is shared out follows a wrist: gentle over the top, tight round the side, flat underneath.
  * `bump` is the strength of the tight part and is found by bisection so the clasp seam lands on y = 0.
  */
-export function solveLoop(opts = {}) {
-  const o = { ...BRACELET, peak: 0.2, spread: 0.16, peak2: 0.8, spread2: 0.14, second: 0.3, base: 0.32, ...opts };
+export function solveLoop(spec, opts = {}) {
+  const o = { peak: 0.2, spread: 0.16, peak2: 0.8, spread2: 0.14, second: 0.3, base: 0.32, ...spec, ...opts };
   const N = o.segments, p = o.pitch;
   const total = -Math.PI - o.heading0; // negative: the chain turns clockwise seen from +X
   const weights = (bump) => {
@@ -75,33 +61,24 @@ export function solveLoop(opts = {}) {
   return out;
 }
 
-/** Bracelet width at a distance s along the chain from pin 0. */
-export function widthAt(s, o = BRACELET) {
-  const t = Math.min(1, Math.max(0, (s + 2.2) / o.taperLength));
+/**
+ * Bracelet width at a distance s along the chain from pin 0, for the bracelet `o` (widthLug, widthClasp, taperLength).
+ * The taper is measured from taperOffset mm before pin 0 (default 2.2), and runs taperLinear of the way in a straight
+ * line and the rest in an S-curve (default 0.15).
+ */
+export function widthAt(s, o) {
+  const offset = o.taperOffset ?? 2.2, linear = o.taperLinear ?? 0.15;
+  const t = Math.min(1, Math.max(0, (s + offset) / o.taperLength));
   const e = t * t * (3 - 2 * t);
-  return o.widthLug + (o.widthClasp - o.widthLug) * (0.15 * t + 0.85 * e);
+  return o.widthLug + (o.widthClasp - o.widthLug) * (linear * t + (1 - linear) * e);
 }
 
 /**
- * The seven rows across the bracelet at width w: [{ index, wide, x0, x1 }] left to right.
- * Row widths keep their proportions as the bracelet narrows.
+ * Checks that must hold for the chain to be a real, closed bracelet. Returns a list of failures. A joint may turn by
+ * up to the bracelet's maxTurn, in radians (default 24 degrees).
  */
-export function rowsAt(w, o = BRACELET) {
-  const k = w / o.widthLug;
-  const rows = [];
-  let x = -w / 2;
-  for (let i = 0; i < 7; i++) {
-    const wide = i % 2 === 0;
-    const rw = (wide ? o.rowsWide : o.rowsNarrow) * k;
-    rows.push({ index: i, wide, x0: x + o.rowGap / 2, x1: x + rw - o.rowGap / 2 });
-    x += rw;
-  }
-  return rows;
-}
-
-/** Checks that must hold for the chain to be a real, closed bracelet. Returns a list of failures. */
 export function checkLoop(L) {
-  const o = L.opts, bad = [];
+  const o = L.opts, bad = [], maxTurn = o.maxTurn ?? 24 * DEG;
   for (let k = 0; k < L.pins.length - 1; k++) {
     const a = L.pins[k], b = L.pins[k + 1];
     const d = Math.hypot(b[0] - a[0], b[1] - a[1]);
@@ -111,7 +88,26 @@ export function checkLoop(L) {
   if (Math.abs(L.headHeading + Math.PI) > 1e-9) bad.push('clasp head is not level');
   L.turns.forEach((t, k) => {
     if (t > 1e-12) bad.push(`joint ${k + 1} bends backwards`);
-    if (Math.abs(t) > 24 * DEG) bad.push(`joint ${k + 1} bends ${(Math.abs(t) / DEG).toFixed(1)} deg, more than a link allows`);
+    if (Math.abs(t) > maxTurn) bad.push(`joint ${k + 1} bends ${(Math.abs(t) / DEG).toFixed(1)} deg, more than a link allows`);
   });
   return bad;
+}
+
+/**
+ * Record a watch's failed checks where the tools look for them: each failure becomes a line `${part}: ${failure}` in
+ * report.warnings (made if the report has none), and the lot is also printed with console.warn. A watch must report
+ * every check of its own that fails this way (or by pushing to report.warnings itself), not only in the console: the
+ * stage hands report.warnings out, and tools/watch3d-shots.sh fails a run that has any. Use it for checkLoop's list
+ * and any other checks of the bracelet:
+ *   reportLoop(report, 'bracelet', checkLoop(L))
+ * report may be null (nothing is recorded, the console still is). Returns failures, unchanged.
+ */
+export function reportLoop(report, part, failures) {
+  if (!failures || !failures.length) return failures;
+  console.warn(`${part} checks failed:\n` + failures.join('\n'));
+  if (report && typeof report === 'object') {
+    if (!Array.isArray(report.warnings)) report.warnings = [];
+    report.warnings.push(...failures.map(f => `${part}: ${f}`));
+  }
+  return failures;
 }

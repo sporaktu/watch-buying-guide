@@ -1,10 +1,10 @@
 // Dial: the printed plate with its fixed slide rule scale, the rotating scale ring, three sunk
 // registers, the date under its window, and the applied markers and wings.
 // All print is drawn in millimetres on canvases; everything with height is real geometry.
-import * as THREE from './vendor/three.module.js';
-import { TAU, lathe, flatRing, bevelPlate, planarUV, merge, xform, rng } from './geo.js';
+import * as THREE from '../../vendor/three.module.js';
+import { TAU, lathe, flatRing, bevelPlate, planarUV, merge, xform, rng } from '../../kit/geo.js';
 import { D } from './dims.js';
-import { DEG, polar, digits, letters, arcLetters, onCircle, mmCanvas } from './type.js';
+import { DEG, polar, digits, letters, arcLetters, onCircle, mmCanvas } from '../../kit/type.js';
 
 export const INK = {
   blue: '#1d477c', blueEdge: '#143460',
