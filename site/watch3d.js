@@ -153,7 +153,7 @@
       camAsked = null;
       if (on) mark();
       open();   // otherwise the reader left while it was loading: keep it for the next press
-    }).catch(err => { building = null; fail(err); });
+    }).catch(err => { building = null; camAsked = null; fail(err); });   // the address's cam= was for that first build only
   }
 
   function enter() {
