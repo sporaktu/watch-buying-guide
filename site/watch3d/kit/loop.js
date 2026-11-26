@@ -4,6 +4,7 @@
 // Pure maths, no three.js, so it can be checked on its own. The bracelet's own numbers are the caller's: `spec` is an
 // object with at least pitch, segments (articulated links per half), head (rigid half of the clasp, from the last pin
 // to the seam), pin0 ((y, z) of the end link's pin), heading0, widthLug, widthClasp and taperLength, all in mm and radians.
+// It may also give taperOffset, taperLinear and maxTurn (see widthAt and checkLoop), and the wrist shape (see solveLoop).
 
 export const DEG = Math.PI / 180;
 
@@ -60,16 +61,24 @@ export function solveLoop(spec, opts = {}) {
   return out;
 }
 
-/** Bracelet width at a distance s along the chain from pin 0, for the bracelet `o` (widthLug, widthClasp, taperLength). */
+/**
+ * Bracelet width at a distance s along the chain from pin 0, for the bracelet `o` (widthLug, widthClasp, taperLength).
+ * The taper is measured from taperOffset mm before pin 0 (default 2.2), and runs taperLinear of the way in a straight
+ * line and the rest in an S-curve (default 0.15).
+ */
 export function widthAt(s, o) {
-  const t = Math.min(1, Math.max(0, (s + 2.2) / o.taperLength));
+  const offset = o.taperOffset ?? 2.2, linear = o.taperLinear ?? 0.15;
+  const t = Math.min(1, Math.max(0, (s + offset) / o.taperLength));
   const e = t * t * (3 - 2 * t);
-  return o.widthLug + (o.widthClasp - o.widthLug) * (0.15 * t + 0.85 * e);
+  return o.widthLug + (o.widthClasp - o.widthLug) * (linear * t + (1 - linear) * e);
 }
 
-/** Checks that must hold for the chain to be a real, closed bracelet. Returns a list of failures. */
+/**
+ * Checks that must hold for the chain to be a real, closed bracelet. Returns a list of failures. A joint may turn by
+ * up to the bracelet's maxTurn, in radians (default 24 degrees).
+ */
 export function checkLoop(L) {
-  const o = L.opts, bad = [];
+  const o = L.opts, bad = [], maxTurn = o.maxTurn ?? 24 * DEG;
   for (let k = 0; k < L.pins.length - 1; k++) {
     const a = L.pins[k], b = L.pins[k + 1];
     const d = Math.hypot(b[0] - a[0], b[1] - a[1]);
@@ -79,7 +88,7 @@ export function checkLoop(L) {
   if (Math.abs(L.headHeading + Math.PI) > 1e-9) bad.push('clasp head is not level');
   L.turns.forEach((t, k) => {
     if (t > 1e-12) bad.push(`joint ${k + 1} bends backwards`);
-    if (Math.abs(t) > 24 * DEG) bad.push(`joint ${k + 1} bends ${(Math.abs(t) / DEG).toFixed(1)} deg, more than a link allows`);
+    if (Math.abs(t) > maxTurn) bad.push(`joint ${k + 1} bends ${(Math.abs(t) / DEG).toFixed(1)} deg, more than a link allows`);
   });
   return bad;
 }

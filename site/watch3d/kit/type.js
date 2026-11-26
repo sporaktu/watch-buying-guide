@@ -1,6 +1,6 @@
 // Lettering for the canvas textures.
-// The watch's numerals are squarish with rounded corners, so the digits are drawn here as strokes
-// rather than taken from a font. Letters use the bundled Jost.
+// Digits drawn as strokes rather than taken from a font: squarish, with rounded corners. Letters use the bundled
+// Jost.
 // Everything draws centred on the origin of the current transform, in millimetres with +Y up.
 
 export const DEG = Math.PI / 180;
