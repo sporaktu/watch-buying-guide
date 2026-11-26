@@ -164,6 +164,9 @@ function makeClock(time, date) {
  *   and zoom) is put back when the watch is freed, as about.light is.
  *   report is the watch's own account of its build: any entries it likes (plain data, so it can be written as JSON),
  *   and warnings: string[], one line for each check of its own that failed (a bracelet loop that does not close, say).
+ *   A watch must put every check of its own that fails there (kit/loop.js's reportLoop does it for a bracelet loop),
+ *   and not only in the console. A report that is not plain data (it cannot be written as JSON), or whose warnings
+ *   is not a list, is kept as far as it can be and gets a warning saying so.
  *   A warning is for the builder, not the reader: the watch is still shown. The stage's handle gives out a copy with
  *   the stage's own figures for the first frame (the three-quarter view, the shadow pass included) put over the top:
  *     { watch: id, triangles, drawCalls, geometries, textures, warnings: string[], ...the watch's own entries }
@@ -614,13 +617,28 @@ export async function mount(container, options = {}) {
         unload();
         throw err;
       }
-      const given = built.report && typeof built.report === 'object' ? built.report : {};
+      // The watch's report, if it is plain data; one that is not, or whose warnings are not a list, becomes a warning
+      // itself, so a check the watch failed cannot drop out of sight with it.
+      let given = built.report == null ? {} : built.report;
+      const problems = [];
+      if (typeof given !== 'object' || Array.isArray(given)) { problems.push('report is not an object'); given = {}; }
+      try { given = JSON.parse(JSON.stringify(given)) || {}; } catch (err) {
+        problems.push(`report is not plain data: ${err && err.message}`);
+        given = { warnings: given.warnings };
+      }
+      const text = (w) => { if (typeof w === 'string') return w; try { return JSON.stringify(w) ?? String(w); } catch (e) { return String(w); } };
+      let warnings = [];
+      if (Array.isArray(given.warnings)) warnings = given.warnings.map(text);
+      else if (given.warnings !== undefined) {
+        problems.push('report.warnings is not a list of strings');
+        if (given.warnings !== null) warnings = [text(given.warnings)];
+      }
       const info = renderer.info;
       current.report = {
         ...given, watch: id,
         triangles: info.render.triangles, drawCalls: info.render.calls,
         geometries: info.memory.geometries, textures: info.memory.textures,
-        warnings: Array.isArray(given.warnings) ? given.warnings.map(String) : [],
+        warnings: [...problems, ...warnings],
       };
       if (renderer.getContext().isContextLost()) {
         unload();

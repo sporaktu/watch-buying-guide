@@ -62,7 +62,14 @@
     band.hidden = true; view.hidden = false;
     if (!was) { wristWas = wrist.disabled; wrist.disabled = true; }
     caption();
-    try { stage.dataset.watch3dReport = JSON.stringify(handle.report); } catch (e) { delete stage.dataset.watch3dReport; }
+    // A report that cannot be written as JSON is replaced by one that says so, never dropped: a missing report would
+    // hide the watch's warnings from the tools.
+    let report, why = 'there is none';
+    try { report = JSON.stringify(handle.report); } catch (e) { report = null; why = e && e.message; }
+    if (typeof report !== 'string' || report === 'null') {
+      report = JSON.stringify({ watch: handle.about ? handle.about.id : null, warnings: ['report is not plain data: ' + why] });
+    }
+    stage.dataset.watch3dReport = report;
     say('3D watch shown. Drag to turn it, or choose a view.');
     run();
   }
