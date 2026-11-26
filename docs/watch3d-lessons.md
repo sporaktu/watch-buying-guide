@@ -88,6 +88,7 @@ At `e364ee2` the shot tool threw the console output away, nothing handed out the
   - **What does not:** a console warning. It is printed only.
   - **So a failed bracelet check fails the run only if the watch puts it in the report.** The Navitimer's `buildBracelet` adds each failure to `report.warnings` as well as warning in the console. The kit does not do that for a watch. A new watch that only calls `console.warn` would pass the shot tool with a broken loop.
   - I read this in the tool and in the Navitimer's `bracelet.js` at `296f24c`. I have not made a bracelet check fail on the page to watch the tool stop.
+  - **Changed after the second kit review:** a console warning now fails the run too, unless `--allow-warnings` is given, and a page with no report fails unless `--no-report` is given. `kit/loop.js` exports `reportLoop(report, part, failures)`, which puts failures into `report.warnings` and the console; the Navitimer's bracelet uses it, and the stage's contract says a watch must report its own failed checks there.
 - **`5a0e3d9`:** `?cam=az,el,dist[,x,y,z]` in the address places the camera anywhere on arrival. The shot tool takes `--scale N` and extra positions written `name=cam`.
 
 I ran the shot tool once at `c270c0f` on the software renderer, with `--scale 2` and one extra position, `crown=80,5,60,20,0,6`. It wrote seven pictures and exited 0. Each view reported 394,401 triangles, 311 draw calls, 132 geometries, 21 textures and no warnings. The Bracelet view's `.json` held the bracelet's numbers with an empty list of failures.
@@ -505,7 +506,7 @@ At `e364ee2` some of this evidence could not be produced from the page. With kit
 | Evidence | Who | How |
 |---|---|---|
 | The six views | Builder | `tools/watch3d-shots.sh`, with the renderer it printed |
-| Console and network log | Builder | The same run: the shot tool prints them for each view. It fails on errors and failed requests, and only prints console warnings, so read those. For one address, `tools/watch3d-console.mjs`, which fails on warnings too |
+| Console and network log | Builder | The same run: the shot tool prints them for each view. It fails on errors, failed requests and (since the second kit review, unless `--allow-warnings`) console warnings. For one address, `tools/watch3d-console.mjs`, which fails on warnings too |
 | Loop check output | Builder | `node tools/watch3d-loopcheck.mjs <worktree> <watch-folder>`, which needs the exports named in section 2. I run it again at the commit under review |
 | Triangle, draw-call, geometry and texture counts | Builder | The `report:` line the shot tool prints for each view |
 | Frame rate | Nobody, until the GPU can be used again | Marked "not checked". A frame rate on the software renderer does not count |
