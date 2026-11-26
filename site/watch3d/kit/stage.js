@@ -1,5 +1,6 @@
-// The 3D watch in one element of the page: renderer, camera, lights, views, pointer handling and the frame loop.
-// Adapted from the model's own full-window page (lab/fable-navitimer/src/main.js). The differences: it fills and
+// The stage: a 3D watch in one element of the page. Renderer, studio, lamps, camera, views, pointer handling and the
+// frame loop are here and shared by every watch; which watch it shows is a watch id, whose folder under watches/ is
+// imported when it is asked for. Adapted from the first watch's own full-window page. The differences: it fills and
 // follows a container instead of the window, it draws on a transparent ground (and the crystal's blending is set to
 // suit one), the wheel is left to the page, options take the place of the page-address parameters, and the loop can
 // be stopped and the whole thing disposed.
@@ -7,7 +8,6 @@ import * as THREE from '../vendor/three.module.js';
 import { OrbitControls } from '../vendor/OrbitControls.js';
 import { makeEnvironment } from './env.js';
 import { makeMaterials } from './materials.js';
-import { buildWatch } from '../watches/navitimer/index.js';
 
 // Named views: camera direction from the target, distance, and where to look.
 const VIEWS = {
@@ -30,7 +30,8 @@ function makeClock(time) {
 
 /**
  * @param {HTMLElement} container  the watch fills this element and follows its size
- * @param {{ shadowSize?: 4096|2048, reducedMotion?: boolean, onLost?: () => void, onInteract?: () => void, time?: string }} [options]
+ * @param {{ watch: string, shadowSize?: 4096|2048, reducedMotion?: boolean, onLost?: () => void, onInteract?: () => void, time?: string }} options
+ *        watch: the id of the watch to show first, the name of its folder under watches/ (required)
  *        time: 'HH:MM:SS' freezes the hands, for comparable screenshots
  *        onInteract: called when the reader starts to turn or zoom the watch by hand, so a named view no longer applies
  * @returns {Promise<Handle>} resolves when the first frame has been drawn; rejects if WebGL is missing or the build throws
@@ -38,14 +39,25 @@ function makeClock(time) {
  * Handle:
  *   canvas: HTMLCanvasElement          appended to container by mount
  *   views: string[]                    ['hero', 'front', 'side', 'back', 'clasp', 'bracelet']
+ *   about: object                      the about of the watch showing (null while show() is replacing it)
  *   setView(name: string, instant?: boolean): boolean
- *   start(): void                      begin the frame loop (idempotent)
+ *   start(): void                      begin the frame loop (idempotent; does nothing while no watch is showing)
  *   stop(): void                       cancel it (idempotent)
  *   running: boolean
- *   chrono: { toggle(): void, reset(): void }
+ *   show(id: string): Promise<void>    stop the loop, free the watch showing (but not the kit's shared materials and
+ *                                      studio), import and build watches/<id>/index.js, put it in the three-quarter
+ *                                      view and draw one frame. Calls run in turn and the last one wins: one overtaken
+ *                                      by a later call resolves without showing its watch. If the build throws, the
+ *                                      promise rejects and no watch is showing. The loop is left stopped.
  *   dispose(): void                    stop, free GL resources, remove the canvas and every listener
+ *
+ * A watch module (watches/<id>/index.js) exports
+ *   about: { id, label, hint, caption?, views? }   label is the canvas's aria-label; views overrides any of the six
+ *   build({ M, renderer, frozen }): Promise<{ group, tick(date, dt, camera), press: [{ object, down(), up?() }],
+ *                                             idle?(seconds), report }>
  */
 export async function mount(container, options = {}) {
+  if (typeof options.watch !== 'string' || !/^[a-z0-9-]+$/.test(options.watch)) throw new Error('mount needs a watch id');
   const reducedMotion = !!options.reducedMotion;
   const shadowSize = options.shadowSize === 2048 ? 2048 : 4096;
 
@@ -55,7 +67,6 @@ export async function mount(container, options = {}) {
   const canvas = document.createElement('canvas');
   canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab';
   canvas.setAttribute('role', 'img');
-  canvas.setAttribute('aria-label', '3D model of a blue and cream chronograph on a steel bracelet. Drag to turn.');
 
   // Everything that has to be undone; dispose works back through it.
   const undo = [];
@@ -150,68 +161,84 @@ export async function mount(container, options = {}) {
       glass.blendSrcAlpha = THREE.ZeroFactor; glass.blendDstAlpha = THREE.OneFactor;
     }
     undo.push(() => { M.brushN.dispose(); M.brushC.dispose(); });
+    // The kit's own materials and textures, and the studio: kept when a watch is freed, so the next one can use them.
+    const shared = new Set([scene.environment]);
+    for (const v of Object.values(M)) {
+      if (v && v.isTexture) shared.add(v);
+      if (v && v.isMaterial) {
+        shared.add(v);
+        for (const t of Object.values(v)) if (t && t.isTexture) shared.add(t);
+      }
+    }
     const clock = makeClock(options.time);
-    const built = await buildWatch({ M, renderer, frozen: !!options.time });
-    scene.add(built.group);
-    const tick = built.tick, chrono = built.chrono;
+    const frozen = !!options.time;
+
+    // The watch showing: { about, group, tick, press, idle }, or null while there is none.
+    let current = null;
+    let views = VIEWS;
 
     let flight = null;
     // Views are composed for a wide window; a narrow one stands further back by this factor.
     let fit = 1;
-    function setView(name, instant = false) {
-      const v = Object.prototype.hasOwnProperty.call(VIEWS, name) ? VIEWS[name] : null;
+    function place(name, instant) {
+      const v = Object.prototype.hasOwnProperty.call(views, name) ? views[name] : null;
       if (!v || disposed) return false;
       const dir = new THREE.Vector3(...v.dir).normalize();
       const target = new THREE.Vector3(...v.target);
       const pos = target.clone().addScaledVector(dir, v.dist * fit);
       if (instant || reducedMotion) {
         camera.position.copy(pos); controls.target.copy(target); controls.update(); flight = null;
-        if (ready && !raf) renderOnce();   // the loop is stopped, so show the new view now
       } else {
         flight = { t: 0, p0: camera.position.clone(), p1: pos, q0: controls.target.clone(), q1: target };
       }
       return true;
     }
+    function setView(name, instant = false) {
+      if (!place(name, instant)) return false;
+      if ((instant || reducedMotion) && ready && !raf) renderOnce();   // the loop is stopped, so show the new view now
+      return true;
+    }
     controls.addEventListener('start', () => { flight = null; if (typeof options.onInteract === 'function') options.onInteract(); });
 
-    // The pushers work: the upper one starts and stops the chronograph, the lower one resets it.
-    const pushers = built.parts.case ? built.parts.case.pushers : null;
-    if (pushers && chrono) {
-      const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
-      const targets = [pushers.start, pushers.reset];
-      const hit = (ev) => {
-        const r = canvas.getBoundingClientRect();
-        ndc.set(((ev.clientX - r.left) / r.width) * 2 - 1, -((ev.clientY - r.top) / r.height) * 2 + 1);
-        ray.setFromCamera(ndc, camera);
-        const found = ray.intersectObjects(targets, true)[0];
-        if (!found) return null;
-        let o = found.object;
-        while (o && !targets.includes(o)) o = o.parent;
-        return o;
-      };
-      let held = null;
-      // capture phase, so the orbit controls can be told to sit this gesture out before they see it
-      listen(canvas, 'pointerdown', (ev) => {
-        held = hit(ev);
-        if (!held) return;
-        controls.enabled = false;
-        held.userData.pressed = true;
-        if (held === pushers.start) chrono.toggle(); else chrono.reset();
-      }, { capture: true });
-      const release = () => {
-        if (!held) return;
-        held.userData.pressed = false; held = null; controls.enabled = true;
-      };
-      listen(window, 'pointerup', release);
-      listen(window, 'pointercancel', release);
-      listen(canvas, 'pointermove', (ev) => {
-        if (ev.buttons === 0) canvas.style.cursor = hit(ev) ? 'pointer' : 'grab';
-      });
-    }
+    // Parts the reader can press (a watch's press list): pressing one calls its down(), letting go its up(), and the
+    // orbit controls sit that gesture out. Everywhere else a drag turns the watch.
+    const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
+    const hit = (ev) => {
+      const press = current ? current.press : null;
+      if (!press || !press.length) return null;
+      const r = canvas.getBoundingClientRect();
+      ndc.set(((ev.clientX - r.left) / r.width) * 2 - 1, -((ev.clientY - r.top) / r.height) * 2 + 1);
+      ray.setFromCamera(ndc, camera);
+      const targets = press.map(p => p.object);
+      const found = ray.intersectObjects(targets, true)[0];
+      if (!found) return null;
+      let o = found.object;
+      while (o && !targets.includes(o)) o = o.parent;
+      return o ? press[targets.indexOf(o)] : null;
+    };
+    let held = null;
+    // capture phase, so the orbit controls can be told to sit this gesture out before they see it
+    listen(canvas, 'pointerdown', (ev) => {
+      held = hit(ev);
+      if (!held) return;
+      controls.enabled = false;
+      held.down();
+    }, { capture: true });
+    const release = () => {
+      if (!held) return;
+      const was = held;
+      held = null; controls.enabled = true;
+      if (typeof was.up === 'function') was.up();
+    };
+    listen(window, 'pointerup', release);
+    listen(window, 'pointercancel', release);
+    listen(canvas, 'pointermove', (ev) => {
+      if (ev.buttons === 0) canvas.style.cursor = hit(ev) ? 'pointer' : 'grab';
+    });
 
     function renderOnce() {
       controls.update();
-      tick(clock(), 0, camera);
+      if (current) current.tick(clock(), 0, camera);
       renderer.render(scene, camera);
     }
 
@@ -241,7 +268,6 @@ export async function mount(container, options = {}) {
     ro.observe(container);
     undo.push(() => ro.disconnect());
     resize();
-    setView('hero', true);
 
     const ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
     let last = 0, stoppedAt = performance.now();
@@ -262,14 +288,15 @@ export async function mount(container, options = {}) {
         if (flight.t >= 1) flight = null;
       }
       controls.update();
-      tick(clock(), dt, camera);
+      if (current) current.tick(clock(), dt, camera);
       renderer.render(scene, camera);
     }
+    // The loop runs only with a watch to show; show() stops it, and the caller starts it again when it wants it.
     function start() {
-      if (raf || disposed) return;
+      if (raf || disposed || !current) return;
       const now = performance.now();
-      // The stopwatch counts frame by frame, so give it the time it missed while the loop was stopped.
-      if (chrono && chrono.running && stoppedAt !== null) chrono.elapsed += Math.max(0, now - stoppedAt) / 1000;
+      // A watch whose works count frame by frame is told how long the loop was stopped.
+      if (typeof current.idle === 'function' && stoppedAt !== null) current.idle(Math.max(0, now - stoppedAt) / 1000);
       stoppedAt = null;
       last = now;
       resize();
@@ -282,25 +309,81 @@ export async function mount(container, options = {}) {
       stoppedAt = performance.now();
     }
 
-    // A context lost during the build is reported by the rejection below; onLost is for one lost afterwards.
+    // A context lost during a build is reported by show's rejection; onLost is for one lost afterwards.
     listen(canvas, 'webglcontextlost', () => {
       stop();
       if (ready && !disposed && typeof options.onLost === 'function') options.onLost();
     });
 
-    renderOnce();   // the first frame, which also compiles the shaders
-    if (renderer.getContext().isContextLost()) throw new Error('The WebGL context was lost while the watch was being built');
-    stoppedAt = performance.now();
+    /** Free a watch's geometries, and every material and texture of it that is not one of the kit's shared ones. */
+    function free(group) {
+      group.removeFromParent();
+      const seen = new Set();
+      const drop = (x) => { if (x && typeof x.dispose === 'function' && !seen.has(x) && !shared.has(x)) { seen.add(x); x.dispose(); } };
+      group.traverse((o) => {
+        drop(o.geometry);
+        for (const m of [].concat(o.material || [])) {
+          for (const v of Object.values(m)) if (v && v.isTexture) drop(v);
+          drop(m);
+        }
+      });
+    }
+    function unload() {
+      if (held) { held = null; controls.enabled = true; }
+      canvas.style.cursor = 'grab';
+      if (current) { const was = current; current = null; free(was.group); }
+      views = VIEWS;
+    }
+
+    // show() calls run one after another, and only the last one asked for puts its watch in the scene: an earlier call
+    // that finds a later one waiting resolves without showing anything.
+    let latest = 0, queue = Promise.resolve();
+    async function load(id, ticket) {
+      if (disposed) throw new Error('The 3D watch has been disposed');
+      if (ticket !== latest) return;
+      stop();
+      unload();
+      const mod = await import(`../watches/${id}/index.js`);
+      if (disposed || ticket !== latest) return;
+      if (!mod.about || mod.about.id !== id || typeof mod.build !== 'function') throw new Error(`watches/${id}/index.js does not export about and build`);
+      const built = await mod.build({ M, renderer, frozen });
+      if (disposed || ticket !== latest) { if (!disposed) free(built.group); return; }
+      scene.add(built.group);
+      current = {
+        about: mod.about, group: built.group, tick: built.tick,
+        press: Array.isArray(built.press) ? built.press : [], idle: built.idle,
+      };
+      views = { ...VIEWS, ...(mod.about.views || {}) };
+      canvas.setAttribute('aria-label', mod.about.label);
+      place('hero', true);
+      renderOnce();   // the first frame, which also compiles the shaders
+      if (renderer.getContext().isContextLost()) {
+        unload();
+        throw new Error('The WebGL context was lost while the watch was being built');
+      }
+      stoppedAt = performance.now();
+    }
+    function show(id) {
+      if (typeof id !== 'string' || !/^[a-z0-9-]+$/.test(id)) return Promise.reject(new Error(`Not a watch id: ${id}`));
+      const ticket = ++latest;
+      const job = queue.then(() => load(id, ticket));
+      queue = job.catch(() => {});
+      return job;
+    }
+
+    await show(options.watch);
+    if (!current) throw new Error('The watch was not shown');
     ready = true;
 
     return {
       canvas,
-      views: Object.keys(VIEWS),
+      get views() { return Object.keys(views); },
+      get about() { return current ? current.about : null; },
       setView,
       start,
       stop,
       get running() { return raf !== 0; },
-      chrono: { toggle() { chrono.toggle(); }, reset() { chrono.reset(); } },
+      show,
       dispose,
     };
   } catch (err) {

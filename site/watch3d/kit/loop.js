@@ -1,26 +1,11 @@
 // The bracelet as a chain: pins at a fixed pitch, each link rigid between two neighbouring pins.
 // One half is solved in the (y, z) plane, from the end link's pin down to the middle of the clasp;
 // the other half is the same shape turned half a turn about the watch's axis.
-// Pure maths, no three.js, so it can be checked on its own.
+// Pure maths, no three.js, so it can be checked on its own. The bracelet's own numbers are the caller's: `spec` is an
+// object with at least pitch, segments (articulated links per half), head (rigid half of the clasp, from the last pin
+// to the seam), pin0 ((y, z) of the end link's pin), heading0, widthLug, widthClasp and taperLength, all in mm and radians.
 
 export const DEG = Math.PI / 180;
-
-/** Fixed bracelet dimensions, mm. */
-export const BRACELET = {
-  pitch: 3.0,          // pin to pin
-  segments: 20,        // articulated links per half, pin 0 to pin 20
-  head: 7.6,           // rigid half of the clasp cover, from pin 20 to the seam
-  pin0: [22.75, 0.85], // (y, z) of the end link's pin
-  heading0: -40 * DEG, // the first link leaves the end link pointing down by this much
-  widthLug: 22,
-  widthClasp: 18,
-  taperLength: 44,     // the taper is spent over this length from the lugs, then the band runs parallel
-  thicknessUp: 1.42,   // top surface above the pin line
-  rowsWide: 3.7,       // rows 1, 3, 5, 7 (brushed)
-  rowsNarrow: 2.4,     // rows 2, 4, 6 (polished); 4 * 3.7 + 3 * 2.4 = 22
-  rowGap: 0.07,        // clearance between neighbouring rows
-  endGap: 0.13,        // clearance between consecutive links in a row
-};
 
 /**
  * Solve the drape of one half.
@@ -28,8 +13,8 @@ export const BRACELET = {
  * How the turn is shared out follows a wrist: gentle over the top, tight round the side, flat underneath.
  * `bump` is the strength of the tight part and is found by bisection so the clasp seam lands on y = 0.
  */
-export function solveLoop(opts = {}) {
-  const o = { ...BRACELET, peak: 0.2, spread: 0.16, peak2: 0.8, spread2: 0.14, second: 0.3, base: 0.32, ...opts };
+export function solveLoop(spec, opts = {}) {
+  const o = { peak: 0.2, spread: 0.16, peak2: 0.8, spread2: 0.14, second: 0.3, base: 0.32, ...spec, ...opts };
   const N = o.segments, p = o.pitch;
   const total = -Math.PI - o.heading0; // negative: the chain turns clockwise seen from +X
   const weights = (bump) => {
@@ -75,28 +60,11 @@ export function solveLoop(opts = {}) {
   return out;
 }
 
-/** Bracelet width at a distance s along the chain from pin 0. */
-export function widthAt(s, o = BRACELET) {
+/** Bracelet width at a distance s along the chain from pin 0, for the bracelet `o` (widthLug, widthClasp, taperLength). */
+export function widthAt(s, o) {
   const t = Math.min(1, Math.max(0, (s + 2.2) / o.taperLength));
   const e = t * t * (3 - 2 * t);
   return o.widthLug + (o.widthClasp - o.widthLug) * (0.15 * t + 0.85 * e);
-}
-
-/**
- * The seven rows across the bracelet at width w: [{ index, wide, x0, x1 }] left to right.
- * Row widths keep their proportions as the bracelet narrows.
- */
-export function rowsAt(w, o = BRACELET) {
-  const k = w / o.widthLug;
-  const rows = [];
-  let x = -w / 2;
-  for (let i = 0; i < 7; i++) {
-    const wide = i % 2 === 0;
-    const rw = (wide ? o.rowsWide : o.rowsNarrow) * k;
-    rows.push({ index: i, wide, x0: x + o.rowGap / 2, x1: x + rw - o.rowGap / 2 });
-    x += rw;
-  }
-  return rows;
 }
 
 /** Checks that must hold for the chain to be a real, closed bracelet. Returns a list of failures. */

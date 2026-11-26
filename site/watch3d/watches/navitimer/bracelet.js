@@ -8,8 +8,42 @@
 // moving links, not by bending a mesh.
 import * as THREE from '../../vendor/three.module.js';
 import { DEG, arc, extrude, roundPoly, merge, xform } from '../../kit/geo.js';
-import { BRACELET, solveLoop, widthAt, rowsAt, checkLoop } from '../../kit/loop.js';
+import { solveLoop, widthAt, checkLoop } from '../../kit/loop.js';
 import { D, lugSlope, underLugTop } from './dims.js';
+
+/** Fixed bracelet dimensions, mm. */
+export const BRACELET = {
+  pitch: 3.0,          // pin to pin
+  segments: 20,        // articulated links per half, pin 0 to pin 20
+  head: 7.6,           // rigid half of the clasp cover, from pin 20 to the seam
+  pin0: [22.75, 0.85], // (y, z) of the end link's pin
+  heading0: -40 * DEG, // the first link leaves the end link pointing down by this much
+  widthLug: 22,
+  widthClasp: 18,
+  taperLength: 44,     // the taper is spent over this length from the lugs, then the band runs parallel
+  thicknessUp: 1.42,   // top surface above the pin line
+  rowsWide: 3.7,       // rows 1, 3, 5, 7 (brushed)
+  rowsNarrow: 2.4,     // rows 2, 4, 6 (polished); 4 * 3.7 + 3 * 2.4 = 22
+  rowGap: 0.07,        // clearance between neighbouring rows
+  endGap: 0.13,        // clearance between consecutive links in a row
+};
+
+/**
+ * The seven rows across the bracelet at width w: [{ index, wide, x0, x1 }] left to right.
+ * Row widths keep their proportions as the bracelet narrows.
+ */
+export function rowsAt(w, o = BRACELET) {
+  const k = w / o.widthLug;
+  const rows = [];
+  let x = -w / 2;
+  for (let i = 0; i < 7; i++) {
+    const wide = i % 2 === 0;
+    const rw = (wide ? o.rowsWide : o.rowsNarrow) * k;
+    rows.push({ index: i, wide, x0: x + o.rowGap / 2, x1: x + rw - o.rowGap / 2 });
+    x += rw;
+  }
+  return rows;
+}
 
 const B = BRACELET;
 export const RHO = B.pitch / 2 - B.endGap / 2; // radius of a link's rounded end about its pin
@@ -64,7 +98,7 @@ function segmentGeometry(k) {
   const wide = k % 2 === 1;
   const s0 = k * B.pitch;
   const prof = linkProfile(B.pitch, wide ? 0.32 : 0.5);
-  const at = (y) => rowsAt(widthAt(s0 + y));
+  const at = (y) => rowsAt(widthAt(s0 + y, B));
   const skins = [], caps = [];
   for (let i = 0; i < 7; i++) {
     if ((i % 2 === 0) !== wide) continue;
@@ -75,7 +109,7 @@ function segmentGeometry(k) {
     });
     skins.push(e.skin); caps.push(e.capA, e.capB);
   }
-  return { wide, body: merge([...skins, ...caps]), pin: rod(widthAt(s0) + 0.05) };
+  return { wide, body: merge([...skins, ...caps]), pin: rod(widthAt(s0, B) + 0.05) };
 }
 
 /** Profiles of the end link in the watch's own (y, z): fingers that hold the first pin, and the short rows between. */
@@ -223,7 +257,7 @@ function claspHalf(M, L) {
 
 export function buildBracelet({ M, report }) {
   const ends = endLinkProfiles();
-  const L = solveLoop({ pin0: ends.P0 });
+  const L = solveLoop(B, { pin0: ends.P0 });
   const bad = checkLoop(L);
 
   // Extra checks against the head: the end link fits the lugs, and no pin sits inside the case.
@@ -241,7 +275,7 @@ export function buildBracelet({ M, report }) {
       links: B.segments * 2,
       length: +(2 * L.length + 2 * RHO).toFixed(1),
       maxTurnDeg: +(Math.max(...L.turns.map(Math.abs)) / DEG).toFixed(1),
-      widthAtLug: B.widthLug, widthAtClasp: +widthAt(L.s[B.segments]).toFixed(2),
+      widthAtLug: B.widthLug, widthAtClasp: +widthAt(L.s[B.segments], B).toFixed(2),
     };
   }
   if (bad.length) console.warn('bracelet checks failed:\n' + bad.join('\n'));

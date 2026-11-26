@@ -84,6 +84,7 @@
     say('Building the 3D watch');
     if (building) return;
     const options = {
+      watch: 'navitimer',
       shadowSize: matchMedia('(max-width: 720px)').matches ? 2048 : 4096,
       reducedMotion: matchMedia('(prefers-reduced-motion: reduce)').matches,
       onLost: () => fail(new Error('The WebGL context was lost.')),
