@@ -8,7 +8,7 @@
 // moving links, not by bending a mesh.
 import * as THREE from '../../vendor/three.module.js';
 import { DEG, arc, extrude, roundPoly, merge, xform } from '../../kit/geo.js';
-import { solveLoop, widthAt, checkLoop } from '../../kit/loop.js';
+import { solveLoop, widthAt, checkLoop, reportLoop } from '../../kit/loop.js';
 import { D, lugSlope, underLugTop } from './dims.js';
 
 /** Fixed bracelet dimensions, mm. */
@@ -278,10 +278,7 @@ export function buildBracelet({ M, report }) {
       widthAtLug: B.widthLug, widthAtClasp: +widthAt(L.s[B.segments], B).toFixed(2),
     };
   }
-  if (bad.length) {
-    console.warn('bracelet checks failed:\n' + bad.join('\n'));
-    if (report && Array.isArray(report.warnings)) report.warnings.push(...bad.map(b => 'bracelet: ' + b));
-  }
+  reportLoop(report, 'bracelet', bad);   // into report.warnings, where the tools look, and the console
 
   const group = new THREE.Group();
   group.name = 'bracelet';

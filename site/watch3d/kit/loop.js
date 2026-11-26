@@ -92,3 +92,22 @@ export function checkLoop(L) {
   });
   return bad;
 }
+
+/**
+ * Record a watch's failed checks where the tools look for them: each failure becomes a line `${part}: ${failure}` in
+ * report.warnings (made if the report has none), and the lot is also printed with console.warn. A watch must report
+ * every check of its own that fails this way (or by pushing to report.warnings itself), not only in the console: the
+ * stage hands report.warnings out, and tools/watch3d-shots.sh fails a run that has any. Use it for checkLoop's list
+ * and any other checks of the bracelet:
+ *   reportLoop(report, 'bracelet', checkLoop(L))
+ * report may be null (nothing is recorded, the console still is). Returns failures, unchanged.
+ */
+export function reportLoop(report, part, failures) {
+  if (!failures || !failures.length) return failures;
+  console.warn(`${part} checks failed:\n` + failures.join('\n'));
+  if (report && typeof report === 'object') {
+    if (!Array.isArray(report.warnings)) report.warnings = [];
+    report.warnings.push(...failures.map(f => `${part}: ${f}`));
+  }
+  return failures;
+}
