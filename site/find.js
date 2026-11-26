@@ -89,13 +89,13 @@ const FIND = (() => {
   }
 
   // The best match for one typed word among a field's words: [score, which word, whether it ran words together].
-  // Earlier words count for a little more.
-  function best(q, f){
+  // Earlier words count for a little more in a name. In secondary text (early = false) the order means nothing.
+  function best(q, f, early){
     let top = 0, at = -1, joined = false;
     for (let i = 0; i < f.words.length; i++) {
       const x = f.words[i]; let s = word(q, x.w), j = false;
       if (s < 72 && q.length > x.w.length && f.tight.startsWith(q, x.o)) { s = 72; j = true; }
-      if (s) { s += Math.max(0, 6 - 2 * i); if (s > top) { top = s; at = i; joined = j; } }
+      if (s) { if (early) s += Math.max(0, 6 - 2 * i); if (s > top) { top = s; at = i; joined = j; } }
     }
     return [top, at, joined];
   }
@@ -112,7 +112,7 @@ const FIND = (() => {
     if (!qs.length) return null;
     let total = 0, inName = 0, sure = false, loose = true;
     for (const q of qs) {
-      const a = best(q, name), b = sub ? best(q, sub) : null;
+      const a = best(q, name, true), b = sub ? best(q, sub, false) : null;
       const viaName = !b || a[0] >= b[0] * SUB, raw = viaName ? a[0] : b[0];
       if (!raw) return null;
       if (viaName) inName++;
