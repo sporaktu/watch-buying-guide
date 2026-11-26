@@ -1,7 +1,7 @@
 // Hands: hour and minute swords with lume, the red chronograph needle, and the three register hands.
 // The time comes from the clock passed to tick(); the chronograph keeps its own elapsed time.
-import * as THREE from './vendor/three.module.js';
-import { DEG, lathe, bevelPlate } from './geo.js';
+import * as THREE from '../../vendor/three.module.js';
+import { DEG, lathe, bevelPlate } from '../../kit/geo.js';
 import { D } from './dims.js';
 
 // Heights above the dial plate (mm). The crystal's inner face is 1.4 mm up at the edge of the dial.

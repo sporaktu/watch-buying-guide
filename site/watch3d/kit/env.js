@@ -1,7 +1,7 @@
 // A photo studio to reflect: dark walls, a few bright soft boxes and strip lights with hard edges.
 // Polished steel is only as convincing as what it mirrors, so the lamps are given crisp shapes
 // and strong contrast against the room.
-import * as THREE from './vendor/three.module.js';
+import * as THREE from '../vendor/three.module.js';
 
 function panel(scene, { pos, size, power, color = 0xffffff, lookAt = [0, 0, 0] }) {
   const m = new THREE.MeshBasicMaterial({ color, side: THREE.DoubleSide, toneMapped: false });

@@ -2,10 +2,10 @@
 // a simplified automatic chronograph movement with a swinging rotor behind it.
 // Everything here is built facing +Z in a group turned half a turn about Y, so that it faces the
 // wrist and its lettering reads the right way round from behind.
-import * as THREE from './vendor/three.module.js';
-import { TAU, DEG, lathe, bevelPlate, planarUV, merge, xform, rng } from './geo.js';
+import * as THREE from '../../vendor/three.module.js';
+import { TAU, DEG, lathe, bevelPlate, planarUV, merge, xform, rng } from '../../kit/geo.js';
 import { D } from './dims.js';
-import { arcLetters, mmCanvas } from './type.js';
+import { arcLetters, mmCanvas } from '../../kit/type.js';
 
 const DEPTH = -D.backZ;          // 2.0 mm from the mid-case to the lowest point of the back
 const BAND = [13.3, 17.0];       // engraved band, inner and outer radius

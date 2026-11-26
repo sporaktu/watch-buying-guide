@@ -93,7 +93,7 @@
     let time = null; try { time = new URLSearchParams(location.search).get('time'); } catch (e) {}
     if (time && /^\d{1,2}:\d{2}(:\d{2})?$/.test(time)) options.time = time;
     // catch() after then(), so an error in showing the built watch is handled like one in building it.
-    building = import('./watch3d/mount.js').then(m => m.mount(stage, options)).then(h => {
+    building = import('./watch3d/kit/stage.js').then(m => m.mount(stage, options)).then(h => {
       building = null; handle = h;
       h.canvas.classList.add('watch3d'); h.canvas.hidden = true;
       if (!view.value) view.value = 'hero';   // a new model starts on the three-quarter view, not where an old one was turned to

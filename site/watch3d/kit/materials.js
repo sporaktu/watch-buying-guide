@@ -2,7 +2,7 @@
 //   polished - a near-mirror that shows the studio lamps with hard edges
 //   brushed  - a satin with a visible grain, whose highlight smears across the grain
 // Brushed parts carry UVs in mm / BRUSH_TILE with U running along the grain.
-import * as THREE from './vendor/three.module.js';
+import * as THREE from '../vendor/three.module.js';
 import { rng } from './geo.js';
 
 export const COLORS = {

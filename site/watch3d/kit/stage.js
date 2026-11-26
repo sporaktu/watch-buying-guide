@@ -3,11 +3,11 @@
 // follows a container instead of the window, it draws on a transparent ground (and the crystal's blending is set to
 // suit one), the wheel is left to the page, options take the place of the page-address parameters, and the loop can
 // be stopped and the whole thing disposed.
-import * as THREE from './vendor/three.module.js';
-import { OrbitControls } from './vendor/OrbitControls.js';
+import * as THREE from '../vendor/three.module.js';
+import { OrbitControls } from '../vendor/OrbitControls.js';
 import { makeEnvironment } from './env.js';
 import { makeMaterials } from './materials.js';
-import { buildWatch } from './watch.js';
+import { buildWatch } from '../watches/navitimer/index.js';
 
 // Named views: camera direction from the target, distance, and where to look.
 const VIEWS = {

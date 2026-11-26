@@ -6,9 +6,9 @@
 // row reads as a run of links with a hair of clearance between them, and every pin ties all seven rows.
 // Each segment is its own object placed at its pin and turned to its heading, so the bracelet drapes by
 // moving links, not by bending a mesh.
-import * as THREE from './vendor/three.module.js';
-import { DEG, arc, extrude, roundPoly, merge, xform } from './geo.js';
-import { BRACELET, solveLoop, widthAt, rowsAt, checkLoop } from './loop.js';
+import * as THREE from '../../vendor/three.module.js';
+import { DEG, arc, extrude, roundPoly, merge, xform } from '../../kit/geo.js';
+import { BRACELET, solveLoop, widthAt, rowsAt, checkLoop } from '../../kit/loop.js';
 import { D, lugSlope, underLugTop } from './dims.js';
 
 const B = BRACELET;

@@ -1,5 +1,5 @@
 // Assembles the watch and drives its hands.
-import * as THREE from './vendor/three.module.js';
+import * as THREE from '../../vendor/three.module.js';
 import { buildCase } from './case.js';
 import { buildBracelet } from './bracelet.js';
 import { buildDial } from './dial.js';
