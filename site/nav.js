@@ -48,7 +48,7 @@
   hi.addEventListener('input', () => send($('pmax'), 'input', hi.value));
   reset.addEventListener('click', () => { $('reset').click(); toList(); });
   // In the Sections sheet the open filters take the room of the places list.
-  fBtn.addEventListener('click', () => { fBox.hidden = !fBox.hidden; fBtn.setAttribute('aria-expanded', String(!fBox.hidden)); rail.classList.toggle('filtering', !fBox.hidden); });
+  fBtn.addEventListener('click', () => { fBox.hidden = !fBox.hidden; fBtn.setAttribute('aria-expanded', String(!fBox.hidden)); rail.classList.toggle('filtering', !fBox.hidden); if (fBox.hidden) showHere(); });
   const pressed = box => { const b = box.querySelector('[aria-pressed="true"]'); return b ? b.dataset.k || b.dataset.t : ''; };
   function syncTools(){
     showSel.value = pressed($('show')); tierSel.value = pressed($('tabs'));
