@@ -43,6 +43,7 @@ Each line has its check in Task 3.
 | `site/watch3d/vendor/` (new) | `three.module.min.js`, `three.core.min.js`, `OrbitControls.js`, `BufferGeometryUtils.js`, `LICENSE-three.txt`. |
 | `site/watch3d.js` (new) | The button: mode on and off, loading, failure, the view chooser, when the loop runs. |
 | `site/dials.js` (modify, near line 640) | Public hook `window.WBMDials`. |
+| `site/band.js` (modify, near line 86) | Stand down while the stage is in full mode. |
 | `site/index.html` (modify, lines 40-49 and the script list) | The button, the view chooser, the script tag. |
 | `site/style.css` (modify, near line 115) | The stage in full mode, the loading label. |
 | `site/releases.js`, `README.md` (modify) | The record. |
@@ -139,7 +140,7 @@ Expected: `{"w":400,"h":400,"views":["hero","front","side","back","clasp","brace
 
 **Files:**
 - Create: `site/watch3d.js`
-- Modify: `site/index.html` (second control row, lines 40-49; script list, after `band.js`), `site/style.css` (near line 115)
+- Modify: `site/index.html` (second control row, lines 40-49; script list, after `band.js`), `site/style.css` (near line 115), `site/band.js` (its `draw`, near line 86)
 
 **Interfaces:**
 - Consumes: `mount` and `Handle` from Task 1; `window.WBMDials` and the `wbm-dial` event from Task 2.
@@ -148,6 +149,7 @@ Expected: `{"w":400,"h":400,"views":["hero","front","side","back","clasp","brace
 Behaviour, all from the spec:
 
 - **On:** `WBMDials.choose('Slide-rule chronograph')`; add `loading` (the stage shows "Building the watch" over the flat dial); `import('./watch3d/mount.js')` then `mount(stage, { shadowSize: narrow ? 2048 : 4096, reducedMotion, onLost })`, where `narrow` is `matchMedia('(max-width: 720px)')` and `reducedMotion` is `matchMedia('(prefers-reduced-motion: reduce)')`; then swap `loading` for `full`. In `full`, `#dial` and `#band` are invisible but keep their box, `#dialBand` is hidden and `#dialView` shown in its place, `#dialWrist` is disabled, and `#dialName` reads "after the Breitling Navitimer. Drag to turn. Press the pushers to run the stopwatch."
+- **`site/band.js`:** its `draw()` runs on every `wbm-dial` event and every resize of the stage, and each time sets `#band.hidden`, the stage's `worn` class and `#dialWrist.disabled`. Make it leave those alone while the stage has the class `full` (an early return after it has recorded its state is enough), so full mode is not undone by a resize.
 - **Off:** by the button, or by a `wbm-dial` event after which `WBMDials.current()` is not `Slide-rule chronograph`. `handle.stop()`, remove `full`, restore `#dialBand`, and let `site/band.js` redraw its own state (it redraws on `wbm-dial`). The handle is kept; the next press only calls `start()`.
 - **Loop:** `start()` only while the mode is on, the stage is on screen (`IntersectionObserver`) and the document is visible.
 - **Failure** (import rejects, `mount` rejects, or `onLost`): mode off as above, `aria-pressed="false"`, `#dialName` reads "The 3D watch could not be shown on this device." until the dial next changes, and the error goes to `console.warn`. A lost context disposes the handle so a later press builds afresh.
