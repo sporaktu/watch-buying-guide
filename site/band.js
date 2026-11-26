@@ -84,6 +84,9 @@
 
   let px = 0;
   function draw() {
+    // In full watch mode (watch3d.js) the 3D watch has the stage. Leave the band, the head and the wrist button as they
+    // are; watch3d.js sends a wbm-stage event when the mode ends, which draws them again.
+    if (stage.classList.contains('full')) return;
     const on = kind !== 'none';
     stage.classList.toggle('worn', on); cv.hidden = !on;
     pick.value = kind; wristBtn.setAttribute('aria-pressed', String(on && wrist)); wristBtn.disabled = !on;
@@ -121,7 +124,8 @@
 
   pick.addEventListener('change', () => { kind = pick.value; put('wbm-dial-band', kind); draw(); });
   wristBtn.addEventListener('click', () => { wrist = !wrist; put('wbm-dial-wrist', wrist ? '1' : '0'); draw(); });
-  document.addEventListener('wbm-dial', draw);
+  document.addEventListener('wbm-dial', draw);    // another dial: perhaps another case
+  document.addEventListener('wbm-stage', draw);   // the stage is the flat dial's again (watch3d.js)
   if (window.ResizeObserver) new ResizeObserver(draw).observe(stage); else addEventListener('resize', draw);
   draw();
 })();
