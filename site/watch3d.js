@@ -80,12 +80,13 @@
       reducedMotion: matchMedia('(prefers-reduced-motion: reduce)').matches,
       onLost: () => fail(new Error('The WebGL context was lost.'))
     };
+    // catch() after then(), so an error in showing the built watch is handled like one in building it.
     building = import('./watch3d/mount.js').then(m => m.mount(stage, options)).then(h => {
       building = null; handle = h;
       h.canvas.classList.add('watch3d'); h.canvas.hidden = true;
       h.setView(view.value, true);
       if (on) show();   // otherwise the reader left while it was loading: keep it for the next press
-    }, err => { building = null; fail(err); });
+    }).catch(err => { building = null; fail(err); });
   }
 
   btn.addEventListener('click', () => { if (on) leave(false); else enter(); });
