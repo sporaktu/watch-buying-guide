@@ -106,8 +106,8 @@ function makeClock(time, date) {
  *   start(): void                      begin the frame loop (idempotent; does nothing while no watch is showing)
  *   stop(): void                       cancel it (idempotent)
  *   running: boolean
- *   show(id: string): Promise<void>    stop the loop, free the watch showing (but not the kit's shared materials and
- *                                      studio), import and build watches/<id>/index.js, put it in the three-quarter
+ *   show(id: string): Promise<void>    stop the loop, free the watch showing (but not the kit's own materials, their
+ *                                      textures and the studio), import and build watches/<id>/index.js, put it in the three-quarter
  *                                      view and draw one frame. Calls run in turn and the last one wins: one overtaken
  *                                      by a later call resolves without showing its watch. If the build throws,
  *                                      returns something that is not a group and a tick, or the first frame throws,
@@ -133,6 +133,15 @@ function makeClock(time, date) {
  *   build({ M, renderer, frozen }): Promise<{ group, tick(date, dt, camera), press: [{ object, down(), up?() }],
  *                                             idle?(seconds), dispose?(), report? }>
  *   group must be a THREE.Object3D and tick a function, or show() rejects.
+ *   M is this build's own copies of the kit's materials (materials.js), made afresh for each build: a watch may change
+ *   them, and the change ends with the watch, because the stage frees the copies with it. The copies share the kit's
+ *   textures (M.brushN, M.brushC and the maps the materials hold), which are the kit's for every watch: never change a
+ *   texture you did not make; clone it and change the clone. renderer is the stage's, shared with every watch. A
+ *   watch should leave it as it is; whatever it does change of the renderer's settings, and of the scene's and
+ *   camera's (tone mapping and exposure, output colour space, shadow map on, type and auto update, local clipping and
+ *   clipping planes, sorting, auto clear, clear colour and alpha, pixel ratio, render target; the scene's environment,
+ *   background, fog, override material, environment rotation and background strength; the camera's fov, near, far
+ *   and zoom) is put back when the watch is freed, as about.light is.
  *   report is the watch's own account of its build: any entries it likes (plain data, so it can be written as JSON),
  *   and warnings: string[], one line for each check of its own that failed (a bracelet loop that does not close, say).
  *   A warning is for the builder, not the reader: the watch is still shown. The stage's handle gives out a copy with
@@ -142,7 +151,8 @@ function makeClock(time, date) {
  *   holds, the studio and shared materials included). warnings is [] when the watch gives none.
  *   When the watch is freed (another is shown, or the stage is disposed) the stage disposes every geometry, material
  *   and texture it finds on the meshes in group: material properties, and textures in a ShaderMaterial's uniforms.
- *   It does not dispose the kit's shared materials (M) and studio. Anything else the watch made on the graphics card is
+ *   It also disposes the watch's copies of the kit's materials (M), whether it used them or not, but not the kit's
+ *   own materials, their textures, or the studio. Anything else the watch made on the graphics card is
  *   the watch's to release in its dispose(), which the stage calls at that moment: render targets, textures kept only
  *   in userData, closures or objects outside group, and geometry or materials taken out of group after the build.
  */
@@ -281,6 +291,49 @@ export async function mount(container, options = {}) {
       if (v && v.isMaterial) {
         shared.add(v);
         for (const t of texturesOf(v)) shared.add(t);
+      }
+    }
+    // Each build gets its own copies of the kit's materials, so a watch that changes one (a colour, a flag) changes
+    // only its own: the copies share the kit's textures and shader programs, and are freed with the watch.
+    function materialsFor() {
+      const mine = {}, made = [];
+      for (const [k, v] of Object.entries(M)) {
+        if (v && v.isMaterial) { const c = v.clone(); made.push(c); mine[k] = c; } else mine[k] = v;
+      }
+      return { mine, made };
+    }
+    // The renderer's, scene's and camera's settings as the kit leaves them; a watch may change any of them through the
+    // renderer it is given (or the scene and camera it can reach), and unload() puts them all back.
+    const kitSettings = {
+      toneMapping: renderer.toneMapping, outputColorSpace: renderer.outputColorSpace,
+      shadowMapEnabled: renderer.shadowMap.enabled, shadowMapType: renderer.shadowMap.type,
+      shadowMapAutoUpdate: renderer.shadowMap.autoUpdate,
+      localClippingEnabled: renderer.localClippingEnabled, clippingPlanes: renderer.clippingPlanes.slice(),
+      sortObjects: renderer.sortObjects, autoClear: renderer.autoClear, autoClearColor: renderer.autoClearColor,
+      autoClearDepth: renderer.autoClearDepth, autoClearStencil: renderer.autoClearStencil,
+      clearColor: renderer.getClearColor(new THREE.Color()), clearAlpha: renderer.getClearAlpha(),
+      pixelRatio: renderer.getPixelRatio(),
+      environment: scene.environment, background: scene.background, fog: scene.fog, overrideMaterial: scene.overrideMaterial,
+      environmentRotation: scene.environmentRotation.clone(), backgroundIntensity: scene.backgroundIntensity,
+      fov: camera.fov, near: camera.near, far: camera.far, zoom: camera.zoom,
+    };
+    function restoreSettings() {
+      const k = kitSettings;
+      renderer.toneMapping = k.toneMapping; renderer.outputColorSpace = k.outputColorSpace;
+      if (renderer.shadowMap.enabled !== k.shadowMapEnabled || renderer.shadowMap.type !== k.shadowMapType) renderer.shadowMap.needsUpdate = true;
+      renderer.shadowMap.enabled = k.shadowMapEnabled; renderer.shadowMap.type = k.shadowMapType;
+      renderer.shadowMap.autoUpdate = k.shadowMapAutoUpdate;
+      renderer.localClippingEnabled = k.localClippingEnabled; renderer.clippingPlanes = k.clippingPlanes.slice();
+      renderer.sortObjects = k.sortObjects; renderer.autoClear = k.autoClear; renderer.autoClearColor = k.autoClearColor;
+      renderer.autoClearDepth = k.autoClearDepth; renderer.autoClearStencil = k.autoClearStencil;
+      renderer.setClearColor(k.clearColor, k.clearAlpha);
+      if (renderer.getPixelRatio() !== k.pixelRatio) renderer.setPixelRatio(k.pixelRatio);
+      renderer.setRenderTarget(null);
+      scene.environment = k.environment; scene.background = k.background; scene.fog = k.fog;
+      scene.overrideMaterial = k.overrideMaterial; scene.environmentRotation.copy(k.environmentRotation);
+      scene.backgroundIntensity = k.backgroundIntensity;
+      if (camera.fov !== k.fov || camera.near !== k.near || camera.far !== k.far || camera.zoom !== k.zoom) {
+        camera.fov = k.fov; camera.near = k.near; camera.far = k.far; camera.zoom = k.zoom; camera.updateProjectionMatrix();
       }
     }
     const clock = makeClock(options.time, options.date);
@@ -468,12 +521,17 @@ export async function mount(container, options = {}) {
         try { own(); } catch (err) { console.error('The 3D watch threw while releasing what it made.', err); }
       }
     }
+    // The watch's copies of the kit's materials, used on its meshes or not (their textures are the kit's and stay).
+    function dropCopies(made) {
+      for (const m of made || []) { try { m.dispose(); } catch (e) { /* freed already */ } }
+    }
     function unload() {
       if (held) { held = null; controls.enabled = true; }
       canvas.style.cursor = 'grab';
       canvas.setAttribute('aria-label', UNNAMED);
-      if (current) { const was = current; current = null; releaseWatch = null; free(was.group, was.dispose); }
+      if (current) { const was = current; current = null; releaseWatch = null; free(was.group, was.dispose); dropCopies(was.copies); }
       views = VIEWS;
+      restoreSettings();
       light(null);
     }
 
@@ -494,12 +552,26 @@ export async function mount(container, options = {}) {
       }
       const fault = lightFault(a.light);
       if (fault) throw new Error(`watches/${id}/index.js: ${fault}`);
-      const built = await mod.build({ M, renderer, frozen });
+      const copies = materialsFor();
+      let built;
+      try {
+        built = await mod.build({ M: copies.mine, renderer, frozen });
+      } catch (err) {
+        dropCopies(copies.made); restoreSettings();
+        throw err;
+      }
       const group = built && built.group && built.group.isObject3D ? built.group : null;
       const own = built && typeof built.dispose === 'function' ? () => built.dispose() : null;
-      if (disposed || ticket !== latest) { if (!disposed && group) free(group, own); return; }
-      if (!group || typeof built.tick !== 'function') {
+      // Frees what the build made when it is not to be shown: its group, its own dispose(), the material copies.
+      const discard = () => {
         if (group) free(group, own);
+        else if (own) { try { own(); } catch (e) { console.error('The 3D watch threw while releasing what it made.', e); } }
+        dropCopies(copies.made);
+        restoreSettings();
+      };
+      if (disposed || ticket !== latest) { if (!disposed) discard(); return; }
+      if (!group || typeof built.tick !== 'function') {
+        discard();
         throw new Error(`watches/${id}/index.js: build() must return a group (an Object3D) and a tick function`);
       }
       scene.add(built.group);
@@ -507,6 +579,7 @@ export async function mount(container, options = {}) {
       current = {
         about: mod.about, group: built.group, tick: built.tick,
         press: Array.isArray(built.press) ? built.press : [], idle: built.idle, dispose: own, report: null,
+        copies: copies.made,
       };
       releaseWatch = own;
       // A watch's views replace the kit's by name. Only the kit's six names are taken: the page offers only those.
