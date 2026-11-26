@@ -68,7 +68,8 @@ function makeClock(time) {
  *   dispose(): void                    stop, free GL resources, remove the canvas and every listener
  *
  * A watch module (watches/<id>/index.js) exports
- *   about: { id, label, hint, caption?, views? }   label is the canvas's aria-label; views overrides any of the six
+ *   about: { id, label, hint, caption?, views? }   label is the canvas's aria-label while the watch shows (it is
+ *                                                  '3D watch' while none does); views overrides any of the six
  *   build({ M, renderer, frozen }): Promise<{ group, tick(date, dt, camera), press: [{ object, down(), up?() }],
  *                                             idle?(seconds), dispose?(), report }>
  *   group must be a THREE.Object3D and tick a function, or show() rejects.
@@ -89,6 +90,9 @@ export async function mount(container, options = {}) {
   const canvas = document.createElement('canvas');
   canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab';
   canvas.setAttribute('role', 'img');
+  // The canvas's name while no watch is showing (being built, or after a failure); a watch's own label replaces it.
+  const UNNAMED = '3D watch';
+  canvas.setAttribute('aria-label', UNNAMED);
 
   // Everything that has to be undone; dispose works back through it.
   const undo = [];
@@ -375,6 +379,7 @@ export async function mount(container, options = {}) {
     function unload() {
       if (held) { held = null; controls.enabled = true; }
       canvas.style.cursor = 'grab';
+      canvas.setAttribute('aria-label', UNNAMED);
       if (current) { const was = current; current = null; releaseWatch = null; free(was.group, was.dispose); }
       views = VIEWS;
     }
