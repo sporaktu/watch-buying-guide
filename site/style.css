@@ -131,8 +131,10 @@ html:has(.news[open]),html:has(.shot[open]),html:has(.lens[open]){overflow:hidde
 .jump a:first-child{padding-left:20px}
 .jump a:hover{background:var(--red);color:#fff}
 
-/* The floating bar (nav.js). A rail as tall as the window down the left edge on a wide window; on a narrow one a bar
-   along the bottom that opens the rail as a drawer. Only the section being read shows its list, which scrolls inside the rail. */
+/* The floating bar (nav.js). On a window 1200px wide or more it is a rail as tall as the window down the left edge: a search box
+   over the whole guide, the filters for the brand list, then the sections, of which only the one being read shows its list. While
+   the box has text, the matches take the place of the sections. On a narrower window it is a bar along the bottom with a Sections
+   button and a search field: search opens the rail as a full-screen sheet, Sections as a sheet that slides up from the bottom. */
 :root{--rail:216px;--dock:56px}
 .rail{position:fixed;z-index:50;top:0;left:0;bottom:0;width:var(--rail);height:100vh;height:100dvh;display:flex;flex-direction:column;background:var(--paper);color:var(--ink);border-right:1px solid var(--ink);font-size:15px;line-height:1.3;padding-left:env(safe-area-inset-left,0px)}
 .rail-secs{flex:1 1 auto;min-height:0;display:flex;flex-direction:column}
@@ -147,9 +149,10 @@ html:has(.news[open]),html:has(.shot[open]),html:has(.lens[open]){overflow:hidde
 .rs-list a:hover{background:var(--ground)}
 .rs-list a.sub{font-weight:500;text-transform:lowercase;font-size:14px;letter-spacing:.02em;color:var(--muted);padding-top:12px}
 .rs-list a.here{border-left-color:var(--red);background:var(--ground);font-weight:500}
-.rail-find{flex:0 0 auto;padding:12px 12px 10px;border-bottom:1px solid var(--ink);max-height:62%;overflow-y:auto}
-.rail-find[hidden],.rail-filters[hidden],.rail-shade[hidden],.dock button[hidden]{display:none}
-.rail-q{display:flex;flex-direction:column;gap:8px}
+.rail-q{flex:0 0 auto;position:relative;display:flex;align-items:center;gap:8px;padding:12px;border-bottom:1px solid var(--ink)}
+.rail-key{position:absolute;right:20px;top:50%;transform:translateY(-50%);min-width:22px;padding:2px 0;border:1px solid var(--rule);background:var(--ground);color:var(--muted);font-size:13px;line-height:1.2;text-align:center;pointer-events:none}
+.rail-q:focus-within .rail-key,.rail.finding .rail-key{display:none}
+.rail-tools{flex:0 1 auto;min-height:0;max-height:62%;overflow-y:auto;padding:10px 12px;border-bottom:1px solid var(--ink)}
 .rail input,.rail select,.rail-fbtn,.rail-reset{font:400 16px var(--font);padding:8px 10px;border:1px solid var(--ink);border-radius:0;background:var(--paper);color:var(--ink);min-height:44px;min-width:0;width:100%}
 .rail-fbtn,.rail-reset{font-weight:500;cursor:pointer;text-align:left}
 .rail-fbtn[aria-expanded="true"]{background:var(--ink);color:var(--ground)}
@@ -158,24 +161,78 @@ html:has(.news[open]),html:has(.shot[open]),html:has(.lens[open]){overflow:hidde
 .rail-money{grid-template-columns:1fr 1fr}
 .rail-money span{grid-column:1 / -1}
 .rail-count{margin:8px 0 0;font-size:14px;color:var(--muted)}
-.rail-close,.dock,.rail-shade{display:none}
+/* The matches: a heading for each kind with how many there are, then a row for each match with its matched letters marked. */
+.rail-res{flex:1 1 0;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;padding-bottom:10px}
+.rail.finding .rail-secs{display:none}
+.fg-h{position:sticky;top:0;z-index:1;display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:11px 14px 5px 20px;background:var(--paper);border-bottom:1px solid var(--rule);font-weight:500;font-size:14px;letter-spacing:.02em;text-transform:lowercase;color:var(--muted)}
+.fg-h span{font-weight:400;font-variant-numeric:tabular-nums}
+.fr{display:grid;gap:1px 10px;padding:7px 14px 7px 16px;border-left:4px solid transparent;cursor:pointer;overflow-wrap:anywhere}
+.fr:hover{background:var(--ground)}
+.fr.on{background:var(--ink);color:var(--ground);border-left-color:var(--red)}
+.fr-s{font-size:13px;color:var(--muted)}
+.fr.on .fr-s,.fr.on .fr-k{color:inherit;opacity:.8}
+.fr-k{display:none}
+.fr mark{background:var(--yellow);color:#18181a}
+.fr-more{font-weight:500;color:var(--blue);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.fr-none{padding:14px 16px;color:var(--muted);overflow-wrap:anywhere}
+/* Where a result landed: marked for a moment, like a row the map has jumped to. The yellow holds, then fades. */
+.nav-found{animation:nav-found 2.6s ease-out}
+.nav-found:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+@keyframes nav-found{from,30%{background-color:var(--yellow);color:#18181a}}
+.rail-head,.rail-cancel,.rail-hint,.dock,.rail-shade{display:none}
 @media (min-width:1200px){body{padding-left:var(--rail)}}
 @media (max-width:1199.98px){
-  .rail{width:min(340px,88vw);transform:translateX(-102%);transition:transform .2s ease;box-shadow:6px 0 0 rgba(22,22,24,.18);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-  .rail.open{transform:none}
-  .rail-close{display:block;align-self:flex-end;flex:0 0 auto;width:48px;height:48px;font:400 26px/1 var(--font);background:none;border:0;color:var(--ink);cursor:pointer}
-  .rail-shade{display:block;position:fixed;inset:0;z-index:45;background:rgba(22,22,24,.6)}
+  /* Closed, the rail is below the bottom edge. Open, it is one of two sheets: Sections, as tall as what is in it up to most of
+     the screen, or (with .find) search, which covers the screen with its box at the top. */
+  .rail{top:auto;right:0;width:auto;height:auto;max-height:88vh;max-height:88dvh;border-right:0;border-top:4px solid var(--ink);font-size:16px;padding-right:env(safe-area-inset-right,0px);padding-bottom:env(safe-area-inset-bottom,0px);transform:translateY(102%);visibility:hidden;transition:transform .22s ease,visibility 0s .22s}
+  .rail.open{transform:none;visibility:visible;transition:transform .22s ease}
+  .rail.find{top:0;bottom:auto;height:100vh;height:100dvh;max-height:none;border-top:0;padding-top:env(safe-area-inset-top,0px);transition:none}
+  .rail.find .rail-head,.rail.find .rail-secs,.rail.find .rail-tools,.rail:not(.find) .rail-q,.rail:not(.find) .rail-res,.rail:not(.find) .rail-hint,.rail.finding .rail-hint,.rail-key{display:none}
+  .rail.finding:not(.find) .rail-secs{display:flex}
+  .rail-head{display:flex;flex:0 0 auto;align-items:center;justify-content:space-between;padding-left:20px;border-bottom:1px solid var(--ink)}
+  .rail-head b{font-weight:500;font-size:14px;letter-spacing:.02em;text-transform:lowercase;color:var(--muted)}
+  .rail-close{flex:0 0 auto;width:48px;height:48px;font:400 26px/1 var(--font);background:none;border:0;color:var(--ink);cursor:pointer}
+  .rail-secs{flex:0 1 auto}
+  .rs.on{flex:0 1 auto}
+  .rs-h{display:flex;align-items:center;min-height:52px;padding:8px 16px;font-size:18px}
+  .rs-list{flex:0 1 auto;padding:0 0 8px}
+  .rs-list a{display:flex;align-items:center;min-height:48px;padding:6px 16px 6px 24px}
+  .rs-list a.sub{align-items:flex-end;padding-top:6px}
+  .rail-tools{flex:0 0 auto;max-height:none;border-bottom:0}
+  .rail.filtering .rail-tools{flex:0 1 auto}
+  .rail-filters{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .rail-money,.rail-reset{grid-column:1 / -1}
+  .rail.filtering .rs.on .rs-list{display:none}
+  .rail input,.rail select,.rail-fbtn,.rail-reset{min-height:48px}
+  .rail-q{padding:10px 8px 10px 12px;gap:4px}
+  .rail-cancel{display:block;flex:0 0 auto;min-height:48px;padding:0 10px;font:500 16px var(--font);background:none;border:0;color:var(--blue);cursor:pointer}
+  .rail-hint{display:block;padding:18px 16px;color:var(--muted);max-width:44ch}
+  .fg-h{padding:14px 16px 6px 16px}
+  .fr{grid-template-columns:minmax(0,1fr) auto;align-items:center;align-content:center;min-height:48px;padding:7px 16px 7px 12px;font-size:17px}
+  .fr-n,.fr-s{grid-column:1}
+  .fr-s{font-size:14px}
+  .fr-k{display:block;grid-column:2;grid-row:1 / span 2;font-size:13px;letter-spacing:.02em;text-transform:lowercase;color:var(--muted);white-space:nowrap}
+  .rail-shade{display:block;position:fixed;inset:0;z-index:45;background:rgba(22,22,24,.6);touch-action:none}
   .dock{display:flex;position:fixed;z-index:40;left:0;right:0;bottom:0;background:var(--ink);padding-bottom:env(safe-area-inset-bottom,0px);padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
-  .dock button{flex:1 1 0;min-width:0;min-height:var(--dock);font:500 16px/1.2 var(--font);background:none;border:0;border-right:1px solid rgba(255,255,255,.25);color:var(--ground);padding:8px 14px;text-align:left;cursor:pointer}
-  .dock button:last-child{border-right:0}
-  .dock button:hover{background:var(--red);color:#fff}
+  .dock button{min-width:0;min-height:var(--dock);font:500 16px/1.2 var(--font);background:none;border:0;color:var(--ground);text-align:left;cursor:pointer}
+  .dock button:focus-visible{outline-offset:-3px}
+  .dock-secs{flex:0 1 auto;max-width:42%;padding:8px 14px}
+  .dock-secs:hover{background:var(--red);color:#fff}
   .dock-secs span{display:block;font-weight:400;font-size:13px;opacity:.7}
   .dock-secs b{display:block;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .dock-find{flex:0 0 auto !important}
+  .dock-find{flex:1 1 0;padding:8px 10px 8px 0}
+  .dock-field{display:flex;align-items:center;gap:8px;height:40px;padding:0 12px;background:var(--paper);color:var(--muted);font-weight:400}
+  .dock-field.has,.dock-find:hover .dock-field{color:var(--ink)}
+  .dock-field svg{flex:0 0 auto;width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:square}
+  .dock-q{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   body{padding-bottom:calc(var(--dock) + env(safe-area-inset-bottom,0px))}
   html.rail-open{overflow:hidden}
 }
-@media (prefers-reduced-motion:reduce){.rail{transition:none}}
+@media (prefers-reduced-motion:reduce){
+  .rail,.rail.open{transition:none}
+  .nav-found,.nav-found:focus-visible{animation:none;outline:4px solid var(--yellow);outline-offset:-4px}
+  .row.nav-found{box-shadow:inset 0 0 0 4px var(--yellow)}
+}
 @media print{.rail,.dock,.rail-shade{display:none}body{padding-left:0}}
 
 section{margin-top:88px}

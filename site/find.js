@@ -1,0 +1,126 @@
+// The matcher behind the floating bar's search (nav.js). It knows nothing about the page: it gets text ready for
+// matching, scores what was typed against an entry's name and its secondary text, and says which letters matched so
+// they can be marked. It forgives typos and shorthand: "navitmer", "blk bay" and "speedmastr" all find the watch.
+const FIND = (() => {
+  // Case and accents are ignored. These letters don't split into a letter and an accent, so they are listed.
+  const ODD = {'ø': 'o', 'ß': 'ss', 'æ': 'ae', 'œ': 'oe', 'ł': 'l', 'đ': 'd'};
+  const plain = c => { c = c.toLowerCase(); return c.length === 1 && c < '\u0080' ? c : ODD[c] || c.normalize('NFD').replace(/[\u0300-\u036f]/g, ''); };
+
+  // A piece of text made ready: its words, where each letter came from in the original (for marking), and the words
+  // run together with no gaps, so "blackbay" can find "Black Bay".
+  function prep(text){
+    text = String(text == null ? '' : text);
+    let flat = ''; const at = [];
+    for (let i = 0; i < text.length; i++) for (const c of plain(text[i])) { flat += c; at.push(i); }
+    const words = [], run = []; let tight = '';
+    for (const m of flat.matchAll(/[\p{L}\p{N}]+/gu)) {
+      words.push({w: m[0], a: m.index, o: tight.length}); tight += m[0];
+      for (let j = 0; j < m[0].length; j++) run.push(at[m.index + j]);
+    }
+    return {text, words, at, tight, run};
+  }
+  // What was typed, as plain words.
+  const words = q => prep(q).words.map(x => x.w);
+
+  // The letters of q found in w in order, with gaps allowed: their positions in w, or null.
+  function inOrder(q, w){
+    const pos = []; let j = 0;
+    for (let i = 0; i < w.length && j < q.length; i++) if (w[i] === q[j]) { pos.push(i); j++; }
+    return j === q.length ? pos : null;
+  }
+  // How many edits (a letter added, dropped or changed, or two neighbours swapped) turn q into w, and into the start
+  // of w that is nearest to q: [edits to all of w, edits to that start, the length of that start].
+  function edits(q, w){
+    const m = q.length, n = w.length;
+    let before = null, prev = [], row;
+    for (let j = 0; j <= n; j++) prev.push(j);
+    for (let i = 1; i <= m; i++) {
+      row = [i];
+      for (let j = 1; j <= n; j++) {
+        let v = Math.min(prev[j] + 1, row[j - 1] + 1, prev[j - 1] + (q[i - 1] === w[j - 1] ? 0 : 1));
+        if (i > 1 && j > 1 && q[i - 1] === w[j - 2] && q[i - 2] === w[j - 1]) v = Math.min(v, before[j - 2] + 1);
+        row.push(v);
+      }
+      before = prev; prev = row;
+    }
+    let near = n;
+    for (let j = n - 1; j > 0; j--) if (prev[j] < prev[near]) near = j;
+    return [prev[n], prev[near], near];
+  }
+
+  // How well one typed word q matches one word w of an entry. 0 is no match, and higher is better. Best first: the
+  // whole word, the start of it, inside it, its letters in order with gaps ("blk" in "black"), and within an edit or
+  // two ("navitmer"). A tighter fit, where q covers more of w, scores higher within each kind.
+  // When pos is given, it is filled with the positions in w of the letters that matched.
+  function word(q, w, pos){
+    const fill = (from, to) => { if (pos) for (let i = from; i < to; i++) pos.push(i); };
+    const fit = q.length / w.length;
+    if (q === w) { fill(0, w.length); return 100; }
+    if (w.startsWith(q)) { fill(0, q.length); return 80 + 10 * fit; }
+    const inside = q.length > 1 ? w.indexOf(q) : -1;
+    if (inside > 0) { fill(inside, inside + q.length); return 55 + 10 * fit; }
+    // The looser kinds need the first letter right and at least three letters to go on, or everything would match.
+    if (q.length < 3 || q[0] !== w[0]) return 0;
+    let best = 0, how = null;
+    // Letters in order: the typed letters must be at least half of the word.
+    const gaps = q.length < w.length && q.length * 2 >= w.length ? inOrder(q, w) : null;
+    if (gaps) { best = 30 + 15 * fit; how = gaps; }
+    // Typos: one edit for a word of four to seven letters, two from eight letters up. The word may also carry on past
+    // what was typed, since the reader may not have finished typing it.
+    const allow = q.length < 4 ? 0 : q.length < 8 ? 1 : 2;
+    if (allow && w.length >= q.length - allow) {
+      const whole = w.length <= q.length + allow;
+      const [all, start, len] = edits(q, whole ? w : w.slice(0, q.length + allow));
+      let s = 0, n = 0;
+      if (whole && all <= allow) { s = 45 - 12 * all; n = w.length; }
+      else if (start <= allow) { s = 26 - 10 * start; n = len; }
+      if (s > best) { best = s; how = n; }
+    }
+    if (pos && how != null) { if (typeof how === 'number') fill(0, how); else pos.push(...how); }
+    return best;
+  }
+
+  // The best match for one typed word among a field's words: [score, which word, whether it ran words together].
+  // Earlier words count for a little more.
+  function best(q, f){
+    let top = 0, at = -1, joined = false;
+    for (let i = 0; i < f.words.length; i++) {
+      const x = f.words[i]; let s = word(q, x.w), j = false;
+      if (s < 72 && q.length > x.w.length && f.tight.startsWith(q, x.o)) { s = 72; j = true; }
+      if (s) { s += Math.max(0, 6 - 2 * i); if (s > top) { top = s; at = i; joined = j; } }
+    }
+    return [top, at, joined];
+  }
+
+  // Score an entry for what was typed. Every typed word must match the name or the secondary text, and the name
+  // counts for more. A name the typed words cover completely beats a longer name that merely contains them.
+  // 0 means no match. hits, when given, is filled with [field, word, joined, typed word] for each typed word.
+  const SUB = .6;
+  function score(qs, name, sub, hits){
+    if (!qs.length) return 0;
+    let total = 0, inName = 0;
+    for (const q of qs) {
+      const a = best(q, name), b = sub ? best(q, sub) : null;
+      const viaName = !b || a[0] >= b[0] * SUB, s = viaName ? a[0] : b[0] * SUB;
+      if (!s) return 0;
+      if (viaName) inName++;
+      total += s;
+      if (hits) hits.push(viaName ? [name, a[1], a[2], q] : [sub, b[1], b[2], q]);
+    }
+    return total / qs.length + 12 * Math.min(1, inName / Math.max(1, name.words.length));
+  }
+
+  // Which characters of an entry's name and secondary text matched, as positions in the original text: [name, sub].
+  function marks(qs, name, sub){
+    const hits = [], out = [new Set(), new Set()];
+    if (!score(qs, name, sub, hits)) return out;
+    for (const [f, i, joined, q] of hits) {
+      const set = out[f === name ? 0 : 1], x = f.words[i];
+      if (joined) for (let j = 0; j < q.length; j++) set.add(f.run[x.o + j]);
+      else { const pos = []; word(q, x.w, pos); for (const p of pos) set.add(f.at[x.a + p]); }
+    }
+    return out;
+  }
+
+  return {prep, words, score, marks};
+})();
