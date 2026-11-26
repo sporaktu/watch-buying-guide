@@ -12,8 +12,12 @@
   const wide = matchMedia('(min-width:1200px)');
   const SECTIONS = [['guide', 'How to buy'], ['picks', 'Picks'], ['lab', 'Try them out'], ['index', 'Every brand']];
   if (!$('index') || !$('rows')) return;
+  // What the bar uses from the other files comes from their top-level names. One that is missing, or that its file
+  // never got as far as setting because it stopped on an error, must not stop the bar: reading it is tried, and
+  // nothing is a fine answer.
+  const data = read => { try { return read(); } catch (e) { return undefined; } };
   // A browser can hold an older copy of the page, without find.js, for a few minutes after an update. The bar then has no search box.
-  const can = typeof FIND !== 'undefined';
+  const can = !!data(() => FIND);
 
   const rail = el('nav', 'rail'); rail.id = 'rail';
   const shade = el('div', 'rail-shade'); shade.hidden = true;
@@ -157,9 +161,6 @@
   const FEW = 5;        // how many of a kind are listed before "Show all"
   const SEP = ' \u00b7 ';
   let index = [], brandIndex = null;
-  // The data comes from the other files' top-level names. One that is missing, or that its file never got as far as
-  // setting because it stopped on an error, must not stop the bar: reading it is tried, and nothing is a fine answer.
-  const data = read => { try { return read(); } catch (e) { return undefined; } };
   const uniq = list => { const seen = new Set(); return list.filter(s => s && !seen.has(s.toLowerCase()) && seen.add(s.toLowerCase())); };
   // keep: how many of the secondary pieces always show on the result. The rest show only when they matched.
   const add = (kind, name, sub, keep, to) => index.push({kind, name: FIND.prep(name), sub: sub ? FIND.prep(sub) : null, keep, to});
