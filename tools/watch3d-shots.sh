@@ -2,7 +2,7 @@
 # Shoot the six views of a 3D watch at a frozen time, for comparing before and after a change, and report for each
 # what a browser's console would have shown.
 #
-#   tools/watch3d-shots.sh [--allow-warnings] [--scale N] <base-url> <dial-slug> <out-dir> [name=cam ...]
+#   tools/watch3d-shots.sh [--allow-warnings] [--no-report] [--scale N] <base-url> <dial-slug> <out-dir> [name=cam ...]
 #   e.g. tools/watch3d-shots.sh http://127.0.0.1:8773/site/ slide-rule-chronograph /tmp/watch3d-now/navitimer
 #        tools/watch3d-shots.sh --scale 2 http://127.0.0.1:8773/site/ slide-rule-chronograph /tmp/close \
 #          crown=80,5,60,20,0,6 clasp-under=0,-60,120,0,-30,-20
@@ -26,15 +26,21 @@
 # millimetres away, and the point looked at in millimetres; see parseCam in site/watch3d/kit/stage.js). A name is
 # lower-case letters, digits and hyphens, and not one of the six views. A cam the page ignores fails the run.
 # --scale N gives the page N device pixels to each CSS pixel (Chromium's --force-device-scale-factor), so the picture
-# is N times as wide and tall: at 2 the masthead watch is about 865 pixels wide. The stage draws at most 2 device
-# pixels a CSS pixel, so more than 2 adds nothing. Compare only sets shot at the same scale.
+# is N times as wide and tall: at 2 the masthead's canvas is 800 pixels wide and the Navitimer's head 467 pixels
+# across. N must be above 0. The stage draws at most 2 device pixels a CSS pixel, so more than 2 adds nothing. Compare
+# only sets shot at the same scale.
 #
 # Beside each picture, <view>.json holds what tools/watch3d-shot.mjs recorded for it (it drives Chromium over the
 # DevTools protocol, from plain node with no packages): the WebGL renderer string, the watch's report (the stage's
 # data-watch3d-report: triangles, draw calls, warnings and the watch's own entries), console errors and warnings, page
-# errors and failed requests. The same is printed after each view. The script carries on to the next view and exits
-# with status 1 at the end when any view had a console error, a page error, a failed request under <base-url>, or a
-# warning in the watch's report; --allow-warnings lets report warnings through (they are still printed).
+# errors and failed requests. The same is printed after each view, and also when a view fails. The script carries on
+# to the next view and exits with status 1 at the end when any view had a console error, a page error, a failed
+# request under <base-url>, no report, a watch that left the screen in the 2 seconds after its picture (its tick threw,
+# say), a warning in the watch's report, or a console warning. --allow-warnings lets the warnings of the last two
+# kinds through (they are still printed). A watch must put each of its own checks that fails in its report's warnings
+# (see the stage's contract); a check it only prints to the console still fails the run, as a console warning.
+# --no-report lets a page with no data-watch3d-report through: only for shooting a commit from before the page wrote
+# one (417bc3c and earlier).
 #
 # Renderer: headless Chromium draws on the graphics card (--enable-gpu) unless WATCH3D_RENDERER=software is set, which
 # uses SwiftShader, Chromium's software renderer, instead. Use it when the graphics card cannot give WebGL (the check
@@ -43,7 +49,8 @@
 # string in each <view>.json says what really drew it.
 #
 # A picture is taken only once the 3D watch is on screen (the stage has the class full and is not loading, the
-# watch's canvas is there and not hidden), then three frames and 250 ms later.
+# watch's canvas is there and not hidden), then three frames and 250 ms later. A page that gives up (its build threw,
+# or there is no WebGL) fails the view at once, with the page's last console line as the reason.
 # Without that check a missing WebGL or a slow build would give a picture of the flat dial or of "Building the watch",
 # and two such sets compare as identical. A picture left from an earlier run is deleted first. Each Chromium run has 90
 # seconds of wall-clock time. The script stops at once with an error when a run takes longer or the watch was not on
@@ -52,12 +59,13 @@
 # Compare two sets with tools/watch3d-compare.py.
 set -euo pipefail
 
-usage() { echo "usage: $0 [--allow-warnings] [--scale N] <base-url> <dial-slug> <out-dir> [name=cam ...]" >&2; exit 2; }
-allow=0 scale=1
+usage() { echo "usage: $0 [--allow-warnings] [--no-report] [--scale N] <base-url> <dial-slug> <out-dir> [name=cam ...]" >&2; exit 2; }
+allow=0 scale=1 noreport=()
 while [ $# -gt 0 ]; do
   case "$1" in
     --allow-warnings) allow=1; shift ;;
-    --scale) [ $# -ge 2 ] && [[ "$2" =~ ^[0-9]+(\.[0-9]+)?$ ]] || usage; scale=$2; shift 2 ;;
+    --no-report) noreport=(--no-report); shift ;;
+    --scale) [ $# -ge 2 ] && [[ "$2" =~ ^[0-9]+(\.[0-9]+)?$ ]] && [[ "$2" =~ [1-9] ]] || usage; scale=$2; shift 2 ;;
     --) shift; break ;;
     -*) usage ;;
     *) break ;;
@@ -97,7 +105,7 @@ bad=0
 shoot() {   # shoot <name> <url>
   local v=$1 url=$2 code=0
   rm -f "$out/$v.png" "$out/$v.json"   # a picture left from an earlier run must not pass for this one
-  TZ=$zone timeout -k 5 $((limit + 10)) node "$here/watch3d-shot.mjs" "$out/$v.png" "$out/$v.json" "$base" "$limit" "$url" \
+  TZ=$zone timeout -k 5 $((limit + 10)) node "$here/watch3d-shot.mjs" "${noreport[@]}" "$out/$v.png" "$out/$v.json" "$base" "$limit" "$url" \
     "$chrome" "${render[@]}" --window-size=1440,900 --force-device-scale-factor="$scale" >"$out/$v.txt" || code=$?
   local label
   label=$(python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); print(d.get("label") or d.get("problem") or "")' "$out/$v.json" 2>/dev/null || true)
@@ -115,8 +123,8 @@ shoot() {   # shoot <name> <url>
   esac
   rm -f "$out/$v.txt"
   [ -s "$out/$v.png" ] || { echo "$v: no picture was written" >&2; exit 1; }
-  if [ "$code" = 3 ]; then echo "$v: console error, page error or failed request (see above)" >&2; bad=1; fi
-  if [ "$code" = 4 ] && [ "$allow" = 0 ]; then echo "$v: the watch's report has warnings (--allow-warnings lets them through)" >&2; bad=1; fi
+  if [ "$code" = 3 ]; then echo "$v: console error, page error, failed request, no report, or the watch left the screen (see above)" >&2; bad=1; fi
+  if [ "$code" = 4 ] && [ "$allow" = 0 ]; then echo "$v: warnings in the watch's report or the console (--allow-warnings lets them through)" >&2; bad=1; fi
   return 0
 }
 
