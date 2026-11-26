@@ -89,6 +89,9 @@
       onLost: () => fail(new Error('The WebGL context was lost.')),
       onInteract: () => { view.value = ''; if (on) mark(); }   // the list reads Turned by hand, so any named view can be chosen again
     };
+    // The page's ?time= freezes the flat dial's clock; the 3D watch's hands follow it, so screenshots can be compared.
+    let time = null; try { time = new URLSearchParams(location.search).get('time'); } catch (e) {}
+    if (time && /^\d{1,2}:\d{2}(:\d{2})?$/.test(time)) options.time = time;
     // catch() after then(), so an error in showing the built watch is handled like one in building it.
     building = import('./watch3d/mount.js').then(m => m.mount(stage, options)).then(h => {
       building = null; handle = h;
