@@ -47,12 +47,19 @@ Built in `nav.js` from what is already on the page and in the loaded data, rebui
 | Guide | each `#guide h3` | scroll to the heading |
 | Pick | pick name, brand, chips or tags | clear the picks filter if it hides the card, scroll to the card |
 | Working model | each tab in `#labTabs` | scroll to `#lab` and switch to the tab |
-| Brand | brand name, country | `BRAND_INDEX.reveal(x)` in `app.js`, which already clears hiding filters, scrolls, focuses and marks the row |
+| Brand | brand name, country, standout watch | `BRAND_INDEX.reveal(x)` in `app.js`, which already clears hiding filters, scrolls, focuses and marks the row |
 | Model line | model name with its brand | reveal the brand's row, open its Main models, scroll to that model |
 
 ### Matching
 
-A small scorer in `nav.js`. Case and accents are ignored. The query is split into words and every word must match somewhere in the entry. A word matches, best first, as: an exact word, the start of a word, inside a word, letters in order with gaps ("blk" in "black"), or within one or two edits of a word for queries long enough to bear it ("navitmer"). Earlier and tighter matches score higher; a match in the name beats one in the secondary text. Ties fall back to page order. Show the best few per kind with a way to see the rest of a kind, so one kind cannot crowd out the others.
+A small scorer, built as `site/find.js` (`FIND`), which knows nothing about the page; `nav.js` builds the index and calls it. Case and accents are ignored. The query is split into words and every word must match somewhere in the entry. A word matches, best first, as: an exact word, the start of a word, inside a word, letters in order with gaps ("blk" in "black"), or within one or two edits of a word for queries long enough to bear it ("navitmer"). Earlier and tighter matches score higher; a match in the name beats one in the secondary text. Ties fall back to page order. Show the best few per kind with a way to see the rest of a kind, so one kind cannot crowd out the others.
+
+Added in review, after the first build:
+
+- A brand is also found by its standout watch ("royal oak" finds Audemars Piguet), since the brand's row shows it and most brands have no model lines.
+- Numbers match exactly: a word with a digit in it gets no letters-in-order or typo matching, "1,500" and "39.5" are each one number, and two numbers are never run together, so "44mm" finds only 44mm watches.
+- When something matches a whole word, the start of a word or words run together, entries that match only loosely (letters in order with gaps, or a typo of the start of a longer word) are dropped, so "try" does not list Tourby. A typo of a whole word is never dropped, so "seko" still finds Seiko beside Sekonda.
+- The looser kinds need the first letter right.
 
 ### Wide windows (1200px and up)
 

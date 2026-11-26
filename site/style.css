@@ -198,6 +198,8 @@ html:has(.news[open]),html:has(.shot[open]),html:has(.lens[open]){overflow:hidde
   .rail-head{position:sticky;top:0;z-index:2;background:var(--paper)}
   .rail-secs,.rs.on{flex:0 0 auto}
   .rs-h{display:flex;align-items:center;min-height:52px;padding:8px 16px;font-size:18px}
+  /* 364px is what else is in the sheet: its top border (4), its heading (49), four section rows (4 x 53) and the closed filters
+     block with one line of count (about 96), and a little spare. With a section missing the list is just shorter than it could be. */
   .rs-list{flex:0 0 auto;max-height:max(104px,calc(88vh - 364px));max-height:max(104px,calc(88dvh - 364px - env(safe-area-inset-bottom,0px)));padding:0 0 8px}
   .rs-list a{display:flex;align-items:center;min-height:48px;padding:6px 16px 6px 24px}
   .rs-list a.sub{align-items:flex-end;padding-top:6px}
