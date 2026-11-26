@@ -70,6 +70,22 @@ function lightFault(a) {
   return '';
 }
 
+/** What is wrong with a watch's about.views (see the watch contract below), or '' when nothing is. */
+function viewsFault(views) {
+  if (views == null) return '';
+  if (typeof views !== 'object') return 'about.views must be an object';
+  const triple = v => Array.isArray(v) && v.length === 3 && v.every(Number.isFinite);
+  for (const name of Object.keys(VIEWS)) {
+    if (!Object.prototype.hasOwnProperty.call(views, name)) continue;
+    const v = views[name];
+    if (!v || typeof v !== 'object') return `about.views.${name} must be { dir, dist, target }`;
+    if (!triple(v.dir) || !v.dir.some(x => x !== 0)) return `about.views.${name}.dir must be [x, y, z], not all zero`;
+    if (!(Number.isFinite(v.dist) && v.dist >= 30 && v.dist <= 520)) return `about.views.${name}.dist must be a number from 30 to 520`;
+    if (!triple(v.target)) return `about.views.${name}.target must be [x, y, z]`;
+  }
+  return '';
+}
+
 /** Wall-clock source. A time of 'HH:MM:SS' pins it, so screenshots are comparable, on today's date or on date
  *  ('YYYY-MM-DD'), both in the machine's local time zone. */
 function makeClock(time, date) {
@@ -120,7 +136,11 @@ function makeClock(time, date) {
  *                                                  '3D watch' while none does); label and hint must be strings, and
  *                                                  caption one if given, or show() rejects before building. views
  *                                                  replaces any of the six views by name; other names are ignored, so
- *                                                  a watch cannot add a view
+ *                                                  a watch cannot add a view. Each is { dir, dist, target }, as in
+ *                                                  VIEWS above: dir the direction from target to the camera, [x, y, z]
+ *                                                  not all zero (any length); dist the distance in mm, 30 to 520;
+ *                                                  target the point looked at, [x, y, z] in mm. One of the six that is
+ *                                                  not of that form makes show() reject before building
  *   about.light, if given, adjusts the kit's light for this watch only. Every field is optional:
  *     { key?: { strength?, dir? }, rim?: { strength?, dir? }, back?: { strength?, dir? }, exposure?, environment? }
  *   strength, exposure and environment multiply the kit's own value (a number from 0 to 4; 1 leaves it as it is): the
@@ -550,7 +570,7 @@ export async function mount(container, options = {}) {
       if (typeof a.label !== 'string' || typeof a.hint !== 'string' || (a.caption != null && typeof a.caption !== 'string')) {
         throw new Error(`watches/${id}/index.js: about.label and about.hint must be strings, and about.caption one if given`);
       }
-      const fault = lightFault(a.light);
+      const fault = lightFault(a.light) || viewsFault(a.views);
       if (fault) throw new Error(`watches/${id}/index.js: ${fault}`);
       const copies = materialsFor();
       let built;
@@ -587,8 +607,8 @@ export async function mount(container, options = {}) {
       const mine = mod.about.views || {};
       for (const name of Object.keys(VIEWS)) if (Object.prototype.hasOwnProperty.call(mine, name)) views[name] = mine[name];
       canvas.setAttribute('aria-label', mod.about.label);
-      place('hero', true);
       try {
+        place('hero', true);
         renderOnce();   // the first frame, which also compiles the shaders
       } catch (err) {
         unload();
