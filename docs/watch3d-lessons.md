@@ -1,13 +1,15 @@
 # Lessons from building the Navitimer in 3D
 
-Written by the agent that built the Navitimer, for an agent about to build a second watch with the kit. Code references are to the kit as it stood at commit `d1d3572` on branch `sporaktu/watch-kit`. I cite a file and a function name, not line numbers, because the split is still moving.
+Written by the agent that built the Navitimer, for an agent about to build a second watch with the kit. Code references are to the kit as it stood at commit `480a2a2` on branch `sporaktu/watch-kit`. I cite a file and a function name, not line numbers, because the split is still moving.
 
 How far to trust each part of this document:
 
-- **The Navitimer itself.** I built it and looked at it in headless Chromium on a real GPU. Statements about it are tested unless I say otherwise.
-- **The kit split and the site page.** Someone else carried my code into `site/watch3d/`. I read that code and compared it with mine, but I did not run it. The steel materials, the studio, the three lamps and the renderer settings have the same values as mine.
+- **The Navitimer itself.** I built it and looked at it in headless Chromium on a real GPU, on 25 November 2026. Statements about it are tested unless I say otherwise.
+- **The kit split and the site page.** Someone else carried my code into `site/watch3d/`. I read that code and compared it with mine. I ran it for two things only: the six views of the site page through the kit's shot tool on the software renderer, which drew the watch correctly at masthead size, and the loop check in node (section 2). The steel materials, the studio, the three lamps and the renderer settings have the same values as mine.
 - **Section 6, the GMT.** Advice only. I have built none of it.
 - **Browsers.** Chromium was tested fully. Firefox 160 loaded cleanly and two views matched, but I never clicked or dragged there. Safari and a real phone were never tested; the phone check was a narrow desktop window.
+- **How the build went, as opposed to what the code says.** I checked each such statement against my notes, the code and the names of the pictures I kept. Where no record survives I say so.
+- **The renderer on this machine changed on 26 November 2026.** Pictures taken here after that are not drawn on the GPU. See "Check the renderer first" in section 2.
 
 Conventions the kit assumes: units are millimetres, the dial faces +Z, 12 o'clock is +Y, 3 o'clock is +X, and z = 0 is the underside of the mid-case.
 
@@ -21,6 +23,8 @@ An earlier attempt at this brief without the kit produced a convincing head and 
 | Bracelet rows are separate bands with daylight between | Rows built as independent ribbons with a visible gap, nothing crossing them. | Lay links like bricks so every pin crosses every row, put a rod through each pin across the full width, and keep the gap between rows at 0.07 mm. See `segmentGeometry` and `rod` in `site/watch3d/watches/navitimer/bracelet.js`. | In the Bracelet and Clasp views, no page colour shows between rows. A dark line that changes as the watch turns is a reflection; one that shows the page behind is a gap. |
 | No visible taper | Constant width, or a taper too small or spread too thin to see. | Give `widthLug`, `widthClasp` and `taperLength` from research and let every link's sides follow `widthAt` in `site/watch3d/kit/loop.js`, so the edge is a smooth line and not steps. | `report.bracelet.widthAtLug` and `widthAtClasp` hold the researched figures, and the two edges visibly converge in the Bracelet view. |
 | Clasp is a plate | One box stood in for a mechanism. | Build the parts a clasp has: knuckles round the last pins, a cover with a chamfer, the folding blades under it, a hinge barrel, a release or catch. Give the loop a straight run for it (`head` in the bracelet numbers). | The Clasp view shows links entering both ends through knuckles. The Side view shows at least two stacked layers and a hinge. |
+
+Before blaming a model for black steel or a missing watch, find out what drew the picture. See "Check the renderer first" in section 2.
 
 ## 1. Order of work
 
@@ -47,7 +51,7 @@ What I would do differently:
 - **Take wording from the real watch.** I invented the case-back wording. The site's rule is the maker's wording, so treat mine as a mistake.
 - **Open Firefox early**, not at the end.
 
-For scale: the Navitimer took about 1 hour 45 minutes and 2,655 lines, and renders about 380,000 triangles in 303 draw calls at 60 frames a second at 1280 by 800.
+For scale: the Navitimer took about 1 hour 45 minutes and 2,655 lines, and renders about 380,000 triangles in 303 draw calls at 60 frames a second at 1280 by 800 on the GPU.
 
 ## 2. How I checked the work
 
@@ -61,10 +65,39 @@ My scripts are not in the repository. They drove headless Chromium through playw
 - took a shot from any camera position and target, not only the six set views;
 - waited for a ready flag, then three animation frames and 250 ms, before each shot.
 
-`tools/watch3d-shots.sh` takes the six set views at 1440 by 900 with the clock frozen at 10:08:30, and throws the browser's output away. `tools/watch3d-compare.py` then compares two folders of shots pixel by pixel. That covers "did the Navitimer change" well. It does not cover close-ups or console errors. Two gaps follow:
+`tools/watch3d-shots.sh` takes the six set views at 1440 by 900 with the clock frozen at 10:08:30, checks that the 3D watch was on screen, and throws the browser's console output away. `tools/watch3d-compare.py` then compares two folders of shots pixel by pixel. That covers "did the Navitimer change" well. It does not cover close-ups or console errors. Two gaps follow, each with what works today.
 
-- **Nothing exposes `report`.** `mount` in `site/watch3d/kit/stage.js` does not hand it out. A failed bracelet check appears only as a `console.warn` from `buildBracelet`, and the shots tool discards console output. Until the stage exposes the report (the site's `?debug` handle in `site/dials.js` is a precedent), read the console yourself in every run.
-- **No free camera.** Close-ups need one. Until the kit has it, zoom by hand or write a short script.
+**Nothing exposes `report`.** `mount` in `site/watch3d/kit/stage.js` does not hand it out. A failed bracelet check appears only as a `console.warn` from `buildBracelet`, and the shots tool discards console output. The site's `?debug` handle in `site/dials.js` is a precedent for exposing it. Until then:
+
+- **Read the console yourself** on every run, in a browser window or from a script.
+- **Run the loop check in node, with no browser.** `site/watch3d/kit/loop.js` imports nothing, so node loads it as it is. Have the watch export its bracelet numbers, as `BRACELET` is exported from `site/watch3d/watches/navitimer/bracelet.js`. A few lines of node then call `solveLoop` and `checkLoop` and print the failures.
+  - I ran this on the Navitimer: 21 pins per half and no failures.
+  - With 9 links per half in place of 20 it reported two joints bending more than a link allows (49.7° and 41.2°), so the check does bite.
+- **Check the numbers the page really uses.** The Navitimer shows the trap. `BRACELET.pin0` is written as (22.75, 0.85), but `buildBracelet` ignores it and passes the first pin its end link computes, which is (22.16, -0.73). The written figure is a leftover of mine. Both happen to pass, but a node check on the written figure tests a loop the page never builds. Export the value the builder uses, or a function that computes it.
+
+**No free camera.** The six views are the only camera positions the page's address accepts. For a closer look:
+
+- **Shoot a set view at twice the pixels.** Chromium's `--force-device-scale-factor=2`, added to the shot tool's flags, gave me a 2880 by 1800 picture in which the masthead watch was about 865 pixels wide. That is enough to judge rows, links, clasp and bezel teeth. The stage caps the pixel ratio at 2, so a larger factor gains nothing.
+- **Turn the watch by dragging.** In the masthead the wheel scrolls the page and does not zoom; a two-finger pinch zooms.
+- **Any other fixed position**, such as under the lugs or a glancing look along the bezel, needs a script that drags the mouse, or a change to the kit. The stage's `place` would accept an extra named view from a watch's `about.views`, but `site/watch3d.js` takes `?view=` only when it is one of the chooser's options. I have not tried either route.
+
+### Check the renderer first
+
+A picture is evidence only if you know what drew it.
+
+- **What happened here.** At 00:56 on 26 November 2026 a system update replaced the graphics driver's files while the old driver was still loaded. Until this machine restarts, a new process cannot use the graphics card, and headless Chromium falls back to SwiftShader, its software renderer.
+- **Asked for the GPU, the fallback fails, in two different ways.**
+  - On the site page with the shot tool's flag (`--enable-gpu`), Chromium's log said "WebGL1 blocklisted" and "WebGL2 blocklisted". The page showed the flat dial and the line "The 3D watch could not be shown on this device."
+  - On my lab page with my harness's flags, the WebGL context was lost once and the watch was then drawn with nothing to reflect. The steel was near black: a mean brightness of 25 out of 255 on the bracelet, against 161 in the GPU shot. That picture looks exactly like the first fault in the table at the top, and it is not a modelling fault.
+- **Asked for the software renderer by name, it draws correctly.** With `--use-angle=swiftshader` the context is not lost. On my lab page the Hero view then differed from my GPU shot in 0.8 per cent of pixels (by more than 8 levels out of 255).
+- **The shot tool.** Since commit `480a2a2`, `tools/watch3d-shots.sh` prints the renderer it used, checks that the 3D watch was really on screen, and takes `WATCH3D_RENDERER=software`. I ran it both ways on this machine at 01:14 on 26 November 2026:
+  - **Software:** all six Navitimer views were written in 79 seconds, each with the watch drawn and the steel lit.
+  - **Default (GPU):** it stopped at the first view with "the 3D watch was not on screen" and wrote no picture. That is the right behaviour. Before that commit the tool would have saved a picture of the flat dial without complaint.
+  - **Still not caught:** the tool does not detect a watch drawn with nothing to reflect, which is the fault I saw on my lab page. Look at the pictures.
+- **Rules.**
+  - Note the renderer with every set of shots.
+  - Compare two sets only if the same renderer drew both. A baseline shot on the GPU before the update will not match a software shot after it, whatever the code did.
+  - A frame rate measured on the software renderer says nothing about a real GPU.
 
 ### The six views and what each is for
 
@@ -79,7 +112,7 @@ The views are `VIEWS` in `site/watch3d/kit/stage.js`.
 | Clasp | The clasp as a mechanism. Links entering it. The loop closed with no step at the seam. |
 | Bracelet | Rows, their finishes, the taper, the joints between links, no daylight. |
 
-Close-ups I took while building, each from a free camera: the bezel edge at a glancing angle, the crown and pushers, the lug and end link from above and from below, three points along the bracelet, the clasp from the side, the dial at about three times the front view, and the date window.
+Close-ups I took while building, each from a free camera, going by the names of the pictures I kept: the dial, a macro of the hands, the crown and pushers, the lugs, the end link, the head from above and from underneath, the case back, the clasp from outside, from the side and from inside, and three points along the bracelet. I kept no picture named for the bezel edge alone or for the date window alone, so I cannot say I checked those two in close-up.
 
 ### Numeric checks and what each catches
 
@@ -103,7 +136,7 @@ Close-ups I took while building, each from a free camera: the bezel edge at a gl
 Two checks that are not in the report:
 
 - **Time.** With the clock frozen at 10:08:30 the hour hand is at 304.25°, the minute hand at 51° and a seconds hand at 180°, measured clockwise from 12. Then, with the clock live, read a screenshot against the system clock. This catches a wrong rotation sign and an hour hand that ignores the minutes.
-- **Frame rate and size.** Triangles, draw calls and frames per second at 1280 by 800.
+- **Frame rate and size.** Triangles, draw calls and frames per second at 1280 by 800, with the renderer named.
 
 ### Faults I found only by looking at a picture
 
@@ -116,13 +149,12 @@ No check caught any of these.
 - **The brushing ran the wrong way.** I had derived the direction and the bench disagreed. Settle it by picture.
 - **A missing file left a part untextured**, with nothing on the page to say so. Only the console showed the 404.
 - **Shots taken straight after a window resize were framed wrongly.** The view fit read a stale aspect ratio.
-- **The crown cut into the bezel teeth** until it started further out.
 - **Polished link sides looked worse than brushed ones.** A flat mirror reflects one even grey.
 - **Dark bars across the polished rows looked like gaps** and were reflections of the dark part of the room. See the test in the table at the top.
 
 ## 3. Part by part
 
-Two rules apply to every part:
+Two rules apply to every part. The figures in them are the margins I worked to, not measured limits:
 
 - **Parts that meet must overlap, by 0.2 mm or more.** Parts that only touch show a hairline of light.
 - **Stacked layers need a real offset, never the same plane.** Print, lume and applied rings each sit 0.02 mm or more above what is under them. Faces in one plane shimmer.
@@ -131,14 +163,14 @@ Two rules apply to every part:
 
 - **What worked.** The mid-case is a `lathe` band of 240 segments in `M.brushed`, with separate narrow runs in `M.polished` for the chamfers (`midCase` in `site/watch3d/watches/navitimer/case.js`). Each lug is one `extrude` of a side profile, pushed across X between an inner and outer face that vary along the lug (`lugs`). The extrusion's skin (top, tip, underside) is one material and its end caps (the flanks) another, which gives polished tops and brushed flanks with a crisp edge between.
 - **Numbers.** `caseR` 19.75 for a 41 mm watch, because the 41 mm is measured across the bezel, whose beads reach 20.5. Lug gap 22. Lug tips at y = ±23.3 for 46.6 mm lug to lug. Lug top height is `4.55 - 4.0 * t^1.5`, with t running from 0 at y = 13.5 to 1 at the tip.
-- **Known weakness: flanks.** `extrude` gives every cap vertex the same sideways normal, even when the face curves in plan. A brushed flank hides this. A polished one would reflect as one flat mirror, an even pale grey. The Navitimer's flanks look pale and plain in the Side view for a related reason. A polished flank needs its own surface with true normals; see section 6.
+- **Known weakness: flanks.** `extrude` gives every cap vertex the same sideways normal, even when the face curves in plan. A brushed flank hides this, and the Navitimer's lug flanks are brushed. A polished one would reflect as one flat mirror, an even pale grey. I saw exactly that when I tried polishing the flat sides of the bracelet links, which are the same kind of face. A polished flank needs its own surface with true normals; see section 6.
 - **Known weakness: lug tops** mirror one of the studio's black flags at some angles and go dark.
 - **Dropped.** Cutting lugs out of a block. The kit has no boolean operations, and profiles plus extrusion were enough.
 
 ### Bezel
 
 - **What worked.** The beaded edge is one `lathe` whose radius is swollen by a function of angle through the `mod` option, with `segs` set to 18 per bead (`bezel` in the same file). The `shade` option writes a darkening into the valleys as vertex colours, and `M.polishedAO` applies it. There is no ambient-occlusion pass, so without this the valleys are as bright as the tops and the beads merge into a ring.
-- **Numbers.** 56 beads, counted as 28 on half of a photograph. Bead radius from 19.85 in the valley to 20.5 at the top.
+- **Numbers.** 56 beads. That is the research file's count (28 on half of a product picture, doubled). I did not count them myself, and no written source gives the figure. Bead radius from 19.85 in the valley to 20.5 at the top.
 - **Weakness.** The valleys between beads are sharp cusps. Real ones are softer.
 
 ### Crystal
@@ -151,7 +183,7 @@ Two rules apply to every part:
 ### Crown and pushers
 
 - **What worked.** The crown is a `lathe` with a `mod` that cuts 24 flutes 0.3 mm deep and a `shade` that darkens them (`crown`). It is built along +Z and then turned to point along +X, which keeps the profile easy to think about. Each pusher is a collar, a stem of radius 1.12 and a cap of radius 1.72, turned to point outward along the case radius at ±30° (`pusher`).
-- **Numbers.** Pusher travel 0.55 mm, eased. The crown starts 0.42 mm outside the case radius so it clears the bezel teeth.
+- **Numbers.** Pusher travel 0.55 mm, eased. The crown is placed 0.42 mm outside the case radius. I have no record of why that figure, so check a new crown against the bezel's edge in a close-up.
 - **Unsure.** The research file said plain cylinders; the photograph looked like a cap on a stem. I followed the photograph.
 
 ### Dial surface and lettering
@@ -190,7 +222,7 @@ Two rules apply to every part:
 
 - **What worked.** The end link's top follows the lug's top curve, 0.15 mm below it (`TOP_GAP`), from the first pin in to y = 14.6, where it disappears under the bezel (`endLinkProfiles`). Because lug and end link read one function, they cannot drift apart.
 - **Rows carry through.** The wide rows continue as fingers that wrap the first pin. The narrow rows stop short by one link end, leaving room for the first narrow links. The bracelet therefore starts articulating at the end link, as a real one does.
-- **Width.** It fills the 22 mm between the lugs, less the row gap each side.
+- **Width.** It fills the 22 mm between the lugs, less half the row gap (0.035 mm) each side.
 - **Unsure.** The real end link's shape under the bezel. Mine is a guess that looks right from above.
 
 ### Taper
@@ -206,7 +238,7 @@ Two rules apply to every part:
 
 ### The loop
 
-- **What worked.** `solveLoop(spec, opts)` places pins at equal pitch along a curve whose heading turns steadily from `heading0` at the lug to straight back at the bottom, then finds by bisection the one extra bulge that lands the seam exactly on the centre line. The result is half a loop; the other half is the same turned half a turn about Z.
+- **What worked.** `solveLoop(spec, opts)` places pins at equal pitch along a curve whose heading turns from `heading0` at the lug to straight back at the bottom. The turn is not shared evenly between the joints: it is gentle over the top, tight round the side and flat underneath, which is the shape of a wrist. The solver then finds by bisection the one extra bulge that lands the seam exactly on the centre line. The result is half a loop; the other half is the same turned half a turn about Z.
 - **Numbers.** `heading0` is 40° below level, which is how a bracelet leaves a case on a wrist. `head` 7.6 is the straight run each half keeps for the clasp. `pin0` is where the first pin sits, under the lug.
 - **Solve first, model second.** Change one number, run `checkLoop`, read `maxTurnDeg` and `seam`. Only when the failures list is empty is it worth drawing a link.
 
@@ -215,7 +247,39 @@ Two rules apply to every part:
 ### Which light does what
 
 - **The environment lights the steel.** A metal's look is almost entirely the studio reflected in it. `buildStudio` in `site/watch3d/kit/env.js` is a small room of bright panels on a dim gradient, baked into an environment map by `makeEnvironment`.
-- **The three lamps do two other jobs.** They cast the shadows that seat the bezel on the case and the hands on the dial, and they light what is not metal: the dial, the print, the lume, and the dial's sunray brushing. Raising them hardly changes the steel.
+- **The three lamps do two other jobs.** They cast the shadows that seat the bezel on the case and the hands on the dial, and they light what is not metal: the dial, the print, the lume, and the dial's sunray brushing. They change the steel very little; the figures are below.
+
+### The three lamps
+
+They are set in `mount` in `site/watch3d/kit/stage.js`, with the values I chose in the lab.
+
+| Lamp | Colour and strength | Position | Job |
+|---|---|---|---|
+| Key | Warm white, 2.3 | (-70, 85, 100), aimed at (0, -4, -22): upper left, in front | The only lamp that casts shadows. Lights the dial and its print, and shows the sunray |
+| Rim | Cool white, 0.9 | (95, 20, 50): the 3 o'clock side, in front | Lifts the side that faces away from the key |
+| Back | Cool white, 1.1 | (-45, 45, -95): behind | Lights the back and the far edges, for the Back and Clasp views |
+
+- **Each lamp stands in the direction of one studio panel.** The key is exactly in line with the key soft box; the rim is close to the line of the tall strip on the right, and the back to that of the left back light. Direct light and reflections therefore agree: a shadow falls away from the brightest thing the steel reflects.
+- **I wrote no reasons down at the time.** The jobs in the table are what the positions show and what I remember.
+- **The strengths were set by eye** on the blue dial. I kept no comparison of other strengths apart from the test below.
+- **Shadow settings** suit millimetres: bias -0.0004, normal bias 0.03, radius 2.2. They were set on the bench so that flat faces showed no speckle and shadows stayed attached to their parts. I kept no record of the values that failed.
+
+### What the lamps do to the steel, measured
+
+I scaled all three lamps together on the lab page and measured the mean brightness, from 0 to 255, of fixed regions in each shot. This was on the software renderer, after checking that it matched my GPU shot (section 2).
+
+| Region | Lamps off | Half | As set | Doubled |
+|---|---|---|---|---|
+| Hero view, steel at the top of the bracelet | 154.2 | 158.8 | 160.6 | 162.9 |
+| Bracelet view, the links | 109.1 | 113.4 | 116.0 | 119.5 |
+| Hero view, centre of the dial | 109.4 | 116.2 | 120.5 | 126.9 |
+
+- **Doubling the lamps** raises the steel by 1.4 to 3 per cent and the dial by 5 per cent.
+- **Turning them off** lowers the steel by 4 to 6 per cent and the dial by 9 per cent.
+- **By eye** the steel looks the same at all four levels.
+- **Doubling adds a little clipped white on brushed links.** Pixels at 250 or above among the links in the Bracelet view rose from 1.18 to 1.61 per cent.
+- **So lamps cannot rescue dark steel.** With the lamps off altogether the steel was still lit.
+- **Limits of the test:** one watch, three lamps moved together. I did not move the key lamp alone or change a direction.
 
 ### Why the studio is set as it is
 
@@ -232,7 +296,7 @@ Two rules apply to every part:
 - **Brushed:** roughness 0.36, anisotropy 0.8, a streaky normal map and a grey sheen map. All three together. With roughness and anisotropy alone a flat face caught one highlight across its whole area and clipped to white; the sheen map breaks it up.
 - **Grain direction** comes from the UVs: U runs along the grain, in millimetres divided by `BRUSH_TILE`, with `anisotropyRotation` at a quarter turn. `lathe` and `extrude` set these UVs for you. A part built another way must set them itself, and the direction must be checked on a picture.
 - **Satin:** roughness 0.27, anisotropy 0.6, for small hardware.
-- **Tone mapping** is Neutral at exposure 1.0. The hex colours I chose came out close to their values under it. I did not compare it against the other tone mappings in a picture.
+- **Tone mapping** is Neutral at exposure 1.0. The research file recommended it so that the cream and the blue keep their hue. I did not compare it against the other tone mappings in a picture, and I did not measure how close the drawn colours are to the values I chose.
 
 ### What goes wrong when values are changed
 
@@ -245,9 +309,9 @@ Two rules apply to every part:
 | Brushed roughness above about 0.5 | Reads as grey paint |
 | Sheen map removed | Flat brushed faces blow out |
 | Crystal reflection above about 0.3 | Grey veil over the dial |
-| Key lamp up | Dial and pale parts brighten, shadows harden; steel barely changes |
+| All three lamps doubled | Dial about 5 per cent brighter, steel 1.4 to 3 per cent, a little more clipped white on brushed links |
 
-The thresholds in that table are from my bench by eye, not measured.
+The lamps row is measured (above). The other rows and their thresholds are from my bench by eye.
 
 ### Telling brushed from polished in a screenshot
 
@@ -258,11 +322,12 @@ The thresholds in that table are from my bench by eye, not measured.
 
 ### What a new watch may adjust
 
-The kit design allows a watch to change the lamps' strength and direction, the exposure and the environment's strength, each listed in its notes with a reason. As I read the stage, that hook (`about.light`) is planned and not yet there.
+The kit design allows a watch to change the lamps' strength and direction, the exposure and the environment's strength, each listed in its notes with a reason. It may not replace the studio. As I read the stage, that hook (`about.light`) is planned and not yet there.
 
-- **May adjust:** lamp strength and direction, to suit a dial. A black dial needs less from the key lamp than a blue sunray one.
-- **Should leave alone:** the steel materials, the tone mapping, the studio's panels and the environment strength of 1.0. If steel looks wrong, the cause is almost always the geometry (a flat face reflecting one thing) and not the light.
-- **New materials** such as ceramic or lacquer are the new watch's to tune. Tune them on a bench of primitives first.
+- **Safe to adjust:** lamp strength and direction, to suit a dial. By the measurement above the lamps move the dial more than the steel. My guess, untested, is that a gloss black dial wants less from the key lamp than a blue sunray one: it has no sunray to show and its lume clips easily.
+- **Adjust only with all six views re-shot:** exposure and environment strength. The design allows both, but each moves every steel face at once, and that is how the first fault in the table at the top comes back.
+- **Leave alone:** the steel materials, the tone mapping and the studio's panels. If steel looks wrong, check the renderer first (section 2), then the geometry (a flat face reflecting one thing). The light is rarely the cause.
+- **New materials.** The kit design expects gloss ceramic to be added to the kit, not kept in the watch, so write it to take its colour as an argument. Tune any new material on a bench of primitives first.
 
 ## 5. The kit: what to use, what to write
 
@@ -275,7 +340,7 @@ The kit design allows a watch to change the lamps' strength and direction, the e
 | Rounded outlines | `roundPoly`, `arc` |
 | Flat plates with a bevel: hands, applied markers, frames | `bevelPlate`. It is flat shaded, which suits small faceted parts |
 | A surface no helper covers | `gridGeo`, the grid builder under `lathe` and `extrude` |
-| Dial and other flat print | `mmCanvas`, `digits`, `letters`, `onCircle`, `arcLetters` in `site/watch3d/kit/type.js`; `planarUV` and `flatRing` in `geo.js` |
+| Dial and other flat print | `mmCanvas`, `digits`, `letters`, `onCircle`, `arcLetters` in `site/watch3d/kit/type.js`; `planarUV` and `flatRing` in `site/watch3d/kit/geo.js` |
 | Steel, lume, glass | `makeMaterials` |
 | The loop | `solveLoop`, `widthAt`, `checkLoop` |
 | Stage, camera, views, clock, presses | `mount` in `site/watch3d/kit/stage.js` |
@@ -286,13 +351,13 @@ Its dimensions, every profile and outline, the dial painter, its wording and emb
 
 ### Plainly wanted by a second steel sports watch
 
-These sit in the Navitimer folder today. Each could move into the kit once it takes its sizes as arguments.
+These sit in the Navitimer folder, `site/watch3d/watches/navitimer/`, today. Each could move into the kit once it takes its sizes as arguments.
 
-- **From `bracelet.js`:** `rowsAt`, `relieve`, `linkProfile`, `rod`, the brick layout in `segmentGeometry`, `pose`, `claspPath`, `strip`, and the two extra checks (end link wider than the lug gap, pin inside the case). Together they are most of "a link bracelet from a list of rows".
-- **From `case.js`:** the toothed-edge recipe in `bezel` (a `lathe` with `mod` and `shade`, taking a count and a tooth shape), the fluted `crown`, the two-shell `crystal`.
-- **From `hands.js`:** `boss`, `turn`, `step`, and `sword` as one of several hand outlines.
-- **From `dial.js`:** `canvasTexture` and the pattern of one painter run with two palettes.
-- **From `dims.js`:** the pattern, not the numbers: one function for the lug's top curve, read by both the lug and the end link.
+- **From `site/watch3d/watches/navitimer/bracelet.js`:** `rowsAt`, `relieve`, `linkProfile`, `rod`, the brick layout in `segmentGeometry`, `pose`, `claspPath`, `strip`, and the two extra checks (end link wider than the lug gap, pin inside the case). Together they are most of "a link bracelet from a list of rows".
+- **From `site/watch3d/watches/navitimer/case.js`:** the toothed-edge recipe in `bezel` (a `lathe` with `mod` and `shade`, taking a count and a tooth shape), the fluted `crown`, the two-shell `crystal`.
+- **From `site/watch3d/watches/navitimer/hands.js`:** `boss`, `turn`, `step`, and `sword` as one of several hand outlines.
+- **From `site/watch3d/watches/navitimer/dial.js`:** `canvasTexture` and the pattern of one painter run with two palettes.
+- **From `site/watch3d/watches/navitimer/dims.js`:** the pattern, not the numbers: one function for the lug's top curve, read by both the lug and the end link.
 - **New, not in either place:** a flank surface with true normals, for polished case sides.
 
 ## 6. The GMT-Master II
@@ -314,7 +379,7 @@ From memory, to be confirmed: 40 mm case, 20 mm between the lugs, about 12 mm th
 
 - **Material.** Gloss ceramic is not metal. Start from metalness 0, a deep colour, roughness about 0.1, and a high index of refraction (near 2.1; three.js allows up to 2.333) so it reflects more than lacquer. These are starting guesses for the bench.
 - **Give the insert its real slope.** If it is modelled dead flat, the whole ring reflects one direction, shows one even tone and reads as matte plastic. A few degrees of cone makes the reflection change round the ring. Research the angle.
-- **Two colours.** Paint both on one canvas so the boundary is a crisp line. As I remember it, red runs from 6 to 18 (the lower half with the triangle at the top) and blue from 18 to 6, and the boundary passes through the numerals 6 and 18. Confirm.
+- **Two colours.** Paint both on one canvas so the boundary is a crisp line. The kit design gives red for the day hours, 6 to 18, and blue for the night hours, with the triangle at 24. With 24 at the top, that puts red on the lower half of the ring and blue on the upper half, and the triangle in the blue. As I remember it, the two boundaries pass through the numerals 6 and 18, at 3 and 9 o'clock. Confirm against a photograph.
 - **Sunk numerals.** Paint them with the same painter run twice, as the dial does: pale grey colour, higher roughness, and a bump map that sinks them. At this size a bump map reads as engraved in all six views; real depth would show only in a macro. Use `onCircle` and `digits`, or a drawn alphabet if the real numerals differ too much.
 - **Which marks sit at the odd hours** (dots or bars) is a research item.
 - **Texture budget.** A 4096 canvas across 40 mm is 102 pixels per millimetre, nearly the Navitimer's dial resolution. The dial and the bezel insert are concentric and do not overlap, so one canvas could carry both. Untested.
@@ -341,7 +406,7 @@ From memory, to be confirmed: 40 mm case, 20 mm between the lugs, about 12 mm th
 ### Hands
 
 - **Mercedes hour hand.** `bevelPlate` takes one outline with no holes. Build the metal as a solid outline including the circle, and lay the lume on top as separate thin pieces: three sectors in the circle, the stem, the tip. Not inlaid, but it reads the same from the front.
-- **Four hands need four heights.** I believe the order from the dial up is hour, 24-hour, minute, seconds; a side-on macro photograph settles it. Keep 0.1 mm between hands and check the top of the stack clears the crystal by 0.2 mm or more. The flat crystal leaves less room than a dome.
+- **Four hands need four heights.** I believe the order from the dial up is hour, 24-hour, minute, seconds; a side-on macro photograph settles it. Keep 0.1 mm between hands and check the top of the stack clears the crystal by 0.2 mm or more (my margin, not a measured figure). The flat crystal leaves less room than a dome.
 - **24-hour hand.** One turn a day: angle = (UTC hours + minutes / 60 + seconds / 3600) × 15°, clockwise from 12.
 - **The frozen clock pins local time**, so the 24-hour hand's angle in a shot depends on the machine's time zone. For comparable shots take both builders' pictures on one machine, or set the time zone to UTC for the run, which puts the hand at 152.1° at 10:08:30. I have not tested setting it.
 
@@ -369,7 +434,25 @@ From memory, to be confirmed: 40 mm case, 20 mm between the lugs, about 12 mm th
 
 I will use these lists at each review point, for both builders alike. Each item passes or fails on the evidence named. "Blocks" means the builder should fix it before going on; the others are fixed by the next point.
 
-For fair comparison, shots are taken at 1440 by 900 with `?time=10:08:30`, on the same machine and the same day.
+For fair comparison, shots are taken at 1440 by 900 with `?time=10:08:30`, on the same machine, the same day and the same renderer.
+
+### Who supplies the evidence
+
+Some of the evidence below cannot be produced from the page as the kit stands. This is who supplies each kind, and how.
+
+| Evidence | Who | How |
+|---|---|---|
+| The six views | Builder | `tools/watch3d-shots.sh`, with the renderer it printed |
+| Console and network log | Builder | One load with the console and network panels open, or a script; pasted into the notes |
+| Loop check output | Builder | `checkLoop` run in node on the numbers the page uses (section 2) |
+| Triangle, draw-call, geometry and texture counts; frame rate | Builder | `renderer.info` and a frame counter, in the builder's own harness, with the renderer named |
+| Close-ups of a set view | Reviewer | The same address shot at device scale 2 and cropped (section 2) |
+| "Two shots 10° apart" | Reviewer | Two of the six views that both show the part. No set pair is 10° apart, so I judge whether a reflection moves between views, which is a weaker test than the wording suggests |
+| Close-ups from any other position (from above, from below, glancing) | Builder, or nobody | A script that drags the mouse, or a kit change. Where neither exists I mark the item "not checked" and say so; I do not pass it |
+| Pixel measurements | Reviewer | Measured on the Front and Side shots |
+| The code | Reviewer | Read at the commit under review |
+
+The thresholds in the lists are my own choices, not measured limits: 3 per cent on proportions, 0.2 mm under the crystal, 50 frames a second, "larger than a lug".
 
 ### Point 1: research and plan (no page yet)
 
@@ -378,7 +461,7 @@ For fair comparison, shots are taken at 1440 by 900 with `?time=10:08:30`, on th
 | 1.1 | The reference is named exactly (126710BLRO on Jubilee) and each source is listed with what it supplied | The plan | Yes |
 | 1.2 | A dimension table exists in which every number has a source or is marked as an estimate. It covers: case diameter, thickness, lug to lug, lug gap; bezel outer diameter, insert inner and outer radius, insert slope; crystal diameter and height above the bezel; dial opening; crown diameter and length; crown guard reach | The plan or a draft `dims.js` | Yes |
 | 1.3 | The bracelet's numbers are all present: width at lug and clasp, taper length, pitch, thickness, each row's width and finish, links per half, clasp length, width and thickness | The plan | Yes |
-| 1.4 | The bracelet numbers pass `checkLoop` with no failures, and seam, largest bend and pin count are quoted | Printed output in the plan | Yes |
+| 1.4 | The bracelet numbers pass `checkLoop` with no failures, and seam, largest bend and pin count are quoted | Output of the node run, in the plan | Yes |
 | 1.5 | Which rows share a pin phase is stated, with the photograph that shows it | The plan | Yes |
 | 1.6 | Every visible surface is listed with its finish, and brushed ones with their grain direction | The plan | Yes |
 | 1.7 | All wording on dial, ring, bezel, crown, clasp and back is listed as on the real watch; emblems are the builder's own drawings; nothing is invented | The plan | Yes |
@@ -428,12 +511,13 @@ For fair comparison, shots are taken at 1440 by 900 with `?time=10:08:30`, on th
 | 3.11 | The minute track has 60 marks, evenly spaced | Front close-up | No |
 | 3.12 | Chromium and Firefox show the same lettering, so no fallback font was used | The Front view in both | No |
 | 3.13 | Textures stay within 4096 for colour and 2048 for surface maps | The code | No |
+| 3.14 | In the 400-pixel masthead the bezel numerals and the hour markers still read; smaller wording need not | The Front shot from the tool, which shows the masthead | No |
 
 ### Point 4: bracelet, end links, clasp and the whole watch
 
 | # | Pass when | Evidence | Blocks |
 |---|---|---|---|
-| 4.1 | `report.bracelet.failures` is empty, the seam is within 0.01 mm and no joint bends more than 24° | The report or console | Yes |
+| 4.1 | `checkLoop` returns no failures for the numbers the page builds with, the seam is within 0.01 mm and no joint bends more than 24° | Output of the node run; no bracelet warning in the console | Yes |
 | 4.2 | Links are separate objects posed from the solved pins, and their count matches the plan | The code | Yes |
 | 4.3 | There are five rows in the researched phase, and no page colour shows between rows or through joints | Bracelet and Clasp views, and one close-up | Yes |
 | 4.4 | The bracelet narrows from the researched lug width to the researched clasp width, as a smooth edge, and the narrowing is visible | The report; the Bracelet view | Yes |
@@ -444,7 +528,7 @@ For fair comparison, shots are taken at 1440 by 900 with `?time=10:08:30`, on th
 | 4.9 | The clasp follows the loop with no step at either end and its wording matches point 1 | Clasp close-up | No |
 | 4.10 | The loop is closed and wrist-shaped, with the head level | Side | Yes |
 | 4.11 | All six views pass their purpose as listed in section 2 | The six shots | Yes |
-| 4.12 | The page holds 50 frames a second or better at 1280 by 800 on a GPU, and triangle and draw-call counts are reported | Measured figures | No |
+| 4.12 | The page holds 50 frames a second or better at 1280 by 800 on a GPU, and triangle and draw-call counts are reported. On this machine a GPU figure needs a restart first; a software figure does not count, and the item is then "not checked" | Measured figures, with the renderer named | No |
 | 4.13 | Switching between the two watches five times leaves one canvas, and geometry and texture counts return to the same figures | Measured figures | Yes |
 | 4.14 | Chromium and Firefox both load cleanly and match in at least the Hero and Back views | Shots from both | No |
 | 4.15 | The Navitimer's six views still match its baseline | `tools/watch3d-compare.py` output | Yes |
@@ -454,6 +538,9 @@ For fair comparison, shots are taken at 1440 by 900 with `?time=10:08:30`, on th
 
 - Safari, and any real phone.
 - Clicking or dragging in Firefox.
-- The site page and the kit split as they now stand; I read them only.
+- The site page and the kit split as they now stand, beyond what the opening lists: shots of the site page on the software renderer, and the loop check in node.
+- Anything on the GPU since the driver update of 26 November 2026. The frame rate and the GPU pictures date from before it.
+- The key lamp on its own, or any change of lamp direction. I scaled all three lamps together.
 - Any tone mapping other than Neutral.
+- A close-up from any position other than the six views on the site page.
 - Everything in section 6.
