@@ -56,8 +56,9 @@
     view.hidden = true; band.hidden = false;
     wrist.disabled = wristWas;
     if (!byDial) cap.textContent = base;
-    // band.js stood down while the watch had the stage; this is its cue to draw the band and its controls again.
-    document.dispatchEvent(new Event('wbm-dial'));
+    // band.js stood down while the watch had the stage; this is its cue to draw the band and its controls again. Not
+    // wbm-dial: the dial has not changed.
+    document.dispatchEvent(new Event('wbm-stage'));
   }
 
   function fail(err) {
