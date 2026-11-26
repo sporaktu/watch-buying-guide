@@ -17,12 +17,12 @@
 - Nothing under `site/watch3d/` is requested before the first press of the button.
 - No build step and no new tooling in the repo. three.js is the only library.
 - The model goes up as the Fable agent left it. Do not improve its geometry, materials or lighting beyond what the page ground and the square stage require. Report faults seen by eye; do not fix them.
-- Source of the model: `git show sporaktu/fable-navitimer:lab/fable-navitimer/<path>` at that branch's head when Task 1 starts. Record the commit hash in the README section (Task 4).
+- Source of the model: `git show sporaktu/fable-navitimer:lab/fable-navitimer/<path>` at commit `00d5fc2` (the Fable agent's final commit). Record that hash in the README section (Task 4).
 - Do not edit `lab/` or the `sporaktu/fable-navitimer` branch.
 - Serve this worktree for checks with `python3 -m http.server 8772 --bind 127.0.0.1` from the worktree root; the page is `http://127.0.0.1:8772/site/`. Ports 8765, 8771, 8780 and 8791 are taken. Stop the server and close your browser tabs when done.
 - Orca's browser is driven with `/home/gray/.config/orca/linux-orca-cli-shim/orca` (always the full path), run from the worktree. Print the commands with `... orca skills get orca-cli --reference browser`. Re-run `viewport` after every reload when emulating a phone.
 - Wording on the page is plain English, sentence case, in the style of the existing controls.
-- **Lettering (owner's decision, recorded before Task 1 starts):** KEEP or REMOVE the brand words the model prints: `BREITLING`, `1884`, `NAVITIMER` on the dial (`src/dial.js` about lines 116-118) and `BREITLING`, `NAVITIMER`, `B01 CHRONOGRAPH 41`, `CALIBRE B01` on the case back (`src/back.js` lines 36, 163, 235). The site's 43 flat dials print no words at all. Generic words (`SWISS MADE`, `STAINLESS STEEL`, scale labels) stay either way.
+- **Lettering (owner's decision, 2026-11-25): KEEP.** The model's lettering stays exactly as the Fable agent made it, brand words included (`BREITLING`, `1884`, `NAVITIMER` on the dial; the case back engraving). Do not edit any lettering.
 
 ## Review Focus
 
@@ -174,8 +174,8 @@ Behaviour, all from the spec:
 **Files:**
 - Modify: `site/releases.js` (new entry at the top), `README.md`
 
-- [ ] **Step 1: Release note.** New top entry dated `2026-11-25`, id `29` (it becomes `30` if `fuzzy-nav` merges first; say which you used), title "See the whole watch in 3D", notes in the plain style of entries 27 and 28: what the button does, that it can be turned and its stopwatch run, and that it loads only when asked for.
-- [ ] **Step 2: README.** A short section: what `site/watch3d/` and `site/watch3d.js` are, that the model was built by an agent as a trial and copied from `sporaktu/fable-navitimer` at commit `<hash>`, that three.js r187 (MIT) is vendored and loaded on demand, what was changed in the copy (relative imports, `mount`, transparent ground, lettering as decided), and the model's known simplifications in three lines from its `NOTES.md`.
+- [ ] **Step 1: Release note.** New top entry dated `2026-11-25`, id `30` (`fuzzy-nav` has merged as pull request 29; rebase this branch onto `origin/main` before Task 1 so the release notes and README are current), title "See the whole watch in 3D", notes in the plain style of entries 27 and 28: what the button does, that it can be turned and its stopwatch run, and that it loads only when asked for.
+- [ ] **Step 2: README.** A short section: what `site/watch3d/` and `site/watch3d.js` are, that the model was built by an agent as a trial and copied from `sporaktu/fable-navitimer` at commit `<hash>`, that three.js r187 (MIT) is vendored and loaded on demand, what was changed in the copy (relative imports, `mount`, transparent ground), and the model's known simplifications in three lines from its `NOTES.md`.
 - [ ] **Step 3: Pictures.** With the mode on at 1440 x 900 and at 390 x 844, a screenshot of the masthead in each of the six views. List the file paths in the report, and list every fault you can see (clipping, a view that hides the watch, steel that reads wrong on the light ground).
 - [ ] **Step 4: Commit.** `git commit -am "Record full watch mode in the release notes and README"`
 - [ ] **Step 5: Stop the server on 8772 and close your browser tabs.**
