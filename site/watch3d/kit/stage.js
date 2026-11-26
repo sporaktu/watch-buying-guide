@@ -163,7 +163,7 @@ function makeClock(time, date) {
  *   dt may move (a balance wheel, a rotor, a sweeping seconds hand that counts frames, a running stopwatch); leave
  *   each where it stands at that time, or at rest. The shots are taken in real time after a varying number of frames,
  *   so anything that moves by dt when frozen shows as noise, and can fail the compare script's limits. (The
- *   Navitimer's balance and rotor still move by dt when frozen, which is part of why its back and clasp views have
+ *   first watch's balance and rotor still move by dt when frozen, which is part of why its back and clasp views have
  *   wide limits; a new watch should not copy that.)
  *   date is a new Date each frame; a watch may change it.
  *   M is this build's own copies of the kit's materials (materials.js), made afresh for each build: a watch may change
