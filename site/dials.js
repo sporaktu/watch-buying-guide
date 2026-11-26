@@ -15,7 +15,10 @@
   const ROM = ['XII', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI'];
   const rad = d => d * Math.PI / 180, f1 = n => +n.toFixed(1);
 
-  // Page parameters. ?dial=N shows design N. ?time=HH:MM or HH:MM:SS freezes the clock at that local time.
+  // Page parameters. ?dial= names the face to show for this load: a slug of its name (?dial=panda-chronograph), or N for
+  // the Nth in the list as it stands. The address is kept up to date as the reader changes face (with replaceState, so
+  // the history does not grow); a bare address is left bare until they do. ?time=HH:MM or HH:MM:SS freezes the clock
+  // at that local time.
   // ?light=x,y or x,y,z fixes the lamp and ?gl=0 keeps the dial flat (both are for the lit renderer).
   // ?debug exposes a few counters as window.__wbmDial for the test tools.
   let query = location.search; try { query = decodeURIComponent(query); } catch (e) {}
@@ -624,31 +627,42 @@
     if (!left.length) { const last = seen[seen.length - 1]; seen = []; left = D.map((_, i) => i).filter(i => i !== last && i !== not); }
     return left[Math.floor(Math.random() * left.length)];
   }
+  // A face is named in the address by a slug of its name: lower case, no accents or apostrophes, hyphens between words.
+  const slug = s => ('' + s).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[’']/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  // Bring the address up to date without adding to the back button's history. null removes a parameter.
+  const address = changes => { try { const u = new URL(location.href); for (const k in changes) { if (changes[k] == null) u.searchParams.delete(k); else u.searchParams.set(k, changes[k]); } history.replaceState(history.state, '', u); } catch (e) {} };
+  let asked = null; try { asked = new URLSearchParams(location.search).get('dial'); } catch (e) {}
+  // ?dial= is a slug, or a number: the position in the list as it stands (the test tools use this).
+  const named = asked === null ? null : /^\d+$/.test(asked) ? (+asked >= 1 && +asked <= D.length ? +asked - 1 : null) : (i => i < 0 ? null : i)(D.findIndex(d => slug(d.n) === slug(asked)));
   let idx, pinned = get(LS, 'wbm-dial-pin');
-  const q = /[?&]dial=(\d+)/.exec(location.search), chosen = get(SS, 'wbm-dial-session');
-  if (q && +q[1] >= 1 && +q[1] <= D.length) idx = +q[1] - 1;
+  const chosen = get(SS, 'wbm-dial-session');
+  if (named !== null) idx = named;
   else if (chosen !== null) idx = chosen;
   else if (pinned !== null) idx = pinned;
   else idx = fresh();
 
   if (pick) pick.innerHTML = D.map((d, i) => `<option value="${i}">${i + 1}. ${d.n}</option>`).join('');
-  function show(i) {
+  // first: the face shown on arrival, which writes the address only if the address named a face (a bare one stays bare).
+  function show(i, first) {
     idx = i; render(i); mark(i);
     // The case, for band.js, which draws the bracelet or strap to suit it.
     el.dataset.cs = D[i].cs || 'round'; el.dataset.cf = D[i].cf || STEEL; document.dispatchEvent(new Event('wbm-dial'));
     if (pick) pick.value = i;
     if (pinBtn) { const on = pinned === i; pinBtn.setAttribute('aria-pressed', on); pinBtn.textContent = on ? 'Pinned' : 'Pin'; pinBtn.title = on ? 'Unpin this dial' : 'Keep this dial on every visit'; }
+    if (!first || asked !== null) address({ dial: slug(D[i].n) });
   }
   const choose = i => { set(SS, 'wbm-dial-session', i); show(i); };
   // For other scripts (watch3d.js): choose a dial by its name, as the menu does for this visit, and ask which is showing.
   // pause(true) stops the dial drawing while something else covers it (its own loop, the 15-second step and the redraws
-  // the lamp asks for); pause(false) draws it and starts again, as coming back into view does.
+  // the lamp asks for); pause(false) draws it and starts again, as coming back into view does. address(changes) sets
+  // (or, with null, removes) parameters of the page address, as this file does for dial, without adding to the history.
   window.WBMDials = {
     choose(name) { const i = D.findIndex(d => d.n === name); if (i < 0) return false; choose(i); return true; },
     current() { return D[idx].n; },
-    pause(on) { on = !!on; if (on === paused) return; paused = on; if (raf && on) { cancelAnimationFrame(raf); raf = 0; } wake(); }
+    pause(on) { on = !!on; if (on === paused) return; paused = on; if (raf && on) { cancelAnimationFrame(raf); raf = 0; } wake(); },
+    address
   };
-  show(idx);
+  show(idx, true);
   if (still) setInterval(() => { if (inView && !paused) frame(); }, 15000); else loop();
   el.addEventListener('click', () => choose((idx + 1) % D.length));
   if (pick) pick.addEventListener('change', () => choose(+pick.value));
