@@ -1,6 +1,6 @@
 # Lessons from building the Navitimer in 3D
 
-Written by the agent that built the Navitimer, for an agent about to build a second watch with the kit. Code references are to the kit as it stood at commit `480a2a2` on branch `sporaktu/watch-kit`. I cite a file and a function name, not line numbers, because the split is still moving.
+Written by the agent that built the Navitimer, for an agent about to build a second watch with the kit. Code references are to the kit as it stood at commit `e364ee2` on branch `sporaktu/watch-kit`. I cite a file and a function name, not line numbers, because the split is still moving. The kit changed four times while I wrote this, so check a name before relying on it.
 
 How far to trust each part of this document:
 
@@ -73,7 +73,12 @@ My scripts are not in the repository. They drove headless Chromium through playw
 - **Run the loop check in node, with no browser.** `site/watch3d/kit/loop.js` imports nothing, so node loads it as it is. Have the watch export its bracelet numbers, as `BRACELET` is exported from `site/watch3d/watches/navitimer/bracelet.js`. A few lines of node then call `solveLoop` and `checkLoop` and print the failures.
   - I ran this on the Navitimer: 21 pins per half and no failures.
   - With 9 links per half in place of 20 it reported two joints bending more than a link allows (49.7° and 41.2°), so the check does bite.
-- **Check the numbers the page really uses.** The Navitimer shows the trap. `BRACELET.pin0` is written as (22.75, 0.85), but `buildBracelet` ignores it and passes the first pin its end link computes, which is (22.16, -0.73). The written figure is a leftover of mine. Both happen to pass, but a node check on the written figure tests a loop the page never builds. Export the value the builder uses, or a function that computes it.
+- **Check the numbers the page really uses.** The Navitimer shows the trap.
+  - `BRACELET.pin0` is written as (22.75, 0.85). `buildBracelet` does not use it: it passes `solveLoop` the first pin its end link computes, (22.16, -0.73).
+  - The two give different loops. I solved both in node: the bump comes out at 0.362 against 0.332, and the last pin sits 1.8 mm lower.
+  - Both pass `checkLoop`, but a node check on the written figure tests a loop the page never builds.
+  - The written figure is my own leftover. My lab source has the same default and the same override.
+  - So export the value the builder uses, or a function that computes it.
 
 **No free camera.** The six views are the only camera positions the page's address accepts. For a closer look:
 
@@ -452,7 +457,9 @@ Some of the evidence below cannot be produced from the page as the kit stands. T
 | Pixel measurements | Reviewer | Measured on the Front and Side shots |
 | The code | Reviewer | Read at the commit under review |
 
-The thresholds in the lists are my own choices, not measured limits: 3 per cent on proportions, 0.2 mm under the crystal, 50 frames a second, "larger than a lug".
+Most thresholds in the lists are my own choices, not measured limits: 3 per cent on proportions, 0.2 mm under the crystal, "larger than a lug". Two are the design's: the lettering test in 3.7 and 3.14, and the 30 frames a second in 4.12.
+
+Full screen is a later step of the design and was not in the kit at `e364ee2`. Items 3.7 and 4.12 depend on it.
 
 ### Point 1: research and plan (no page yet)
 
@@ -504,7 +511,7 @@ The thresholds in the lists are my own choices, not measured limits: 3 per cent 
 | 3.4 | The hour hand has the three-part circle, the minute hand reaches the minute track, the seconds hand has its disc, the 24-hour hand is red with a triangular tip | Front close-up | Yes |
 | 3.5 | The dial reads as gloss black: very dark in the Front view, with a soft reflection that moves between two shots 10° apart | Front and Hero | Yes |
 | 3.6 | Markers are solid with metal surrounds and lume, in the researched shapes and places; the lume is not pure white | Hero close-up | Yes |
-| 3.7 | The maker's name, model name and bezel numerals read cleanly in the Front view at 1440 by 900; small lines read after zooming | Front view | Yes |
+| 3.7 | The maker's name, model name and bezel numerals read cleanly in the Front view at full screen on a 1440 by 900 window, which is the design's test. The small lines of dial wording read once the reader zooms in | Front view at full screen. The kit has no full screen at `e364ee2`. Until it has, I use the Front shot at device scale 2, cropped to the watch (section 2); that this matches the full-screen size is my estimate. The small lines need a zoomed shot from the builder, or that half is "not checked" | Yes |
 | 3.8 | All wording matches the list from point 1, and no text is mirrored or upside down, including the ring between dial and crystal | Close-ups | Yes |
 | 3.9 | The date shows today's date and reads larger under the magnifier in the Front and Hero views | Front and Hero | Yes |
 | 3.10 | The date window has depth, and the trick behind the magnifier does not show as a floating label in the Side view | Side and Hero close-ups | No |
@@ -528,7 +535,7 @@ The thresholds in the lists are my own choices, not measured limits: 3 per cent 
 | 4.9 | The clasp follows the loop with no step at either end and its wording matches point 1 | Clasp close-up | No |
 | 4.10 | The loop is closed and wrist-shaped, with the head level | Side | Yes |
 | 4.11 | All six views pass their purpose as listed in section 2 | The six shots | Yes |
-| 4.12 | The page holds 50 frames a second or better at 1280 by 800 on a GPU, and triangle and draw-call counts are reported. On this machine a GPU figure needs a restart first; a software figure does not count, and the item is then "not checked" | Measured figures, with the renderer named | No |
+| 4.12 | At full screen on this machine's GPU the page holds 30 frames a second or better, which is the design's floor; below it the builder lowers the pixel density in full screen only. Triangle and draw-call counts are reported. For comparison, my Navitimer lab page ran at 60 at 1280 by 800. On this machine a GPU figure needs a restart first; a software figure does not count, and the item is then "not checked" | Measured figures, with the renderer and window size named | No |
 | 4.13 | Switching between the two watches five times leaves one canvas, and geometry and texture counts return to the same figures | Measured figures | Yes |
 | 4.14 | Chromium and Firefox both load cleanly and match in at least the Hero and Back views | Shots from both | No |
 | 4.15 | The Navitimer's six views still match its baseline | `tools/watch3d-compare.py` output | Yes |
@@ -543,4 +550,5 @@ The thresholds in the lists are my own choices, not measured limits: 3 per cent 
 - The key lamp on its own, or any change of lamp direction. I scaled all three lamps together.
 - Any tone mapping other than Neutral.
 - A close-up from any position other than the six views on the site page.
+- The stage's handling of a watch that throws, and a watch's own `dispose()`. Both arrived in the kit after `480a2a2`; I read them only. A watch that keeps anything on the graphics card outside its `group` must release it there; the comment above `mount` in `site/watch3d/kit/stage.js` lists what counts.
 - Everything in section 6.
