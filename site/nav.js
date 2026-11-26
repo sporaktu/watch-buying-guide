@@ -156,7 +156,10 @@
   const KINDS = [['sec', 'Sections', 'Section'], ['guide', 'Guide headings', 'Guide'], ['pick', 'Picks', 'Pick'], ['lab', 'Working models', 'Working model'], ['brand', 'Brands', 'Brand'], ['model', 'Model lines', 'Model line']];
   const FEW = 5;        // how many of a kind are listed before "Show all"
   const SEP = ' \u00b7 ';
-  let index = [];
+  let index = [], brandIndex = null;
+  // The data comes from the other files' top-level names. One that is missing, or that its file never got as far as
+  // setting because it stopped on an error, must not stop the bar: reading it is tried, and nothing is a fine answer.
+  const data = read => { try { return read(); } catch (e) { return undefined; } };
   const uniq = list => { const seen = new Set(); return list.filter(s => s && !seen.has(s.toLowerCase()) && seen.add(s.toLowerCase())); };
   // keep: show all the secondary text on the result, not only the pieces that matched.
   const add = (kind, name, sub, keep, to) => index.push({kind, name: FIND.prep(name), sub: sub ? FIND.prep(sub) : null, keep, to});
@@ -169,17 +172,20 @@
     }
     document.querySelectorAll('#guide h3').forEach(h => add('guide', h.textContent, '', true, () => land(h)));
     // A pick is found by its brand and name, and by its chips and the filters it belongs to.
-    if (typeof PICKS !== 'undefined') {
+    const picks = data(() => PICKS) || [];
+    if (picks.length) {
       const tag = {}; if ($('pfilter')) $('pfilter').querySelectorAll('button').forEach(b => { tag[b.dataset.k] = b.textContent; });
-      for (const p of PICKS) add('pick', p.brand + ' ' + p.model, uniq([...(p.chips || []), ...(p.tags || []).map(t => tag[t])]).join(SEP), false, () => toPick(p));
+      for (const p of picks) add('pick', p.brand + ' ' + p.model, uniq([...(p.chips || []), ...(p.tags || []).map(t => tag[t])]).join(SEP), false, () => toPick(p));
     }
     // A working model is found by its tab, and by the names the cards use for what it shows ("GMT" for the second time zone).
+    const how = data(() => HOW);
     if ($('lab') && !$('lab').hidden) document.querySelectorAll('#labTabs button').forEach(b => {
       const id = b.dataset.id, name = b.textContent;
-      const also = typeof HOW === 'undefined' || !id ? [] : Object.values(HOW).filter(h => h.demo && h.demo.split('-')[0] === id).map(h => h.n);
+      const also = !how || !id ? [] : Object.values(how).filter(h => h.demo && h.demo.split('-')[0] === id).map(h => h.n);
       add('lab', name, uniq([name, ...also]).slice(1).join(SEP), false, () => toLab(name));
     });
-    const brands = typeof BRAND_INDEX !== 'undefined' && BRAND_INDEX.all || [];
+    brandIndex = data(() => BRAND_INDEX) || null;
+    const brands = brandIndex && brandIndex.all || [];
     for (const x of brands) add('brand', x.r[0], x.r[1], true, () => toBrand(x));
     for (const x of brands) (x.models || []).forEach((m, i) => add('model', m.name, x.r[0], true, () => toModel(x, i)));
   }
@@ -234,8 +240,8 @@
   // once and can be over before a long scroll ends, so the bar's mark takes its place. Returns the row.
   const rowOf = x => document.querySelector(`#rows .row[data-b="${x.i}"]`);
   function showBrand(x){
-    if (!BRAND_INDEX.reveal) { const row = rowOf(x); if (row) land(row, null, 'center'); return row; }
-    BRAND_INDEX.reveal(x);
+    if (!brandIndex || !brandIndex.reveal) { const row = rowOf(x); if (row) land(row, null, 'center'); return row; }
+    brandIndex.reveal(x);
     const row = rowOf(x); if (row) row.classList.remove('found');
     return row;
   }
