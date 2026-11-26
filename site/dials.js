@@ -639,6 +639,11 @@
     if (pinBtn) { const on = pinned === i; pinBtn.setAttribute('aria-pressed', on); pinBtn.textContent = on ? 'Pinned' : 'Pin'; pinBtn.title = on ? 'Unpin this dial' : 'Keep this dial on every visit'; }
   }
   const choose = i => { set(SS, 'wbm-dial-session', i); show(i); };
+  // For other scripts (watch3d.js): choose a dial by its name, as the menu does for this visit, and ask which is showing.
+  window.WBMDials = {
+    choose(name) { const i = D.findIndex(d => d.n === name); if (i < 0) return false; choose(i); return true; },
+    current() { return D[idx].n; }
+  };
   show(idx);
   if (still) setInterval(() => { if (inView) frame(); }, 15000); else loop();
   el.addEventListener('click', () => choose((idx + 1) % D.length));
