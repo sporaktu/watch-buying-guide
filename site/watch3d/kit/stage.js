@@ -19,6 +19,18 @@ const VIEWS = {
   bracelet: { dir: [0.5, -0.9, 0.33], dist: 165, target: [0, -6, -19] },
 };
 
+/** The textures a material holds: its own maps, and those in a ShaderMaterial's uniforms (a value or an array). */
+function texturesOf(m) {
+  const found = [];
+  for (const v of Object.values(m)) if (v && v.isTexture) found.push(v);
+  if (m.uniforms) {
+    for (const u of Object.values(m.uniforms)) {
+      for (const v of [].concat(u && u.value)) if (v && v.isTexture) found.push(v);
+    }
+  }
+  return found;
+}
+
 /** Wall-clock source. A time of 'HH:MM:SS' pins it, so screenshots are comparable. */
 function makeClock(time) {
   if (!time) return () => new Date();
@@ -58,8 +70,13 @@ function makeClock(time) {
  * A watch module (watches/<id>/index.js) exports
  *   about: { id, label, hint, caption?, views? }   label is the canvas's aria-label; views overrides any of the six
  *   build({ M, renderer, frozen }): Promise<{ group, tick(date, dt, camera), press: [{ object, down(), up?() }],
- *                                             idle?(seconds), report }>
+ *                                             idle?(seconds), dispose?(), report }>
  *   group must be a THREE.Object3D and tick a function, or show() rejects.
+ *   When the watch is freed (another is shown, or the stage is disposed) the stage disposes every geometry, material
+ *   and texture it finds on the meshes in group: material properties, and textures in a ShaderMaterial's uniforms.
+ *   It does not dispose the kit's shared materials (M) and studio. Anything else the watch made on the graphics card is
+ *   the watch's to release in its dispose(), which the stage calls at that moment: render targets, textures kept only
+ *   in userData, closures or objects outside group, and geometry or materials taken out of group after the build.
  */
 export async function mount(container, options = {}) {
   if (typeof options.watch !== 'string' || !/^[a-z0-9-]+$/.test(options.watch)) throw new Error('mount needs a watch id');
@@ -77,6 +94,7 @@ export async function mount(container, options = {}) {
   const undo = [];
   const listen = (target, type, fn, opts) => { target.addEventListener(type, fn, opts); undo.push(() => target.removeEventListener(type, fn, opts)); };
   let renderer = null, scene = null, disposed = false, ready = false, raf = 0;
+  let releaseWatch = null;   // the dispose() of the watch showing, if it has one
 
   function dispose() {
     if (disposed) return;
@@ -84,13 +102,14 @@ export async function mount(container, options = {}) {
     if (raf) cancelAnimationFrame(raf);
     raf = 0;
     while (undo.length) { try { undo.pop()(); } catch (e) { /* keep undoing */ } }
+    if (releaseWatch) { try { releaseWatch(); } catch (e) { /* the GL context goes anyway */ } releaseWatch = null; }
     if (scene) {
       const seen = new Set();
       const drop = (x) => { if (x && typeof x.dispose === 'function' && !seen.has(x)) { seen.add(x); x.dispose(); } };
       scene.traverse((o) => {
         drop(o.geometry);
         for (const m of [].concat(o.material || [])) {
-          for (const v of Object.values(m)) if (v && v.isTexture) drop(v);
+          for (const t of texturesOf(m)) drop(t);
           drop(m);
         }
         if (o.isLight && o.shadow) drop(o.shadow);
@@ -172,7 +191,7 @@ export async function mount(container, options = {}) {
       if (v && v.isTexture) shared.add(v);
       if (v && v.isMaterial) {
         shared.add(v);
-        for (const t of Object.values(v)) if (t && t.isTexture) shared.add(t);
+        for (const t of texturesOf(v)) shared.add(t);
       }
     }
     const clock = makeClock(options.time);
@@ -336,23 +355,27 @@ export async function mount(container, options = {}) {
       if (ready && !disposed && typeof options.onLost === 'function') options.onLost();
     });
 
-    /** Free a watch's geometries, and every material and texture of it that is not one of the kit's shared ones. */
-    function free(group) {
+    /** Free a watch's geometries, and every material and texture of it that is not one of the kit's shared ones; then
+     *  call its own dispose(), for what the stage cannot find. */
+    function free(group, own) {
       group.removeFromParent();
       const seen = new Set();
       const drop = (x) => { if (x && typeof x.dispose === 'function' && !seen.has(x) && !shared.has(x)) { seen.add(x); x.dispose(); } };
       group.traverse((o) => {
         drop(o.geometry);
         for (const m of [].concat(o.material || [])) {
-          for (const v of Object.values(m)) if (v && v.isTexture) drop(v);
+          for (const t of texturesOf(m)) drop(t);
           drop(m);
         }
       });
+      if (typeof own === 'function') {
+        try { own(); } catch (err) { console.error('The 3D watch threw while releasing what it made.', err); }
+      }
     }
     function unload() {
       if (held) { held = null; controls.enabled = true; }
       canvas.style.cursor = 'grab';
-      if (current) { const was = current; current = null; free(was.group); }
+      if (current) { const was = current; current = null; releaseWatch = null; free(was.group, was.dispose); }
       views = VIEWS;
     }
 
@@ -369,16 +392,18 @@ export async function mount(container, options = {}) {
       if (!mod.about || mod.about.id !== id || typeof mod.build !== 'function') throw new Error(`watches/${id}/index.js does not export about and build`);
       const built = await mod.build({ M, renderer, frozen });
       const group = built && built.group && built.group.isObject3D ? built.group : null;
-      if (disposed || ticket !== latest) { if (!disposed && group) free(group); return; }
+      const own = built && typeof built.dispose === 'function' ? () => built.dispose() : null;
+      if (disposed || ticket !== latest) { if (!disposed && group) free(group, own); return; }
       if (!group || typeof built.tick !== 'function') {
-        if (group) free(group);
+        if (group) free(group, own);
         throw new Error(`watches/${id}/index.js: build() must return a group (an Object3D) and a tick function`);
       }
       scene.add(built.group);
       current = {
         about: mod.about, group: built.group, tick: built.tick,
-        press: Array.isArray(built.press) ? built.press : [], idle: built.idle,
+        press: Array.isArray(built.press) ? built.press : [], idle: built.idle, dispose: own,
       };
+      releaseWatch = own;
       views = { ...VIEWS, ...(mod.about.views || {}) };
       canvas.setAttribute('aria-label', mod.about.label);
       place('hero', true);
