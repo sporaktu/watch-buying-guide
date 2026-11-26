@@ -8,6 +8,8 @@ The guide's masthead can swap its flat watch face for a 3D watch the reader can 
 
 The owner wants that same treatment for many famous watches, and wants each one to cost less than the first. In the owner's words: "the rotatable 3d model is what I want to replicate for many famous watches" and "this should be a reusable kit". The second watch is the modern Rolex GMT-Master II "Pepsi".
 
+While this design was being written the owner added: "I also want to full screen it on all device sizes". That is part of this work too.
+
 So this work has two products of equal weight: a second watch at the Navitimer's standard, and a kit plus a written guide that the builder of the third watch starts from.
 
 ## Goals
@@ -16,7 +18,8 @@ So this work has two products of equal weight: a second watch at the Navitimer's
 2. The Navitimer looks the same after the split as before it.
 3. A GMT-Master II, ref. 126710BLRO on the Jubilee bracelet, modelled to the Navitimer's standard: case, bezel, crystal, dial, hands, crown, case back, bracelet and clasp, turning in the masthead.
 4. On the site, Full watch opens the model that belongs to the face being shown, and a link can open either watch.
-5. A guide for the builder of the next watch, and a measured answer to "how much less did the second watch cost?".
+5. The 3D watch can be made to fill the screen, on a phone, a tablet and a desktop, whichever watch is showing.
+6. A guide for the builder of the next watch, and a measured answer to "how much less did the second watch cost?".
 
 ## Non-goals
 
@@ -43,7 +46,7 @@ The work has failed, even if it runs, if:
 - No downloaded meshes and no photographs. Geometry is made in code and textures are drawn on canvases at load, as in the Navitimer.
 - Lettering: the owner decided for the Navitimer that the watch keeps its maker's and model's names on the dial and case back. The same holds here. Emblems (the Rolex coronet) are the builder's own drawing, not a traced logo, as the Navitimer's wings are.
 - Units are millimetres; the dial faces +Z, 12 o'clock is +Y, 3 o'clock is +X; z = 0 is the underside of the mid-case.
-- A user-visible change needs a release note in `site/releases.js` (the next id is 31) and the README kept true.
+- A user-visible change needs a release note in `site/releases.js` (the next id is 31: full screen takes 31 and the GMT 32) and the README kept true.
 
 ## Approaches
 
@@ -82,7 +85,7 @@ Each `watches/<id>/index.js` exports two things. The exact names and shapes are 
 
 The stage must contain no watch's name, dimensions or behaviour. Its handle keeps what `site/watch3d.js` uses today (canvas, views, setView, start, stop, running, dispose) and gains a way to show a different watch on the same renderer.
 
-### Two steps, two pull requests
+### Three steps, three pull requests
 
 **Step 1: the split. No visible change.** A mechanical move by an Opus builder (the owner's standing preference for work that is not 3D modelling).
 
@@ -94,7 +97,9 @@ The stage must contain no watch's name, dimensions or behaviour. Its handle keep
 - **The check that matters:** screenshots of all six views at a frozen time, at the same size, taken before and after, are compared pixel by pixel. They must match, apart from differences small enough to be the graphics card's own noise (the builder reports the count and the largest difference; I look at any view that differs).
 - No release note, as a reader sees nothing new. The README's description of the files is corrected.
 
-**Step 2: the GMT-Master II.** A Fable agent started through Orca in its own workspace, as the Navitimer's was, on a branch cut from `main` after step 1 is merged.
+**Step 2: full screen.** An Opus builder, on a branch cut from `main` after step 1 is merged. Described under "Full screen" below. It comes before the GMT because it belongs to the stage, which every watch shares, and the owner gets it for the Navitimer straight away.
+
+**Step 3: the GMT-Master II.** A Fable agent started through Orca in its own workspace, as the Navitimer's was, on a branch cut from `main` after step 2 is merged.
 
 - **Research first.** The repo has no part-by-part file for this reference (`research/dial-finishes/design-26.json` is the 1954 ref. 6542). The agent writes `research/watch3d/gmt-master-ii-126710blro.md`: each dimension and finish with its source and how sure it is, in the manner of the dial-finish files, before modelling. This file is also the pattern for later watches.
 - **Build** in `watches/gmt-master-ii/`, calling the kit.
@@ -140,11 +145,27 @@ Behaviour:
 - **Address:** `?dial=two-tone-gmt&full=1`, with `&view=` as now, opens the GMT. `?full=1` alone still opens the Navitimer.
 - **One watch at a time:** one canvas and one WebGL context for the feature. Showing a second watch frees the first one's geometry and textures. Going back builds it again; the files are already in the browser's cache. The "Building the watch" label shows while that happens.
 - **Loading:** nothing under `site/watch3d/` before the first press. Opening one watch does not fetch the other watch's folder.
+- Release note 32 and the README.
+
+### Full screen
+
+In Full watch mode a **Full screen** button sits with the view list. Pressing it makes the 3D watch fill the screen.
+
+- **Two layers, so it works everywhere.** The base is the page's own doing: the stage is laid over the whole window (fixed, edge to edge, above everything, the page behind it not scrollable and not reachable by keyboard or screen reader). On top of that the browser's real full-screen mode is asked for, which also hides the browser's bars. Some browsers refuse that for anything but video (iPhone Safari, as far as I know; the builder confirms what it can); there the window-filling layer is what the reader gets, and it must be a complete result on its own, not a broken state.
+- **What is on screen:** the watch on the page's own ground, the view list, a Close button, and the caption with its hint. Controls keep clear of a phone's notch and home bar (safe-area insets) and are big enough to touch.
+- **Ways out:** the Close button, the Escape key, and the browser's own way of leaving full screen (which the page hears and follows). Leaving returns to the 3D watch in the masthead, the same watch in the same view, with the page scrolled where it was. Leaving Full watch mode altogether is still done from there.
+- **Wheel:** in the masthead the wheel scrolls the page and does not zoom. In full screen there is no page to scroll, so the wheel zooms. Pinch zooms in both.
+- **Size changes:** turning a phone or resizing the window refits the watch. The kit already stands the camera further back for a tall, narrow shape; the watch, bracelet included, must be whole on screen in each of the six views in portrait and landscape.
+- **Speed:** a full-screen canvas on a large, dense display is many times the masthead's pixels. The builder measures frames a second at full screen on this machine and, if it falls under 30, lowers the canvas's pixel density in full screen only until it holds.
+- **Not in the address.** A link cannot switch a browser into full screen (browsers require a press), so there is no address parameter for it. (My call.)
+- **No history entry.** As with the rest of the masthead, nothing is added to the back button's history; on a phone Back leaves the page as it does today. (My call.)
+- **Only the 3D watch.** The flat faces do not get a full-screen button. (My reading of the request.)
+- It lives in the stage and `site/watch3d.js`, so it works for every watch with no code in a watch's folder.
 - Release note 31 and the README.
 
 ### The guide for the next builder
 
-`docs/watch3d-kit.md`, written by the step 2 agent and checked by me:
+`docs/watch3d-kit.md`, written by the step 3 agent and checked by me:
 
 - how to add a watch: the folder, what its `index.js` must export, the one line in the site's table;
 - each kit module in a line or two: what it makes and its arguments;
@@ -156,12 +177,13 @@ Behaviour:
 
 ### Measuring what the kit saved
 
-The step 2 agent records its start and finish times and, at the end, the lines it wrote in `watches/gmt-master-ii/`, the lines it added to or changed in `kit/`, and the lines of kit it used unchanged. Set against the Navitimer's 1 hour 45 minutes and 2,655 lines, that is the answer to the owner's question. Step 1's time is reported separately as the one-off cost of making the kit.
+The step 3 agent records its start and finish times and, at the end, the lines it wrote in `watches/gmt-master-ii/`, the lines it added to or changed in `kit/`, and the lines of kit it used unchanged. Set against the Navitimer's 1 hour 45 minutes and 2,655 lines, that is the answer to the owner's question. Step 1's time is reported separately as the one-off cost of making the kit.
 
 ### Checks before either pull request is merged
 
 - **Step 1:** the screenshot comparison; every check from pull request 30 still passes (no requests before the press, the three ways out, quick repeated presses, leaving while loading, resize, stopping off screen, a forced context loss, phone size 390 by 844, the address cases, the screen-reader messages).
-- **Step 2, as well:** the GMT's six views and close-ups of dial, bezel, crown, clasp and bracelet, by eye against the research; Chromium and Firefox; switching between the two watches five times leaves one canvas and one context, and the renderer's counts of geometries and textures return to the same figures; opening the GMT fetches nothing from `watches/navitimer/`.
+- **Step 2:** full screen entered and left by each way out, at 390 by 844 portrait, 844 by 390 landscape, 820 by 1180 and 1440 by 900, with the six views whole on screen at each; the window-filling layer on its own, with the browser's full-screen call made to fail; focus goes to the Close button and comes back to the Full screen button; the page behind neither scrolls nor takes focus; the wheel zooms in full screen and scrolls the page out of it; frames a second at full screen; Chromium and Firefox. A real iPhone is not available here and that gap is reported, not hidden.
+- **Step 3:** the GMT's six views and close-ups of dial, bezel, crown, clasp and bracelet, by eye against the research; Chromium and Firefox; switching between the two watches five times leaves one canvas and one context, and the renderer's counts of geometries and textures return to the same figures; opening the GMT fetches nothing from `watches/navitimer/`.
 - An independent review by an Opus reviewer of each step, then my own look in the browser, then screenshots to the owner before the GMT is merged.
 
 ## Left to the builder
@@ -177,11 +199,12 @@ The step 2 agent records its start and finish times and, at the end, the lines i
 
 These were not asked of the owner; each can be changed.
 
-1. Two pull requests: the split first with nothing visible, then the GMT.
-2. The split is done by an Opus builder; the GMT by a Fable agent through Orca.
+1. Three pull requests: the split first with nothing visible, then full screen, then the GMT.
+2. The split and full screen are done by Opus builders; the GMT by a Fable agent through Orca.
 3. On a face with no 3D watch, Full watch still jumps to the Navitimer.
 4. Changing face while in the mode keeps the mode on when the new face has a watch.
 5. Only one watch is held on the graphics card at a time, so going back to a watch rebuilds it.
 6. The GMT's 24-hour hand shows UTC.
 7. The GMT keeps Rolex's wording on the dial, as the Navitimer keeps Breitling's.
-8. The guide lives at `docs/watch3d-kit.md` and each watch's research at `research/watch3d/`.
+8. Full screen: where a browser will not give real full screen, the watch fills the window instead; it is not in the address; it adds nothing to the back button; only the 3D watch gets it.
+9. The guide lives at `docs/watch3d-kit.md` and each watch's research at `research/watch3d/`.
