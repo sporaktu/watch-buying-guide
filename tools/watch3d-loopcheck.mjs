@@ -12,9 +12,12 @@
 //                                 Navitimer's does. This is the only route that checks the first pin the page really
 //                                 builds with. The module must load in node: imports by path, no canvas while building.
 //   BRACELET                      the written figures. If buildBracelet is missing or cannot run in node, the loop is
-//                                 solved from these alone with site/watch3d/kit/loop.js, and the tool says that the
-//                                 result may not be the loop the page builds (a written pin0 can be overridden).
+//                                 solved from these alone with site/watch3d/kit/loop.js and the numbers are printed,
+//                                 but the run ends FAIL with exit 1: that may not be the loop the page builds (a
+//                                 written pin0 can be overridden), so it must not read as a pass.
 // key=value changes one written figure of BRACELET for this run only, to prove the check can fail.
+// WRITTEN_ONLY=1 accepts a check of the written figures alone, for a plan that has figures and no builder yet. The
+// verdict then reads "PASS ON THE WRITTEN FIGURES ONLY". It never excuses a buildBracelet that exists and cannot run.
 
 import { execFileSync } from 'node:child_process';
 import { existsSync, readdirSync } from 'node:fs';
@@ -66,6 +69,7 @@ await lib.run(async () => {
 
   const reasons = [];
   let result = null;
+  let writtenOnly = null;   // why only the written figures could be checked: 'missing' or 'unusable' builder
   if (typeof mod.buildBracelet === 'function') {
     const report = {}, warned = [], keep = console.warn;
     console.warn = (...a) => warned.push(a.join(' '));
@@ -77,8 +81,9 @@ await lib.run(async () => {
       if (threw) reasons.push(`buildBracelet threw after the checks: ${firstLine(threw)}`);
     } else {
       console.log(`buildBracelet could not be used in node: ${threw ? firstLine(threw) : 'it ran but left no report.bracelet.failures'}`);
+      writtenOnly = 'unusable';
     }
-  } else console.log(`${path.basename(watchFile)} exports no buildBracelet`);
+  } else { console.log(`${path.basename(watchFile)} exports no buildBracelet`); writtenOnly = 'missing'; }
 
   if (!result) {
     if (!B) return lib.finish(['neither a usable buildBracelet nor BRACELET is exported, so the loop is unchecked']);
@@ -113,5 +118,15 @@ await lib.run(async () => {
   line('width at lug, clasp', result.widthAtClasp !== undefined ? `${round(result.widthAtLug, 2)}, ${round(result.widthAtClasp, 2)} mm` : result.widthAtLug !== undefined ? `${round(result.widthAtLug, 2)} mm at the lug` : undefined);
   line('failures', result.failures.length ? `${result.failures.length}, listed below` : 'none');
   reasons.push(...result.failures);
+  // A check of the written figures is not a check of the loop the page builds, so it never ends in a plain PASS.
+  if (writtenOnly === 'unusable') {
+    reasons.push('buildBracelet is exported but could not run in node, so the loop the page builds was not checked; the figures above are from the written BRACELET only. Make the module run in node (imports by path, no canvas while building)');
+  } else if (writtenOnly === 'missing' && process.env.WRITTEN_ONLY !== '1') {
+    reasons.push('only the written BRACELET figures were checked, not the loop the page builds: export buildBracelet, or set WRITTEN_ONLY=1 for a plan that has no builder yet');
+  }
+  if (!reasons.length && writtenOnly) {
+    console.log('PASS ON THE WRITTEN FIGURES ONLY (the loop the page builds was not checked)');
+    return 0;
+  }
   return lib.finish(reasons);
 });

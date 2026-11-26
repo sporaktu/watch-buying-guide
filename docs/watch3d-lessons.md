@@ -7,7 +7,7 @@ How far to trust each part of this document:
 - **The Navitimer itself.** I built it and looked at it in headless Chromium on a real GPU, on 25 November 2026. Statements about it are tested unless I say otherwise.
 - **The kit split and the site page.** Someone else carried my code into `site/watch3d/`. I read that code and compared it with mine. I ran it for three things only: the six views of the site page through the kit's shot tool on the software renderer, which drew the watch correctly at masthead size; the loop check in node; and my checking scripts against the site page at kit commit `c270c0f` (section 2). The steel materials, the studio, the three lamps and the renderer settings have the same values as mine.
 - **What changed in the kit after `e364ee2`.** Four later commits closed gaps this document describes: the watch's report is handed out (`b7f5e2a`), the shot tool prints the console (`5e71a2b`), the address takes a camera position (`5a0e3d9`), and a watch may adjust the light through `about.light` (`feece7b`). I say so beside each passage it affects. I have run the first three once and only read the fourth.
-- **The checking scripts** I used are in `tools/`. Section 2 lists them. Each measurement in this document that rests on a picture says how to make it again.
+- **The checking scripts** I used are in `tools/`. Section 2 lists them. Each figure I measured on a picture says how to make it again: the size of the masthead watch, the turn test, the two renderer comparisons and the lamp table.
 - **Section 6, the GMT.** Advice only. I have built none of it.
 - **Browsers.** Chromium was tested fully. Firefox 160 loaded cleanly and two views matched, but I never clicked or dragged there. Safari and a real phone were never tested; the phone check was a narrow desktop window.
 - **How the build went, as opposed to what the code says.** I checked each such statement against my notes, the code and the names of the pictures I kept. Where no record survives I say so.
@@ -59,7 +59,7 @@ For scale: the Navitimer took about 1 hour 45 minutes and 2,655 lines, and rende
 
 ### The harness
 
-**The checking scripts are in `tools/`**, on the branch that holds this document (`sporaktu/fable-navitimer`). They are plain node files that drive headless Chromium over the DevTools protocol. They need node 22 or later and Chromium on the path, and nothing has to be installed. Each begins with a comment that says what it does and how to run it. Their names do not clash with the kit's tools, so they can sit in the same folder.
+**The checking scripts are in `tools/`**, on the branch that holds this document (`sporaktu/fable-navitimer`). They are plain node files that need node 22 or later, and nothing has to be installed. The console, close-up and lamp tools drive headless Chromium over the DevTools protocol and need Chromium on the path. The loop check and the measuring tool use no browser. Each begins with a comment that says what it does and how to run it. Their names do not clash with the kit's tools, so they can sit in the same folder.
 
 | Script | What it does | Where it works |
 |---|---|---|
@@ -83,7 +83,11 @@ For scale: the Navitimer took about 1 hour 45 minutes and 2,655 lines, and rende
 At `e364ee2` the shot tool threw the console output away, nothing handed out the watch's `report`, and the address accepted only the six views. Three later kit commits changed that:
 
 - **`b7f5e2a`:** the page writes the watch's report to the stage element as `data-watch3d-report`.
-- **`5e71a2b`:** the shot tool prints the renderer, the report, console messages, page errors and failed requests for each view, saves them as `<view>.json`, and fails on them.
+- **`5e71a2b`:** the shot tool prints the renderer, the report, console messages, page errors and failed requests for each view, and saves them as `<view>.json`.
+  - **What fails the run:** a console error, a page error, a failed request under the base address, or a warning in the watch's report. `--allow-warnings` lets report warnings through.
+  - **What does not:** a console warning. It is printed only.
+  - **So a failed bracelet check fails the run only if the watch puts it in the report.** The Navitimer's `buildBracelet` adds each failure to `report.warnings` as well as warning in the console. The kit does not do that for a watch. A new watch that only calls `console.warn` would pass the shot tool with a broken loop.
+  - I read this in the tool and in the Navitimer's `bracelet.js` at `296f24c`. I have not made a bracelet check fail on the page to watch the tool stop.
 - **`5a0e3d9`:** `?cam=az,el,dist[,x,y,z]` in the address places the camera anywhere on arrival. The shot tool takes `--scale N` and extra positions written `name=cam`.
 
 I ran the shot tool once at `c270c0f` on the software renderer, with `--scale 2` and one extra position, `crown=80,5,60,20,0,6`. It wrote seven pictures and exited 0. Each view reported 394,401 triangles, 311 draw calls, 132 geometries, 21 textures and no warnings. The Bracelet view's `.json` held the bracelet's numbers with an empty list of failures.
@@ -102,7 +106,9 @@ So use the kit's shot tool for the six views and their console output. Use the s
   - The Navitimer's `site/watch3d/watches/navitimer/bracelet.js` is the pattern.
 - **On the Navitimer at `c270c0f`:** 42 pins, 40 links, 138.1 mm round, largest joint turn 9.3°, no failures.
 - **Prove that it can fail.** Add `segments=9` to the command, for 9 links per half in place of 20. Two joints then bend more than a link allows (46.7° and 38.9°) and the tool exits 1.
-- **If `buildBracelet` is missing or cannot run in node**, the tool solves from the written `BRACELET` alone and prints what it has then not checked.
+- **If `buildBracelet` is missing or cannot run in node**, the tool solves from the written `BRACELET` alone and prints the numbers, but the run ends `FAIL` with exit 1. A check of the written figures must not read as a pass.
+  - **For a plan with figures and no builder yet**, `WRITTEN_ONLY=1` accepts it. The verdict then reads `PASS ON THE WRITTEN FIGURES ONLY`.
+  - **A builder that exists and cannot run in node** fails whatever is set.
 - **Check the numbers the page really uses.** The Navitimer shows the trap.
   - `BRACELET.pin0` is written as (22.75, 0.85). `buildBracelet` does not use it: it passes `solveLoop` the first pin its end link computes, (22.16, -0.73).
   - The two give different loops. The bump comes out at 0.362 against 0.332, and the last pin sits 1.8 mm lower. The tool prints both whenever the written and the built pins differ.
@@ -121,7 +127,9 @@ Three ways, in order of effort.
   - The stage caps the pixel ratio at 2, so a larger factor gains nothing.
   - To measure it again: `W=1440 H=900 SCALE=2 CLIP=canvas WATCH3D_RENDERER=software node tools/watch3d-closeup.mjs 'http://127.0.0.1:8000/site/?dial=slide-rule-chronograph&full=1&time=10:08:30' <out-dir> front`, then `node tools/watch3d-measure.mjs span <out-dir>/front.png row=400`.
 - **Turn a set view by a few degrees.** A shot written `front~10,0` is the Front view after a mouse drag that swings the camera 10° to the right. `clasp~0,-15` looks from 15° lower.
-  - On the site page a 10° turn of the Front view changed 2.2 to 2.3 per cent of the pixels, and by eye the watch turned the right way.
+  - **The amount is right.** On both pages the picture after a 10° drag matched one from a camera placed at exactly 10°: the share of pixels differing by more than 8 levels was 0.00 per cent to two decimals, and about 0.1 per cent differed at all. Cameras placed at 8° and 12° differed from it in 1.2 per cent of the window on the site page and 6.9 per cent on my lab page. A 15° drag upward matched likewise on the lab page. I placed the camera with `?cam=10,0,166,0,0,2` on the site page and with a `cam:` shot on the lab page.
+  - **The direction is right.** By eye the watch turned the right way.
+  - **A 10° turn of the Front view changed 2.2 to 2.3 per cent of the pixels** of the 1440 by 900 window on the site page, by more than 8 levels. To measure it again: `W=1440 H=900 WATCH3D_RENDERER=software node tools/watch3d-closeup.mjs '<address>' <out-dir> front front~10,0 front~-10,0`, then `node tools/watch3d-measure.mjs diff <out-dir>/front.png <out-dir>/front_azp10_elp0.png`, and the same with `front_azm10_elp0.png`.
   - The tool cannot move closer on the site page: in the masthead the wheel scrolls the page and does not zoom. A two-finger pinch zooms, which the tool does not do.
 - **Place the camera anywhere with `?cam=`**, from kit commit `5a0e3d9` on. The form of the value is given at `parseCam` in `site/watch3d/kit/stage.js`.
   - `cam=80,5,60,20,0,6` gave me a close view of the crown and both pushers. It is the only position I tried.
@@ -137,7 +145,7 @@ A picture is evidence only if you know what drew it.
   - On my lab page with my harness's flags, the WebGL context was lost once and the watch was then drawn with nothing to reflect. The steel was near black: a mean brightness of 25 out of 255 on the bracelet, against 161 in the GPU shot. That picture looks exactly like the first fault in the table at the top, and it is not a modelling fault.
 - **Asked for the software renderer by name, it draws correctly.** With `--use-angle=swiftshader` the context is not lost. On my lab page the Hero view then differed from my GPU shot in 0.8 per cent of pixels (by more than 8 levels out of 255).
 - **To measure these again.** The figures are from the Hero view of my lab page in a 1400 by 900 window, with the page's header, buttons and hint hidden. The steel box is 620,60,900,200 in that picture.
-  - **Shoot:** `HIDE='header,nav,#hint,#boot' node tools/watch3d-closeup.mjs 'http://127.0.0.1:8000/lab/fable-navitimer/?t=10:08:30' <gpu-dir> hero`, and the same into `<software-dir>` with `WATCH3D_RENDERER=software` in front.
+  - **Shoot:** `W=1400 H=900 HIDE='header,nav,#hint,#boot' node tools/watch3d-closeup.mjs 'http://127.0.0.1:8000/lab/fable-navitimer/?t=10:08:30' <gpu-dir> hero`, and the same into `<software-dir>` with `WATCH3D_RENDERER=software` in front.
   - **Steel:** `node tools/watch3d-measure.mjs mean <dir>/hero.png 620,60,900,200`. My GPU picture and my software picture both give 160.6. The black-steel picture gave 25.4, with 67 per cent of the box below 8.
   - **Difference:** `node tools/watch3d-measure.mjs diff <gpu-dir>/hero.png <software-dir>/hero.png` gives 0.82 per cent of pixels differing by more than 8 levels.
   - **What can be run today.** The software half can, and the picture it makes is identical to the one I measured. The GPU half cannot until the machine restarts. The black-steel picture cannot be made to order: asking for the GPU here now gives no WebGL at all.
@@ -320,7 +328,7 @@ They are set in `mount` in `site/watch3d/kit/stage.js`, with the values I chose 
 
 I scaled all three lamps together on the lab page and measured the mean brightness, from 0 to 255, of fixed regions in each shot. This was on the software renderer, after checking that it matched my GPU shot (section 2).
 
-To print the table again, serve a checkout that has `lab/fable-navitimer/` from its root and run `WATCH3D_RENDERER=software node tools/watch3d-lamps.mjs 'http://127.0.0.1:8000/lab/fable-navitimer/?t=10:08:30'`. It takes under a minute. On 26 November 2026, with Chromium 158, the tool gave every figure below to the last digit. The boxes are the tool's defaults and fit a 1400 by 900 window only.
+To print the table again, serve a checkout that has `lab/fable-navitimer/` from its root and run `W=1400 H=900 WATCH3D_RENDERER=software node tools/watch3d-lamps.mjs 'http://127.0.0.1:8000/lab/fable-navitimer/?t=10:08:30'`. It takes under a minute. On 26 November 2026, with Chromium 158, the tool gave every figure below to the last digit. The boxes are the tool's defaults and fit a 1400 by 900 window only.
 
 | Region | Lamps off | Half | As set | Doubled |
 |---|---|---|---|---|
@@ -497,7 +505,7 @@ At `e364ee2` some of this evidence could not be produced from the page. With kit
 | Evidence | Who | How |
 |---|---|---|
 | The six views | Builder | `tools/watch3d-shots.sh`, with the renderer it printed |
-| Console and network log | Builder | The same run: the shot tool prints them for each view and fails on them. For one address, `tools/watch3d-console.mjs` |
+| Console and network log | Builder | The same run: the shot tool prints them for each view. It fails on errors and failed requests, and only prints console warnings, so read those. For one address, `tools/watch3d-console.mjs`, which fails on warnings too |
 | Loop check output | Builder | `node tools/watch3d-loopcheck.mjs <worktree> <watch-folder>`, which needs the exports named in section 2. I run it again at the commit under review |
 | Triangle, draw-call, geometry and texture counts | Builder | The `report:` line the shot tool prints for each view |
 | Frame rate | Nobody, until the GPU can be used again | Marked "not checked". A frame rate on the software renderer does not count |
@@ -518,7 +526,7 @@ Full screen is a later step of the design. It was not in the kit at `e364ee2`, a
 | 1.1 | The reference is named exactly (126710BLRO on Jubilee) and each source is listed with what it supplied | The plan | Yes |
 | 1.2 | A dimension table exists in which every number has a source or is marked as an estimate. It covers: case diameter, thickness, lug to lug, lug gap; bezel outer diameter, insert inner and outer radius, insert slope; crystal diameter and height above the bezel; dial opening; crown diameter and length; crown guard reach | The plan or a draft `dims.js` | Yes |
 | 1.3 | The bracelet's numbers are all present: width at lug and clasp, taper length, pitch, thickness, each row's width and finish, links per half, clasp length, width and thickness | The plan | Yes |
-| 1.4 | The bracelet numbers pass `checkLoop` with no failures, and seam, largest bend and pin count are quoted | Output of the node run, in the plan | Yes |
+| 1.4 | The bracelet numbers pass `checkLoop` with no failures, and seam, largest bend and pin count are quoted | Output of `tools/watch3d-loopcheck.mjs`, in the plan. With no builder yet, a run with `WRITTEN_ONLY=1` is accepted, at this point only | Yes |
 | 1.5 | Which rows share a pin phase is stated, with the photograph that shows it | The plan | Yes |
 | 1.6 | Every visible surface is listed with its finish, and brushed ones with their grain direction | The plan | Yes |
 | 1.7 | All wording on dial, ring, bezel, crown, clasp and back is listed as on the real watch; emblems are the builder's own drawings; nothing is invented | The plan | Yes |
@@ -561,20 +569,20 @@ Full screen is a later step of the design. It was not in the kit at `e364ee2`, a
 | 3.4 | The hour hand has the three-part circle, the minute hand reaches the minute track, the seconds hand has its disc, the 24-hour hand is red with a triangular tip | Front close-up | Yes |
 | 3.5 | The dial reads as gloss black: very dark in the Front view, with a soft reflection that moves between two shots 10° apart | Front and Hero | Yes |
 | 3.6 | Markers are solid with metal surrounds and lume, in the researched shapes and places; the lume is not pure white | Hero close-up | Yes |
-| 3.7 | The maker's name, model name and bezel numerals read cleanly in the Front view at full screen on a 1440 by 900 window, which is the design's test. The small lines of dial wording read once the reader zooms in | Front view at full screen. The kit has no full screen at `e364ee2`. Until it has, I use the Front shot at device scale 2, cropped to the watch (section 2); that this matches the full-screen size is my estimate. The small lines need a zoomed shot from the builder, or that half is "not checked" | Yes |
+| 3.7 | The maker's name, model name and bezel numerals read cleanly in the Front view at full screen on a 1440 by 900 window, which is the design's test. The small lines of dial wording read once the reader zooms in | Front view at full screen. The kit has no full screen at `e364ee2`. Until it has, I use the masthead canvas of the Front view at device scale 2 (section 2). There the Navitimer's head is 467 pixels across. At full screen in a 900-pixel-high window I estimate about 525, from the stage's code: the camera distance does not change with a wider canvas, so size goes with canvas height. I have not measured it. The stand-in is therefore about a ninth smaller than the design's test, so lettering that reads in it passes, and lettering that does not is "not checked", not failed. The small lines need a `?cam=` close-up, or that half is "not checked" | Yes |
 | 3.8 | All wording matches the list from point 1, and no text is mirrored or upside down, including the ring between dial and crystal | Close-ups | Yes |
 | 3.9 | The date shows today's date and reads larger under the magnifier in the Front and Hero views | Front and Hero | Yes |
 | 3.10 | The date window has depth, and the trick behind the magnifier does not show as a floating label in the Side view | Side and Hero close-ups | No |
 | 3.11 | The minute track has 60 marks, evenly spaced | Front close-up | No |
 | 3.12 | Chromium and Firefox show the same lettering, so no fallback font was used | The Front view in both | No |
 | 3.13 | Textures stay within 4096 for colour and 2048 for surface maps | The code | No |
-| 3.14 | In the 400-pixel masthead the bezel numerals and the hour markers still read; smaller wording need not | The Front shot from the tool, which shows the masthead | No |
+| 3.14 | In the 400-pixel masthead the bezel numerals and the hour markers still read; smaller wording need not | The Front shot from the tool at scale 1, which shows the masthead. The Navitimer's head is about 234 pixels across there | No |
 
 ### Point 4: bracelet, end links, clasp and the whole watch
 
 | # | Pass when | Evidence | Blocks |
 |---|---|---|---|
-| 4.1 | `checkLoop` returns no failures for the numbers the page builds with, the seam is within 0.01 mm and no joint bends more than 24° | Output of the node run; no bracelet warning in the console | Yes |
+| 4.1 | `checkLoop` returns no failures for the numbers the page builds with, the seam is within 0.01 mm and no joint bends more than 24° | Output of `tools/watch3d-loopcheck.mjs` ending in a plain `PASS`, which means the watch's own builder ran; a pass on the written figures only does not count. No bracelet warning in the console or in the report | Yes |
 | 4.2 | Links are separate objects posed from the solved pins, and their count matches the plan | The code | Yes |
 | 4.3 | There are five rows in the researched phase, and no page colour shows between rows or through joints | Bracelet and Clasp views, and one close-up | Yes |
 | 4.4 | The bracelet narrows from the researched lug width to the researched clasp width, as a smooth edge, and the narrowing is visible | The report; the Bracelet view | Yes |
@@ -598,6 +606,8 @@ Full screen is a later step of the design. It was not in the kit at `e364ee2`, a
 - The site page and the kit split as they now stand, beyond what the opening lists.
 - The checking scripts in GPU mode, beyond seeing them fail and say why. The GPU has been unusable here since before they were written.
 - The checking scripts with any browser but Chromium 158, on any machine but this Linux one, or on any watch but the Navitimer. The loop check's fallback route ran only on a cut-down copy of the Navitimer's figures.
+- The browser tools with the system's default temporary folder. Every run here set a long one in a scratch folder. That is how I found that Chromium stops with "Socket path too long" when the folder's path is long; the tools now work around it. The kit's shot tool makes its profile with `mktemp -d` and has no such guard, so it should stop the same way under a long `TMPDIR`. I have not tried that.
+- The kit's shot tool stopping on a failed bracelet check. I read that it should and did not make one fail on the page.
 - `about.light`, which I have only read.
 - Anything on the GPU since the driver update of 26 November 2026. The frame rate and the GPU pictures date from before it.
 - The key lamp on its own, or any change of lamp direction. I scaled all three lamps together.
