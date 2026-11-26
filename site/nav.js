@@ -184,18 +184,29 @@
     for (const x of brands) (x.models || []).forEach((m, i) => add('model', m.name, x.r[0], true, () => toModel(x, i)));
   }
 
-  // Mark something for a moment. The mark starts once the page has stopped moving, so it isn't spent before the reader gets there.
-  let lit = null, litT = 0, litF = 0;
+  // Mark something for a moment. The mark starts once the page has stopped moving, so it isn't spent before the reader
+  // gets there: a smooth scroll down a page this long can take seconds. The browser says when a scroll ends (scrollend);
+  // where it doesn't, or when there was nothing to scroll, the page counts as stopped once it has stayed put for a while.
+  let lit = null, litT = 0, litF = 0, litEnd = null;
   function flash(node){
-    clearTimeout(litT); cancelAnimationFrame(litF); if (lit) lit.classList.remove('nav-found');
+    clearTimeout(litT); cancelAnimationFrame(litF); if (litEnd) removeEventListener('scrollend', litEnd); if (lit) lit.classList.remove('nav-found');
     lit = node;
-    const from = performance.now(); let y = scrollY, since = from;
-    const wait = () => {
-      const now = performance.now();
-      if (scrollY !== y) { y = scrollY; since = now; }
-      if (now - since < 120 && now - from < 5000) { litF = requestAnimationFrame(wait); return; }
+    const y = scrollY, tells = 'onscrollend' in window;
+    let from = 0, at = y, since = 0, frames = 0, moving = false;
+    const show = () => {
+      cancelAnimationFrame(litF); removeEventListener('scrollend', litEnd); litEnd = null;
       lit.classList.add('nav-found');
       litT = setTimeout(() => { lit.classList.remove('nav-found'); lit = null; }, 2600);
+    };
+    litEnd = () => { if (moving || scrollY !== y) show(); };
+    addEventListener('scrollend', litEnd);
+    // Counted from the first frame, and over a few frames: the click's own work can hold the first one back.
+    const wait = now => {
+      if (!from) from = since = now;
+      frames++;
+      if (scrollY !== at) { at = scrollY; since = now; moving = true; }
+      const quiet = moving ? tells ? 1500 : 200 : 400;
+      if ((frames < 3 || now - since < quiet) && now - from < 6000) litF = requestAnimationFrame(wait); else show();
     };
     litF = requestAnimationFrame(wait);
   }
