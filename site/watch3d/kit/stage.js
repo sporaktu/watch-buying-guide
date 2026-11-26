@@ -51,6 +51,25 @@ export function parseCam(text) {
   return { dir: [Math.cos(e) * Math.sin(a), Math.sin(e), Math.cos(e) * Math.cos(a)], dist, target: [x, y, z] };
 }
 
+/** What is wrong with a watch's about.light (see the watch contract below), or '' when nothing is. */
+function lightFault(a) {
+  if (a == null) return '';
+  const factor = v => v === undefined || (typeof v === 'number' && v >= 0 && v <= 4);
+  if (typeof a !== 'object') return 'about.light must be an object';
+  for (const k of Object.keys(a)) {
+    if (k === 'exposure' || k === 'environment') { if (!factor(a[k])) return `about.light.${k} must be a number from 0 to 4`; continue; }
+    if (k !== 'key' && k !== 'rim' && k !== 'back') return `about.light.${k} is not something a watch may set`;
+    const l = a[k];
+    if (!l || typeof l !== 'object') return `about.light.${k} must be an object`;
+    for (const f of Object.keys(l)) if (f !== 'strength' && f !== 'dir') return `about.light.${k}.${f} is not something a watch may set`;
+    if (!factor(l.strength)) return `about.light.${k}.strength must be a number from 0 to 4`;
+    if (l.dir !== undefined && !(Array.isArray(l.dir) && l.dir.length === 3 && l.dir.every(Number.isFinite) && l.dir.some(v => v !== 0))) {
+      return `about.light.${k}.dir must be [x, y, z], not all zero`;
+    }
+  }
+  return '';
+}
+
 /** Wall-clock source. A time of 'HH:MM:SS' pins it, so screenshots are comparable. */
 function makeClock(time) {
   if (!time) return () => new Date();
@@ -92,11 +111,21 @@ function makeClock(time) {
  *   dispose(): void                    stop, free GL resources, remove the canvas and every listener
  *
  * A watch module (watches/<id>/index.js) exports
- *   about: { id, label, hint, caption?, views? }   label is the canvas's aria-label while the watch shows (it is
+ *   about: { id, label, hint, caption?, views?, light? }
+ *                                                  label is the canvas's aria-label while the watch shows (it is
  *                                                  '3D watch' while none does); label and hint must be strings, and
  *                                                  caption one if given, or show() rejects before building. views
  *                                                  replaces any of the six views by name; other names are ignored, so
  *                                                  a watch cannot add a view
+ *   about.light, if given, adjusts the kit's light for this watch only. Every field is optional:
+ *     { key?: { strength?, dir? }, rim?: { strength?, dir? }, back?: { strength?, dir? }, exposure?, environment? }
+ *   strength, exposure and environment multiply the kit's own value (a number from 0 to 4; 1 leaves it as it is): the
+ *   key lamp's 2.3, the rim's 0.9, the back's 1.1, the tone mapping's exposure 1.0 and the studio's strength 1.0. dir
+ *   is the direction from the point the lamp aims at to the lamp, [x, y, z] in the watch's axes (any length but zero);
+ *   the lamp keeps its distance from that point, and the key lamp its shadow. A watch cannot replace the studio, the
+ *   lamps' colours, the shadows or the tone mapping. The stage applies it when the watch is shown and puts its own
+ *   values back when the watch is freed (another is shown, it fails, or the stage is disposed). Anything else in it,
+ *   or a value out of range, makes show() reject before building. List each change in the watch's notes with why.
  *   build({ M, renderer, frozen }): Promise<{ group, tick(date, dt, camera), press: [{ object, down(), up?() }],
  *                                             idle?(seconds), dispose?(), report? }>
  *   group must be a THREE.Object3D and tick a function, or show() rejects.
@@ -212,6 +241,24 @@ export async function mount(container, options = {}) {
     const back = new THREE.DirectionalLight(0xe8eeff, 1.1);
     back.position.set(-45, 45, -95);
     scene.add(back);
+    // The kit's own light, which a watch's about.light adjusts and unload() puts back.
+    const lamps = { key, rim, back };
+    const kitLight = {};
+    for (const [k, l] of Object.entries(lamps)) kitLight[k] = { strength: l.intensity, position: l.position.clone() };
+    function light(a) {
+      for (const [k, l] of Object.entries(lamps)) {
+        const mine = (a && a[k]) || {};
+        l.intensity = kitLight[k].strength * (mine.strength ?? 1);
+        if (mine.dir) {
+          const reach = kitLight[k].position.distanceTo(l.target.position);
+          l.position.copy(l.target.position).addScaledVector(new THREE.Vector3(...mine.dir).normalize(), reach);
+        } else {
+          l.position.copy(kitLight[k].position);
+        }
+      }
+      renderer.toneMappingExposure = 1.0 * ((a && a.exposure) ?? 1);
+      scene.environmentIntensity = 1.0 * ((a && a.environment) ?? 1);
+    }
 
     const M = makeMaterials(renderer);
     // The crystal only adds its reflections to what is behind it. On a transparent canvas it must not add to the
@@ -423,6 +470,7 @@ export async function mount(container, options = {}) {
       canvas.setAttribute('aria-label', UNNAMED);
       if (current) { const was = current; current = null; releaseWatch = null; free(was.group, was.dispose); }
       views = VIEWS;
+      light(null);
     }
 
     // show() calls run one after another, and only the last one asked for puts its watch in the scene: an earlier call
@@ -440,6 +488,8 @@ export async function mount(container, options = {}) {
       if (typeof a.label !== 'string' || typeof a.hint !== 'string' || (a.caption != null && typeof a.caption !== 'string')) {
         throw new Error(`watches/${id}/index.js: about.label and about.hint must be strings, and about.caption one if given`);
       }
+      const fault = lightFault(a.light);
+      if (fault) throw new Error(`watches/${id}/index.js: ${fault}`);
       const built = await mod.build({ M, renderer, frozen });
       const group = built && built.group && built.group.isObject3D ? built.group : null;
       const own = built && typeof built.dispose === 'function' ? () => built.dispose() : null;
@@ -449,6 +499,7 @@ export async function mount(container, options = {}) {
         throw new Error(`watches/${id}/index.js: build() must return a group (an Object3D) and a tick function`);
       }
       scene.add(built.group);
+      light(mod.about.light);
       current = {
         about: mod.about, group: built.group, tick: built.tick,
         press: Array.isArray(built.press) ? built.press : [], idle: built.idle, dispose: own, report: null,
