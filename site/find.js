@@ -53,9 +53,14 @@ const FIND = (() => {
     return [prev[n], prev[near], near];
   }
 
-  // How well one typed word q matches one word w of an entry. 0 is no match, and higher is better. Best first: the
-  // whole word, the start of it, inside it, its letters in order with gaps ("blk" in "black"), and within an edit or
-  // two ("navitmer"). A tighter fit, where q covers more of w, scores higher within each kind.
+  // How well one typed word q matches one word w of an entry. 0 is no match, and higher is better. Best first:
+  //   100      the whole word
+  //   80-90    the start of it
+  //   55-65    inside it
+  //   44, 38   the whole word with one typo, or two ("navitmer", "seko" for Seiko, "divers" for diver)
+  //   16-31    its letters in order with gaps ("blk" in "black")
+  //   10, 6    the start of it with one typo, or two
+  // A tighter fit, where q covers more of w, scores higher within a kind. The last two kinds are the loose ones: see all().
   // When pos is given, it is filled with the positions in w of the letters that matched.
   function word(q, w, pos){
     const fill = (from, to) => { if (pos) for (let i = from; i < to; i++) pos.push(i); };
@@ -66,23 +71,23 @@ const FIND = (() => {
     let inside = q.length > 1 ? w.indexOf(q, 1) : -1;
     while (inside > 0 && NUM.test(q[0]) && NUM.test(w[inside - 1])) inside = w.indexOf(q, inside + 1);
     if (inside > 0) { fill(inside, inside + q.length); return 55 + 10 * fit; }
-    // The looser kinds need the first letter right and at least three letters to go on, or everything would match.
+    // The kinds below need the first letter right and at least three letters to go on, or everything would match.
     // Numbers get none of them: "44mm" must not find a 42mm watch, or "1963" a 1965.
     if (q.length < 3 || q[0] !== w[0] || NUM.test(q) || NUM.test(w)) return 0;
     let best = 0, how = null;
-    // Letters in order: the typed letters must be at least half of the word.
+    // Letters in order: the typed letters must be at least half of the word. One letter short of the whole word is a
+    // typo of it ("ble" for "blue"), whatever the length.
     const gaps = q.length < w.length && q.length * 2 >= w.length ? inOrder(q, w) : null;
-    if (gaps) { best = 30 + 15 * fit; how = gaps; }
+    if (gaps) { best = q.length === w.length - 1 ? 44 : 16 + 15 * fit; how = gaps; }
     // Typos: one edit for a word of four to seven letters, two from eight letters up. The word may also carry on past
     // what was typed, since the reader may not have finished typing it.
     const allow = q.length < 4 ? 0 : q.length < 8 ? 1 : 2;
     if (allow && w.length >= q.length - allow) {
       const whole = w.length <= q.length + allow;
       const [all, start, len] = edits(q, whole ? w : w.slice(0, q.length + allow));
-      let s = 0, n = 0;
-      if (whole && all <= allow) { s = 45 - 12 * all; n = w.length; }
-      else if (start <= allow) { s = 26 - 10 * start; n = len; }
-      if (s > best) { best = s; how = n; }
+      // A typo that only dropped letters marks the letters that are there; any other marks the word, or its start.
+      if (whole && all <= allow) { best = Math.max(best, 50 - 6 * all); how = gaps || w.length; }
+      else if (start <= allow && 14 - 4 * start > best) { best = 14 - 4 * start; how = len; }
     }
     if (pos && how != null) { if (typeof how === 'number') fill(0, how); else pos.push(...how); }
     return best;
@@ -103,11 +108,12 @@ const FIND = (() => {
   // Score an entry for what was typed. Every typed word must match the name or the secondary text, and the name
   // counts for more. A name the typed words cover completely beats a longer name that merely contains them.
   // Returns null for no match, else {s, sure, loose}: the score; whether some typed word matched a whole word, the
-  // start of one or words run together; and whether every typed word matched only by its letters in order or as a
-  // typo. hits, when given, is filled with [field, word, joined, typed word] for each typed word.
-  // A word's score, with its few points for coming early, is under LOOSE for the two loosest kinds and SURE or more
+  // start of one or words run together; and whether every typed word matched only by one of the two loose kinds,
+  // its letters in order or a typo of the start of a word. hits, when given, is filled with
+  // [field, word, joined, typed word] for each typed word.
+  // A word's score, with its few points for coming early, is under LOOSE for the two loose kinds and SURE or more
   // for the three surest (see word and best).
-  const SUB = .6, LOOSE = 55, SURE = 72;
+  const SUB = .6, LOOSE = 38, SURE = 72;
   function match(qs, name, sub, hits){
     if (!qs.length) return null;
     let total = 0, inName = 0, sure = false, loose = true;
@@ -125,7 +131,8 @@ const FIND = (() => {
   }
   // Every match for what was typed, from a list of entries that each have a name and a sub (see prep), as
   // [{e, s}] in the order given. When something matches surely, the entries that only match loosely are noise
-  // ("try" would find Tourby) and are left out. When nothing does ("navitmer"), the loose matches are the answer.
+  // ("try" would find Tourby, "tank" Tangente) and are left out. A typo of a whole word is never loose, so "seko"
+  // still finds Seiko beside Sekonda. When nothing matches surely ("blk"), the loose matches are the answer.
   function all(qs, entries){
     const out = []; let sure = false;
     for (const e of entries) { const m = match(qs, e.name, e.sub); if (m) { m.e = e; out.push(m); sure = sure || m.sure; } }
