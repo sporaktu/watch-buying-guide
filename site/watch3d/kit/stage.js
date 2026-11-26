@@ -69,7 +69,10 @@ function makeClock(time) {
  *
  * A watch module (watches/<id>/index.js) exports
  *   about: { id, label, hint, caption?, views? }   label is the canvas's aria-label while the watch shows (it is
- *                                                  '3D watch' while none does); views overrides any of the six
+ *                                                  '3D watch' while none does); label and hint must be strings, and
+ *                                                  caption one if given, or show() rejects before building. views
+ *                                                  replaces any of the six views by name; other names are ignored, so
+ *                                                  a watch cannot add a view
  *   build({ M, renderer, frozen }): Promise<{ group, tick(date, dt, camera), press: [{ object, down(), up?() }],
  *                                             idle?(seconds), dispose?(), report }>
  *   group must be a THREE.Object3D and tick a function, or show() rejects.
@@ -395,6 +398,10 @@ export async function mount(container, options = {}) {
       const mod = await import(`../watches/${id}/index.js`);
       if (disposed || ticket !== latest) return;
       if (!mod.about || mod.about.id !== id || typeof mod.build !== 'function') throw new Error(`watches/${id}/index.js does not export about and build`);
+      const a = mod.about;
+      if (typeof a.label !== 'string' || typeof a.hint !== 'string' || (a.caption != null && typeof a.caption !== 'string')) {
+        throw new Error(`watches/${id}/index.js: about.label and about.hint must be strings, and about.caption one if given`);
+      }
       const built = await mod.build({ M, renderer, frozen });
       const group = built && built.group && built.group.isObject3D ? built.group : null;
       const own = built && typeof built.dispose === 'function' ? () => built.dispose() : null;
@@ -409,7 +416,10 @@ export async function mount(container, options = {}) {
         press: Array.isArray(built.press) ? built.press : [], idle: built.idle, dispose: own,
       };
       releaseWatch = own;
-      views = { ...VIEWS, ...(mod.about.views || {}) };
+      // A watch's views replace the kit's by name. Only the kit's six names are taken: the page offers only those.
+      views = { ...VIEWS };
+      const mine = mod.about.views || {};
+      for (const name of Object.keys(VIEWS)) if (Object.prototype.hasOwnProperty.call(mine, name)) views[name] = mine[name];
       canvas.setAttribute('aria-label', mod.about.label);
       place('hero', true);
       try {
