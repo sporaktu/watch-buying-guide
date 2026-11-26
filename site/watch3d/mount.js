@@ -107,6 +107,10 @@ export async function mount(container, options = {}) {
     scene.environmentIntensity = 1.0;
 
     const camera = new THREE.PerspectiveCamera(26, 1, 2, 3000);
+    // The wheel belongs to the page, so it scrolls with the pointer over the watch. The controls' own wheel listener
+    // zooms and swallows the event; this one is on the same element, in the capture phase and added first, so it runs
+    // before theirs and stops it, without preventing the scroll. A two-finger pinch still zooms.
+    listen(canvas, 'wheel', (ev) => { ev.stopImmediatePropagation(); }, { capture: true, passive: true });
     const controls = new OrbitControls(camera, canvas);
     undo.push(() => controls.dispose());
     controls.enableDamping = true;
@@ -116,9 +120,6 @@ export async function mount(container, options = {}) {
     controls.rotateSpeed = 0.8;
     controls.zoomSpeed = 0.9;
     controls.enablePan = false;
-    // The wheel belongs to the page, so it scrolls with the pointer over the watch. The controls' own wheel
-    // listener zooms and swallows the event, so it is taken off; a two-finger pinch still zooms.
-    canvas.removeEventListener('wheel', controls._onMouseWheel);
 
     // A key lamp for cast shadows (hands on the dial, bezel on the case) and for the sunray sweep.
     const key = new THREE.DirectionalLight(0xfff4e6, 2.3);
