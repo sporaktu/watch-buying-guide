@@ -1,0 +1,93 @@
+// Full watch: a button under the masthead dial that swaps the flat dial for a 3D watch the reader can turn. The model
+// is in site/watch3d/ (three.js and the watch's own modules). None of it is fetched until the button is first pressed;
+// this file only owns the button, the view chooser and when the model's frame loop runs. Pressing the button switches
+// the masthead to the Slide-rule chronograph dial, which is the watch the model is of, and choosing any other dial
+// leaves the mode. The built model is kept, so a second press is instant. The mode is not remembered between visits.
+(() => {
+  'use strict';
+  const NAME = 'Slide-rule chronograph';
+  const HINT = 'Drag to turn. Press the pushers to run the stopwatch.';
+  const FAILED = 'The 3D watch could not be shown on this device.';
+  const $ = id => document.getElementById(id);
+  const stage = $('dialStage'), btn = $('dialFull'), view = $('dialView'), band = $('dialBand'), wrist = $('dialWrist');
+  const cap = $('dialName'), wait = $('dialWait'), dials = window.WBMDials;
+  if (!stage || !btn || !view || !band || !wrist || !cap || !wait || !dials) return;   // the button stays hidden
+
+  let on = false;         // what the reader last asked for
+  let handle = null;      // the built watch, kept once it has been made
+  let building = null;    // the promise of one, while the files load and the model builds
+  let inView = true;      // the stage is on screen
+  let base = '';          // the dial's own caption, to put back
+  let wristWas = false;   // whether On a wrist was disabled before the mode
+
+  const full = () => stage.classList.contains('full');
+  // The loop runs only while the watch is showing, the stage is on screen and the tab is visible.
+  function run() {
+    if (!handle) return;
+    if (on && full() && inView && !document.hidden) handle.start(); else handle.stop();
+  }
+  const caption = () => { base = cap.textContent; cap.textContent = base.replace(/[.\s]*$/, '') + '. ' + HINT; };
+
+  function show() {
+    wait.textContent = '';
+    stage.classList.remove('loading'); stage.classList.add('full');
+    handle.canvas.hidden = false;
+    band.hidden = true; view.hidden = false;
+    wristWas = wrist.disabled; wrist.disabled = true;
+    caption();
+    run();
+  }
+
+  // byDial: the masthead has just changed to another dial, so its caption is already the new dial's.
+  function leave(byDial) {
+    const was = full();
+    on = false; btn.setAttribute('aria-pressed', 'false');
+    wait.textContent = '';
+    stage.classList.remove('loading', 'full');
+    if (handle) { handle.stop(); handle.canvas.hidden = true; }
+    if (!was) return;
+    view.hidden = true; band.hidden = false;
+    wrist.disabled = wristWas;
+    if (!byDial) cap.textContent = base;
+    // band.js stood down while the watch had the stage; this is its cue to draw the band and its controls again.
+    document.dispatchEvent(new Event('wbm-dial'));
+  }
+
+  function fail(err) {
+    console.warn('The 3D watch could not be shown.', err);
+    const was = on;
+    if (handle) { handle.dispose(); handle = null; }   // a lost context: the next press builds afresh
+    leave(false);
+    if (was) cap.textContent = FAILED;   // stays until the dial next changes
+  }
+
+  function enter() {
+    if (!dials.choose(NAME)) return;
+    on = true; btn.setAttribute('aria-pressed', 'true');
+    if (handle) { show(); return; }
+    stage.classList.add('loading'); wait.textContent = 'Building the watch';
+    if (building) return;
+    const options = {
+      shadowSize: matchMedia('(max-width: 720px)').matches ? 2048 : 4096,
+      reducedMotion: matchMedia('(prefers-reduced-motion: reduce)').matches,
+      onLost: () => fail(new Error('The WebGL context was lost.'))
+    };
+    building = import('./watch3d/mount.js').then(m => m.mount(stage, options)).then(h => {
+      building = null; handle = h;
+      h.canvas.classList.add('watch3d'); h.canvas.hidden = true;
+      h.setView(view.value, true);
+      if (on) show();   // otherwise the reader left while it was loading: keep it for the next press
+    }, err => { building = null; fail(err); });
+  }
+
+  btn.addEventListener('click', () => { if (on) leave(false); else enter(); });
+  view.addEventListener('change', () => { if (handle) handle.setView(view.value); });
+  document.addEventListener('wbm-dial', () => {
+    if (!on) return;
+    if (dials.current() !== NAME) leave(true);
+    else if (full()) caption();   // the same dial was shown again (Pin), which wrote its plain caption
+  });
+  document.addEventListener('visibilitychange', run);
+  if (window.IntersectionObserver) new IntersectionObserver(es => { inView = es[es.length - 1].isIntersecting; run(); }).observe(stage);
+  btn.hidden = false;
+})();
