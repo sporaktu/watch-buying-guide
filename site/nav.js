@@ -161,33 +161,34 @@
   // setting because it stopped on an error, must not stop the bar: reading it is tried, and nothing is a fine answer.
   const data = read => { try { return read(); } catch (e) { return undefined; } };
   const uniq = list => { const seen = new Set(); return list.filter(s => s && !seen.has(s.toLowerCase()) && seen.add(s.toLowerCase())); };
-  // keep: show all the secondary text on the result, not only the pieces that matched.
+  // keep: how many of the secondary pieces always show on the result. The rest show only when they matched.
   const add = (kind, name, sub, keep, to) => index.push({kind, name: FIND.prep(name), sub: sub ? FIND.prep(sub) : null, keep, to});
   function buildIndex(){
     index = [];
     if (!can) return;
     for (const p of parts) {
       const h = p.sec.querySelector('h2'), long = h ? h.textContent.trim() : '';
-      add('sec', p.label, long.toLowerCase() === p.label.toLowerCase() ? '' : long, true, () => land(p.sec, h));
+      add('sec', p.label, long.toLowerCase() === p.label.toLowerCase() ? '' : long, 1, () => land(p.sec, h));
     }
-    document.querySelectorAll('#guide h3').forEach(h => add('guide', h.textContent, '', true, () => land(h)));
+    document.querySelectorAll('#guide h3').forEach(h => add('guide', h.textContent, '', 0, () => land(h)));
     // A pick is found by its brand and name, and by its chips and the filters it belongs to.
     const picks = data(() => PICKS) || [];
     if (picks.length) {
       const tag = {}; if ($('pfilter')) $('pfilter').querySelectorAll('button').forEach(b => { tag[b.dataset.k] = b.textContent; });
-      for (const p of picks) add('pick', p.brand + ' ' + p.model, uniq([...(p.chips || []), ...(p.tags || []).map(t => tag[t])]).join(SEP), false, () => toPick(p));
+      for (const p of picks) add('pick', p.brand + ' ' + p.model, uniq([...(p.chips || []), ...(p.tags || []).map(t => tag[t])]).join(SEP), 0, () => toPick(p));
     }
     // A working model is found by its tab, and by the names the cards use for what it shows ("GMT" for the second time zone).
     const how = data(() => HOW);
     if ($('lab') && !$('lab').hidden) document.querySelectorAll('#labTabs button').forEach(b => {
       const id = b.dataset.id, name = b.textContent;
       const also = !how || !id ? [] : Object.values(how).filter(h => h.demo && h.demo.split('-')[0] === id).map(h => h.n);
-      add('lab', name, uniq([name, ...also]).slice(1).join(SEP), false, () => toLab(name));
+      add('lab', name, uniq([name, ...also]).slice(1).join(SEP), 0, () => toLab(name));
     });
     brandIndex = data(() => BRAND_INDEX) || null;
     const brands = brandIndex && brandIndex.all || [];
-    for (const x of brands) add('brand', x.r[0], x.r[1], true, () => toBrand(x));
-    for (const x of brands) (x.models || []).forEach((m, i) => add('model', m.name, x.r[0], true, () => toModel(x, i)));
+    // A brand is found by its name, its country and its standout watch ("royal oak"), which its row shows.
+    for (const x of brands) add('brand', x.r[0], [x.r[1], x.r[4]].filter(Boolean).join(SEP), x.r[1] ? 1 : 0, () => toBrand(x));
+    for (const x of brands) (x.models || []).forEach((m, i) => add('model', m.name, x.r[0], 1, () => toModel(x, i)));
   }
 
   // Mark something for a moment. The mark starts once the page has stopped moving, so it isn't spent before the reader
@@ -284,8 +285,8 @@
     const name = el('span', 'fr-n'); paint(name, e.name.text, 0, e.name.text.length, inName); n.append(name);
     if (e.sub) {
       const sub = el('span', 'fr-s'), text = e.sub.text; let from = 0;
-      for (const piece of text.split(SEP)) {
-        const to = from + piece.length; let show = e.keep;
+      for (const [n, piece] of text.split(SEP).entries()) {
+        const to = from + piece.length; let show = n < e.keep;
         for (let i = from; !show && i < to; i++) show = inSub.has(i);
         if (show) { if (sub.firstChild) sub.append(SEP); paint(sub, text, from, to, inSub); }
         from = to + SEP.length;
