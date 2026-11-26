@@ -192,14 +192,16 @@ html:has(.news[open]),html:has(.shot[open]),html:has(.lens[open]){overflow:hidde
   .rail-head{display:flex;flex:0 0 auto;align-items:center;justify-content:space-between;padding-left:20px;border-bottom:1px solid var(--ink)}
   .rail-head b{font-weight:500;font-size:14px;letter-spacing:.02em;text-transform:lowercase;color:var(--muted)}
   .rail-close{flex:0 0 auto;width:48px;height:48px;font:400 26px/1 var(--font);background:none;border:0;color:var(--ink);cursor:pointer}
-  .rail-secs{flex:0 1 auto}
-  .rs.on{flex:0 1 auto}
+  /* Nothing in the Sections sheet shrinks. The places list is as tall as the screen has room for, and never under two rows;
+     on a short screen, or with the filters open, the sheet itself scrolls under its heading. */
+  .rail:not(.find){overflow-y:auto;overscroll-behavior:contain}
+  .rail-head{position:sticky;top:0;z-index:2;background:var(--paper)}
+  .rail-secs,.rs.on{flex:0 0 auto}
   .rs-h{display:flex;align-items:center;min-height:52px;padding:8px 16px;font-size:18px}
-  .rs-list{flex:0 1 auto;padding:0 0 8px}
+  .rs-list{flex:0 0 auto;max-height:max(104px,calc(88vh - 364px));max-height:max(104px,calc(88dvh - 364px - env(safe-area-inset-bottom,0px)));padding:0 0 8px}
   .rs-list a{display:flex;align-items:center;min-height:48px;padding:6px 16px 6px 24px}
   .rs-list a.sub{align-items:flex-end;padding-top:6px}
-  .rail-tools{flex:0 0 auto;max-height:none;border-bottom:0}
-  .rail.filtering .rail-tools{flex:0 1 auto}
+  .rail-tools{flex:0 0 auto;max-height:none;overflow-y:visible;border-bottom:0}
   .rail-filters{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
   .rail-money,.rail-reset{grid-column:1 / -1}
   .rail.filtering .rs.on .rs-list{display:none}
