@@ -262,7 +262,7 @@
   const key = el('span', 'rail-key', '/'); key.setAttribute('aria-hidden', 'true'); key.title = 'Press / to search';
   const cancel = el('button', 'rail-cancel', 'Cancel'); cancel.type = 'button';
   find.append(rq, key, cancel); find.hidden = !can;
-  const res = el('div', 'rail-res'); res.id = 'railRes'; res.setAttribute('role', 'listbox'); res.setAttribute('aria-label', 'Search results'); res.hidden = true;
+  const res = el('div', 'rail-res'); res.id = 'railRes'; res.hidden = true;
   const hint = el('p', 'rail-hint', 'Search the sections, the guide, the picks, the working models, every brand and their main models. Close is good enough: “blk bay” finds the Black Bay.');
   const said = el('p', 'vh'); said.setAttribute('role', 'status');
 
@@ -300,13 +300,16 @@
   // Score every entry against what is typed and list the matches: grouped by kind, the kind with the best match first,
   // the best few of each kind and a way to see the rest.
   function search(){
-    const qs = can ? FIND.words(rq.value) : [], on = qs.length > 0, was = rail.classList.contains('finding');
+    // Anything typed is a search, even if none of it is a letter or a number ("!!!" matches nothing, and says so).
+    const text = rq.value.trim(), on = can && text.length > 0, qs = on ? FIND.words(text) : [], was = rail.classList.contains('finding');
     const same = rq.value === typed, top = res.scrollTop;
     if (!same) { typed = rq.value; full.clear(); active = -1; }
-    rail.classList.toggle('finding', on); res.hidden = !on; rq.setAttribute('aria-expanded', String(on));
-    const text = rq.value.trim();
+    rail.classList.toggle('finding', on); res.hidden = !on;
     dockQ.textContent = text || 'Search the guide'; dockField.classList.toggle('has', !!text);
+    dockFind.setAttribute('aria-label', text ? `Search the guide, now showing “${text}”` : 'Search the guide');
     res.textContent = ''; rows = [];
+    // The list is a listbox, and the box says it is open, only while there are results to move through.
+    rq.setAttribute('aria-expanded', 'false'); res.removeAttribute('role'); res.removeAttribute('aria-label');
     if (!on) {
       said.textContent = ''; active = -1; rq.removeAttribute('aria-activedescendant');
       if (was) showHere();      // the section lists are back
@@ -331,6 +334,7 @@
       res.append(box);
     }
     if (!total) res.append(el('p', 'fr-none', `Nothing in the guide matches “${text}”.`));
+    else { rq.setAttribute('aria-expanded', 'true'); res.setAttribute('role', 'listbox'); res.setAttribute('aria-label', 'Search results'); }
     said.textContent = total ? `${total} ${total === 1 ? 'match' : 'matches'}` : 'Nothing matches';
     if (active >= rows.length) active = rows.length - 1;
     if (same) res.scrollTop = top;
