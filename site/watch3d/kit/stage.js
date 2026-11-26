@@ -37,7 +37,8 @@ function texturesOf(m) {
  * az: degrees round the watch from the front, positive towards 3 o'clock (0 front, 90 the 3 o'clock side, 180 behind);
  * el: degrees up towards 12 o'clock (negative towards 6), more than -90 and less than 90; dist: millimetres from the
  * camera to the point looked at, from 30 to 520 (the reader's zoom limits); x,y,z: that point in millimetres (the
- * watch's axes: dial +Z, 12 o'clock +Y, 3 o'clock +X, z = 0 the underside of the mid-case), 0,0,0 if left out.
+ * watch's axes: dial +Z, 12 o'clock +Y, 3 o'clock +X, z = 0 the underside of the mid-case), each from -200 to 200,
+ * 0,0,0 if left out.
  * As with a view, a window narrower than the views are composed for stands back by the same factor.
  * Returns a view ({ dir, dist, target }), or null when the text is not of that form or out of range.
  */
@@ -47,6 +48,7 @@ export function parseCam(text) {
   if (!n.every(Number.isFinite)) return null;
   const [az, el, dist, x = 0, y = 0, z = 0] = n;
   if (!(el > -90 && el < 90) || !(dist >= 30 && dist <= 520)) return null;
+  if (![x, y, z].every(v => Math.abs(v) <= 200)) return null;
   const a = az * Math.PI / 180, e = el * Math.PI / 180;
   return { dir: [Math.cos(e) * Math.sin(a), Math.sin(e), Math.cos(e) * Math.cos(a)], dist, target: [x, y, z] };
 }
@@ -94,7 +96,8 @@ function makeClock(time, date) {
   const fixed = new Date();
   if (date) { const [y, mo, d] = String(date).split('-').map(Number); fixed.setFullYear(y, mo - 1, d); }
   fixed.setHours(h || 0, m || 0, s || 0, 0);
-  return () => fixed;
+  // A new Date each frame, so a watch that changes the one it is given (to show another zone, say) cannot move the clock.
+  return () => new Date(fixed.getTime());
 }
 
 /**
@@ -152,7 +155,17 @@ function makeClock(time, date) {
  *   or a value out of range, makes show() reject before building. List each change in the watch's notes with why.
  *   build({ M, renderer, frozen }): Promise<{ group, tick(date, dt, camera), press: [{ object, down(), up?() }],
  *                                             idle?(seconds), dispose?(), report? }>
- *   group must be a THREE.Object3D and tick a function, or show() rejects.
+ *   group must be a THREE.Object3D and tick a function, or show() rejects. Each press entry's object must be an
+ *   Object3D in group and its down a function (up, if given, a function too), or show() rejects; an error thrown by
+ *   down() or up() stops and frees the watch as one thrown by tick does (onError).
+ *   frozen is true when the page pinned the time (?time=, as the shots do). The picture must then not depend on how
+ *   many frames have run or how long they took: tick(date, dt) shows the time date gives, and nothing that moves by
+ *   dt may move (a balance wheel, a rotor, a sweeping seconds hand that counts frames, a running stopwatch); leave
+ *   each where it stands at that time, or at rest. The shots are taken in real time after a varying number of frames,
+ *   so anything that moves by dt when frozen shows as noise, and can fail the compare script's limits. (The
+ *   Navitimer's balance and rotor still move by dt when frozen, which is part of why its back and clasp views have
+ *   wide limits; a new watch should not copy that.)
+ *   date is a new Date each frame; a watch may change it.
  *   M is this build's own copies of the kit's materials (materials.js), made afresh for each build: a watch may change
  *   them, and the change ends with the watch, because the stage frees the copies with it. The copies share the kit's
  *   textures (M.brushN, M.brushC and the maps the materials hold), which are the kit's for every watch: never change a
