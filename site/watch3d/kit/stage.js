@@ -70,20 +70,24 @@ function lightFault(a) {
   return '';
 }
 
-/** Wall-clock source. A time of 'HH:MM:SS' pins it, so screenshots are comparable. */
-function makeClock(time) {
+/** Wall-clock source. A time of 'HH:MM:SS' pins it, so screenshots are comparable, on today's date or on date
+ *  ('YYYY-MM-DD'), both in the machine's local time zone. */
+function makeClock(time, date) {
   if (!time) return () => new Date();
   const [h, m, s] = String(time).split(':').map(Number);
   const fixed = new Date();
+  if (date) { const [y, mo, d] = String(date).split('-').map(Number); fixed.setFullYear(y, mo - 1, d); }
   fixed.setHours(h || 0, m || 0, s || 0, 0);
   return () => fixed;
 }
 
 /**
  * @param {HTMLElement} container  the watch fills this element and follows its size
- * @param {{ watch: string, shadowSize?: 4096|2048, reducedMotion?: boolean, onLost?: () => void, onError?: (err: Error) => void, onInteract?: () => void, time?: string }} options
+ * @param {{ watch: string, shadowSize?: 4096|2048, reducedMotion?: boolean, onLost?: () => void, onError?: (err: Error) => void, onInteract?: () => void, time?: string, date?: string }} options
  *        watch: the id of the watch to show first, the name of its folder under watches/ (required)
  *        time: 'HH:MM:SS' freezes the hands, for comparable screenshots
+ *        date: 'YYYY-MM-DD' with time, the date the frozen clock shows (today's without it); both are local time, so
+ *              a watch showing another zone (UTC for a 24-hour hand) depends on the machine's time zone too
  *        onError: called once if the watch showing throws after show() has resolved (its tick or idle, while the loop
  *                 runs or a frame is drawn on request). The loop is stopped and the watch freed first, so no watch is
  *                 showing; without onError the error goes to the console, once.
@@ -279,7 +283,7 @@ export async function mount(container, options = {}) {
         for (const t of texturesOf(v)) shared.add(t);
       }
     }
-    const clock = makeClock(options.time);
+    const clock = makeClock(options.time, options.date);
     const frozen = !!options.time;
 
     // The watch showing: { about, group, tick, press, idle }, or null while there is none.

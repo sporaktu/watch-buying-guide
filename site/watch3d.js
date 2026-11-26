@@ -127,11 +127,15 @@
       onError: err => fail(err),   // the watch's own code threw while it was showing
       onInteract: () => { view.value = ''; if (on) mark(); }   // the list reads Turned by hand, so any named view can be chosen again
     };
-    // The page's ?time= freezes the flat dial's clock; the 3D watch's hands follow it, so screenshots can be compared.
+    // The page's ?time= (and ?date=) freezes the flat dial's clock; the 3D watch follows it, so screenshots can be compared.
     // The same checks as dials.js: a time out of range is ignored there, and the 3D watch then keeps the live time too.
     let time = null; try { time = new URLSearchParams(location.search).get('time'); } catch (e) {}
     const tm = time && /^(\d{1,2}):(\d{2})(?::(\d{2}))?$/.exec(time);
     if (tm && +tm[1] < 24 && +tm[2] < 60 && +(tm[3] || 0) < 60) options.time = time;
+    // ?date=YYYY-MM-DD goes with it, as in dials.js: a real date, and only with a good time=.
+    let date = null; try { date = new URLSearchParams(location.search).get('date'); } catch (e) {}
+    const dm = options.time && date && /^(\d{4})-(\d\d)-(\d\d)$/.exec(date), dd = dm && new Date(+dm[1], dm[2] - 1, +dm[3]);
+    if (dd && dd.getFullYear() === +dm[1] && dd.getMonth() === dm[2] - 1 && dd.getDate() === +dm[3]) options.date = date;
     // catch() after then(), so an error in showing the built watch is handled like one in building it.
     building = import('./watch3d/kit/stage.js').then(m => m.mount(stage, options)).then(h => {
       building = null; handle = h;

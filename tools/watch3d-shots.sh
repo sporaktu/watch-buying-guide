@@ -11,6 +11,16 @@
 # the watch showing in the masthead (?full=1) and its hands at 10:08:30. Each shot gets a fresh profile, so nothing a
 # visit stores changes the next one.
 #
+# Date and zone. The page's clock is frozen at 10:08:30 on 26 November 2026 (?time=10:08:30&date=2026-11-26), and
+# Chromium runs with TZ=Asia/Tokyo, so the same picture comes out on any day and on any machine: without them a date
+# window would show the day the set was shot, and a 24-hour hand (which shows UTC) the machine's own offset. Tokyo
+# because it is not UTC, so a 24-hour hand stands apart from the hour hand (at 10:08:30 in Tokyo it is 01:08:30 UTC:
+# the 24-hour hand near the top of the dial, the hour hand near 10), and because it has had no summer time since
+# 1951, so the offset is +9 hours on every date. The date was the day this was set; any fixed date would do, and a
+# set shot with an older script, which used the day's own date and the machine's zone, compares with these only when
+# shot on that day in that zone. Each <view>.json records the zone and clock the page saw, and a run whose zone is
+# not Asia/Tokyo fails.
+#
 # Close-ups: each extra argument name=cam shoots one more picture, <name>.png, from the camera the page's ?cam= places
 # (az,el,dist or az,el,dist,x,y,z: degrees round from the front towards 3 o'clock, degrees up towards 12 o'clock,
 # millimetres away, and the point looked at in millimetres; see parseCam in site/watch3d/kit/stage.js). A name is
@@ -78,6 +88,7 @@ case "${WATCH3D_RENDERER:-gpu}" in
   *) echo "WATCH3D_RENDERER must be gpu or software, not ${WATCH3D_RENDERER}" >&2; exit 2 ;;
 esac
 limit=90   # seconds of wall-clock time for one Chromium run
+zone=Asia/Tokyo day=2026-11-26   # see "Date and zone" above
 
 mkdir -p "$out"
 echo "${WATCH3D_RENDERER:-gpu}" >"$out/renderer"   # read by watch3d-compare.py, which compares only like with like
@@ -86,10 +97,15 @@ bad=0
 shoot() {   # shoot <name> <url>
   local v=$1 url=$2 code=0
   rm -f "$out/$v.png" "$out/$v.json"   # a picture left from an earlier run must not pass for this one
-  timeout -k 5 $((limit + 10)) node "$here/watch3d-shot.mjs" "$out/$v.png" "$out/$v.json" "$base" "$limit" "$url" \
+  TZ=$zone timeout -k 5 $((limit + 10)) node "$here/watch3d-shot.mjs" "$out/$v.png" "$out/$v.json" "$base" "$limit" "$url" \
     "$chrome" "${render[@]}" --window-size=1440,900 --force-device-scale-factor="$scale" >"$out/$v.txt" || code=$?
   local label
   label=$(python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); print(d.get("label") or d.get("problem") or "")' "$out/$v.json" 2>/dev/null || true)
+  if [ "$code" = 0 ] || [ "$code" = 3 ] || [ "$code" = 4 ]; then
+    local seen
+    seen=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1])).get("timeZone"))' "$out/$v.json" 2>/dev/null || true)
+    if [ "$seen" != "$zone" ]; then rm -f "$out/$v.png" "$out/$v.txt"; echo "$v: the page ran in time zone $seen, not $zone" >&2; exit 1; fi
+  fi
   case "$code" in
     0|3|4) echo "$v: $out/$v.png ($label)"; cat "$out/$v.txt" ;;
     *) rm -f "$out/$v.png"; cat "$out/$v.txt"
@@ -105,11 +121,11 @@ shoot() {   # shoot <name> <url>
 }
 
 for v in hero front side back clasp bracelet; do
-  url="${base}?dial=${slug}&full=1&time=10:08:30"
-  [ "$v" != hero ] && url="${base}?dial=${slug}&full=1&view=${v}&time=10:08:30"
+  url="${base}?dial=${slug}&full=1&time=10:08:30&date=${day}"
+  [ "$v" != hero ] && url="${base}?dial=${slug}&full=1&view=${v}&time=10:08:30&date=${day}"
   shoot "$v" "$url"
 done
 for e in "${extra[@]}"; do
-  shoot "${e%%=*}" "${base}?dial=${slug}&full=1&cam=${e#*=}&time=10:08:30"
+  shoot "${e%%=*}" "${base}?dial=${slug}&full=1&cam=${e#*=}&time=10:08:30&date=${day}"
 done
 exit "$bad"
