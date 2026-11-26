@@ -559,7 +559,7 @@
   // ways back: redraw (the lamp moved while nothing else was drawing), lost (the graphics context went away, so the
   // flat picture takes over) and restored (it came back, so the scene is lit again).
   const plain = flat();
-  let lit = null, R = plain, scene, token = 0, inView = true, raf = 0;
+  let lit = null, R = plain, scene, token = 0, inView = true, raf = 0, paused = false;   // paused: another picture has the stage (watch3d.js)
   const mount = r => { R = r; if (r.canvas.parentNode !== el) { el.textContent = ''; el.appendChild(r.canvas); } if (dbg) dbg.mode = r.mode; };
   const frame = force => { if (scene && R.draw(angles(), force) && dbg) dbg.frames++; };
   // Hands the scene to the lit renderer; the dial is marked as drawn (data-r3d) when it takes over, or at once if it cannot.
@@ -570,11 +570,12 @@
   };
   const toFlat = () => { if (R === plain || !scene) return; mount(plain); plain.resize(); frame(true); el.dataset.r3d = R.mode; };
   try {
-    if (!flatOnly && window.WBMDial3D) lit = window.WBMDial3D.create(el, { light, still, debug: dbg, redraw: () => { if (inView) frame(); }, lost: toFlat, restored: () => { if (scene) relight(); } }) || null;
+    if (!flatOnly && window.WBMDial3D) lit = window.WBMDial3D.create(el, { light, still, debug: dbg, redraw: () => { if (inView && !paused) frame(); }, lost: toFlat, restored: () => { if (scene) relight(); } }) || null;
   } catch (e) { lit = null; }
   // Smooth sweep; with reduced motion the seconds hand is hidden and the hands step every 15 seconds. Nothing is
-  // drawn while the dial is scrolled out of view.
-  const loop = () => { raf = 0; if (!inView) return; frame(); raf = requestAnimationFrame(loop); };
+  // drawn while the dial is scrolled out of view, or while it is paused. wake() is the return to view.
+  const loop = () => { raf = 0; if (!inView || paused) return; frame(); raf = requestAnimationFrame(loop); };
+  const wake = () => { if (!inView || paused) return; if (still) frame(); else if (!raf) loop(); };
   function render(i) {
     const my = ++token, t0 = performance.now(), F = document.fonts;
     scene = build(i);
@@ -601,7 +602,7 @@
     try { ro.observe(el, { box: 'device-pixel-content-box' }); } catch (e) { ro.observe(el); }
   }
   addEventListener('resize', () => { if (!sharp && R.resize()) frame(true); });
-  if (window.IntersectionObserver) new IntersectionObserver(es => { inView = es[es.length - 1].isIntersecting; if (inView) { if (still) frame(); else if (!raf) loop(); } }).observe(el);
+  if (window.IntersectionObserver) new IntersectionObserver(es => { inView = es[es.length - 1].isIntersecting; wake(); }).observe(el);
 
   // Which dial to show: a choice made this session wins, then a pinned dial, otherwise a random unseen one.
   const pick = document.getElementById('dialPick'), pinBtn = document.getElementById('dialPin'), rnd = document.getElementById('dialRandom');
@@ -640,12 +641,15 @@
   }
   const choose = i => { set(SS, 'wbm-dial-session', i); show(i); };
   // For other scripts (watch3d.js): choose a dial by its name, as the menu does for this visit, and ask which is showing.
+  // pause(true) stops the dial drawing while something else covers it (its own loop, the 15-second step and the redraws
+  // the lamp asks for); pause(false) draws it and starts again, as coming back into view does.
   window.WBMDials = {
     choose(name) { const i = D.findIndex(d => d.n === name); if (i < 0) return false; choose(i); return true; },
-    current() { return D[idx].n; }
+    current() { return D[idx].n; },
+    pause(on) { on = !!on; if (on === paused) return; paused = on; if (raf && on) { cancelAnimationFrame(raf); raf = 0; } wake(); }
   };
   show(idx);
-  if (still) setInterval(() => { if (inView) frame(); }, 15000); else loop();
+  if (still) setInterval(() => { if (inView && !paused) frame(); }, 15000); else loop();
   el.addEventListener('click', () => choose((idx + 1) % D.length));
   if (pick) pick.addEventListener('change', () => choose(+pick.value));
   if (pinBtn) pinBtn.addEventListener('click', () => {

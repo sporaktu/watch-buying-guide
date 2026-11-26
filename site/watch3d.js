@@ -35,6 +35,7 @@
     wait.textContent = '';
     stage.classList.remove('loading'); stage.classList.add('full');
     handle.canvas.hidden = false;
+    dials.pause(true);   // the flat dial is hidden under the watch: stop drawing it
     band.hidden = true; view.hidden = false;
     wristWas = wrist.disabled; wrist.disabled = true;
     caption();
@@ -50,6 +51,7 @@
     wait.textContent = '';
     stage.classList.remove('loading', 'full');
     if (handle) { handle.stop(); handle.canvas.hidden = true; }
+    dials.pause(false);
     if (!was) return;
     view.hidden = true; band.hidden = false;
     wrist.disabled = wristWas;
