@@ -11,7 +11,7 @@
 # Renderer: headless Chromium draws on the graphics card (--enable-gpu) unless WATCH3D_RENDERER=software is set, which
 # uses SwiftShader, Chromium's software renderer, instead. Use it when the graphics card cannot give WebGL (the check
 # below then fails every view). The two renderers draw differently, so compare only sets shot with the same one. The
-# script prints which it used.
+# script prints which it used and writes it to <out-dir>/renderer, which watch3d-compare.py checks.
 #
 # Each view is loaded twice: once for the picture, and once with --dump-dom to check that the 3D watch really was on
 # screen (the stage has the class full and is not loading, and the watch's canvas is there and not hidden). Without
@@ -44,6 +44,7 @@ esac
 limit=90   # seconds of wall-clock time for one Chromium run
 
 mkdir -p "$out"
+echo "${WATCH3D_RENDERER:-gpu}" >"$out/renderer"   # read by watch3d-compare.py, which compares only like with like
 profile=$(mktemp -d)
 trap 'rm -rf "$profile" "$profile.dom"' EXIT
 
