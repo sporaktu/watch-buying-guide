@@ -6,9 +6,11 @@ const FIND = (() => {
   const ODD = {'ø': 'o', 'ß': 'ss', 'æ': 'ae', 'œ': 'oe', 'ł': 'l', 'đ': 'd'};
   const plain = c => { c = c.toLowerCase(); return c.length === 1 && c < '\u0080' ? c : ODD[c] || c.normalize('NFD').replace(/[\u0300-\u036f]/g, ''); };
 
-  const NUM = /[0-9]/;
+  // A character of a number. A full stop only gets into a word between two digits, so it counts.
+  const NUM = /[0-9.]/;
   // A piece of text made ready: its words, where each letter came from in the original (for marking), and the words
-  // run together with no gaps, so "blackbay" can find "Black Bay".
+  // run together with no gaps, so "blackbay" can find "Black Bay". A full stop between two digits stays in its word,
+  // so "39.5mm" is one word and neither "39mm" nor "5mm".
   function prep(text){
     text = String(text == null ? '' : text);
     let flat = ''; const at = [];
@@ -18,7 +20,7 @@ const FIND = (() => {
       for (const c of plain(text[i])) { flat += c; at.push(i); }
     }
     const words = [], run = []; let tight = '';
-    for (const m of flat.matchAll(/[\p{L}\p{N}]+/gu)) {
+    for (const m of flat.matchAll(/(?:[0-9]\.(?=[0-9])|[\p{L}\p{N}])+/gu)) {
       words.push({w: m[0], a: m.index, o: tight.length}); tight += m[0];
       for (let j = 0; j < m[0].length; j++) run.push(at[m.index + j]);
     }
@@ -93,13 +95,22 @@ const FIND = (() => {
     return best;
   }
 
+  // Whether q is the field's words run together from word i on ("blackbay58"). Two numbers are never run together:
+  // "500" is not the "50" and "01" of a reference number.
+  function runs(q, f, i){
+    const x = f.words[i], end = x.o + q.length;
+    if (q.length <= x.w.length || !f.tight.startsWith(q, x.o)) return false;
+    for (let k = i + 1; k < f.words.length && f.words[k].o < end; k++) { const o = f.words[k].o; if (NUM.test(f.tight[o - 1]) && NUM.test(f.tight[o])) return false; }
+    return true;
+  }
+
   // The best match for one typed word among a field's words: [score, which word, whether it ran words together].
   // Earlier words count for a little more in a name. In secondary text (early = false) the order means nothing.
   function best(q, f, early){
     let top = 0, at = -1, joined = false;
     for (let i = 0; i < f.words.length; i++) {
       const x = f.words[i]; let s = word(q, x.w), j = false;
-      if (s < 72 && q.length > x.w.length && f.tight.startsWith(q, x.o)) { s = 72; j = true; }
+      if (s < 72 && runs(q, f, i)) { s = 72; j = true; }
       if (s) { if (early) s += Math.max(0, 6 - 2 * i); if (s > top) { top = s; at = i; joined = j; } }
     }
     return [top, at, joined];
