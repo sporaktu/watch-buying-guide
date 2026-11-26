@@ -91,7 +91,9 @@ export async function mount(container, options = {}) {
 
   try {
     container.append(canvas);
-    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'high-performance' });
+    // 'default', not 'high-performance': the built watch is kept for the rest of the visit, and a context that asked for
+    // the discrete GPU of a laptop with two would keep that GPU awake all that time.
+    renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: 'default' });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.NeutralToneMapping;
